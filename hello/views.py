@@ -21,4 +21,4 @@ def db(request):
 
 def talmud(request):
 
-    return render(request, "talmud.html")
+    return render(request, "talmud.html", {'leftside': 'Hello, world'})

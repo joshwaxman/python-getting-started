@@ -1,24 +1,16 @@
-from Statement import Statement
+from hello.Statement import Statement
 from pymongo import MongoClient
 import sys
-sys.path.append('/Users/Shayna/Documents/GitHub/mivami/Scrapers')
-from Scrapers import mongo_statement_extractor as m1
-from Presentation import graphOutput
+import hello.mongo_statement_extractor as m1
+import hello.graphOutput as graphOutput
 
 #T6 A8  one T4/T5 and no other slashes
 
-client = MongoClient()
+client = MongoClient("mongodb://mivami:Talmud1%@talmud-shard-00-00-ol0w9.mongodb.net:27017,talmud-shard-00-01-ol0w9.mongodb.net:27017,talmud-shard-00-02-ol0w9.mongodb.net:27017/admin?replicaSet=Talmud-shard-0&ssl=true")
 db = client.sefaria
 person = db.person
 texts = db.texts
 pplDict = {}
-
-from typing import Dict, Any
-def extractNode(p: Dict[str, Any]) -> Dict[str, Any]:
-    d = dict()
-    d['name'] = p['key']
-    d['generation'] = p['generation']
-    return d
 
 
 def genSplit(s: str):
@@ -319,8 +311,6 @@ def htmlOutputter(title, page):
     wrapper = wrapper.replace('< ', '<')
     wrapper = wrapper.replace(' >', '>')
 
-
-#//////////////////////////made all the curly brackets double to escape so I could use a formatted string
     wrapper += '''
     </div>
     <div id="divB"></div>
