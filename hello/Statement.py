@@ -1,7 +1,7 @@
 from typing import List, Tuple, Union
 import regex as re
 import unittest
-from EnglishDictionary import *
+from hello.EnglishDictionary import *
 
 class Statement(object):
     def __init__(self, english: Union[str, List[str]], hebrew: str, hebrew_gloss:str='', startsBold:bool = True):
