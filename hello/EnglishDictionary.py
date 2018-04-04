@@ -1,10 +1,10 @@
 import nltk
-#from nltk.corpus import words as nltk_words
+from nltk.corpus import words as nltk_words
 
 # EnglishDictionary is a Singleton class
 
 class EnglishDictionary(object):
-    from nltk.corpus import words as nltk_words
+    
     __instance = None
     def __new__(cls):
         if EnglishDictionary.__instance is None:
