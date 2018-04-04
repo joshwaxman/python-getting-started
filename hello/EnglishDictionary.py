@@ -4,7 +4,7 @@ from nltk.corpus import words as nltk_words
 # EnglishDictionary is a Singleton class
 
 class EnglishDictionary(object):
-    
+
     __instance = None
     def __new__(cls):
         if EnglishDictionary.__instance is None:
@@ -38,4 +38,4 @@ def main():
     print('rav' in a)  # gives false! hooray!
     print('R' in a)  # gives false! hooray!
 
-main()
+#main()

@@ -69,8 +69,8 @@
       <file leaf-file-name="EnglishDictionary.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/hello/EnglishDictionary.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="6" column="4" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="4" />
+            <state relative-caret-position="361">
+              <caret line="40" selection-start-line="40" selection-end-line="40" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -400,8 +400,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/hello/EnglishDictionary.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="6" column="4" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="4" />
+        <state relative-caret-position="361">
+          <caret line="40" selection-start-line="40" selection-end-line="40" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
           </folding>
