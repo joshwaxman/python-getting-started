@@ -1,3 +1,4 @@
+import nltk
 from nltk.corpus import words as nltk_words
 
 # EnglishDictionary is a Singleton class
