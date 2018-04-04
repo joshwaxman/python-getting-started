@@ -187,8 +187,8 @@
     var linkDistance=200;
     var colors = d3.scale.category10();
     var dataset = {
-    nodes: [],
-    edges: []
+    nodes: {{ nodes }},
+    edges: {{ edges }}
     };
     var svg = d3.select("#divB").append("svg").attr({"width":w,"height":h});
     var force = d3.layout.force()

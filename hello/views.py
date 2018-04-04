@@ -23,4 +23,4 @@ def db(request):
 def talmud(request):
     from hello.talmud import htmlOutputter
     leftside, edges, nodes = htmlOutputter('Horayot', '3b')
-    return render(request, "talmud.html", {'leftside': leftside})
+    return render(request, "talmud.html", {'leftside': leftside, 'nodes': nodes, 'edges': edges})
