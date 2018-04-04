@@ -20,7 +20,7 @@ def db(request):
     return render(request, 'db.html', {'greetings': greetings})
 
 
-def talmud(request):
+def talmud(request, masechet='Horayot', page='3b'):
     from hello.talmud import htmlOutputter
-    leftside, edges, nodes = htmlOutputter('Horayot', '3b')
+    leftside, edges, nodes = htmlOutputter(masechet, page)
     return render(request, "talmud.html", {'leftside': leftside, 'nodes': nodes, 'edges': edges})
