@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 
+
 from .models import Greeting
 
 # Create your views here.
@@ -20,5 +21,6 @@ def db(request):
 
 
 def talmud(request):
-
-    return render(request, "talmud.html", {'leftside': 'Hello, world'})
+    from hello.talmud import *
+    leftside, edges, nodes = htmlOutputter('Horayot', '3b')
+    return render(request, "talmud.html", {'leftside': leftside})

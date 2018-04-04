@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="04c11b65-1a3f-47b2-99ed-8b7a1afc905b" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/hello/graphOutput.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hello/mongo_statement_extractor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hello/talmud.py" beforeDir="false" afterPath="$PROJECT_DIR$/hello/talmud.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hello/templates/talmud.html" beforeDir="false" afterPath="$PROJECT_DIR$/hello/templates/talmud.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hello/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/hello/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -56,8 +52,11 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/hello/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="567">
-              <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+            <state relative-caret-position="702">
+              <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
+              <folding>
+                <element signature="e#0#35#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -65,8 +64,8 @@
       <file leaf-file-name="talmud.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hello/talmud.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="594">
-              <caret line="430" lean-forward="true" selection-start-line="314" selection-end-line="430" />
+            <state relative-caret-position="629">
+              <caret line="136" column="4" selection-start-line="136" selection-start-column="4" selection-end-line="136" selection-end-column="33" />
               <folding>
                 <element signature="e#0#37#0" expanded="true" />
               </folding>
@@ -119,6 +118,7 @@
       <find>createno</find>
       <find>pplDict</find>
       <find>***</find>
+      <find>position</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -133,8 +133,8 @@
         <option value="$PROJECT_DIR$/gettingstarted/urls.py" />
         <option value="$PROJECT_DIR$/hello/mongo_statement_extractor.py" />
         <option value="$PROJECT_DIR$/hello/graphOutput.py" />
-        <option value="$PROJECT_DIR$/hello/talmud.py" />
         <option value="$PROJECT_DIR$/hello/templates/talmud.html" />
+        <option value="$PROJECT_DIR$/hello/talmud.py" />
         <option value="$PROJECT_DIR$/hello/views.py" />
       </list>
     </option>
@@ -313,16 +313,6 @@
     <entry file="file://$PROJECT_DIR$/hello/templates/db.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/hello/talmud.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
-          <caret line="430" lean-forward="true" selection-start-line="314" selection-end-line="430" />
-          <folding>
-            <element signature="e#0#37#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/hello/templates/talmud.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="396">
@@ -340,9 +330,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hello/graphOutput.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/hello/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
@@ -350,10 +337,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/hello/graphOutput.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hello/talmud.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="629">
+          <caret line="136" column="4" selection-start-line="136" selection-start-column="4" selection-end-line="136" selection-end-column="33" />
+          <folding>
+            <element signature="e#0#37#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/hello/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="567">
-          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+        <state relative-caret-position="702">
+          <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
