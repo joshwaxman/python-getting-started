@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "99f35fc94bfdfc8290b28f7318a9009d6dd07e94180b15aa615282e8eb3edb2e"
+            "sha256": "29f567841f42cae74791d0759f359f63235f543be9bc0905c0333fa2c36fcd43"
         },
         "host-environment-markers": {
             "implementation_name": "cpython",
@@ -61,6 +61,13 @@
                 "sha256:a25c9b67e63403b6ca8114d18bee581d2cff032cdc89c68970a4be8cd30585d0"
             ],
             "version": "==1.5.3"
+        },
+        "nltk": {
+            "hashes": [
+                "sha256:2661f9971d983db314bbebd51ba770811a362c6597fd0f303bb1d3beadcb4834",
+                "sha256:8a3bad9ff7f67d2828a7915c2fab93e6ca910c2015ef40799e1805fccf2354e5"
+            ],
+            "version": "==3.2.5"
         },
         "psycopg2": {
             "hashes": [
@@ -175,6 +182,13 @@
                 "sha256:b44624a38d07d3c954c84ad302c29f7930f4bf01443beef5589e9157b14e2a29"
             ],
             "version": "==2018.2.21"
+        },
+        "six": {
+            "hashes": [
+                "sha256:832dc0e10feb1aa2c68dcc57dbb658f1c7e65b9b61af69048abc87a2db00a0eb",
+                "sha256:70e8a77beed4562e7f14fe23a786b54f6296e34344c23bc42f07b15018ff98e9"
+            ],
+            "version": "==1.11.0"
         },
         "whitenoise": {
             "hashes": [
