@@ -118,6 +118,7 @@ def findRelationship2(people):
 
         source = record['relationship2'].start
         target = record['relationship2'].end
+        relationDict = dict()
         relationDict['source'] = source
         relationDict['target'] = target
         relationDict['type'] = record['relationship2'].type
@@ -125,10 +126,12 @@ def findRelationship2(people):
 
     # now include rabbis who have indirect paths
     query = 'match (r1:EncodedRabbi) where r1.englishName in ' + str(people) + '\n' + \
-            'match (r2:EncodedRabbi) where r2.englishName in ' + str(people) + '\n' + \
+            'match (r2:EncodedRabbi) where id(r1) <> id(r2) and r2.englishName in ' + str(people) + '\n' + \
             'match (r3:EncodedRabbi) where not r3.englishName in ' + str(people) + '\n' + \
-            'match path = (r1)-[relationship1:student]-(r3) - [relationship2: student]-(r2)' + '\n' + \
-            'return path, relationship1, relationship2, r1, r2'
+            'match path = (r1)-[relationship1:student]-(r3)-[relationship2: student]-(r2)' + '\n' + \
+            'return distinct path, relationship1, relationship2, r1, r2, r3'
+
+    result = session.run(query)
 
     for record in result:
         # add the additional rabbi
@@ -141,6 +144,7 @@ def findRelationship2(people):
 
         source = record['relationship1'].start
         target = record['relationship1'].end
+        relationDict = dict()
         relationDict['source'] = source
         relationDict['target'] = target
         relationDict['type'] = record['relationship1'].type
@@ -148,6 +152,7 @@ def findRelationship2(people):
 
         source = record['relationship2'].start
         target = record['relationship2'].end
+        relationDict = dict()
         relationDict['source'] = source
         relationDict['target'] = target
         relationDict['type'] = record['relationship2'].type
@@ -176,6 +181,7 @@ def findRelationship2(people):
             setSourceTargetType.add((source, target, type))
 
     return edges, nodes
+
 
 # print(findRelationship2(["Rav Hisda", "Rava", "Rav Hama"]))
 
