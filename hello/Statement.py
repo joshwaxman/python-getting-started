@@ -135,8 +135,6 @@ class Statement(object):
         import nltk.tokenize
         eng: List[str] = self.getEnglish()
 
-
-
         self.tokens: List[List[Tuple[str], str]] = [[] for i in range(len(eng))]
         ed = EnglishDictionary()
         for i, (gloss, e) in enumerate(eng):
@@ -146,8 +144,13 @@ class Statement(object):
             current_word = 0
             while current_word < len(words):
                 w = words[current_word]
+                # is it "The Gemara"?
+                if w == "The" and current_word < len(words)-1 and words[current_word+1] == 'Gemara':
+                    n = 'The Gemara'
+                    self.tokens[i].append((gloss, n, 'NAME'))
+                    current_word += 2
                 # is it a name?
-                if w not in ed and (w[0] in 'ABCDEFGHIJKLMNOPQRSTUVWXYZḤ' or w == 'bar' or w == 'b.'):
+                if w not in ed and (w[0] in 'ABCDEFGHIJKLMNOPQRSTUVWXYZḤ' or w == 'bar' or w == 'ben' or w == 'b.'):
                     n = words[current_word]
                     self.tokens[i].append((gloss, n, 'NAME'))
                     current_word += 1
@@ -180,7 +183,19 @@ class Statement(object):
                     prev_tag = tag
                 return result
 
+            stopWords = set(['MISHNA', 'GEMARA', 'Jewish', 'Egypt', 'Moses', 'Sinai', 'Leviticus', 'Numbers', 'Marah'])
+            def removeStopWords(sentence: List[Tuple[str]]) -> List[Tuple[str]]:
+                result: List[Tuple[str]] = []
+
+                for gloss, word, tag in sentence:
+                    if word in stopWords:
+                        result.append((gloss, word, 'UNTAGGED'))
+                    else:
+                        result.append((gloss, word, tag))
+                return result
+
             self.tokens[i] = consolidateSequence(self.tokens[i])
+            self.tokens[i] = removeStopWords(self.tokens[i])
             rulesApplied = True
             #while not rulesApplied:
 
@@ -320,8 +335,14 @@ class TestStatement(unittest.TestCase):
         eng = "The Gemara cites a proof that there is room for one to fear lest he commit a transgression in the future <b>in accordance with</b> the opinion of <b>Rabbi Yaakov b. Idi, as Rabbi Ya’akov bar Idi raised a contradiction</b> between two verses. <b>It is written</b> that God told Jacob in his vision of the ladder: <b>“Behold, I am with you and I guard you wherever you go”</b> (Genesis 28:15), yet when Jacob returned to Canaan and realized that Esau was coming to greet him, <b>it is written: “And Jacob became very afraid,</b> and he was pained” (Genesis 32:8). Why did Jacob not rely on God’s promise? Jacob had concerns and <b>said</b> to himself: <b>Lest a transgression</b> that I might have committed after God made His promise to me <b>will cause</b> God to revoke His promise of protection."
         proc = Statement(eng, heb)
         tokens = proc.getTokens()
-        print(tokens)
+        #print(tokens)
 
+    def testRabbiYehoshua(self):
+        heb = ''
+        eng = 'They derive it from that which Rabbi Yehoshua ben Levi taught to his son'
+        proc = Statement(eng, heb)
+        tokens = proc.getTokens()
+        print(tokens)
 
 
 def main():
@@ -344,4 +365,13 @@ if __name__ == '__main__':
     unittest.main()
 
 
+
+def test():
+    # Strategy:
+    # starting in the English interpolated text, look for capitalized names, and look specifically for sequences
+    # of capitalized words. For now, we will spit them out. Eventually, we want to tag the statement with them
+
+    # we tokenize using nltk's tokenize
+    import nltk.tokenize
+    eng = ('LITERAL', 'They derive it from that which Rabbi Yehoshua ben Levi taught to his son')
 
