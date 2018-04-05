@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="04c11b65-1a3f-47b2-99ed-8b7a1afc905b" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/hello/Statement.py" beforeDir="false" afterPath="$PROJECT_DIR$/hello/Statement.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hello/talmud.py" beforeDir="false" afterPath="$PROJECT_DIR$/hello/talmud.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -86,8 +85,7 @@
       <file leaf-file-name="talmud.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/hello/talmud.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="180" column="55" lean-forward="true" selection-start-line="180" selection-end-line="180" selection-end-column="55" />
+            <state>
               <folding>
                 <element signature="e#0#37#0" expanded="true" />
               </folding>
@@ -128,6 +126,7 @@
       <find>pesachim</find>
       <find>pesac</find>
       <find>s[1</find>
+      <find>tuple</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -466,8 +465,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/hello/talmud.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="180" column="55" lean-forward="true" selection-start-line="180" selection-end-line="180" selection-end-column="55" />
+        <state>
           <folding>
             <element signature="e#0#37#0" expanded="true" />
           </folding>

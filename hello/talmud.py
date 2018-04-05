@@ -3,6 +3,7 @@ from pymongo import MongoClient
 import sys
 import hello.mongo_statement_extractor as m1
 import hello.graphOutput as graphOutput
+from typing import List
 
 #T6 A8  one T4/T5 and no other slashes
 
