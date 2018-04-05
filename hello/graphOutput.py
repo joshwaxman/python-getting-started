@@ -123,6 +123,36 @@ def findRelationship2(people):
         relationDict['type'] = record['relationship2'].type
         edgesOriginal.append(relationDict)
 
+    # now include rabbis who have indirect paths
+    query = 'match (r1:EncodedRabbi) where r1.englishName in ' + str(people) + '\n' + \
+            'match (r2:EncodedRabbi) where r2.englishName in ' + str(people) + '\n' + \
+            'match (r3:EncodedRabbi) where not r3.englishName in ' + str(people) + '\n' + \
+            'match path = (r1)-[relationship1:student]-(r3) - [relationship2: student]-(r2)' + '\n' + \
+            'return path, relationship1, relationship2, r1, r2'
+
+    for record in result:
+        # add the additional rabbi
+        nodeId = record['r3'].id
+        hebrewName = record['r3']['hebrewName']
+        englishName = record['r3']['englishName']
+        generation = record['r3']['generation']
+
+        nodesById[nodeId] = {'name': englishName, 'hebrewName': hebrewName, 'generation': generation}
+
+        source = record['relationship1'].start
+        target = record['relationship1'].end
+        relationDict['source'] = source
+        relationDict['target'] = target
+        relationDict['type'] = record['relationship1'].type
+        edgesOriginal.append(relationDict)
+
+        source = record['relationship2'].start
+        target = record['relationship2'].end
+        relationDict['source'] = source
+        relationDict['target'] = target
+        relationDict['type'] = record['relationship2'].type
+        edgesOriginal.append(relationDict)
+
     # add list position to nodesById
     nodes = []
     for i, nodeId in enumerate(nodesById.keys()):

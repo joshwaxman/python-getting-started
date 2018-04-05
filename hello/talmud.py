@@ -55,7 +55,7 @@ def htmlOutputter(title, page):
     daf = daf_start
 
     names = set()
-    wrapper += '<a href=""https://www.sefaria.org/%s?lang=bi">%s</a></p>' % (title + '.' +str(page), title+" "+str(page)) #Pesachim.7b, Pesachim 7b
+    wrapper += '<a href="https://www.sefaria.org/%s?lang=bi">%s</a></p>' % (title + '.' +str(page), title+" "+str(page)) #Pesachim.7b, Pesachim 7b
 
     h = hebEdition[daf]
     e = engEdition[daf]
