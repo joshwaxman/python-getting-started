@@ -25,7 +25,7 @@ def genSplit(s: str):
             gen = 0
     #I checked Mongodb using cypher quieries and no generations exist that are A_/T_ or t_/A_.
     elif '/' in s: #such as A2/A3
-        gen = 's[1]' + '/' + 's[4]'
+        gen = s[1] + '/' + s[4]
     else: raise Exception ("Don't know how to read generation " + s)
     return clss, gen
 
@@ -63,10 +63,13 @@ def htmlOutputter(title, page):
     for i in range(len(h)):
         #print()
         #print(i)
+
         proc = Statement(e[i], h[i])
         tokens = proc.getTokens()
-        print(tokens)
+        #print(tokens)
 
+        wrapper += h[i] + '\n<p>'
+        
         wrapper += '\n<p>'
         for j in tokens: #for every list in the list tokens
             if len(j) >= 1:
