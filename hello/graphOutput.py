@@ -2,6 +2,7 @@ from neo4j.v1 import GraphDatabase, basic_auth
 
 driver = GraphDatabase.driver("bolt://hobby-iamlocehkkokgbkekbgcgbal.dbs.graphenedb.com:24786",
                               auth=basic_auth("mivami", "b.jOGYTThIm49J.NCgtoqGY0qrXXajq"))
+
 session = driver.session()
 
 
@@ -73,7 +74,6 @@ for record in result:
 
 def findRelationship2(people):
     edgesOriginal = []  # type: List[Dict[str, str]]
-    relationDict = {}
     nodesById = dict()
 
     # include solitary rabbis
@@ -82,7 +82,6 @@ def findRelationship2(people):
 
     query = 'match (r1:EncodedRabbi) where r1.englishName in ' + str(people) + "\n" \
                                                                                'return r1'
-
     result = session.run(query)
 
     for record in result:
@@ -178,9 +177,10 @@ def findRelationship2(people):
                        'target': target,
                        'label': type}
             edges.append(element)
-            setSourceTargetType.add((source, target, type))
+            setSourceTargetType.add((source, target, type))\
 
     return edges, nodes
+
 
 
 # print(findRelationship2(["Rav Hisda", "Rava", "Rav Hama"]))
