@@ -1,3 +1,4 @@
+
 from hello.Statement import Statement
 from pymongo import MongoClient
 import sys
@@ -171,13 +172,25 @@ def htmlOutputter(title, page):
     h = hebEdition[daf]
     e = engEdition[daf]
 
+    nodes = set()
+    edges = []
+
     for i in range(len(h)):
         #print()
         #print(i)
-
+        eng, heb = e[i], h[i]
         proc = Statement(e[i], h[i])
+
+
+        from StatementProcessors.EnglishStatementProcessor import EnglishStatementProcessor
+        ep: EnglishStatementProcessor = EnglishStatementProcessor(proc)
+        no, ed = ep.extractAll()
+        nodes = nodes | no
+        edges = edges + ed
+
+
         tokens = proc.getTokens()
-        #print(tokens)
+        # print(tokens)
 
         wrapper += '<p dir="rtl">' + h[i] + '</p>\n<p>'
 
@@ -190,7 +203,6 @@ def htmlOutputter(title, page):
                     if tup[2] == 'NAME':
                         name = tup[1]
                         p = lookupName(tup[1], person)
-
                         if p is not None:
                             names.add(p['key'])
                             #/////////do we want the whole node like {'name': 'Abaye', 'label': 'Person', 'id': 25}? In the example, just had the name.
@@ -225,6 +237,9 @@ def htmlOutputter(title, page):
     leftside = wrapper
 
     allRabbis = [key for key in pplDict]
-    edges, nodes = graphOutput.findRelationship2(allRabbis)
 
-    return leftside, edges, nodes
+    e, n = graphOutput.findRelationship2(allRabbis)
+
+    edges, nodes = graphOutput.graphTransformation(edges, nodes)
+
+    return leftside, e, n, edges, nodes

@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="04c11b65-1a3f-47b2-99ed-8b7a1afc905b" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/hello/EnglishStatementProcessor.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hello/StatementProcessor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hello/talmud.py" beforeDir="false" afterPath="$PROJECT_DIR$/hello/talmud.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hello/templates/talmud.html" beforeDir="false" afterPath="$PROJECT_DIR$/hello/templates/talmud.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -19,20 +23,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hello/templates/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="27">
+            <state relative-caret-position="270">
               <caret line="10" column="19" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gettingstarted/urls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="15" column="17" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
-              <folding>
-                <element signature="e#0#41#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -40,7 +32,7 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hello/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="535">
+            <state relative-caret-position="486">
               <caret line="22" column="48" selection-start-line="22" selection-start-column="48" selection-end-line="22" selection-end-column="48" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
@@ -52,7 +44,7 @@
       <file leaf-file-name="graphOutput.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hello/graphOutput.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="258">
+            <state relative-caret-position="-2334">
               <caret line="15" column="46" selection-start-line="15" selection-start-column="46" selection-end-line="15" selection-end-column="46" />
             </state>
           </provider>
@@ -61,8 +53,8 @@
       <file leaf-file-name="Statement.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hello/Statement.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="10179">
-              <caret line="377" lean-forward="true" selection-start-line="377" selection-end-line="377" />
+            <state relative-caret-position="629">
+              <caret line="377" selection-start-line="377" selection-end-line="377" />
               <folding>
                 <element signature="e#0#37#0" expanded="true" />
               </folding>
@@ -73,7 +65,7 @@
       <file leaf-file-name="EnglishDictionary.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hello/EnglishDictionary.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="643">
+            <state relative-caret-position="1080">
               <caret line="40" selection-start-line="40" selection-end-line="40" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
@@ -82,13 +74,44 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="talmud.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="talmud.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hello/talmud.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
+            <state relative-caret-position="751">
+              <caret line="244" column="39" selection-start-line="244" selection-start-column="39" selection-end-line="244" selection-end-column="39" />
               <folding>
-                <element signature="e#0#37#0" expanded="true" />
+                <element signature="e#1#38#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EnglishStatementProcessor.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/hello/EnglishStatementProcessor.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-4393">
+              <caret line="11" column="37" lean-forward="true" selection-start-line="11" selection-start-column="37" selection-end-line="11" selection-end-column="37" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StatementProcessor.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/hello/StatementProcessor.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="54">
+              <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+              <folding>
+                <element signature="e#0#29#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="talmud.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/hello/templates/talmud.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="315">
+              <caret line="191" selection-start-line="191" selection-end-line="191" />
             </state>
           </provider>
         </entry>
@@ -96,7 +119,7 @@
       <file leaf-file-name="mongo_statement_extractor.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hello/mongo_statement_extractor.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
+            <state relative-caret-position="-1571">
               <caret line="7" column="26" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
               <folding>
                 <element signature="e#42#73#0" expanded="true" />
@@ -127,6 +150,7 @@
       <find>pesac</find>
       <find>s[1</find>
       <find>tuple</find>
+      <find>body</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -141,9 +165,11 @@
         <option value="$PROJECT_DIR$/gettingstarted/urls.py" />
         <option value="$PROJECT_DIR$/hello/views.py" />
         <option value="$PROJECT_DIR$/hello/graphOutput.py" />
-        <option value="$PROJECT_DIR$/hello/templates/talmud.html" />
         <option value="$PROJECT_DIR$/hello/Statement.py" />
+        <option value="$PROJECT_DIR$/hello/templates/talmud.html" />
         <option value="$PROJECT_DIR$/hello/talmud.py" />
+        <option value="$PROJECT_DIR$/hello/StatementProcessor.py" />
+        <option value="$PROJECT_DIR$/hello/EnglishStatementProcessor.py" />
       </list>
     </option>
   </component>
@@ -299,9 +325,9 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -311,6 +337,79 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/hello/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="10" column="19" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gettingstarted/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="15" column="17" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hello/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="486">
+          <caret line="22" column="48" selection-start-line="22" selection-start-column="48" selection-end-line="22" selection-end-column="48" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hello/graphOutput.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="15" column="46" selection-start-line="15" selection-start-column="46" selection-end-line="15" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hello/Statement.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="10179">
+          <caret line="377" lean-forward="true" selection-start-line="377" selection-end-line="377" />
+          <folding>
+            <element signature="e#0#37#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hello/EnglishDictionary.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1053">
+          <caret line="40" selection-start-line="40" selection-end-line="40" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hello/mongo_statement_extractor.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="7" column="26" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
+          <folding>
+            <element signature="e#42#73#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hello/talmud.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#1#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/hello/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
@@ -380,7 +479,7 @@
         <state relative-caret-position="1458">
           <caret line="58" lean-forward="true" selection-start-line="58" selection-end-line="58" />
           <folding>
-            <element signature="e#0#37#0" expanded="true" />
+            <element signature="e#1#38#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -392,19 +491,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hello/EnglishDictionary.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="643">
-          <caret line="40" selection-start-line="40" selection-end-line="40" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/gettingstarted/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
+        <state relative-caret-position="324">
           <caret line="15" column="17" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
@@ -414,7 +503,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/hello/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="535">
+        <state relative-caret-position="486">
           <caret line="22" column="48" selection-start-line="22" selection-start-column="48" selection-end-line="22" selection-end-column="48" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
@@ -422,16 +511,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hello/templates/talmud.html">
+    <entry file="file://$PROJECT_DIR$/hello/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="721">
-          <caret line="311" lean-forward="true" selection-end-line="311" />
+        <state relative-caret-position="270">
+          <caret line="10" column="19" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/hello/mongo_statement_extractor.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
+        <state relative-caret-position="-1571">
           <caret line="7" column="26" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
           <folding>
             <element signature="e#42#73#0" expanded="true" />
@@ -439,36 +528,64 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hello/templates/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="27">
-          <caret line="10" column="19" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/hello/graphOutput.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="258">
+        <state relative-caret-position="-2334">
           <caret line="15" column="46" selection-start-line="15" selection-start-column="46" selection-end-line="15" selection-end-column="46" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/hello/Statement.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="10179">
-          <caret line="377" lean-forward="true" selection-start-line="377" selection-end-line="377" />
+        <state relative-caret-position="629">
+          <caret line="377" selection-start-line="377" selection-end-line="377" />
           <folding>
             <element signature="e#0#37#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/hello/EnglishDictionary.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1080">
+          <caret line="40" selection-start-line="40" selection-end-line="40" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hello/templates/talmud.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="191" selection-start-line="191" selection-end-line="191" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/hello/talmud.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
+        <state relative-caret-position="751">
+          <caret line="244" column="39" selection-start-line="244" selection-start-column="39" selection-end-line="244" selection-end-column="39" />
           <folding>
-            <element signature="e#0#37#0" expanded="true" />
+            <element signature="e#1#38#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hello/StatementProcessor.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+          <folding>
+            <element signature="e#0#29#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hello/EnglishStatementProcessor.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4393">
+          <caret line="11" column="37" lean-forward="true" selection-start-line="11" selection-start-column="37" selection-end-line="11" selection-end-column="37" />
         </state>
       </provider>
     </entry>
