@@ -182,7 +182,7 @@ def htmlOutputter(title, page):
         proc = Statement(e[i], h[i])
 
 
-        from StatementProcessors.EnglishStatementProcessor import EnglishStatementProcessor
+        from hello.EnglishStatementProcessor import EnglishStatementProcessor
         ep: EnglishStatementProcessor = EnglishStatementProcessor(proc)
         no, ed = ep.extractAll()
         nodes = nodes | no
