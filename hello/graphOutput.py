@@ -182,6 +182,24 @@ def findRelationship2(people):
     return edges, nodes
 
 
+from typing import List, Set, Dict, Any
+def graphTransformation(edges: List[Dict[str, Any]], nodes: Set[str]):
+    # the transformation in question is that nodes are
+    # strings such as 'Rabbi Meir', rather than numbers,
+    # and these are also the source / target values of
+    # the edges.
+
+    nodes = list(nodes)
+    nodesByName = {name : id for id, name in enumerate(nodes)}
+    nodesById = {id: name for id, name in enumerate(nodes)}
+
+    nodes = [{'name': name} for name in nodes]
+    edges = [{'source': nodesByName[edge['source']],
+              'target': nodesByName[edge['target']],
+              'label': edge['label']
+              } for edge in edges]
+
+    return edges, nodes
 
 # print(findRelationship2(["Rav Hisda", "Rava", "Rav Hama"]))
 
