@@ -22,5 +22,9 @@ def db(request):
 
 def talmud(request, masechet='Horayot', page='3b'):
     from hello.talmud import htmlOutputter
-    leftside, edges, nodes = htmlOutputter(masechet, page)
-    return render(request, "talmud.html", {'leftside': leftside, 'nodes': nodes, 'edges': edges})
+    leftside, e, n, edges, nodes = htmlOutputter(masechet, page)
+    return render(request, "talmud.html", {'leftside': leftside,
+                                           'student_nodes': n,
+                                           'student_edges': e,
+                                           'local_interaction_nodes': nodes,
+                                           'local_interaction_edges': edges})
