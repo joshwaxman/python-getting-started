@@ -150,7 +150,7 @@ class Statement(object):
                     self.tokens[i].append((gloss, n, 'NAME'))
                     current_word += 2
                 # is it a name?
-                if w not in ed and (w[0] in 'ABCDEFGHIJKLMNOPQRSTUVWXYZḤ' or w == 'bar' or w == 'ben' or w == 'b.'):
+                elif w not in ed and (w[0] in 'ABCDEFGHIJKLMNOPQRSTUVWXYZḤ' or w == 'bar' or w == 'ben' or w == 'b.'):
                     n = words[current_word]
                     self.tokens[i].append((gloss, n, 'NAME'))
                     current_word += 1
