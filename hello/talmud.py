@@ -218,8 +218,8 @@ def htmlOutputter(title, page):
                                 wrapper += w + ' '
 
                                 print('name: ' + name + ' is not found')
-                        except Exception as e:
-                            print(e)
+                        except Exception as exc:
+                            print(exc)
                             print("ERROR.  P is:", p)
                     else:
                         w = tup[1]

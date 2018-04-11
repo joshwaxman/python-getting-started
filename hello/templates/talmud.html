@@ -29,6 +29,10 @@
     text-align:left;direction:ltr;
 }
 
+.Tanna {
+    font-family: 'courier';
+}
+
 .Tanna[generation="1"] {
     background-color: pink;
 }
@@ -107,7 +111,7 @@
 }
 
 .Amora[generation="1"] {
-    background-color: darkred;
+    background-color: red;
 }
 .Amora[generation="1/2"] {
    background: -webkit-linear-gradient(left, darkorange, darkred);
@@ -118,7 +122,7 @@
   -webkit-text-fill-color: transparent;
 }
 .Amora[generation="2"] {
-    background-color: darkorange;
+    background-color: orange;
 }
 .Amora[generation="2/3"] {
    background: -webkit-linear-gradient(left, gold, darkorange);
@@ -140,7 +144,7 @@
   -webkit-text-fill-color: transparent;
 }
 .Amora[generation="4"] {
-    background-color: green;
+    background-color: lightgreen;
 }
 .Amora[generation="4/5"] {
    background: -webkit-linear-gradient(left, darkcyan, green);
@@ -162,7 +166,7 @@
   -webkit-text-fill-color: transparent;
 }
 .Amora[generation="6"] {
-    background-color: darkblue;
+    background-color: blue;
 }
 .Amora[generation="6/7"] {
    background: -webkit-linear-gradient(left, purple, darkblue);
@@ -173,7 +177,7 @@
   -webkit-text-fill-color: transparent;
 }
 .Amora[generation="7"] {
-    background-color: purple;
+    background-color: blueviolet;
 }
 .Amora[generation="7/8"] {
    background: -webkit-linear-gradient(left, saddlebrown, purple);
@@ -184,11 +188,11 @@
   -webkit-text-fill-color: transparent;
 }
 .Amora[generation="8"] {
-    background-color: saddlebrown;
+    background-color: sandybrown;
 }
 </style>
 </head>
-<body>
+</body>
 <div id="container">
     <span id="divA">
         <button onclick="draw_student_graph()">Teacher/Student Graph</button>
@@ -236,6 +240,17 @@ function draw_graph(n, e) {
         .append("circle")
         .attr({"r": 40})
         .style("fill", function (d, i) {
+//return colors(i);
+        generationColors = {'A1': 'pink', 'A2': 'yellow', 'A3': 'salmon', 'A4': 'lime', 'A5': 'cyan', 'A6': 'mediumorchid',
+                            'T1': 'pink', 'T2': 'yellow', 'T3': 'salmon', 'T4': 'lime', 'T5': 'cyan', 'T6': 'mediumorchid'
+                            };
+
+        if (d.hasOwnProperty('generation'))
+            if (d.generation in generationColors)
+                 return generationColors[d.generation];
+            else
+                return 'pink';
+        else
             return colors(i);
         })
         .call(force.drag)
