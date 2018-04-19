@@ -7,9 +7,7 @@ def htmlOutputter(title, page):
     client = MongoClient(
         "mongodb://mivami:Talmud1%@talmud-shard-00-00-ol0w9.mongodb.net:27017,talmud-shard-00-01-ol0w9.mongodb.net:27017,talmud-shard-00-02-ol0w9.mongodb.net:27017/admin?replicaSet=Talmud-shard-0&ssl=true")
     db = client.sefaria
-    person = db.person
-    texts = db.texts
-    pplDict = {}
+    mivami = db.mivami
 
     wrapper = ''
 
