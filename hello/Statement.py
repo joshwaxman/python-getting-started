@@ -126,6 +126,22 @@ class Statement(object):
             self.identifyRabbis()
         return self.tokens
 
+    def namedEntityRecognition(self):
+        import regex
+        self.tokens = []
+        # original plan went word by word. Here we use a regex based named entity approach
+        NAME = '((?:[A-ZḤ][a-zḥ]*)(?: ?(?:[A-ZḤ][a-zḥ]*|, the son of|ben|bar|b\\.)*)*)'
+        eng: List[str] = self.getEnglish()
+        for i, (gloss, e) in enumerate(eng):
+            pos = 0
+            for m in regex.finditer(NAME, e):
+                start, end = m.span()
+                if pos < start:
+                    self.tokens.append((gloss, e[pos:start], 'UNTAGGED'))
+
+                    self.tokens.append((gloss, e[start: end], 'NAME'))
+                pos = end + 1
+
     def identifyRabbis(self):
         # Strategy:
         # starting in the English interpolated text, look for capitalized names, and look specifically for sequences

@@ -239,6 +239,7 @@ function draw_graph(n, e) {
         .enter()
         .append("circle")
         .attr({"r": 40})
+        .attr("class", ".circle")
         .style("fill", function (d, i) {
 //return colors(i);
         generationColors = {'A1': 'pink', 'A2': 'yellow', 'A3': 'salmon', 'A4': 'lime', 'A5': 'cyan', 'A6': 'mediumorchid',
@@ -261,11 +262,28 @@ function draw_graph(n, e) {
         .attr({
             "text-anchor": "middle",
             "class": "nodelabel",
-            "stroke": "black"
+            "stroke": "black",
+            'font-size': 10,
         })
         .text(function (d) {
             return d.name;
         })
+
+    var nodelabels2 = svg.selectAll(".nodelabel2")
+        .data(dataset.nodes)
+        .enter()
+        .append("text")
+        .attr({
+            "text-anchor": "middle",
+            "class": "nodelabel",
+            "stroke": "black"
+        })
+        .text(function (d) {
+            return d.generation;
+        })
+
+
+    var nodelabels = svg.selectAll(".nodelabel")
     var edgepaths = svg.selectAll(".edgepath")
         .data(dataset.edges)
         .enter()
@@ -352,6 +370,14 @@ function draw_graph(n, e) {
             .attr("y", function (d) {
                 return d.y;
             });
+
+        nodelabels2.attr("x", function (d) {
+            return d.x;
+        })
+            .attr("y", function (d) {
+                return d.y + 20;
+            })
+
         edgepaths.attr('d', function (d) {
             var path = 'M ' + d.source.x + ' ' + d.source.y + ' L ' + d.target.x + ' ' + d.target.y;
             //console.log(d)

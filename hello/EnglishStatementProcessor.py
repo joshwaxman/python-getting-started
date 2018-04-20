@@ -24,7 +24,7 @@ class EnglishStatementProcessor(AmoraicStatementProcessor):
         # statement, unless we can establish a dispute among parties
         # But that requires context. A separate pass would be required
         # to analyze the discourse
-        NAME = r'((?:[A-ZḤ][a-zḥ]*)(?: (?:[A-ZḤ][a-zḥ]*|ben|bar|b\.)*)*)'
+        NAME = r'((?:[A-ZḤ][a-zḥ]*)(?: ?(?:[A-ZḤ][a-zḥ]*|, the son of|, son of|ben|bar|b\\.)*)*)'
         r = NAME + ' says:'
         if regex.match(r, eng):
             return True
