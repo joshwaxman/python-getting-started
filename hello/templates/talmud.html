@@ -31,71 +31,53 @@
 
 .Tanna {
     font-family: 'courier';
-}
-
-.Tanna[generation="1"] {
     background-color: pink;
 }
-.Tanna[generation="1/2"] {
-   background: -webkit-linear-gradient(left, salmon, pink);
-   background: -o-linear-gradient(right, pink, salmon);
-   background: -moz-linear-gradient(right, pink, salmon);
-   background: linear-gradient(to right, pink, salmon);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-.Tanna[generation="2"] {
-    background-color: salmon;
-}
-.Tanna[generation="2/3"] {
-   background: -webkit-linear-gradient(left, yellow, salmon);
-   background: -o-linear-gradient(right, salmon, yellow);
-   background: -moz-linear-gradient(right, salmon, yellow);
-   background: linear-gradient(to right, salmon, yellow);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-.Tanna[generation="3"] {
-    background-color: yellow;
-}
-.Tanna[generation="3/4"] {
-   background: -webkit-linear-gradient(left, lime, yellow);
-   background: -o-linear-gradient(right, yellow, lime);
-   background: -moz-linear-gradient(right, yellow, lime);
-   background: linear-gradient(to right, yellow, lime);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-.Tanna[generation="4"] {
-    background-color: lime;
-}
-.Tanna[generation="4/5"] {
-   background: -webkit-linear-gradient(left, cyan, lime);
-   background: -o-linear-gradient(right, lime, cyan);
-   background: -moz-linear-gradient(right, lime, cyan);
-   background: linear-gradient(to right, lime, cyan);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-.Tanna[generation="5"] {
-    background-color: cyan;
-}
-.Tanna[generation="5/6"] {
-   background: -webkit-linear-gradient(left, mediumorchid, cyan);
-   background: -o-linear-gradient(right, cyan, mediumorchid);
-   background: -moz-linear-gradient(right, cyan, mediumorchid);
-   background: linear-gradient(to right, cyan, mediumorchid);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-.Tanna[generation="6"] {
-    background-color: mediumorchid;
+
+.Amora {
+    font-family: 'courier';
+    background-color: hotpink;
 }
 
+.Tanna[generation="1"] .Amora[generation="1"]{
+    background-color: darkred;
+    color: white;
+}
+.Tanna[generation="1/2"] .Amora[generation="1/2"] {
+    background: linear-gradient(to right, darkred, red);
+}
+.Tanna[generation="2"] .Amora[generation="2"]{
+    background-color: red;
+    color: white;
+}
+.Tanna[generation="2/3"] .Amora[generation="2/3"]{
+    background: linear-gradient(to right, red, salmon);
+}
+.Tanna[generation="3"] .Amora[generation="3"] {
+    background-color: salmon;
+}
+.Tanna[generation="3/4"] .Amora[generation="3/4"] {
+   background: linear-gradient(to right, salmon, darkorange);
+}
+
+.Tanna[generation="4"] .Amora[generation="4"]{
+    background-color: darkorange;
+}
+.Tanna[generation="4/5"] .Amora[generation="4/5"]{
+   background: linear-gradient(to right, darkorange, yellow);
+}
+.Tanna[generation="5"] .Amora[generation="5"]{
+    background-color: yellow;
+}
+.Tanna[generation="5/6"] .Amora[generation="5/6"]{
+    background: linear-gradient(to right, yellow, yellowgreen);
+}
+.Tanna[generation="6"] .Amora[generation="6"] {
+    background-color: yellowgreen;
+}
 
 /* Tooltip text */
 .Amora:hover:after, .Tanna:hover:after {
-
     width: 120px;
     background-color: black;
     font-weight: bold;
@@ -110,86 +92,7 @@
     z-index: 1;
 }
 
-.Amora[generation="1"] {
-    background-color: red;
-}
-.Amora[generation="1/2"] {
-   background: -webkit-linear-gradient(left, darkorange, darkred);
-   background: -o-linear-gradient(right, darkred, darkorange);
-   background: -moz-linear-gradient(right, darkred, darkorange);
-   background: linear-gradient(to right, darkred, darkorange);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-.Amora[generation="2"] {
-    background-color: orange;
-}
-.Amora[generation="2/3"] {
-   background: -webkit-linear-gradient(left, gold, darkorange);
-   background: -o-linear-gradient(right, darkorange, gold);
-   background: -moz-linear-gradient(right, darkorange, gold);
-   background: linear-gradient(to right, darkorange, gold);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-.Amora[generation="3"] {
-    background-color: gold;
-}
-.Amora[generation="3/4"] {
-   background: -webkit-linear-gradient(left, green, gold);
-   background: -o-linear-gradient(right, gold, green);
-   background: -moz-linear-gradient(right, gold, green);
-   background: linear-gradient(to right, gold, green);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-.Amora[generation="4"] {
-    background-color: lightgreen;
-}
-.Amora[generation="4/5"] {
-   background: -webkit-linear-gradient(left, darkcyan, green);
-   background: -o-linear-gradient(right, green, darkcyan);
-   background: -moz-linear-gradient(right, green, darkcyan);
-   background: linear-gradient(to right, green, darkcyan);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-.Amora[generation="5"] {
-    background-color: darkcyan;
-}
-.Amora[generation="5/6"] {
-   background: -webkit-linear-gradient(left, darkblue, darkcyan);
-   background: -o-linear-gradient(right, darkcyan, darkblue);
-   background: -moz-linear-gradient(right, darkcyan, darkblue);
-   background: linear-gradient(to right, darkcyan, darkblue);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-.Amora[generation="6"] {
-    background-color: blue;
-}
-.Amora[generation="6/7"] {
-   background: -webkit-linear-gradient(left, purple, darkblue);
-   background: -o-linear-gradient(right, darkblue, purple);
-   background: -moz-linear-gradient(right, darkblue, purple);
-   background: linear-gradient(to right, darkblue, purple);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-.Amora[generation="7"] {
-    background-color: blueviolet;
-}
-.Amora[generation="7/8"] {
-   background: -webkit-linear-gradient(left, saddlebrown, purple);
-   background: -o-linear-gradient(right, purple, saddlebrown);
-   background: -moz-linear-gradient(right, purple, saddlebrown);
-   background: linear-gradient(to right, purple, saddlebrown);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-.Amora[generation="8"] {
-    background-color: sandybrown;
-}
+
 </style>
 </head>
 </body>
