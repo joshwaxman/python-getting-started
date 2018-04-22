@@ -74,6 +74,7 @@ for record in result:
 
 def findRelationship2(people):
     edgesOriginal = []  # type: List[Dict[str, str]]
+    relationDict = {}
     nodesById = dict()
 
     # include solitary rabbis
@@ -82,6 +83,7 @@ def findRelationship2(people):
 
     query = 'match (r1:EncodedRabbi) where r1.englishName in ' + str(people) + "\n" \
                                                                                'return r1'
+
     result = session.run(query)
 
     for record in result:
@@ -90,7 +92,7 @@ def findRelationship2(people):
         englishName = record['r1']['englishName']
         generation = record['r1']['generation']
 
-        nodesById[nodeId] = {'name': englishName, 'hebrewName': hebrewName, 'generation': generation}
+        nodesById[nodeId] = {'name': englishName, 'hebrewName': hebrewName, 'generation': generation, 'appears': "True"}
 
     # now include rabbis who have paths
     query = 'match (r1:EncodedRabbi) where r1.englishName in ' + str(people) + '\n' + \
@@ -101,20 +103,8 @@ def findRelationship2(people):
     result = session.run(query)
 
     for record in result:
-        nodeId = record['r1'].id
-        hebrewName = record['r1']['hebrewName']
-        englishName = record['r1']['englishName']
-        generation = record['r1']['generation']
-
-        nodesById[nodeId] = {'name': englishName, 'hebrewName': hebrewName, 'generation': generation}
-
-        nodeId = record['r2'].id
-        hebrewName = record['r2']['hebrewName']
-        englishName = record['r2']['englishName']
-        generation = record['r2']['generation']
-
-        nodesById[nodeId] = {'name': englishName, 'hebrewName': hebrewName, 'generation': generation}
-
+        # already added r1 and r2 to nodes, so need not add them
+        # do however add the relationship
         source = record['relationship2'].start
         target = record['relationship2'].end
         relationDict = dict()
@@ -123,11 +113,11 @@ def findRelationship2(people):
         relationDict['type'] = record['relationship2'].type
         edgesOriginal.append(relationDict)
 
-    # now include rabbis who have indirect paths
+    # now include rabbis who share a teacher
     query = 'match (r1:EncodedRabbi) where r1.englishName in ' + str(people) + '\n' + \
             'match (r2:EncodedRabbi) where id(r1) <> id(r2) and r2.englishName in ' + str(people) + '\n' + \
             'match (r3:EncodedRabbi) where not r3.englishName in ' + str(people) + '\n' + \
-            'match path = (r1)-[relationship1:student]-(r3)-[relationship2: student]-(r2)' + '\n' + \
+            'match path = (r1)-[relationship1:student]->(r3)<-[relationship2: student]-(r2)' + '\n' + \
             'return distinct path, relationship1, relationship2, r1, r2, r3'
 
     result = session.run(query)
@@ -139,7 +129,10 @@ def findRelationship2(people):
         englishName = record['r3']['englishName']
         generation = record['r3']['generation']
 
-        nodesById[nodeId] = {'name': englishName, 'hebrewName': hebrewName, 'generation': generation}
+        nodesById[nodeId] = {'name': englishName, 'hebrewName': hebrewName, 'generation': generation, 'appears': "False"}
+
+        r1English = record['r1']['englishName']
+        r2English = record['r2']['englishName']
 
         source = record['relationship1'].start
         target = record['relationship1'].end
@@ -177,7 +170,7 @@ def findRelationship2(people):
                        'target': target,
                        'label': type}
             edges.append(element)
-            setSourceTargetType.add((source, target, type))\
+            setSourceTargetType.add((source, target, type))
 
     return edges, nodes
 

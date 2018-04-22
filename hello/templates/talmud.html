@@ -254,6 +254,13 @@ function draw_graph(n, e) {
         else
             return colors(i);
         })
+        .style('stroke', 'black')
+        .style('stroke-width', function (d, i) {
+            if (d.appears == 'True')
+                return 2;
+            else
+                return 0;
+        })
         .call(force.drag)
     var nodelabels = svg.selectAll(".nodelabel")
         .data(dataset.nodes)
@@ -263,7 +270,7 @@ function draw_graph(n, e) {
             "text-anchor": "middle",
             "class": "nodelabel",
             "stroke": "black",
-            'font-size': 10,
+            'font-size': 10
         })
         .text(function (d) {
             return d.name;
@@ -276,7 +283,8 @@ function draw_graph(n, e) {
         .attr({
             "text-anchor": "middle",
             "class": "nodelabel",
-            "stroke": "black"
+            "stroke": "black",
+            "font-size": 8
         })
         .text(function (d) {
             return d.generation;
