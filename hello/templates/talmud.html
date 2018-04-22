@@ -215,6 +215,33 @@ function draw_graph(n, e) {
 }
     ;
     var svg = d3.select("#divB").append("svg").attr({"width": w, "height": h});
+
+    var legendText = [ {'text': 'Legend: (outline means appears on page)', 'color': 'white'},
+                        {'text': 'Tanna and Amora, generation 1', 'color': 'pink'},
+                       {'text': 'Tanna and Amora, generation 2', 'color': 'yellow'},
+                       {'text': 'Tanna and Amora, generation 3', 'color': 'salmon'},
+                       {'text': 'Tanna and Amora, generation 4', 'color': 'lime'},
+                       {'text': 'Tanna and Amora, generation 5', 'color': 'cyan'},
+                       {'text': 'Tanna and Amora, generation 6', 'color': 'mediumorchid'}]
+
+    svg.selectAll(".legendText")
+        .data(legendText)
+        .enter()
+        .append('rect')
+        .attr('x', 0)
+        .attr('y', function(d, i) { return -20 + (i+1 ) * 30; } )
+        .attr('width', 300)
+        .attr('height', 30)
+        .attr('fill', function(d, i) { return d.color; } );
+
+    svg.selectAll(".legendText")
+        .data(legendText)
+        .enter()
+        .append('text')
+        .text(function(d, i) { return d.text; })
+        .attr('x', 0)
+        .attr('y', function(d, i) { return (i + 1) * 30; } );
+
     var force = d3.layout.force()
         .nodes(dataset.nodes)
         .links(dataset.edges)

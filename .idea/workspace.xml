@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="04c11b65-1a3f-47b2-99ed-8b7a1afc905b" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hello/graphOutput.py" beforeDir="false" afterPath="$PROJECT_DIR$/hello/graphOutput.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hello/templates/talmud.html" beforeDir="false" afterPath="$PROJECT_DIR$/hello/templates/talmud.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -24,7 +23,7 @@
       <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gettingstarted/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
+            <state relative-caret-position="405">
               <caret line="15" column="33" selection-start-line="15" selection-start-column="33" selection-end-line="15" selection-end-column="33" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
@@ -36,7 +35,7 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hello/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="675">
+            <state relative-caret-position="783">
               <caret line="29" column="67" selection-start-line="29" selection-start-column="67" selection-end-line="29" selection-end-column="67" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
@@ -48,8 +47,8 @@
       <file leaf-file-name="graphOutput.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hello/graphOutput.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="590">
-              <caret line="128" column="23" lean-forward="true" selection-start-line="128" selection-start-column="23" selection-end-line="128" selection-end-column="23" />
+            <state relative-caret-position="3456">
+              <caret line="128" column="23" selection-start-line="128" selection-start-column="23" selection-end-line="128" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -57,7 +56,7 @@
       <file leaf-file-name="Statement.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hello/Statement.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3456">
+            <state relative-caret-position="3537">
               <caret line="131" selection-start-line="131" selection-end-line="131" />
               <folding>
                 <element signature="e#0#37#0" expanded="true" />
@@ -69,7 +68,7 @@
       <file leaf-file-name="EnglishDictionary.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hello/EnglishDictionary.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1053">
+            <state relative-caret-position="1080">
               <caret line="40" selection-start-line="40" selection-end-line="40" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
@@ -81,7 +80,7 @@
       <file leaf-file-name="talmud.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hello/talmud.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
+            <state relative-caret-position="243">
               <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
               <folding>
                 <element signature="e#1#38#0" expanded="true" />
@@ -93,7 +92,7 @@
       <file leaf-file-name="EnglishStatementProcessor.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hello/EnglishStatementProcessor.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="594">
+            <state relative-caret-position="702">
               <caret line="26" column="79" selection-start-line="26" selection-start-column="79" selection-end-line="26" selection-end-column="79" />
               <folding>
                 <element signature="e#376#409#0" expanded="true" />
@@ -105,7 +104,7 @@
       <file leaf-file-name="StatementProcessor.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hello/StatementProcessor.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="27">
+            <state relative-caret-position="54">
               <caret line="2" selection-start-line="2" selection-end-line="2" />
               <folding>
                 <element signature="e#0#29#0" expanded="true" />
@@ -117,8 +116,8 @@
       <file leaf-file-name="talmud.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/hello/templates/talmud.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="428">
-              <caret line="256" column="8" selection-start-line="256" selection-start-column="8" selection-end-line="256" selection-end-column="8" />
+            <state relative-caret-position="833">
+              <caret line="242" column="61" selection-start-line="242" selection-start-column="61" selection-end-line="242" selection-end-column="61" />
             </state>
           </provider>
         </entry>
@@ -203,7 +202,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -231,6 +229,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -351,6 +350,23 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/hello/StatementProcessor.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+          <folding>
+            <element signature="e#0#29#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hello/templates/talmud.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6912">
+          <caret line="256" column="8" selection-start-line="256" selection-start-column="8" selection-end-line="256" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/gettingstarted/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="324">
@@ -690,7 +706,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/gettingstarted/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
+        <state relative-caret-position="405">
           <caret line="15" column="33" selection-start-line="15" selection-start-column="33" selection-end-line="15" selection-end-column="33" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
@@ -700,7 +716,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/hello/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="675">
+        <state relative-caret-position="783">
           <caret line="29" column="67" selection-start-line="29" selection-start-column="67" selection-end-line="29" selection-end-column="67" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
@@ -712,7 +728,7 @@
     <entry file="file://$PROJECT_DIR$/hello/talmud2.py" />
     <entry file="file://$PROJECT_DIR$/hello/EnglishDictionary.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1053">
+        <state relative-caret-position="1080">
           <caret line="40" selection-start-line="40" selection-end-line="40" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
@@ -722,7 +738,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/hello/Statement.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3456">
+        <state relative-caret-position="3537">
           <caret line="131" selection-start-line="131" selection-end-line="131" />
           <folding>
             <element signature="e#0#37#0" expanded="true" />
@@ -732,7 +748,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/hello/EnglishStatementProcessor.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
+        <state relative-caret-position="702">
           <caret line="26" column="79" selection-start-line="26" selection-start-column="79" selection-end-line="26" selection-end-column="79" />
           <folding>
             <element signature="e#376#409#0" expanded="true" />
@@ -742,7 +758,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/hello/StatementProcessor.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="27">
+        <state relative-caret-position="54">
           <caret line="2" selection-start-line="2" selection-end-line="2" />
           <folding>
             <element signature="e#0#29#0" expanded="true" />
@@ -752,7 +768,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/hello/talmud.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
+        <state relative-caret-position="243">
           <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
           <folding>
             <element signature="e#1#38#0" expanded="true" />
@@ -762,15 +778,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/hello/graphOutput.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="590">
-          <caret line="128" column="23" lean-forward="true" selection-start-line="128" selection-start-column="23" selection-end-line="128" selection-end-column="23" />
+        <state relative-caret-position="3456">
+          <caret line="128" column="23" selection-start-line="128" selection-start-column="23" selection-end-line="128" selection-end-column="23" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/hello/templates/talmud.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="428">
-          <caret line="256" column="8" selection-start-line="256" selection-start-column="8" selection-end-line="256" selection-end-column="8" />
+        <state relative-caret-position="833">
+          <caret line="242" column="61" selection-start-line="242" selection-start-column="61" selection-end-line="242" selection-end-column="61" />
         </state>
       </provider>
     </entry>
