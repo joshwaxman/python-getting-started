@@ -15,7 +15,7 @@ def getDafYomi():
     x = dafyomi.find_one(theDaf)['daf'].split()
     masechet = x[0]
     daf = x[1] + 'a'
-    return  masechet, daf
+    return masechet, daf
 
 
 def htmlOutputter(title, page):

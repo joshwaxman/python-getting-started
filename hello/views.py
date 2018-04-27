@@ -20,9 +20,9 @@ def db(request):
     return render(request, 'db.html', {'greetings': greetings})
 
 
-def talmud(request, masechet, page):
+def talmud(request, masechet='missing', page='missing'):
     from hello.talmud import htmlOutputter, getDafYomi
-    if masechet is None or page is None:
+    if masechet == 'missing' or page == 'missing':
         # try to find in dafyomi
 
         masechet, page = getDafYomi()
