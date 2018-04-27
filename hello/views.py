@@ -22,7 +22,7 @@ def db(request):
 
 def talmud(request, masechet, page):
     from hello.talmud import htmlOutputter, getDafYomi
-    if masechet == '' or page == '':
+    if masechet is None or page is None:
         # try to find in dafyomi
 
         masechet, page = getDafYomi()
