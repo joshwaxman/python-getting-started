@@ -21,8 +21,10 @@ def db(request):
 
 
 def talmud(request, masechet, page):
+    from hello.talmud import htmlOutputter, getDafYomi
     if masechet == '' or page == '':
         # try to find in dafyomi
+
         masechet, page = getDafYomi()
     from hello.talmud import htmlOutputter
     leftside, e, n, edges, nodes = htmlOutputter(masechet, page)
