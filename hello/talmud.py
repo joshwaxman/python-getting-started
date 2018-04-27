@@ -1,7 +1,22 @@
 
 from hello.Statement import Statement
 from pymongo import MongoClient
+import datetime
 import hello.graphOutput as graphOutput
+
+def getDafYomi():
+    client = MongoClient(
+        "mongodb://mivami:Talmud1%@talmud-shard-00-00-ol0w9.mongodb.net:27017,talmud-shard-00-01-ol0w9.mongodb.net:27017,talmud-shard-00-02-ol0w9.mongodb.net:27017/admin?replicaSet=Talmud-shard-0&ssl=true")
+    db = client.sefaria
+    dafyomi = db.dafyomi
+    now = datetime.datetime.now()
+    theDate = str(now.month) + '/' + str(now.day) + '/' + str(now.year)
+    theDaf = {'date': theDate }
+    x = dafyomi.find_one(theDaf)['daf'].split()
+    masechet = x[0]
+    daf = x[1] + 'a'
+    return  masechet, daf
+
 
 def htmlOutputter(title, page):
     client = MongoClient(

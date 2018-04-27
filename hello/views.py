@@ -20,7 +20,10 @@ def db(request):
     return render(request, 'db.html', {'greetings': greetings})
 
 
-def talmud(request, masechet='Horayot', page='3b'):
+def talmud(request, masechet, page):
+    if masechet == '' or page == '':
+        # try to find in dafyomi
+        masechet, page = getDafYomi()
     from hello.talmud import htmlOutputter
     leftside, e, n, edges, nodes = htmlOutputter(masechet, page)
     return render(request, "talmud.html", {'leftside': leftside,
