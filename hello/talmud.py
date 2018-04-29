@@ -36,11 +36,13 @@ def htmlOutputter(title, page):
     theText = {'title': title + ":" + str(daf)}
     theText = list(mivami.find(theText))
     contents = theText[0]['contents']
+    n = theText[0]['EncodedNodes']
+    e = theText[0]['EncodedEdges']
+    nodes = theText[0]['LocalInteractionNodes']
+    edges = theText[0]['LocalInteractionEdges']
+
 
     wrapper += '<a href="https://www.sefaria.org/%s?lang=bi">%s</a></p>' % (title + '.' +str(page), title+" "+str(page)) #Pesachim.7b, Pesachim 7b
-
-    nodes = set()
-    edges = []
 
     # iterate through sugyot,
     # so that we have different graphs
@@ -49,27 +51,8 @@ def htmlOutputter(title, page):
     pplSet = set()
 
     for line in contents: # type: Dict[str, Any]
-        eng, heb = line['eng'], line['heb'] # type: str, str
+        #eng, heb = line['eng'], line['heb'] # type: str, str
         html = line['html']
-        names = line['names'] # type: List[Dict[str, str]]
-
-        for item in names:
-            pplSet.add(item['key'])
-
-        proc = Statement(eng, heb)
-
-        # if eng.startswith('§') or eng.startswith('MISHNA'):
-        #     sugya += 0
-        #     if len(nodes) > 0 or len(edges) > 0:
-        #         sugyaGraphs.append((nodes, edges))
-        #         #nodes = set()
-        #         #edges = []
-
-        from .EnglishStatementProcessor import EnglishStatementProcessor
-        ep: EnglishStatementProcessor = EnglishStatementProcessor(proc)
-        no, ed = ep.extractAll()
-        nodes = nodes | no
-        edges = edges + ed
 
         wrapper += html
 
@@ -78,10 +61,6 @@ def htmlOutputter(title, page):
     wrapper = wrapper.replace(' >', '>')
 
     leftside = wrapper
-
-    allRabbis = [key for key in pplSet]
-
-    e, n = graphOutput.findRelationship2(allRabbis)
 
     edges, nodes = graphOutput.graphTransformation(edges, nodes)
 
