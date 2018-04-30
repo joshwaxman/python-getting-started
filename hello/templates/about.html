@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+
+<h1>Mi vaMi - A Graph Database of the Babylonian Talmud</h1>
+    <p>
+    When Moses asked Pharaoh to allow the ancient Hebrews to leave Egypt for a three-day religious
+        festival, Pharaoh requested some clarification (<a href="https://he.wikisource.org/wiki/%D7%9E%22%D7%92_%D7%A9%D7%9E%D7%95%D7%AA_%D7%99_%D7%97">
+        Exodus 10:8</a>). He asked מִ֥י וָמִ֖י הַהֹלְכִֽים, "who precisely is going?"
+    </p>
+    <p>The Mi vaMi project intends to apply this question to the Babylonian Talmud. When studying the
+    Talmud, it is certainly important to know the give-and-take, the arguments and rejoinders, and
+        the theories and proofs. However, it is also often critical to know just who is engaging in discourse.
+    Is it Abaye and Rava, or Abaye and Rabba? How are the participants in the discourse related to one another?
+    Are they, for instance, student and teacher, colleagues, or opposing heads of the academies at Sura and Pumpedita? Are they
+        in the same generation, or are they separated by decades or centuries?</p>
+    <p>The impact of such knowledge extends to practical decided law. (For example, the law will be decided like
+    Rava over his collegue Abaye, but like Abaye over his teacher Rabba.) It can aid in our understanding of
+    the historical development of the sugya. (For instance, the Revadim academic approach to Talmud study examines
+    the sugya as it existed and was understood in different time slices, in different generations of Tannaim and
+    Amoraim.) It can aid in our understanding of the discourse itself. (For instance, we might see a dispute between
+    two Amoraim about some point of law, and that in subsequent generations, students align themselves to the
+    positions of their teachers.) We are brief here, but elaboration on each of these points will be offered elsewhere.
+    </p>
+    <h3>Current Features</h3>
+    <p>There are several aspects of Mi vaMi in stages of development, and have not been integrated into our website.
+        The following features are currently available:</p>
+    <ul><li><b>Tanna and Amora identification</b> - a Tanna or an Amora appears in either the Hebrew/Aramaic or
+        English text, we highlight that text. The color corresponds to the scholastic generation. Tannaim
+        are distinguished by their <font face="Courier New">Courier New font</font>. Hovering over the
+        highlighted text will yield a popup text with further information.</li>
+        <li><b>Student-Teacher graphs</b> - On the right-hand side of the screen is a graph showing all Tannaim
+        and Amoraim who appeared on the page. The nodes of the graph are the Tannaim and Amoraim, and the
+            edges represent scholastic relationships between them. Sometimes, they are directly related. Other
+            times, they are related by a shared teacher, who may or may not appear in the current page of
+            Talmud. Nodes with a black outline appear on the Talmudic page; those without outlines are the shared
+            teachers.
+            </li>
+        <li><b>Local Interactions Graph</b> Instead of relying upon manually coded teacher-student relationships,
+            we have written programs to analyze the Talmudic text and extract the relationships. For example, in
+            Bava Batra, when we encounter אמר רבא אמר רב נחמן אמר שמואל, we can extract that Rava is citing Rav
+            Nachman, that Rav Nachman is citing Shmuel, and that Rava is indirectly citing Shmuel. We look for
+            all sorts of scholastic relationships, such as joint statements, objection, support, explaining the
+            reasons for someone's opinion, and so on. While quite a number of extractors have been built, many
+            of the interactions are still being integrated into the website site. </li>
+        <li><b>Global Interactions Graph</b> - Coming soon! The local interaction graph is often quite sparse
+            on a given page of Talmud. However, we will present the relationship between the various rabbis
+            globally across the entire Talmud, and this can provide insight even where there are no explicit
+            discourse verbs between a pair of rabbis on the particular page.
+        <li><b>And more to come!</b>Other graphs, other types of analysis and highlighting. This is a project
+            under very active development</li>
+    </ul>
+    <h2>Thanks</h2>
+    <p>We are grateful for the technical and scholarly resources made available for free and open-source by
+        <a href="https://www.sefaria.org/">Sefaria</a>. We have made use of their database, which contains
+        their Hebrew/Aramaic/English talmud text. The hand-coded knowledge about generations of Tannaim
+        and Amoraim, which generation they belong to, and who is a student of whom (from which we build the
+        first graph) is drawn from tables in Sefaria's database.</p>
+
+    <p>We are grateful for the technical and scholarly resources made available for free and open-source by
+        <a href="https://www.sefaria.org/">Sefaria</a>. We have made use of their database, which contains
+        their Hebrew/Aramaic/English talmud text. The hand-coded knowledge about generations of Tannaim
+        and Amoraim, which generation they belong to, and who is a student of whom (from which we build the
+        first graph) is drawn from tables in Sefaria's database.</p>
+
+    <p>The incredible resource of the aligned Hebrew/English Talmudic text, which we pull from
+        <a href="https://www.sefaria.org/william-davidson-talmud">Sefaria</a>,
+        is the The William Davidson digital edition of the Koren Noé Talmud, with commentary by Rabbi
+        Adin Even-Israel Steinsaltz. It was released with a <a href="https://creativecommons.org/licenses/by-nc/4.0/legalcode">CC BY-NC</a> license
+        by <a href="https://www.korenpub.com/koren_en_usd/declaration.html/">Koren Publishers</a>.
+
+    </p>
+{% endblock %}

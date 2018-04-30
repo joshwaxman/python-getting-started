@@ -14,6 +14,7 @@ urlpatterns = [
     url(r'^$', hello.views.index, name='index'),
     url(r'^talmud/(\w*).(\w*)', hello.views.talmud, name='talmud'),
     url(r'^talmud', hello.views.talmud, name='talmud'),
+    url(r'^about', hello.views.about, name='talmud'),
     url(r'^db', hello.views.db, name='db'),
 
     path('admin/', admin.site.urls),
