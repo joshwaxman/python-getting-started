@@ -30,8 +30,8 @@ def htmlOutputter(title: str, page: str):
     else:
         prevPage = str((int(page[:-1]))-1) + 'b'
         nextPage = page[:-1] + 'b'
-    wrapper = '<a href="/talmud' + title + '.' + prevPage + '">Previous</a> | ' + \
-              '<a href="/talmud' + title + '.' + nextPage + '">Next</a>'
+    wrapper = '<a href="/talmud/' + title + '.' + prevPage + '">Previous</a> | ' + \
+              '<a href="/talmud/' + title + '.' + nextPage + '">Next</a> | '
 
     amud = page[-1]
     daf_start = (int(page[:-1]) - 2) * 2
@@ -71,8 +71,8 @@ def htmlOutputter(title: str, page: str):
 
     leftside = wrapper
 
-    # no longer necessary, since this is precomputed
-    #edges, nodes = graphOutput.graphTransformation(edges, nodes)
+    # why was this not precomputed?
+    edges, nodes = graphOutput.graphTransformation(edges, nodes)
 
 
     return leftside, student_edges, student_nodes, local_interaction_edges, local_interaction_nodes, \
