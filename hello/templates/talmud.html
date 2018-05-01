@@ -150,6 +150,7 @@
     <span id="divA">
         <button onclick="draw_student_graph()">Teacher/Student Graph</button>
         <button onclick="draw_local_interaction_graph()">Local Interactions Graph</button>
+        <button onclick="draw_global_interaction_graph()">Global Interactions Graph</button>
 {{ leftside | safe }}
     </span>
     </div>
@@ -230,7 +231,7 @@ function draw_graph(n, e) {
             if (d.generation in generationColors)
                  return generationColors[d.generation];
             else
-                return 'pink';
+                return 'white';
         else
             return colors(i);
         })
@@ -396,6 +397,13 @@ function draw_local_interaction_graph() {
     var edges = {{ local_interaction_edges | safe }};
     draw_graph(nodes, edges);
 }
+
+function draw_global_interaction_graph() {
+    var nodes = {{ global_interaction_nodes | safe }};
+    var edges = {{ global_interaction_edges | safe }};
+    draw_graph(nodes, edges);
+}
+
 draw_student_graph();
 </script>
 </div>

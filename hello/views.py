@@ -13,6 +13,9 @@ def about(request):
     # return HttpResponse('Hello from Python!')
     return render(request, 'about.html')
 
+def people(request):
+    # return HttpResponse('Hello from Python!')
+    return render(request, 'people.html')
 
 def db(request):
 
@@ -31,9 +34,14 @@ def talmud(request, masechet='missing', page='missing'):
 
         masechet, page = getDafYomi()
     from hello.talmud import htmlOutputter
-    leftside, e, n, edges, nodes = htmlOutputter(masechet, page)
+    leftside, student_edges, student_nodes, local_interaction_edges,\
+                local_interaction_nodes, global_interaction_edges, global_interaction_nodes \
+                        = htmlOutputter(masechet, page)
+
     return render(request, "talmud.html", {'leftside': leftside,
-                                           'student_nodes': n,
-                                           'student_edges': e,
-                                           'local_interaction_nodes': nodes,
-                                           'local_interaction_edges': edges})
+                                           'student_nodes': student_nodes,
+                                           'student_edges': student_edges,
+                                           'local_interaction_nodes': local_interaction_nodes,
+                                           'local_interaction_edges': local_interaction_edges,
+                                           'global_interaction_nodes': global_interaction_nodes,
+                                           'global_interaction_edges': global_interaction_edges})

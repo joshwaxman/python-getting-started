@@ -1,4 +1,4 @@
-
+#from django.contrib.gis.geoip2 import GeoIP2
 from hello.Statement import Statement
 from pymongo import MongoClient
 import datetime
@@ -18,13 +18,20 @@ def getDafYomi():
     return masechet, daf
 
 
-def htmlOutputter(title, page):
+def htmlOutputter(title: str, page: str):
     client = MongoClient(
         "mongodb://mivami:Talmud1%@talmud-shard-00-00-ol0w9.mongodb.net:27017,talmud-shard-00-01-ol0w9.mongodb.net:27017,talmud-shard-00-02-ol0w9.mongodb.net:27017/admin?replicaSet=Talmud-shard-0&ssl=true")
     db = client.sefaria
     mivami = db.mivami
 
-    wrapper = ''
+    if page.endswith('b'):
+        prevPage = page[:-1] + 'a'
+        nextPage = ((int(page[:-1]))+1) + 'a'
+    else:
+        prevPage = ((int(page[:-1]))-1) + 'b'
+        nextPage = page[:-1] + 'b'
+    wrapper = '<a href="/' + title + '.' + prevPage + '">Previous</a>' + \
+              '<a href="/' + title + '.' + nextPage + '">Next</a>'
 
     amud = page[-1]
     daf_start = (int(page[:-1]) - 2) * 2
@@ -36,10 +43,12 @@ def htmlOutputter(title, page):
     theText = {'title': title + ":" + str(daf)}
     theText = list(mivami.find(theText))
     contents = theText[0]['contents']
-    n = theText[0]['EncodedNodes']
-    e = theText[0]['EncodedEdges']
-    nodes = theText[0]['LocalInteractionNodes']
-    edges = theText[0]['LocalInteractionEdges']
+    student_nodes = theText[0]['EncodedNodes']
+    student_edges = theText[0]['EncodedEdges']
+    local_interaction_nodes = theText[0]['LocalInteractionNodes']
+    local_interaction_edges = theText[0]['LocalInteractionEdges']
+    global_interaction_nodes = theText[0]['GlobalInteractionNodes']
+    global_interaction_edges = theText[0]['GlobalInteractionEdges']
 
 
     wrapper += '<a href="https://www.sefaria.org/%s?lang=bi">%s</a></p>' % (title + '.' +str(page), title+" "+str(page)) #Pesachim.7b, Pesachim 7b
@@ -62,6 +71,9 @@ def htmlOutputter(title, page):
 
     leftside = wrapper
 
-    edges, nodes = graphOutput.graphTransformation(edges, nodes)
+    # no longer necessary, since this is precomputed
+    #edges, nodes = graphOutput.graphTransformation(edges, nodes)
 
-    return leftside, e, n, edges, nodes
+
+    return leftside, student_edges, student_nodes, local_interaction_edges, local_interaction_nodes, \
+           global_interaction_edges, global_interaction_nodes
