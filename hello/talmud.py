@@ -30,8 +30,8 @@ def htmlOutputter(title: str, page: str):
     else:
         prevPage = str((int(page[:-1]))-1) + 'b'
         nextPage = page[:-1] + 'b'
-    wrapper = '<a href="/' + title + '.' + prevPage + '">Previous</a>' + \
-              '<a href="/' + title + '.' + nextPage + '">Next</a>'
+    wrapper = '<a href="/talmud' + title + '.' + prevPage + '">Previous</a> | ' + \
+              '<a href="/talmud' + title + '.' + nextPage + '">Next</a>'
 
     amud = page[-1]
     daf_start = (int(page[:-1]) - 2) * 2
