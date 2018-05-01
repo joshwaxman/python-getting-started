@@ -26,9 +26,9 @@ def htmlOutputter(title: str, page: str):
 
     if page.endswith('b'):
         prevPage = page[:-1] + 'a'
-        nextPage = ((int(page[:-1]))+1) + 'a'
+        nextPage = str((int(page[:-1]))+1) + 'a'
     else:
-        prevPage = ((int(page[:-1]))-1) + 'b'
+        prevPage = str((int(page[:-1]))-1) + 'b'
         nextPage = page[:-1] + 'b'
     wrapper = '<a href="/' + title + '.' + prevPage + '">Previous</a>' + \
               '<a href="/' + title + '.' + nextPage + '">Next</a>'
