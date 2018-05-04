@@ -103,8 +103,8 @@
       <file leaf-file-name="talmud_dev.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/hello/talmud_dev.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="253">
-              <caret line="202" column="32" selection-start-line="202" selection-start-column="32" selection-end-line="202" selection-end-column="32" />
+            <state relative-caret-position="307">
+              <caret line="210" lean-forward="true" selection-start-line="210" selection-end-line="210" />
               <folding>
                 <element signature="e#46#83#0" expanded="true" />
               </folding>
@@ -133,7 +133,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>genslpl</find>
       <find>contains_transliteration</find>
       <find>name</find>
       <find>nodes =</find>
@@ -163,6 +162,7 @@
       <find>findstude</find>
       <find>findStudentRelationships</find>
       <find>student_edges</find>
+      <find>daf</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -745,8 +745,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/hello/talmud_dev.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="202" column="32" selection-start-line="202" selection-start-column="32" selection-end-line="202" selection-end-column="32" />
+        <state relative-caret-position="307">
+          <caret line="210" lean-forward="true" selection-start-line="210" selection-end-line="210" />
           <folding>
             <element signature="e#46#83#0" expanded="true" />
           </folding>
