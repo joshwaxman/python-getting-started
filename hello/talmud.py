@@ -199,9 +199,19 @@ def htmlOutputter(title: str, page: str):
     item = theText[0]
     contents = item['contents']
     student_nodes = item['EncodedNodes']
-    allRabbis = [item['name'] for item in student_nodes]
-    #student_edges = findStudentRelationships(allRabbis)
-    student_edges = item['EncodedEdges']
+
+    if 'EncodedEdges' in item: # already computed for this daf
+        student_edges = item['EncodedEdges']
+    else: # compute for the first time
+        allRabbis = [item['name'] for item in student_nodes]
+        student_edges, student_nodes = findStudentRelationships(allRabbis)
+        mivami.update_one({'title': title + ":" + str(daf)},
+                          {'$set':
+                               {'EncodedEdges': student_edges}}, upsert=True)
+
+        # write the edges out so that it does not need to be computed a second time
+
+    #student_edges = item['EncodedEdges']
     local_interaction_nodes = item['LocalInteractionNodes']
     local_interaction_edges = item['LocalInteractionEdges']
     if 'GlobalInteractionNodes' in theText[0]:
