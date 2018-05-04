@@ -136,6 +136,26 @@ def graphTransformation(edges: List[Dict[str, Any]], nodes: Set[str]):
 
     return edges, nodes
 
+def graphTransformation(edges: List[Dict[str, Any]], nodes: Dict[str]):
+    # the transformation in question is that nodes are
+    # strings such as 'Rabbi Meir', rather than numbers,
+    # and these are also the source / target values of
+    # the edges.
+
+    nodes = list(nodes)
+    nodesByName = {name : id for id, name in enumerate(nodes)}
+    nodesById = {id: name for id, name in enumerate(nodes)}
+
+    nodes = [{'name': name} for name in nodes]
+    edges = [{'source': nodesByName[edge['source']],
+              'target': nodesByName[edge['target']],
+              'label': edge['label']
+              } for edge in edges]
+
+    return edges, nodes
+
+
+
 
 def getDafYomi():
     client = MongoClient(
@@ -180,8 +200,8 @@ def htmlOutputter(title: str, page: str):
     contents = item['contents']
     student_nodes = item['EncodedNodes']
     allRabbis = [item['name'] for item in student_nodes]
-    student_edges = findStudentRelationships(allRabbis)
-    #student_edges = item['EncodedEdges']
+    #student_edges = findStudentRelationships(allRabbis)
+    student_edges = item['EncodedEdges']
     local_interaction_nodes = item['LocalInteractionNodes']
     local_interaction_edges = item['LocalInteractionEdges']
     if 'GlobalInteractionNodes' in theText[0]:
@@ -213,7 +233,7 @@ def htmlOutputter(title: str, page: str):
 
     # why was this not precomputed?
     local_interaction_edges, local_interaction_nodes = graphTransformation(local_interaction_edges, local_interaction_nodes)
-    student_edges, student_nodes = graphTransformation(student_edges, student_nodes)
+    #student_edges, student_nodes = graphTransformation(student_edges, student_nodes)
 
     return leftside, student_edges, student_nodes, local_interaction_edges, local_interaction_nodes, \
            global_interaction_edges, global_interaction_nodes
