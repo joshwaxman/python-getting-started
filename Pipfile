@@ -12,7 +12,6 @@ django-heroku = "*"
 pymongo = "*"
 regex = "*"
 neo4j-driver = "*"
-nltk = "*"
 
 [requires]
 
