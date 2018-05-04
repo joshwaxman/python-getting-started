@@ -212,7 +212,7 @@ def htmlOutputter(title: str, page: str):
     leftside = wrapper
 
     # why was this not precomputed?
-    local_interaction_edges, local_interaction_nodes = graphOutput.graphTransformation(local_interaction_edges, local_interaction_nodes)
+    local_interaction_edges, local_interaction_nodes = graphTransformation(local_interaction_edges, local_interaction_nodes)
 
 
     return leftside, student_edges, student_nodes, local_interaction_edges, local_interaction_nodes, \

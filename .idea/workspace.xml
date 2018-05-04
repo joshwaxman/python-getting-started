@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="04c11b65-1a3f-47b2-99ed-8b7a1afc905b" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/hello/graphOutput.py" beforeDir="false" afterPath="$PROJECT_DIR$/hello/graphOutput.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hello/talmud.py" beforeDir="false" afterPath="$PROJECT_DIR$/hello/talmud.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -101,8 +100,8 @@
       <file leaf-file-name="talmud.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/hello/talmud.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="751">
-              <caret line="136" column="23" selection-start-line="136" selection-start-column="23" selection-end-line="136" selection-end-column="23" />
+            <state relative-caret-position="239">
+              <caret line="215" lean-forward="true" selection-start-line="215" selection-end-line="215" />
               <folding>
                 <element signature="e#46#83#0" expanded="true" />
               </folding>
@@ -132,14 +131,14 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>statementprocessor</find>
-      <find />
-      <find />
+      <find>ben L</find>
+      <find>said to</find>
       <find>exceot</find>
-      <find />
+      <find>w == bar</find>
       <find>genslpl</find>
       <find>contains_transliteration</find>
       <find>name</find>
-      <find />
+      <find>nodes =</find>
       <find>circle</find>
       <find>nodelabel</find>
       <find>tspan</find>
@@ -149,7 +148,7 @@
       <find>font</find>
       <find>font-s</find>
       <find>unknown</find>
-      <find />
+      <find>how her</find>
       <find>home</find>
       <find>nothing</find>
       <find>https</find>
@@ -345,9 +344,9 @@
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Python Console" order="7" weight="0.0" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32943925" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32943925" />
       <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="right" id="SciView" order="3" />
@@ -745,8 +744,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/hello/talmud.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="751">
-          <caret line="136" column="23" selection-start-line="136" selection-start-column="23" selection-end-line="136" selection-end-column="23" />
+        <state relative-caret-position="239">
+          <caret line="215" lean-forward="true" selection-start-line="215" selection-end-line="215" />
           <folding>
             <element signature="e#46#83#0" expanded="true" />
           </folding>
