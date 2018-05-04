@@ -53,7 +53,7 @@ def talmud_dev(request, masechet='missing', page='missing'):
         # try to find in dafyomi
 
         masechet, page = getDafYomi()
-    from hello.talmud import htmlOutputter
+    from hello.talmud_dev import htmlOutputter
     leftside, student_edges, student_nodes, local_interaction_edges,\
                 local_interaction_nodes, global_interaction_edges, global_interaction_nodes \
                         = htmlOutputter(masechet, page)
