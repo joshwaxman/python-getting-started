@@ -13,6 +13,7 @@ import hello.views
 urlpatterns = [
     url(r'^$', hello.views.index, name='index'),
     url(r'^talmud/(\w*).(\w*)', hello.views.talmud, name='talmud'),
+    url(r'^talmud_dev/(\w*).(\w*)', hello.views.talmud_dev, name='talmud_dev'),
     url(r'^talmud', hello.views.talmud, name='talmud'),
     url(r'^about', hello.views.about, name='about'),
     url(r'^people', hello.views.people, name='people'),
