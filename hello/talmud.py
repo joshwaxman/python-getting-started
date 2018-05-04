@@ -159,7 +159,7 @@ def htmlOutputter(title: str, page: str):
     item = theText[0]
     contents = item['contents']
     student_nodes = item['EncodedNodes']
-    allRabbis = [item['name'] for name in student_nodes]
+    allRabbis = [item['name'] for item in student_nodes]
     student_edges = findStudentRelationships(allRabbis)
     #student_edges = item['EncodedEdges']
     local_interaction_nodes = item['LocalInteractionNodes']
