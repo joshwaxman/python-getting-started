@@ -42,13 +42,19 @@ def htmlOutputter(title: str, page: str):
 
     theText = {'title': title + ":" + str(daf)}
     theText = list(mivami.find(theText))
-    contents = theText[0]['contents']
-    student_nodes = theText[0]['EncodedNodes']
-    student_edges = theText[0]['EncodedEdges']
-    local_interaction_nodes = theText[0]['LocalInteractionNodes']
-    local_interaction_edges = theText[0]['LocalInteractionEdges']
-    global_interaction_nodes = theText[0]['GlobalInteractionNodes']
-    global_interaction_edges = theText[0]['GlobalInteractionEdges']
+
+    item = theText[0]
+    contents = item['contents']
+    student_nodes = item['EncodedNodes']
+    student_edges = item['EncodedEdges']
+    local_interaction_nodes = item['LocalInteractionNodes']
+    local_interaction_edges = item['LocalInteractionEdges']
+    if 'GlobalInteractionNodes' in theText[0]:
+        global_interaction_nodes = item['GlobalInteractionNodes']
+        global_interaction_edges = item['GlobalInteractionEdges']
+    else:
+        global_interaction_nodes = local_interaction_nodes
+        global_interaction_edges = local_interaction_edges
 
 
     wrapper += '<a href="https://www.sefaria.org/%s?lang=bi">%s</a></p>' % (title + '.' +str(page), title+" "+str(page)) #Pesachim.7b, Pesachim 7b

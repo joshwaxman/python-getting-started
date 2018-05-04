@@ -158,6 +158,15 @@
 
 <script type="text/javascript">
 function draw_graph(n, e, bLegend) {
+    // we may have multiple edges from node a to node b.
+    // maybe these should be handled when populating the
+    // database. however, our approach here is to merge
+    // edges where target -> source are identical.
+    {#edgeDictionary = {}#}
+    {#for (var edge in e) {#}
+    {#    edgeDictionary#}
+    {#}#}
+
     d3.select("svg").remove();
     var w = 1200;
     var h = 900;
