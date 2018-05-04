@@ -136,7 +136,7 @@ def graphTransformation(edges: List[Dict[str, Any]], nodes: Set[str]):
 
     return edges, nodes
 
-def graphTransformation(edges: List[Dict[str, Any]], nodes: Dict[str]):
+def graphTransformation2(edges: List[Dict[str, Any]], nodes: Dict[str]):
     # the transformation in question is that nodes are
     # strings such as 'Rabbi Meir', rather than numbers,
     # and these are also the source / target values of

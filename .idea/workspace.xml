@@ -100,8 +100,8 @@
       <file leaf-file-name="talmud.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/hello/talmud.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="293">
-              <caret line="204" selection-start-line="204" selection-end-line="204" />
+            <state relative-caret-position="221">
+              <caret line="139" column="4" selection-start-line="139" selection-start-column="4" selection-end-line="139" selection-end-column="4" />
               <folding>
                 <element signature="e#46#83#0" expanded="true" />
               </folding>
@@ -130,8 +130,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>statementprocessor</find>
-      <find>ben L</find>
       <find>said to</find>
       <find>exceot</find>
       <find>w == bar</find>
@@ -160,6 +158,8 @@
       <find>tick</find>
       <find>trans</find>
       <find>button</find>
+      <find>dict</find>
+      <find>nodes:</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -744,8 +744,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/hello/talmud.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="204" selection-start-line="204" selection-end-line="204" />
+        <state relative-caret-position="221">
+          <caret line="139" column="4" selection-start-line="139" selection-start-column="4" selection-end-line="139" selection-end-column="4" />
           <folding>
             <element signature="e#46#83#0" expanded="true" />
           </folding>
