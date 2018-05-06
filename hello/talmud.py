@@ -232,7 +232,7 @@ def graphTransformation(edges: List[Dict[str, Any]], nodes: Set[str]):
 
     edges2 = []
     for edge in edges:
-        if edge['target'] != '' and edge['source'] != 0:
+        if edge['target'] != '' and edge['source'] != '':
             edges2.append({'source': nodesByName[edge['source']],
                             'target': nodesByName[edge['target']],
                             'label': edge['label']})
