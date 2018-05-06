@@ -229,10 +229,14 @@ def graphTransformation(edges: List[Dict[str, Any]], nodes: Set[str]):
     nodesById = {id: name for id, name in enumerate(nodes)}
 
     nodes = [{'name': name} for name in nodes]
-    edges = [{'source': nodesByName[edge['source']],
-              'target': nodesByName[edge['target']],
-              'label': edge['label']
-              } for edge in edges]
+
+    edges2 = []
+    for edge in edges:
+        if edge['target'] != '' and edge['source'] != 0:
+            edges2.append({'source': nodesByName[edge['source']],
+                            'target': nodesByName[edge['target']],
+                            'label': edge['label']})
+    edges = edges2
 
     return edges, nodes
 
