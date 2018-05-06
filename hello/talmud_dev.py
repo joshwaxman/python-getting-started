@@ -8,6 +8,106 @@ driver = GraphDatabase.driver("bolt://hobby-iamlocehkkokgbkekbgcgbal.dbs.graphen
 
 session = driver.session()
 
+from typing import List
+def findGlobalRelationships(people: List[str]):
+    peopleTuple = tuple(sorted(people))
+    if peopleTuple in findGlobalRelationships.cache:
+        return findGlobalRelationships.cache[peopleTuple]
+
+    edgesOriginal = []  # type: List[Dict[str, str]]
+    relationDict = {}
+    nodesById = dict()
+
+    # get the nodes, and specifically the node ids, of all of the computed rabbis
+    # we have passed in
+
+    query = 'match (r1:ComputedRabbi) where r1.name in ' + str(people) + ' return r1'
+    result = session.run(query)
+
+    for record in result:
+        nodeId = record['r1'].id
+        englishName = record['r1']['name']
+        nodesById[nodeId] = {'name': englishName, 'appears': "True"}
+
+    if len(people) > 1: # it takes at least two to tango. else no relationships to find.
+        # now include rabbis who have global paths from one to the other
+        query = 'match (r1:ComputedRabbi) where r1.name in ' + str(people) + '\n' + \
+                'match (r2:ComputedRabbi) where r2.name in ' + str(people) + '\n' + \
+                "match path = (r1)-[relationship2 { daf: 'global'}]-(r2)" + '\n' + \
+                'return path, relationship2, r1, r2'
+
+        result = session.run(query)
+
+        for record in result:
+            # already added r1 and r2 to nodes, so need not add them
+            # do however add the relationship
+            source = record['relationship2'].start
+            target = record['relationship2'].end
+            relationDict = dict()
+            relationDict['source'] = source
+            relationDict['target'] = target
+            relationDict['type'] = record['relationship2'].type
+            edgesOriginal.append(relationDict)
+
+        # now include rabbis who share an indirect connection
+        query = 'match (r1:ComputedRabbi) where r1.name in ' + str(people) + '\n' + \
+                'match (r2:ComputedRabbi) where id(r1) <> id(r2) and r2.name in ' + str(people) + '\n' + \
+                'match (r3:ComputedRabbi) where not r3.name in ' + str(people) + '\n' + \
+                'match path = (r1)-[relationship1:student]-(r3)-[relationship2: student]-(r2)' + '\n' + \
+                'return distinct path, relationship1, relationship2, r1, r2, r3'
+
+        result = session.run(query)
+
+        for record in result:
+            # add the additional rabbi
+            nodeId = record['r3'].id
+            englishName = record['r3']['name']
+
+            nodesById[nodeId] = {'name': englishName, 'appears': "False"}
+
+            source = record['relationship1'].start
+            target = record['relationship1'].end
+            relationDict = dict()
+            relationDict['source'] = source
+            relationDict['target'] = target
+            relationDict['type'] = record['relationship1'].type
+            edgesOriginal.append(relationDict)
+
+            source = record['relationship2'].start
+            target = record['relationship2'].end
+            relationDict = dict()
+            relationDict['source'] = source
+            relationDict['target'] = target
+            relationDict['type'] = record['relationship2'].type
+            edgesOriginal.append(relationDict)
+
+    # add list position to nodesById
+    nodes = []
+    for i, nodeId in enumerate(nodesById.keys()):
+        nodesById[nodeId]['id'] = i
+        nodes.append(nodesById[nodeId])
+
+    # update edges to be by position
+    edges = []  # type: List[Dict[str, str]]
+
+    setSourceTargetType = set()
+
+    for d in edgesOriginal:
+        source = nodesById[d['source']]['id']
+        target = nodesById[d['target']]['id']
+        type = d['type']
+        if (source, target, type) not in setSourceTargetType:
+            element = {'source': source,
+                       'target': target,
+                       'label': type}
+            edges.append(element)
+            setSourceTargetType.add((source, target, type))
+
+    findGlobalRelationships.cache[peopleTuple] = edges, nodes
+    return edges, nodes
+findGlobalRelationships.cache = dict() # type: Dict[Tuple, Tuple]
+
+
 def findStudentRelationships(people):
     peopleTuple = tuple(sorted(people))
     if peopleTuple in findStudentRelationships.cache:
@@ -207,7 +307,9 @@ def htmlOutputter(title: str, page: str):
         student_edges, student_nodes = findStudentRelationships(allRabbis)
         mivami.update_one({'title': title + ":" + str(daf)},
                           {'$set':
-                               {'EncodedEdges': student_edges}}, upsert=True)
+                               {'EncodedNodes': student_nodes,
+                                'EncodedEdges': student_edges}
+                           }, upsert=True)
 
         # write the edges out so that it does not need to be computed a second time
 
@@ -219,7 +321,8 @@ def htmlOutputter(title: str, page: str):
         global_interaction_edges = item['GlobalInteractionEdges']
     else:
         global_interaction_nodes = local_interaction_nodes
-        global_interaction_edges = local_interaction_edges
+        global_interaction_edges, global_interaction_nodes = findGlobalRelationships(global_interaction_nodes)
+        mivami.update_one({'title': title+":"+str(daf)}, {'$set': {'GlobalInteractionNodes': global_interaction_nodes, 'GlobalInteractionEdges': global_interaction_edges}})
 
     wrapper += '<a href="https://www.sefaria.org/%s?lang=bi">%s</a></p>' % (title + '.' +str(page), title+" "+str(page)) #Pesachim.7b, Pesachim 7b
 
