@@ -109,6 +109,9 @@ findGlobalRelationships.cache = dict() # type: Dict[Tuple, Tuple]
 
 
 def findStudentRelationships(people):
+    driver = GraphDatabase.driver("bolt://hobby-iamlocehkkokgbkekbgcgbal.dbs.graphenedb.com:24786",
+                                  auth=basic_auth("mivami", "b.jOGYTThIm49J.NCgtoqGY0qrXXajq"))
+    session = driver.session()
     peopleTuple = tuple(sorted(people))
     if peopleTuple in findStudentRelationships.cache:
         return findStudentRelationships.cache[peopleTuple]
@@ -325,8 +328,9 @@ def htmlOutputter(title: str, page: str):
         global_interaction_edges = item['GlobalInteractionEdges']
     else:
         global_interaction_nodes = local_interaction_nodes
-        global_interaction_edges, global_interaction_nodes = findGlobalRelationships(global_interaction_nodes)
-        mivami.update_one({'title': title+":"+str(daf)}, {'$set': {'GlobalInteractionNodes': global_interaction_nodes, 'GlobalInteractionEdges': global_interaction_edges}})
+        global_interaction_edges = local_interaction_edges # for now, back up to this
+        #global_interaction_edges, global_interaction_nodes = findGlobalRelationships(global_interaction_nodes)
+        #mivami.update_one({'title': title+":"+str(daf)}, {'$set': {'GlobalInteractionNodes': global_interaction_nodes, 'GlobalInteractionEdges': global_interaction_edges}})
 
     wrapper += '<a href="https://www.sefaria.org/%s?lang=bi">%s</a></p>' % (title + '.' +str(page), title+" "+str(page)) #Pesachim.7b, Pesachim 7b
 
