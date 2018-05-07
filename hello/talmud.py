@@ -3,10 +3,6 @@ from hello.Statement import Statement
 from pymongo import MongoClient
 import datetime
 from neo4j.v1 import GraphDatabase, basic_auth
-driver = GraphDatabase.driver("bolt://hobby-iamlocehkkokgbkekbgcgbal.dbs.graphenedb.com:24786",
-                              auth=basic_auth("mivami", "b.jOGYTThIm49J.NCgtoqGY0qrXXajq"))
-
-session = driver.session()
 
 from typing import List
 def findGlobalRelationships(people: List[str]):
@@ -17,6 +13,10 @@ def findGlobalRelationships(people: List[str]):
     edgesOriginal = []  # type: List[Dict[str, str]]
     relationDict = {}
     nodesById = dict()
+
+    driver = GraphDatabase.driver("bolt://hobby-iamlocehkkokgbkekbgcgbal.dbs.graphenedb.com:24786",
+                                  auth=basic_auth("mivami", "b.jOGYTThIm49J.NCgtoqGY0qrXXajq"))
+    session = driver.session()
 
     # get the nodes, and specifically the node ids, of all of the computed rabbis
     # we have passed in
