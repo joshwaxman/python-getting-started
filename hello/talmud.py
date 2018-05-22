@@ -310,7 +310,7 @@ def htmlOutputter(title: str, page: str):
     if 'EncodedEdges' in item: # already computed for this daf
         student_edges = item['EncodedEdges']
     else: # compute for the first time
-        allRabbis = [item['name'] for item in student_nodes]
+        allRabbis = [item['name'] for item in student_nodes if 'name' in item]
         student_edges, student_nodes = findStudentRelationships(allRabbis)
         mivami.update_one({'title': title + ":" + str(daf)},
                           {'$set':
