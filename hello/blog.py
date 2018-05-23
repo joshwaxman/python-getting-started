@@ -1,4 +1,4 @@
-import markdown
+import mistune
 from pymongo import *
 
 def getBlogPost():
@@ -10,7 +10,7 @@ def getBlogPost():
     try:
         html = ''
         for post in db.posts.find().sort('theDate', ASCENDING).limit(10):
-            html +=  markdown.markdown(post['text'])
+            html += mistune.markdown(post['text'])
     except:
         html = 'default text'
 
