@@ -1,7 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 
-
 from .models import Greeting
 
 # Create your views here.
@@ -16,6 +15,11 @@ def about(request):
 def people(request):
     # return HttpResponse('Hello from Python!')
     return render(request, 'people.html')
+
+def blog(request):
+    from hello.blog import getBlogPost
+    text = getBlogPost()
+    return render(request, 'blog.html', {'blogpost': text})
 
 def db(request):
 

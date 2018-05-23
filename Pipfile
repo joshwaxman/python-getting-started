@@ -12,6 +12,7 @@ django-heroku = "*"
 pymongo = "*"
 regex = "*"
 neo4j-driver = "*"
+markdown = "*"
 
 [requires]
 

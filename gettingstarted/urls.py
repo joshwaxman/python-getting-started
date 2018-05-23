@@ -18,6 +18,7 @@ urlpatterns = [
     url(r'^about', hello.views.about, name='about'),
     url(r'^people', hello.views.people, name='people'),
     url(r'^db', hello.views.db, name='db'),
+    url(r'^blog', hello.views.blog, name='blog'),
 
     path('admin/', admin.site.urls),
 ]
