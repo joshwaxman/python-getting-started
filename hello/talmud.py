@@ -1,5 +1,5 @@
 #from django.contrib.gis.geoip2 import GeoIP2
-from hello.Statement import Statement
+#from hello.Statement import Statement
 from pymongo import MongoClient
 import datetime
 from neo4j.v1 import GraphDatabase, basic_auth
