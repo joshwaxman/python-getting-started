@@ -3,8 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="04c11b65-1a3f-47b2-99ed-8b7a1afc905b" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hello/talmud.py" beforeDir="false" afterPath="$PROJECT_DIR$/hello/talmud.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hello/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/hello/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hello/blog.py" beforeDir="false" afterPath="$PROJECT_DIR$/hello/blog.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hello/templates/blog.html" beforeDir="false" afterPath="$PROJECT_DIR$/hello/templates/blog.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -24,8 +24,8 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hello/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="118">
-              <caret line="42" column="32" lean-forward="true" selection-start-line="42" selection-start-column="32" selection-end-line="42" selection-end-column="32" />
+            <state relative-caret-position="164">
+              <caret line="26" column="15" selection-start-line="26" selection-start-column="15" selection-end-line="26" selection-end-column="15" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
               </folding>
@@ -33,11 +33,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="blog.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="blog.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/hello/blog.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="13" column="11" selection-start-line="13" selection-start-column="11" selection-end-line="13" selection-end-column="11" />
+            <state relative-caret-position="334">
+              <caret line="16" column="70" selection-start-line="16" selection-start-column="70" selection-end-line="16" selection-end-column="70" />
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
               </folding>
@@ -66,8 +66,8 @@
       <file leaf-file-name="blog.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hello/templates/blog.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="6" selection-start-line="6" selection-end-line="6" />
+            <state relative-caret-position="108">
+              <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
             </state>
           </provider>
         </entry>
@@ -75,7 +75,7 @@
       <file leaf-file-name="talmud.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hello/templates/talmud.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="8555">
+            <state relative-caret-position="469">
               <caret line="432" selection-start-line="432" selection-end-line="433" />
             </state>
           </provider>
@@ -93,7 +93,7 @@
       <file leaf-file-name="mongo_statement_extractor.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hello/mongo_statement_extractor.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="756">
+            <state relative-caret-position="837">
               <caret line="31" column="25" selection-start-line="31" selection-start-column="25" selection-end-line="31" selection-end-column="25" />
               <folding>
                 <element signature="e#42#73#0" expanded="true" />
@@ -105,7 +105,7 @@
       <file leaf-file-name="talmud.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hello/talmud.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5383">
+            <state relative-caret-position="7668">
               <caret line="284" column="4" selection-start-line="284" selection-start-column="4" selection-end-line="284" selection-end-column="4" />
               <folding>
                 <element signature="e#85#116#0" expanded="true" />
@@ -114,11 +114,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="base.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="base.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hello/templates/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="351">
-              <caret line="13" column="9" selection-start-line="13" selection-start-column="9" selection-end-line="13" selection-end-column="9" />
+            <state relative-caret-position="432">
+              <caret line="16" column="25" lean-forward="true" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -135,7 +135,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>.text</find>
       <find>font</find>
       <find>font-s</find>
       <find>unknown</find>
@@ -162,9 +161,10 @@
       <find>about</find>
       <find>bolt</find>
       <find>'name</find>
-      <find>blog</find>
       <find>{{</find>
       <find>import statement</find>
+      <find>blog</find>
+      <find>safe</find>
     </findStrings>
     <dirStrings>
       <dir>C:\josh\mivami</dir>
@@ -191,15 +191,15 @@
         <option value="$PROJECT_DIR$/hello/talmud_dev.py" />
         <option value="$PROJECT_DIR$/hello/templates/about.html" />
         <option value="$PROJECT_DIR$/gettingstarted/urls.py" />
-        <option value="$PROJECT_DIR$/hello/templates/blog.html" />
         <option value="$PROJECT_DIR$/hello/views.py" />
         <option value="$PROJECT_DIR$/requirements.text" />
         <option value="$PROJECT_DIR$/Pipfile" />
-        <option value="$PROJECT_DIR$/hello/blog.py" />
         <option value="$PROJECT_DIR$/hello/templates/people.html" />
         <option value="$PROJECT_DIR$/hello/templates/talmud.html" />
         <option value="$PROJECT_DIR$/hello/talmud.py" />
         <option value="$PROJECT_DIR$/hello/templates/base.html" />
+        <option value="$PROJECT_DIR$/hello/templates/blog.html" />
+        <option value="$PROJECT_DIR$/hello/blog.py" />
       </list>
     </option>
   </component>
@@ -354,17 +354,17 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" visible="true" weight="0.32943925" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32943925" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Python Console" order="7" weight="0.0" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32943925" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="right" id="SciView" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -677,13 +677,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hello/templates/blog.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Pipfile">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="405">
@@ -696,16 +689,6 @@
         <state relative-caret-position="-1251" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hello/blog.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="13" column="11" selection-start-line="13" selection-start-column="11" selection-end-line="13" selection-end-column="11" />
-          <folding>
-            <element signature="e#0#14#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/hello/EnglishDictionary.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
@@ -715,7 +698,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/hello/mongo_statement_extractor.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="756">
+        <state relative-caret-position="837">
           <caret line="31" column="25" selection-start-line="31" selection-start-column="25" selection-end-line="31" selection-end-column="25" />
           <folding>
             <element signature="e#42#73#0" expanded="true" />
@@ -730,26 +713,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hello/templates/talmud.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="8555">
-          <caret line="432" selection-start-line="432" selection-end-line="433" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hello/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="118">
-          <caret line="42" column="32" lean-forward="true" selection-start-line="42" selection-start-column="32" selection-end-line="42" selection-end-column="32" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/hello/talmud.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5383">
+        <state relative-caret-position="7668">
           <caret line="284" column="4" selection-start-line="284" selection-start-column="4" selection-end-line="284" selection-end-column="4" />
           <folding>
             <element signature="e#85#116#0" expanded="true" />
@@ -759,8 +725,42 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/hello/templates/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="13" column="9" selection-start-line="13" selection-start-column="9" selection-end-line="13" selection-end-column="9" />
+        <state relative-caret-position="432">
+          <caret line="16" column="25" lean-forward="true" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hello/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="26" column="15" selection-start-line="26" selection-start-column="15" selection-end-line="26" selection-end-column="15" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hello/templates/talmud.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="469">
+          <caret line="432" selection-start-line="432" selection-end-line="433" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hello/templates/blog.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hello/blog.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="334">
+          <caret line="16" column="70" selection-start-line="16" selection-start-column="70" selection-end-line="16" selection-end-column="70" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
