@@ -1,10 +1,78 @@
 #from django.contrib.gis.geoip2 import GeoIP2
-#from hello.Statement import Statement
 from pymongo import MongoClient
 import datetime
 from neo4j.v1 import GraphDatabase, basic_auth
+#driver = GraphDatabase.driver("bolt://hobby-iamlocehkkokgbkekbgcgbal.dbs.graphenedb.com:24786",
+#                              auth=basic_auth("mivami", "b.jOGYTThIm49J.NCgtoqGY0qrXXajq"))
+
+# paid connection string
+driver = GraphDatabase.driver("bolt://hobby-jhedjehadkjfgbkeaajelfal.dbs.graphenedb.com:24786", auth=basic_auth("mivami", "b.hsh2OnrThi0v.aPpsVUFV5tjE7dzw"))
+
+#driver = GraphDatabase.driver("bolt://localhost:7687", auth=basic_auth("neo4j", "qwerty"))
+session = driver.session()
 
 from typing import List
+
+def findLocalRelationships(people: List[str], daf: str):
+
+    edgesOriginal = []  # type: List[Dict[str, str]]
+    relationDict = {}
+    nodesById = dict()
+
+    query = 'match (r1:ComputedRabbi)-[rel]-(r2:ComputedRabbi) where rel.daf = "' + daf + '" return r1, r2, rel'
+
+    result = session.run(query)
+    h = query
+    count = 0
+    for record in result:
+        nodeId = record['r1'].id
+        englishName = record['r1']['name']
+        nodesById[nodeId] = {'name': englishName, 'appears': "True"}
+
+        nodeId = record['r2'].id
+        englishName = record['r2']['name']
+        nodesById[nodeId] = {'name': englishName, 'appears': "True"}
+
+        count += 1
+        source = record['rel'].start
+        target = record['rel'].end
+        relationDict = dict()
+        relationDict['source'] = source
+        relationDict['target'] = target
+        relationDict['type'] = record['rel'].type
+        edgesOriginal.append(relationDict)
+
+    # add list position to nodesById
+    nodes = []
+    for i, nodeId in enumerate(nodesById.keys()):
+        nodesById[nodeId]['id'] = i
+        nodes.append(nodesById[nodeId])
+
+    # add people from this page who don't have
+    # relationships, passed in
+    pos = len(nodes) # so no overlap in item number
+    for person in people:
+        nodes.append({'name': person})
+    # update edges to be by position
+    edges = []  # type: List[Dict[str, str]]
+
+    setSourceTargetType = set()
+
+    for d in edgesOriginal:
+        source = nodesById[d['source']]['id']
+        target = nodesById[d['target']]['id']
+        type = d['type']
+        if (source, target, type) not in setSourceTargetType:
+            element = {'source': source,
+                       'target': target,
+                       'label': type}
+            edges.append(element)
+            setSourceTargetType.add((source, target, type))
+
+    h += str(count)
+    return h, nodes, edges
+
+
 def findGlobalRelationships(people: List[str]):
     peopleTuple = tuple(sorted(people))
     if peopleTuple in findGlobalRelationships.cache:
@@ -13,10 +81,6 @@ def findGlobalRelationships(people: List[str]):
     edgesOriginal = []  # type: List[Dict[str, str]]
     relationDict = {}
     nodesById = dict()
-
-    driver = GraphDatabase.driver("bolt://hobby-iamlocehkkokgbkekbgcgbal.dbs.graphenedb.com:24786",
-                                  auth=basic_auth("mivami", "b.jOGYTThIm49J.NCgtoqGY0qrXXajq"))
-    session = driver.session()
 
     # get the nodes, and specifically the node ids, of all of the computed rabbis
     # we have passed in
@@ -109,9 +173,6 @@ findGlobalRelationships.cache = dict() # type: Dict[Tuple, Tuple]
 
 
 def findStudentRelationships(people):
-    driver = GraphDatabase.driver("bolt://hobby-iamlocehkkokgbkekbgcgbal.dbs.graphenedb.com:24786",
-                                  auth=basic_auth("mivami", "b.jOGYTThIm49J.NCgtoqGY0qrXXajq"))
-    session = driver.session()
     peopleTuple = tuple(sorted(people))
     if peopleTuple in findStudentRelationships.cache:
         return findStudentRelationships.cache[peopleTuple]
@@ -232,14 +293,10 @@ def graphTransformation(edges: List[Dict[str, Any]], nodes: Set[str]):
     nodesById = {id: name for id, name in enumerate(nodes)}
 
     nodes = [{'name': name} for name in nodes]
-
-    edges2 = []
-    for edge in edges:
-        if edge['target'] != '' and edge['source'] != '':
-            edges2.append({'source': nodesByName[edge['source']],
-                            'target': nodesByName[edge['target']],
-                            'label': edge['label']})
-    edges = edges2
+    edges = [{'source': nodesByName[edge['source']],
+              'target': nodesByName[edge['target']],
+              'label': edge['label']
+              } for edge in edges]
 
     return edges, nodes
 
@@ -279,10 +336,14 @@ def getDafYomi():
 
 
 def htmlOutputter(title: str, page: str):
-    #client = MongoClient()
-    client = MongoClient("mongodb://mivami:Talmud1%@talmud-shard-00-00-ol0w9.mongodb.net:27017,talmud-shard-00-01-ol0w9.mongodb.net:27017,talmud-shard-00-02-ol0w9.mongodb.net:27017/admin?replicaSet=Talmud-shard-0&ssl=true")
+#    client = MongoClient(
+#        "mongodb://mivami:Talmud1%@talmud-shard-00-00-ol0w9.mongodb.net:27017,talmud-shard-00-01-ol0w9.mongodb.net:27017,talmud-shard-00-02-ol0w9.mongodb.net:27017/admin?replicaSet=Talmud-shard-0&ssl=true")
+    client = MongoClient()
     db = client.sefaria
+    mivami_html = db.mivami_stage_03_html
+    mivami_persons = db.mivami_stage_02_persons
     mivami = db.mivami
+    person = db.person
 
     if page.endswith('b'):
         prevPage = page[:-1] + 'a'
@@ -300,39 +361,53 @@ def htmlOutputter(title: str, page: str):
 
     daf = daf_start
 
-    theText = {'title': title + ":" + str(daf)}
-    theText = list(mivami.find(theText))
+    theText = {'title': title + ':' + str(daf)}
+    item = mivami.find_one(theText)
+    theHtml = mivami_html.find_one(theText)
+    html = theHtml['html']
 
-    item = theText[0]
-    contents = item['contents']
-    student_nodes = item['EncodedNodes']
-
-    if 'EncodedEdges' in item: # already computed for this daf
-        student_edges = item['EncodedEdges']
+    html += '<!––daf:' + str(daf) + '-->'
+    persons = mivami_persons.find_one(theText)['person_in_daf']
+#    html += str(persons)
+    if False: #'EncodedEdges' in theHtml and 'EncodedNodes' in theHtml:
+        # already generated and can pull it
+        student_edges = theHtml['EncodedEdges']
+        student_nodes = theHtml['EncodedNodes']
     else: # compute for the first time
-        allRabbis = [item['name'] for item in student_nodes if 'name' in item]
-        student_edges, student_nodes = findStudentRelationships(allRabbis)
-        mivami.update_one({'title': title + ":" + str(daf)},
+
+        # must look up each person in the person table for full identity
+        #people = list(person.find({'key': {'$in': persons}}))
+        #people = [{'name': p['key'], 'generation': p['generation']} for p in people]
+
+        student_nodes = persons
+        student_edges, student_nodes = findStudentRelationships(student_nodes)
+        mivami_html.update_one({'title': title + ":" + str(daf)},
                           {'$set':
-                               {'EncodedNodes': student_nodes,
-                                'EncodedEdges': student_edges}
+                               {'EncodedEdges': student_edges,
+                                'EncodedNodes': student_nodes}
                            }, upsert=True)
 
         # write the edges out so that it does not need to be computed a second time
 
     #student_edges = item['EncodedEdges']
-    local_interaction_nodes = item['LocalInteractionNodes']
-    local_interaction_edges = item['LocalInteractionEdges']
-    if 'GlobalInteractionNodes' in theText[0]:
+
+    h, local_interaction_nodes, local_interaction_edges = findLocalRelationships(persons, title + '.' + page)
+#    local_interaction_nodes, local_interaction_edges = [], []
+#     html += 'Extra debugguing' + h  + '<br/>'
+#     html += 'Local interaction Nodes: ' + str(local_interaction_nodes) + '</br>'
+#     html += 'Local interaction Edges: ' + str(local_interaction_edges) + '</br>'
+    #local_interaction_nodes = item['LocalInteractionNodes']
+    #local_interaction_edges = item['LocalInteractionEdges']
+    if 'GlobalInteractionNodes' in theText:
         global_interaction_nodes = item['GlobalInteractionNodes']
         global_interaction_edges = item['GlobalInteractionEdges']
     else:
         global_interaction_nodes = local_interaction_nodes
-        global_interaction_edges = local_interaction_edges # for now, back up to this
+        global_interaction_edges = local_interaction_edges
         #global_interaction_edges, global_interaction_nodes = findGlobalRelationships(global_interaction_nodes)
         #mivami.update_one({'title': title+":"+str(daf)}, {'$set': {'GlobalInteractionNodes': global_interaction_nodes, 'GlobalInteractionEdges': global_interaction_edges}})
 
-    wrapper += '<a href="https://www.sefaria.org/%s?lang=bi">%s</a></p>' % (title + '.' +str(page), title+" "+str(page)) #Pesachim.7b, Pesachim 7b
+    wrapper += '<a href="https://www.sefaria.org/%s?lang=bi">%s</a></p>' % (title + '.' +str(page), title+" "+str(page))
 
     # iterate through sugyot,
     # so that we have different graphs
@@ -340,11 +415,7 @@ def htmlOutputter(title: str, page: str):
     sugyaGraphs = []
     pplSet = set()
 
-    for line in contents: # type: Dict[str, Any]
-        #eng, heb = line['eng'], line['heb'] # type: str, str
-        html = line['html']
-
-        wrapper += html
+    wrapper += html
 
     # fix up tags like < strong >
     wrapper = wrapper.replace('< ', '<')
@@ -353,7 +424,7 @@ def htmlOutputter(title: str, page: str):
     leftside = wrapper
 
     # why was this not precomputed?
-    local_interaction_edges, local_interaction_nodes = graphTransformation(local_interaction_edges, local_interaction_nodes)
+    #local_interaction_edges, local_interaction_nodes = graphTransformation(local_interaction_edges, local_interaction_nodes)
     #student_edges, student_nodes = graphTransformation(student_edges, student_nodes)
 
     return leftside, student_edges, student_nodes, local_interaction_edges, local_interaction_nodes, \
