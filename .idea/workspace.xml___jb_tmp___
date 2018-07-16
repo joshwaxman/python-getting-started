@@ -34,8 +34,8 @@
       <file leaf-file-name="talmud_dev.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hello/talmud_dev.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="347">
-              <caret line="431" lean-forward="true" selection-start-line="431" selection-end-line="431" />
+            <state relative-caret-position="11583">
+              <caret line="431" selection-start-line="431" selection-end-line="431" />
               <folding>
                 <element signature="e#46#77#0" expanded="true" />
               </folding>
@@ -67,8 +67,8 @@
       <file leaf-file-name="talmud.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hello/templates/talmud.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="243">
-              <caret line="159" column="3" lean-forward="true" selection-start-line="159" selection-start-column="3" selection-end-line="159" selection-end-column="3" />
+            <state relative-caret-position="4293">
+              <caret line="159" column="3" selection-start-line="159" selection-start-column="3" selection-end-line="159" selection-end-column="3" />
             </state>
           </provider>
         </entry>
@@ -76,7 +76,7 @@
       <file leaf-file-name="talmud_dev.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hello/templates/talmud_dev.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3213">
+            <state relative-caret-position="270">
               <caret line="10" selection-start-line="10" selection-end-line="10" />
             </state>
           </provider>
@@ -103,7 +103,7 @@
       <file leaf-file-name="talmud.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/hello/talmud.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
+            <state relative-caret-position="-30">
               <folding>
                 <element signature="e#46#77#0" expanded="true" />
               </folding>
@@ -114,7 +114,7 @@
       <file leaf-file-name="base.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hello/templates/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="219">
+            <state relative-caret-position="1485">
               <caret line="55" column="47" selection-start-line="55" selection-start-column="47" selection-end-line="55" selection-end-column="47" />
             </state>
           </provider>
@@ -220,6 +220,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -257,7 +258,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -359,7 +359,6 @@
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
-      <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="right" id="SciView" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
@@ -370,6 +369,7 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -723,29 +723,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/hello/templates/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="219">
+        <state relative-caret-position="1485">
           <caret line="55" column="47" selection-start-line="55" selection-start-column="47" selection-end-line="55" selection-end-column="47" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/hello/templates/talmud.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="159" column="3" lean-forward="true" selection-start-line="159" selection-start-column="3" selection-end-line="159" selection-end-column="3" />
+        <state relative-caret-position="4293">
+          <caret line="159" column="3" selection-start-line="159" selection-start-column="3" selection-end-line="159" selection-end-column="3" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/hello/templates/talmud_dev.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3213">
+        <state relative-caret-position="270">
           <caret line="10" selection-start-line="10" selection-end-line="10" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/hello/talmud_dev.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="347">
-          <caret line="431" lean-forward="true" selection-start-line="431" selection-end-line="431" />
+        <state relative-caret-position="11583">
+          <caret line="431" selection-start-line="431" selection-end-line="431" />
           <folding>
             <element signature="e#46#77#0" expanded="true" />
           </folding>
@@ -754,7 +754,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/hello/talmud.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
+        <state relative-caret-position="-30">
           <folding>
             <element signature="e#46#77#0" expanded="true" />
           </folding>
