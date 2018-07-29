@@ -382,6 +382,7 @@ def htmlOutputter(title: str, page: str):
 
     html += '<!––daf:' + str(daf) + '-->'
     persons = mivami_persons.find_one(theText)['person_in_daf']
+    persons = [t[0] for t in persons]
 #    html += str(persons)
     if False: #'EncodedEdges' in theHtml and 'EncodedNodes' in theHtml:
         # already generated and can pull it
