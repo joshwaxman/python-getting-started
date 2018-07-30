@@ -2,7 +2,7 @@
 from pymongo import MongoClient
 import datetime
 from neo4j.v1 import GraphDatabase, basic_auth
-
+import os
 
 # paid connection string
 driver = None
@@ -28,6 +28,8 @@ def findLocalRelationships(people: List[str], daf: str):
     edgesOriginal = []  # type: List[Dict[str, str]]
     relationDict = {}
     nodesById = dict()
+    foundPeople = set()
+    people = set(people)
 
     query = 'match (r1:ComputedRabbi)-[rel]-(r2:ComputedRabbi) where rel.daf = "' + daf + '" return r1, r2, rel'
 
@@ -37,10 +39,12 @@ def findLocalRelationships(people: List[str], daf: str):
     for record in result:
         nodeId = record['r1'].id
         englishName = record['r1']['name']
+        foundPeople.add(englishName)
         nodesById[nodeId] = {'name': englishName, 'appears': "True"}
 
         nodeId = record['r2'].id
         englishName = record['r2']['name']
+        foundPeople.add(englishName)
         nodesById[nodeId] = {'name': englishName, 'appears': "True"}
 
         count += 1
@@ -62,7 +66,9 @@ def findLocalRelationships(people: List[str], daf: str):
     # relationships, passed in
     pos = len(nodes) # so no overlap in item number
     for person in people:
-        nodes.append({'name': person})
+        h += person + "|"
+        if person not in foundPeople:
+            nodes.append({'name': person})
     # update edges to be by position
     edges = []  # type: List[Dict[str, str]]
 
@@ -80,10 +86,12 @@ def findLocalRelationships(people: List[str], daf: str):
             setSourceTargetType.add((source, target, type))
 
     h += str(count)
+    h += str(foundPeople)
     return h, nodes, edges
 
 
 def findGlobalRelationships(people: List[str]):
+    people = list(set(people))
     peopleTuple = tuple(sorted(people))
     if peopleTuple in findGlobalRelationships.cache:
         return findGlobalRelationships.cache[peopleTuple]
@@ -94,10 +102,13 @@ def findGlobalRelationships(people: List[str]):
 
     makeNeoConnection()
 
+    #f = open('logfile.log', 'a')
+
     # get the nodes, and specifically the node ids, of all of the computed rabbis
     # we have passed in
 
     query = 'match (r1:ComputedRabbi) where r1.name in ' + str(people) + ' return r1'
+    #print(query, file=f)
     result = session.run(query)
 
     for record in result:
@@ -180,6 +191,7 @@ def findGlobalRelationships(people: List[str]):
             setSourceTargetType.add((source, target, type))
 
     findGlobalRelationships.cache[peopleTuple] = edges, nodes
+
     return edges, nodes
 findGlobalRelationships.cache = dict() # type: Dict[Tuple, Tuple]
 
@@ -379,8 +391,7 @@ def htmlOutputter(title: str, page: str):
     item = mivami.find_one(theText)
     theHtml = mivami_html.find_one(theText)
     html = theHtml['html']
-
-    html += '<!––daf:' + str(daf) + '-->'
+    html += ('<!––daf:' + str(daf) + '-->')
     persons = mivami_persons.find_one(theText)['person_in_daf']
     persons = [t[0] for t in persons]
 #    html += str(persons)
@@ -408,7 +419,8 @@ def htmlOutputter(title: str, page: str):
 
     h, local_interaction_nodes, local_interaction_edges = findLocalRelationships(persons, title + '.' + page)
 #    local_interaction_nodes, local_interaction_edges = [], []
-#     html += 'Extra debugguing' + h  + '<br/>'
+    #if os.str == 'nt':
+    html += 'Extra debugguing' + h  + '<br/>'
 #     html += 'Local interaction Nodes: ' + str(local_interaction_nodes) + '</br>'
 #     html += 'Local interaction Edges: ' + str(local_interaction_edges) + '</br>'
     #local_interaction_nodes = item['LocalInteractionNodes']
@@ -419,7 +431,8 @@ def htmlOutputter(title: str, page: str):
     else:
         global_interaction_nodes = local_interaction_nodes
         global_interaction_edges = local_interaction_edges
-        #global_interaction_edges, global_interaction_nodes = findGlobalRelationships(global_interaction_nodes)
+
+        global_interaction_edges, global_interaction_nodes = findGlobalRelationships(persons)
         #mivami.update_one({'title': title+":"+str(daf)}, {'$set': {'GlobalInteractionNodes': global_interaction_nodes, 'GlobalInteractionEdges': global_interaction_edges}})
 
     wrapper += '<a href="https://www.sefaria.org/%s?lang=bi">%s</a></p>' % (title + '.' +str(page), title+" "+str(page))

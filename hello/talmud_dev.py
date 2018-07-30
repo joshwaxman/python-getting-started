@@ -1,20 +1,34 @@
 #from django.contrib.gis.geoip2 import GeoIP2
 from pymongo import MongoClient
 import datetime
+import os
 from neo4j.v1 import GraphDatabase, basic_auth
-#driver = GraphDatabase.driver("bolt://hobby-iamlocehkkokgbkekbgcgbal.dbs.graphenedb.com:24786",
-#                              auth=basic_auth("mivami", "b.jOGYTThIm49J.NCgtoqGY0qrXXajq"))
 
 # paid connection string
-driver = GraphDatabase.driver("bolt://hobby-jhedjehadkjfgbkeaajelfal.dbs.graphenedb.com:24786", auth=basic_auth("mivami", "b.hsh2OnrThi0v.aPpsVUFV5tjE7dzw"))
+driver = None
+session = None
 
-#driver = GraphDatabase.driver("bolt://localhost:7687", auth=basic_auth("neo4j", "qwerty"))
-session = driver.session()
+def makeNeoConnection():
+    global driver
+    global session
+
+    if os.name == 'nt': # running locally on win 10
+        driver = GraphDatabase.driver("bolt://localhost:7687", auth=basic_auth("neo4j", "qwerty"))
+    else:
+        driver = GraphDatabase.driver("bolt://hobby-jhedjehadkjfgbkeaajelfal.dbs.graphenedb.com:24786", auth=basic_auth("mivami", "b.hsh2OnrThi0v.aPpsVUFV5tjE7dzw"))
+
+    session = driver.session()
+
+    # driver = GraphDatabase.driver("bolt://hobby-iamlocehkkokgbkekbgcgbal.dbs.graphenedb.com:24786",
+    #                              auth=basic_auth("mivami", "b.jOGYTThIm49J.NCgtoqGY0qrXXajq"))
+
+
+
 
 from typing import List
 
 def findLocalRelationships(people: List[str], daf: str):
-
+    makeNeoConnection()
     edgesOriginal = []  # type: List[Dict[str, str]]
     relationDict = {}
     nodesById = dict()
@@ -81,6 +95,8 @@ def findGlobalRelationships(people: List[str]):
     edgesOriginal = []  # type: List[Dict[str, str]]
     relationDict = {}
     nodesById = dict()
+
+    makeNeoConnection()
 
     # get the nodes, and specifically the node ids, of all of the computed rabbis
     # we have passed in
@@ -176,6 +192,8 @@ def findStudentRelationships(people):
     peopleTuple = tuple(sorted(people))
     if peopleTuple in findStudentRelationships.cache:
         return findStudentRelationships.cache[peopleTuple]
+
+    makeNeoConnection()
 
     edgesOriginal = []  # type: List[Dict[str, str]]
     relationDict = {}
@@ -322,8 +340,12 @@ def graphTransformation2(edges: List[Dict[str, Any]], nodes: Dict[str, str]):
 
 
 def getDafYomi():
-    client = MongoClient(
-        "mongodb://mivami:Talmud1%@talmud-shard-00-00-ol0w9.mongodb.net:27017,talmud-shard-00-01-ol0w9.mongodb.net:27017,talmud-shard-00-02-ol0w9.mongodb.net:27017/admin?replicaSet=Talmud-shard-0&ssl=true")
+
+    if os.name == 'nt':
+        client = MongoClient()
+    else:
+        client = MongoClient(
+            "mongodb://mivami:Talmud1%@talmud-shard-00-00-ol0w9.mongodb.net:27017,talmud-shard-00-01-ol0w9.mongodb.net:27017,talmud-shard-00-02-ol0w9.mongodb.net:27017/admin?replicaSet=Talmud-shard-0&ssl=true")
     db = client.sefaria
     dafyomi = db.dafyomi
     now = datetime.datetime.now()
@@ -336,9 +358,12 @@ def getDafYomi():
 
 
 def htmlOutputter(title: str, page: str):
-#    client = MongoClient(
-#        "mongodb://mivami:Talmud1%@talmud-shard-00-00-ol0w9.mongodb.net:27017,talmud-shard-00-01-ol0w9.mongodb.net:27017,talmud-shard-00-02-ol0w9.mongodb.net:27017/admin?replicaSet=Talmud-shard-0&ssl=true")
-    client = MongoClient()
+    if os.name == 'nt':
+        client = MongoClient()
+    else:
+        client = MongoClient(
+            "mongodb://mivami:Talmud1%@talmud-shard-00-00-ol0w9.mongodb.net:27017,talmud-shard-00-01-ol0w9.mongodb.net:27017,talmud-shard-00-02-ol0w9.mongodb.net:27017/admin?replicaSet=Talmud-shard-0&ssl=true")
+    #client = MongoClient()
     db = client.sefaria
     mivami_html = db.mivami_stage_03_html
     mivami_persons = db.mivami_stage_02_persons
@@ -368,6 +393,7 @@ def htmlOutputter(title: str, page: str):
 
     html += '<!––daf:' + str(daf) + '-->'
     persons = mivami_persons.find_one(theText)['person_in_daf']
+    persons = [t[0] for t in persons]
 #    html += str(persons)
     if False: #'EncodedEdges' in theHtml and 'EncodedNodes' in theHtml:
         # already generated and can pull it
@@ -393,9 +419,9 @@ def htmlOutputter(title: str, page: str):
 
     h, local_interaction_nodes, local_interaction_edges = findLocalRelationships(persons, title + '.' + page)
 #    local_interaction_nodes, local_interaction_edges = [], []
-    html += 'Extra debugguing' + h  + '<br/>'
-    html += 'Local interaction Nodes: ' + str(local_interaction_nodes) + '</br>'
-    html += 'Local interaction Edges: ' + str(local_interaction_edges) + '</br>'
+#     html += 'Extra debugguing' + h  + '<br/>'
+#     html += 'Local interaction Nodes: ' + str(local_interaction_nodes) + '</br>'
+#     html += 'Local interaction Edges: ' + str(local_interaction_edges) + '</br>'
     #local_interaction_nodes = item['LocalInteractionNodes']
     #local_interaction_edges = item['LocalInteractionEdges']
     if 'GlobalInteractionNodes' in theText:

@@ -61,7 +61,7 @@ def talmud_dev(request, masechet='missing', page='missing'):
     from hello.talmud_dev import htmlOutputter
     leftside, student_edges, student_nodes, local_interaction_edges,\
                 local_interaction_nodes, global_interaction_edges, global_interaction_nodes \
-                        = htmlOutputter(masechet, page)
+                    = htmlOutputter(masechet, page)
 
     return render(request, "talmud.html", {'leftside': leftside,
                                            'student_nodes': student_nodes,
