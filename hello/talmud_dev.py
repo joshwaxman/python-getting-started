@@ -406,6 +406,7 @@ def htmlOutputter(title: str, page: str):
         #people = [{'name': p['key'], 'generation': p['generation']} for p in people]
 
         student_nodes = persons
+
         student_edges, student_nodes = findStudentRelationships(student_nodes)
         mivami_html.update_one({'title': title + ":" + str(daf)},
                           {'$set':
