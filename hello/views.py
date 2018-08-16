@@ -20,7 +20,7 @@ def people(request):
 
 def convert(request, text=''):
     # return HttpResponse('Hello from Python!')
-    from hello.hebconvert import *
+    from hello.hebconvert import convert
     return render(request, 'people.html', dict(original=text, converted=convert(text)))
 
 def bio(request, person):
