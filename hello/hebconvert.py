@@ -2,8 +2,14 @@
 def convert(s):
     heb = 'שנבגקכעיןחלךצמםפ/רדאוהסטז'
 
-#    for letter in s:
+    result = []
 
+    for letter in s:
+        if 0 <= ord(letter) - ord('a') < len(heb):
+            result.append(heb[ord(letter) - ord('a')])
+        else:
+            result.append(letter)
 
-    return ''.join(reversed(([heb[ord(letter) - ord('a')] for letter in s if ord(letter) - ord('a') < len(heb)])))
+    return ''.join(reversed(result))
 
+#print(convert('akuo jcr'))
