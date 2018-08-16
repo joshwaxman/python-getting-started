@@ -8,13 +8,25 @@ def index(request):
     # return HttpResponse('Hello from Python!')
     return render(request, 'index.html')
 
+
 def about(request):
     # return HttpResponse('Hello from Python!')
     return render(request, 'about.html')
 
+
 def people(request):
     # return HttpResponse('Hello from Python!')
     return render(request, 'people.html')
+
+def convert(request, text=''):
+    # return HttpResponse('Hello from Python!')
+    from hello.hebconvert import *
+    return render(request, 'people.html', dict(original=text, converted=convert(text)))
+
+def bio(request, person):
+    from hello.bio import *
+    return render(request, 'people.html', dict(person=getBiography(person)))
+
 
 def blog(request):
     from hello.blog import getBlogPost

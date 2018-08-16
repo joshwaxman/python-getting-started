@@ -16,8 +16,10 @@ urlpatterns = [
     url(r'^talmud_dev/(\w*).(\w*)', hello.views.talmud_dev, name='talmud_dev'),
     url(r'^talmud', hello.views.talmud, name='talmud'),
     url(r'^about', hello.views.about, name='about'),
+    url(r'^bio/(.*)', hello.views.bio, name='bio'),
     url(r'^people', hello.views.people, name='people'),
     url(r'^db', hello.views.db, name='db'),
+    url(r'^convert/(.*)', hello.views.convert, name='convert'),
     url(r'^blog', hello.views.blog, name='blog'),
 
     path('admin/', admin.site.urls),
