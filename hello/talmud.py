@@ -52,6 +52,7 @@ def findLocalRelationships(people: List[str], daf: str):
 
         nodeId = record['r2'].id
         englishName = record['r2']['name']
+        generation = record['r2']['generation']
         foundPeople.add(englishName)
         nodesById[nodeId] = {'name': englishName, 'appears': "True", 'generation': generation}
 
