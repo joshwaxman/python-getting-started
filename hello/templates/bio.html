@@ -429,8 +429,8 @@ function draw_local_interaction_graph() {
 }
 
 function draw_global_interaction_graph() {
-    var nodes = {{ global_interaction_nodes | safe }};
-    var edges = {{ global_interaction_edges | safe }};
+    var nodes = []; // {{ global_interaction_nodes | safe }};
+    var edges = []; // {{ global_interaction_edges | safe }};
     draw_graph(nodes, edges, true);
 }
 

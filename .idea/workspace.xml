@@ -33,13 +33,13 @@
         <counts>
           <entry key="Django Console" value="86" />
           <entry key="Pipfile" value="16" />
-          <entry key="html" value="59" />
+          <entry key="html" value="75" />
           <entry key="py" value="2009" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="59" />
+          <entry key="HTML" value="75" />
           <entry key="PLAIN_TEXT" value="16" />
           <entry key="Python" value="2095" />
         </counts>
@@ -119,7 +119,7 @@
         <entry file="file://$PROJECT_DIR$/hello/templates/bio.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="398">
-              <caret line="426" column="23" selection-start-line="426" selection-start-column="23" selection-end-line="426" selection-end-column="23" />
+              <caret line="432" column="23" selection-start-line="432" selection-start-column="23" selection-end-line="432" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -696,7 +696,7 @@
     <entry file="file://$PROJECT_DIR$/hello/templates/bio.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="398">
-          <caret line="426" column="23" selection-start-line="426" selection-start-column="23" selection-end-line="426" selection-end-column="23" />
+          <caret line="432" column="23" selection-start-line="432" selection-start-column="23" selection-end-line="432" selection-end-column="23" />
         </state>
       </provider>
     </entry>
