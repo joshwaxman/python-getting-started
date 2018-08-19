@@ -423,8 +423,8 @@ function draw_student_graph() {
 }
 
 function draw_local_interaction_graph() {
-    var nodes = {{ local_interaction_nodes | safe }};
-    var edges = {{ local_interaction_edges | safe }};
+    var nodes = []; // {{ local_interaction_nodes | safe }};
+    var edges = []; // {{ local_interaction_edges | safe }};
     draw_graph(nodes, edges, true);
 }
 
