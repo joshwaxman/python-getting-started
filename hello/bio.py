@@ -28,7 +28,7 @@ def getBiography(person: str):
     if len(p) > 0:
         # for now, only process first one
         p = p.first()
-        for k, v in p.first():
+        for k, v in p:
             d[k] = v
     else:
         return
