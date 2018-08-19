@@ -25,7 +25,7 @@ def convert(request, text=''):
 
 def bio(request, person):
     from hello.bio import getBiography
-    return render(request, 'people.html', dict(person=getBiography(person)))
+    return render(request, 'bio.html', dict(leftside=getBiography(person)))
 
 
 def blog(request):

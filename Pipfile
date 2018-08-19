@@ -13,7 +13,7 @@ pymongo = "*"
 regex = "*"
 neo4j-driver = "*"
 mistune = "*"
-
+py2neo = "*"
 [requires]
 
 python_version = "3.6"

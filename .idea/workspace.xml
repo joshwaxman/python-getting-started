@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="04c11b65-1a3f-47b2-99ed-8b7a1afc905b" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/hello/talmud.py" beforeDir="false" afterPath="$PROJECT_DIR$/hello/talmud.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pipfile" beforeDir="false" afterPath="$PROJECT_DIR$/Pipfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hello/bio.py" beforeDir="false" afterPath="$PROJECT_DIR$/hello/bio.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hello/templates/bio.html" beforeDir="false" afterPath="$PROJECT_DIR$/hello/templates/bio.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hello/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/hello/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -32,37 +35,41 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="Django Console" value="86" />
-          <entry key="html" value="40" />
-          <entry key="py" value="872" />
+          <entry key="Pipfile" value="16" />
+          <entry key="html" value="41" />
+          <entry key="py" value="1356" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="40" />
-          <entry key="Python" value="958" />
+          <entry key="HTML" value="41" />
+          <entry key="PLAIN_TEXT" value="16" />
+          <entry key="Python" value="1442" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
+          <entry key="Pipfile" value="1" />
           <entry key="html" value="2" />
-          <entry key="py" value="3" />
+          <entry key="py" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="HTML" value="2" />
-          <entry key="Python" value="3" />
+          <entry key="PLAIN_TEXT" value="1" />
+          <entry key="Python" value="4" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/hello/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="275">
-              <caret line="23" column="75" lean-forward="true" selection-start-line="23" selection-start-column="75" selection-end-line="23" selection-end-column="75" />
+            <state relative-caret-position="59">
+              <caret line="27" column="52" selection-start-line="27" selection-start-column="52" selection-end-line="27" selection-end-column="52" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
               </folding>
@@ -71,10 +78,32 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/hello/bio.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="425">
+              <caret line="39" selection-start-line="39" selection-end-line="39" />
+              <folding>
+                <element signature="e#0#9#0" expanded="true" />
+                <marker date="1534691932315" expanded="true" signature="1396:1400" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Pipfile">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="340">
+              <caret line="15" column="11" selection-start-line="15" selection-start-column="11" selection-end-line="15" selection-end-column="11" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hello/templates/bio.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="218">
-              <caret line="9" column="33" lean-forward="true" selection-end-line="452" selection-end-column="14" />
+            <state relative-caret-position="405">
+              <caret line="174" selection-start-line="174" selection-end-line="174" />
             </state>
           </provider>
         </entry>
@@ -98,40 +127,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/hello/templates/talmud_dev.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="10" selection-start-line="10" selection-end-line="10" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/hello/templates/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret selection-end-line="17" selection-end-column="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gettingstarted/urls.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="243">
-              <caret line="15" column="32" lean-forward="true" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="32" />
+              <caret line="15" column="32" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="32" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hello/talmud.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="385">
-              <caret line="55" column="8" selection-start-line="55" selection-start-column="8" selection-end-line="55" selection-end-column="8" />
-              <folding>
-                <element signature="e#46#77#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="54">
+              <caret line="2" selection-start-line="2" selection-end-line="2" />
             </state>
           </provider>
         </entry>
@@ -140,7 +148,7 @@
         <entry file="file://$PROJECT_DIR$/hello/hebconvert.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="189">
-              <caret line="7" column="17" lean-forward="true" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+              <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
               <folding>
                 <marker date="1534442344976" expanded="true" signature="16:17" ph="..." />
               </folding>
@@ -224,7 +232,6 @@
         <option value="$PROJECT_DIR$/nltk.txt" />
         <option value="$PROJECT_DIR$/hello/templates/about.html" />
         <option value="$PROJECT_DIR$/requirements.text" />
-        <option value="$PROJECT_DIR$/Pipfile" />
         <option value="$PROJECT_DIR$/hello/templates/people.html" />
         <option value="$PROJECT_DIR$/hello/templates/base.html" />
         <option value="$PROJECT_DIR$/hello/templates/blog.html" />
@@ -232,13 +239,14 @@
         <option value="$PROJECT_DIR$/hello/templates/talmud_dev.html" />
         <option value="$PROJECT_DIR$/hello/talmud_dev.py" />
         <option value="$PROJECT_DIR$/hello/templates/talmud.html" />
-        <option value="$PROJECT_DIR$/hello/templates/bio.html" />
-        <option value="$PROJECT_DIR$/hello/bio.py" />
         <option value="$PROJECT_DIR$/gettingstarted/urls.py" />
         <option value="$PROJECT_DIR$/hello/templates/convert.html" />
-        <option value="$PROJECT_DIR$/hello/views.py" />
         <option value="$PROJECT_DIR$/hello/hebconvert.py" />
         <option value="$PROJECT_DIR$/hello/talmud.py" />
+        <option value="$PROJECT_DIR$/Pipfile" />
+        <option value="$PROJECT_DIR$/hello/templates/bio.html" />
+        <option value="$PROJECT_DIR$/hello/views.py" />
+        <option value="$PROJECT_DIR$/hello/bio.py" />
       </list>
     </option>
   </component>
@@ -529,13 +537,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Pipfile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Pipfile.lock">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1251" />
@@ -582,16 +583,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hello/bio.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="27">
-          <caret line="1" column="17" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="17" />
-          <folding>
-            <marker date="1534200082525" expanded="true" signature="30:35" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/hello/templates/blog.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
@@ -623,14 +614,7 @@
     <entry file="file://$PROJECT_DIR$/gettingstarted/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="243">
-          <caret line="15" column="32" lean-forward="true" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hello/templates/bio.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="218">
-          <caret line="9" column="33" lean-forward="true" selection-end-line="452" selection-end-column="14" />
+          <caret line="15" column="32" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="32" />
         </state>
       </provider>
     </entry>
@@ -641,20 +625,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hello/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="23" column="75" lean-forward="true" selection-start-line="23" selection-start-column="75" selection-end-line="23" selection-end-column="75" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/hello/hebconvert.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
-          <caret line="7" column="17" lean-forward="true" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
           <folding>
             <marker date="1534442344976" expanded="true" signature="16:17" ph="..." />
           </folding>
@@ -670,10 +644,42 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/hello/talmud.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="385">
-          <caret line="55" column="8" selection-start-line="55" selection-start-column="8" selection-end-line="55" selection-end-column="8" />
+        <state relative-caret-position="54">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Pipfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="15" column="11" selection-start-line="15" selection-start-column="11" selection-end-line="15" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hello/templates/bio.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="174" selection-start-line="174" selection-end-line="174" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hello/bio.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="39" selection-start-line="39" selection-end-line="39" />
           <folding>
-            <element signature="e#46#77#0" expanded="true" />
+            <element signature="e#0#9#0" expanded="true" />
+            <marker date="1534691932315" expanded="true" signature="1396:1400" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hello/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="59">
+          <caret line="27" column="52" selection-start-line="27" selection-start-column="52" selection-end-line="27" selection-end-column="52" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
           </folding>
         </state>
       </provider>
