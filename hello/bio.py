@@ -49,7 +49,7 @@ def getBiography(person: str):
             html += 'Generation: ' + teacher['generation'] + '<br/><br/>'
 
             n = dict(englishName=teacher['englishName'], hebrewName=teacher['hebrewName'], generation=teacher['generation'])
-            nodes.add(n)
+            nodes.append(n)
 
     rels = g.match(nodes=[None, p], r_type='student')
     if len(rels) > 0:
@@ -62,7 +62,7 @@ def getBiography(person: str):
             html += 'Generation: ' + student['generation'] + '<br/><br/>'
 
             n = dict(englishName=student['englishName'], hebrewName=student['hebrewName'], generation=student['generation'])
-            nodes.add(n)
+            nodes.append(n)
     #rels = g.match(nodes=[None, p], r_type='student')
 
     return html, nodes, []
