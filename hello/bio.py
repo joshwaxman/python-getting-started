@@ -41,4 +41,15 @@ def getBiography(person: str):
     html += 'Hebrew Name: ' + d['hebrewName'] + '<br/>'
     html += 'Generation: ' + d['generation'] + '<br/>'
 
+    rels = g.match(nodes=[p], rel_type='student')
+
+    if len(rels) > 0:
+        html += 'Teachers: <br/>'
+        for rel in rels:
+            teacher = rel.start_node
+
+            html += 'English Name: ' + teacher['englishName'] + '<br/>'
+            html += 'Hebrew Name: ' + teacher['hebrewName'] + '<br/>'
+            html += 'Generation: ' + teacher['generation'] + '<br/><br/>'
+
     return html
