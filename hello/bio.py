@@ -30,6 +30,7 @@ def getBiography(person: str):
         p = p.first()
         d['englishName'] = p['englishName']
         d['hebrewName'] = p['hebrewName']
+        d['generation'] = p['generation']
         d['sex'] = p['sex']
 
     else:
