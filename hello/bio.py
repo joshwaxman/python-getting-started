@@ -23,23 +23,20 @@ def makeNeoConnection():
 def getBiography(person: str):
     d = dict()
     g = Graph("https://hobby-jhedjehadkjfgbkeaajelfal.dbs.graphenedb.com:24780/db/data/", auth=("mivami", "b.jOGYTThIm49J.NCgtoqGY0qrXXajq"))
+    html = ''
 
     p = g.nodes.match('EncodedRabbi', englishName=person)
-    if len(p) > 0:
-        # for now, only process first one
-        p = p.first()
-        d['englishName'] = p['englishName']
-        d['hebrewName'] = p['hebrewName']
-        d['generation'] = p['generation']
-        d['sex'] = p['sex']
-
-    else:
+    if len(p) == 0:
         return
 
-    html = ''
-    html += 'English Name: ' + d['englishName'] + '<br/>'
-    html += 'Hebrew Name: ' + d['hebrewName'] + '<br/>'
-    html += 'Generation: ' + d['generation'] + '<br/>'
+    # for now, only process first one
+    p = p.first()
+    html += 'English Name: ' + p['englishName'] + '<br/>'
+    html += 'Hebrew Name: ' + p['hebrewName'] + '<br/>'
+    html += 'Generation: ' + p['generation'] + '<br/>'
+
+    nodes = []
+    nodes.append(dict(englishName=p['englishName'], hebrewName=p['hebrewName'], generation=p['generation']))
 
     rels = g.match(nodes=[p, None], r_type='student')
     if len(rels) > 0:
@@ -51,6 +48,9 @@ def getBiography(person: str):
             html += 'Hebrew Name: ' + teacher['hebrewName'] + '<br/>'
             html += 'Generation: ' + teacher['generation'] + '<br/><br/>'
 
+            n = dict(englishName=teacher['englishName'], hebrewName=teacher['hebrewName'], generation=teacher['generation'])
+            nodes.add(n)
+
     rels = g.match(nodes=[None, p], r_type='student')
     if len(rels) > 0:
         html += '<br/><b>Students:</b><br/>'
@@ -61,5 +61,8 @@ def getBiography(person: str):
             html += 'Hebrew Name: ' + student['hebrewName'] + '<br/>'
             html += 'Generation: ' + student['generation'] + '<br/><br/>'
 
+            n = dict(englishName=student['englishName'], hebrewName=student['hebrewName'], generation=student['generation'])
+            nodes.add(n)
+    #rels = g.match(nodes=[None, p], r_type='student')
 
-    return html
+    return html, nodes, []
