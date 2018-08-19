@@ -44,9 +44,9 @@ def getBiography(person: str):
     rels = g.match(nodes=[p], r_type='student')
 
     if len(rels) > 0:
-        html += 'Teachers: <br/>'
+        html += '<b>Teachers:</b><br/>'
         for rel in rels:
-            teacher = rel.start_node
+            teacher = rel.end_node
 
             html += 'English Name: ' + teacher['englishName'] + '<br/>'
             html += 'Hebrew Name: ' + teacher['hebrewName'] + '<br/>'
