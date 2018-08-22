@@ -230,8 +230,8 @@ function draw_graph(n, e, bLegend) {
                        {'text': 'Tanna and Amora, generation 4', 'color': 'lime'},
                        {'text': 'Tanna and Amora, generation 5', 'color': 'cyan'},
                        {'text': 'Tanna and Amora, generation 6', 'color': 'mediumorchid'},
-                       {'text': 'Tanna and Amora, generation 6', 'color': 'gold'},
-                       {'text': 'Tanna and Amora, generation 6', 'color': 'palegoldenrod'}]
+                       {'text': 'Tanna and Amora, generation 7', 'color': 'gold'},
+                       {'text': 'Tanna and Amora, generation 8', 'color': 'palegoldenrod'}]
 
     if (bLegend) {
         svg.selectAll(".legendText")
@@ -511,6 +511,7 @@ var chart = d3.timeline()
 
     var svg = d3.select("#divB").append("svg").attr({"width": w, "height": h})
         .datum(labelTestData).call(chart);
+    alert('hello')
 }
 
 
