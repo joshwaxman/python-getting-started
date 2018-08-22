@@ -33,13 +33,13 @@
         <counts>
           <entry key="Django Console" value="447" />
           <entry key="Pipfile" value="16" />
-          <entry key="html" value="178" />
+          <entry key="html" value="199" />
           <entry key="py" value="2132" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="178" />
+          <entry key="HTML" value="199" />
           <entry key="PLAIN_TEXT" value="16" />
           <entry key="Python" value="2579" />
         </counts>
@@ -78,8 +78,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hello/bio.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="169">
-              <caret line="46" column="18" selection-start-line="46" selection-start-column="13" selection-end-line="46" selection-end-column="18" />
+            <state relative-caret-position="196">
+              <caret line="47" lean-forward="true" selection-start-line="47" selection-end-line="47" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
                 <marker date="1534971901649" expanded="true" signature="2777:2781" ph="..." />
@@ -133,7 +133,7 @@
         <entry file="file://$PROJECT_DIR$/hello/templates/bio.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="248">
-              <caret line="219" selection-start-line="219" selection-end-line="219" />
+              <caret line="219" lean-forward="true" selection-start-line="216" selection-start-column="23" selection-end-line="219" />
             </state>
           </provider>
         </entry>
@@ -150,8 +150,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/hello/templates/talmud.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="507" selection-start-line="507" selection-end-line="507" />
+            <state relative-caret-position="140">
+              <caret line="231" column="23" selection-start-line="231" selection-start-column="23" selection-end-line="231" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -168,8 +168,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>print</find>
-      <find>findglob</find>
       <find>htmlOutputter</find>
       <find>, fa</find>
       <find>findStudentRelationships</find>
@@ -196,8 +194,10 @@
       <find>span</find>
       <find>legend</find>
       <find>gold</find>
-      <find>n.app</find>
       <find>button</find>
+      <find>svg</find>
+      <find>n.app</find>
+      <find>medi</find>
     </findStrings>
     <dirStrings>
       <dir>C:\josh\mivami</dir>
@@ -658,24 +658,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hello/templates/bio.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="219" selection-start-line="219" selection-end-line="219" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hello/bio.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="46" column="18" selection-start-line="46" selection-start-column="13" selection-end-line="46" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-            <marker date="1534971901649" expanded="true" signature="2777:2781" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/hello/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="194">
@@ -686,10 +668,28 @@
     <entry file="file://C:/python36/Lib/site-packages/py2neo/cypher/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/hello/bio.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="47" lean-forward="true" selection-start-line="47" selection-end-line="47" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+            <marker date="1534971901649" expanded="true" signature="2777:2781" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hello/templates/bio.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="248">
+          <caret line="219" lean-forward="true" selection-start-line="216" selection-start-column="23" selection-end-line="219" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/hello/templates/talmud.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="507" selection-start-line="507" selection-end-line="507" />
+        <state relative-caret-position="140">
+          <caret line="231" column="23" selection-start-line="231" selection-start-column="23" selection-end-line="231" selection-end-column="23" />
         </state>
       </provider>
     </entry>
