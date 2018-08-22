@@ -36,7 +36,7 @@ def getBiography(person: str):
     html += 'Generation: ' + p['generation'] + '<br/>'
 
     nodes = []
-    n = [p]
+    #n = [p]
     nodes.append(dict(name=p['englishName'], hebrewName=p['hebrewName'], generation=p['generation']))
 
     rels = g.match(nodes=[p, None], r_type='student')
@@ -44,7 +44,7 @@ def getBiography(person: str):
         html += '<br/><b>Teachers:</b><br/>'
         for rel in rels:
             teacher = rel.end_node
-            n.append(teacher)
+            #n.append(teacher)
 
             html += 'English Name: <a href="' + teacher['englishName'] + '">' + teacher['englishName'] + '</a><br/>'
             html += 'Hebrew Name: ' + teacher['hebrewName'] + '<br/>'

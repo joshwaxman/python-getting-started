@@ -195,7 +195,7 @@
         <button onclick="draw_student_graph()">Teacher/Student Graph</button>
         <button onclick="draw_local_interaction_graph()">Local Interactions Graph</button>
         <button onclick="draw_global_interaction_graph()">Global Interactions Graph</button>
-        <button onclick="">Timeline</button>
+        <button onclick="timelineHover()">Timeline</button>
 {{ leftside | safe }}
     </span>
     </div>
@@ -478,35 +478,36 @@ draw_student_graph();
 
 var width = 500;
 
-      function timelineHover() {
-        var chart = d3.timeline()
-          .width(width*4)
-          .stack()
-          .margin({left:70, right:30, top:0, bottom:0})
-          .hover(function (d, i, datum) {
-          // d is the current rendering object
-          // i is the index during d3 rendering
-          // datum is the id object
-            var div = $('#hoverRes');
-            var colors = chart.colors();
-            div.find('.coloredDiv').css('background-color', colors(i))
-            div.find('#name').text(datum.label);
-          })
-          .click(function (d, i, datum) {
-            alert(datum.label);
-          })
-          .scroll(function (x, scale) {
-            $("#scrolled_date").text(scale.invert(x) + " to " + scale.invert(x+width));
-          })
-          .tickFormat( //
-            {format: d3.format("i"),
-            tickTime: d3.time.hours,
-            tickInterval: 1,
-            tickSize: 30});
-        var svg = d3.select("#timeline3").append("svg").attr("width", width)
-          .datum(labelTestData).call(chart);
-      }
-          
+function timelineHover() {
+var labelTestData = [{"label": "Rabbi Abba", "times": [{"starting_time": 290, "ending_time": 320}]}, {"label": "Rabbi Abba b. Hiyya b. Abba", "times": [{"starting_time": 290, "ending_time": 320}]}]
+var chart = d3.timeline()
+  .width(width*4)
+  .stack()
+  .margin({left:70, right:30, top:0, bottom:0})
+  .hover(function (d, i, datum) {
+  // d is the current rendering object
+  // i is the index during d3 rendering
+  // datum is the id object
+    var div = $('#hoverRes');
+    var colors = chart.colors();
+    div.find('.coloredDiv').css('background-color', colors(i))
+    div.find('#name').text(datum.label);
+  })
+  .click(function (d, i, datum) {
+    alert(datum.label);
+  })
+  .scroll(function (x, scale) {
+    $("#scrolled_date").text(scale.invert(x) + " to " + scale.invert(x+width));
+  })
+  .tickFormat( //
+    {format: d3.format("i"),
+    tickTime: d3.time.hours,
+    tickInterval: 1,
+    tickSize: 30});
+var svg = d3.select("#timeline3").append("svg").attr("width", width)
+  .datum(labelTestData).call(chart);
+}}
+
 </script>
 </div>
 </body>
