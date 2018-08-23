@@ -1,6 +1,11 @@
 {% extends "base.html" %}
 {% load staticfiles %}
 
+{% block scripts %}
+    <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script src="{% static 'd3-timeline.js' %}"></script>
+{% endblock %}
+
 {% block content %}
 
 <html lang="en">
@@ -466,3 +471,7 @@ draw_student_graph();
 </body>
 
 {% endblock %}
+
+
+
+
