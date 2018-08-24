@@ -35,14 +35,14 @@
           <entry key="Django Console" value="1257" />
           <entry key="Pipfile" value="16" />
           <entry key="html" value="262" />
-          <entry key="py" value="2585" />
+          <entry key="py" value="2594" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="HTML" value="262" />
           <entry key="PLAIN_TEXT" value="16" />
-          <entry key="Python" value="3842" />
+          <entry key="Python" value="3851" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -69,11 +69,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/hello/bio.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="424">
-              <caret line="80" column="8" selection-start-line="80" selection-start-column="8" selection-end-line="80" selection-end-column="8" />
+            <state relative-caret-position="208">
+              <caret line="72" column="19" selection-start-line="72" selection-start-column="19" selection-end-line="72" selection-end-column="19" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
-                <marker date="1535070459238" expanded="true" signature="3385:3389" ph="..." />
+                <marker date="1535070678744" expanded="true" signature="3389:3393" ph="..." />
               </folding>
             </state>
           </provider>
@@ -676,11 +676,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/hello/bio.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="424">
-          <caret line="80" column="8" selection-start-line="80" selection-start-column="8" selection-end-line="80" selection-end-column="8" />
+        <state relative-caret-position="208">
+          <caret line="72" column="19" selection-start-line="72" selection-start-column="19" selection-end-line="72" selection-end-column="19" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
-            <marker date="1535070459238" expanded="true" signature="3385:3389" ph="..." />
+            <marker date="1535070678744" expanded="true" signature="3389:3393" ph="..." />
           </folding>
         </state>
       </provider>

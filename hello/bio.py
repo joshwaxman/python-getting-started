@@ -67,9 +67,9 @@ def getBiography(person: str):
             n = dict(name=student['englishName'], hebrewName=student['hebrewName'], generation=student['generation'])
             nodes.append(n)
 
-    names = str([x['name'] for x in nodes])
-    cursor = g.run('MATCH (r1: EncodedRabbi) where r1.englishName in ' + names  + '\n' +
-                   'MATCH (r2: EncodedRabbi) where r2.englishName in ' + names + '\n' +
+    names = [x['name'] for x in nodes]
+    cursor = g.run('MATCH (r1: EncodedRabbi) where r1.englishName in ' + str(names) + '\n' +
+                   'MATCH (r2: EncodedRabbi) where r2.englishName in ' + str(names) + '\n' +
                    'MATCH (r1)-[rel]->(r2)\n' +
                    'return rel')
 
