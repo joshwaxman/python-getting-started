@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="04c11b65-1a3f-47b2-99ed-8b7a1afc905b" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/hello/bio.py" beforeDir="false" afterPath="$PROJECT_DIR$/hello/bio.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hello/templates/bio.html" beforeDir="false" afterPath="$PROJECT_DIR$/hello/templates/bio.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -34,13 +34,13 @@
         <counts>
           <entry key="Django Console" value="1257" />
           <entry key="Pipfile" value="16" />
-          <entry key="html" value="262" />
+          <entry key="html" value="264" />
           <entry key="py" value="2594" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="262" />
+          <entry key="HTML" value="264" />
           <entry key="PLAIN_TEXT" value="16" />
           <entry key="Python" value="3851" />
         </counts>
@@ -66,11 +66,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hello/bio.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="72" column="19" selection-start-line="72" selection-start-column="19" selection-end-line="72" selection-end-column="19" />
+            <state relative-caret-position="262">
+              <caret line="74" lean-forward="true" selection-start-line="74" selection-end-line="74" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
                 <marker date="1535070678744" expanded="true" signature="3389:3393" ph="..." />
@@ -106,11 +106,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/hello/templates/bio.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="437">
-              <caret line="449" column="18" selection-start-line="449" selection-start-column="14" selection-end-line="449" selection-end-column="18" />
+            <state relative-caret-position="216">
+              <caret line="223" column="92" lean-forward="true" selection-start-line="223" selection-start-column="92" selection-end-line="223" selection-end-column="92" />
             </state>
           </provider>
         </entry>
@@ -151,7 +151,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>people = [</find>
       <find>'appear</find>
       <find>if os.name</find>
       <find>nodes.append({'name':</find>
@@ -181,6 +180,7 @@
       <find>relations</find>
       <find>Relationship</find>
       <find>= []</find>
+      <find>]]</find>
     </findStrings>
     <dirStrings>
       <dir>C:\josh\mivami</dir>
@@ -219,9 +219,9 @@
         <option value="$PROJECT_DIR$/Pipfile" />
         <option value="$PROJECT_DIR$/hello/views.py" />
         <option value="$PROJECT_DIR$/hello/static/d3-timeline.js" />
-        <option value="$PROJECT_DIR$/hello/templates/bio.html" />
         <option value="$PROJECT_DIR$/hello/templates/talmud.html" />
         <option value="$PROJECT_DIR$/hello/bio.py" />
+        <option value="$PROJECT_DIR$/hello/templates/bio.html" />
       </list>
     </option>
   </component>
@@ -667,21 +667,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hello/templates/bio.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="449" column="18" selection-start-line="449" selection-start-column="14" selection-end-line="449" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/hello/bio.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="72" column="19" selection-start-line="72" selection-start-column="19" selection-end-line="72" selection-end-column="19" />
+        <state relative-caret-position="262">
+          <caret line="74" lean-forward="true" selection-start-line="74" selection-end-line="74" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
             <marker date="1535070678744" expanded="true" signature="3389:3393" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hello/templates/bio.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="223" column="92" lean-forward="true" selection-start-line="223" selection-start-column="92" selection-end-line="223" selection-end-column="92" />
         </state>
       </provider>
     </entry>
