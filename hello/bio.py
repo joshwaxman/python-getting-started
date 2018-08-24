@@ -76,8 +76,8 @@ def getBiography(person: str):
     edges = []
     while cursor.forward():
         rel = cursor.current['rel']
-        start = nodes.index(rel.start_node['englishName'])
-        end = nodes.index(rel.end_node['englishName'])
+        start = names.index(rel.start_node['englishName'])
+        end = names.index(rel.end_node['englishName'])
         title = type(rel).__name__
         edges.append(dict(source=start, target=end, label=title))
 
