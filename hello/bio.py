@@ -70,7 +70,7 @@ def getBiography(person: str):
     names = str([x['name'] for x in nodes])
     cursor = g.run('MATCH (r1: EncodedRabbi) where r1.englishName in ' + names  + '\n' +
                    'MATCH (r2: EncodedRabbi) where r2.englishName in ' + names + '\n' +
-                   'MATCH (r1)-[rel:]->(r2)\n' +
+                   'MATCH (r1)-[rel]->(r2)\n' +
                    'return rel')
 
     edges = []

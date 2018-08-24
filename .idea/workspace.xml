@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="04c11b65-1a3f-47b2-99ed-8b7a1afc905b" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hello/bio.py" beforeDir="false" afterPath="$PROJECT_DIR$/hello/bio.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -36,14 +35,14 @@
           <entry key="Django Console" value="1257" />
           <entry key="Pipfile" value="16" />
           <entry key="html" value="262" />
-          <entry key="py" value="2579" />
+          <entry key="py" value="2580" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="HTML" value="262" />
           <entry key="PLAIN_TEXT" value="16" />
-          <entry key="Python" value="3836" />
+          <entry key="Python" value="3837" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -67,14 +66,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/hello/bio.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="478">
-              <caret line="85" column="4" selection-start-line="85" selection-start-column="4" selection-end-line="85" selection-end-column="4" />
+            <state relative-caret-position="127">
+              <caret line="72" column="35" selection-start-line="72" selection-start-column="35" selection-end-line="72" selection-end-column="35" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
-                <marker date="1535070198821" expanded="true" signature="3386:3390" ph="..." />
+                <marker date="1535070329367" expanded="true" signature="3385:3389" ph="..." />
               </folding>
             </state>
           </provider>
@@ -107,7 +106,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hello/templates/bio.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="437">
@@ -668,21 +667,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hello/bio.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="478">
-          <caret line="85" column="4" selection-start-line="85" selection-start-column="4" selection-end-line="85" selection-end-column="4" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-            <marker date="1535070198821" expanded="true" signature="3386:3390" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/hello/templates/bio.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="437">
           <caret line="449" column="18" selection-start-line="449" selection-start-column="14" selection-end-line="449" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hello/bio.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="127">
+          <caret line="72" column="35" selection-start-line="72" selection-start-column="35" selection-end-line="72" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+            <marker date="1535070329367" expanded="true" signature="3385:3389" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
