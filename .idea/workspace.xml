@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="04c11b65-1a3f-47b2-99ed-8b7a1afc905b" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/hello/static/d3-timeline.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hello/templates/bio.html" beforeDir="false" afterPath="$PROJECT_DIR$/hello/templates/bio.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hello/templates/talmud.html" beforeDir="false" afterPath="$PROJECT_DIR$/hello/templates/talmud.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hello/bio.py" beforeDir="false" afterPath="$PROJECT_DIR$/hello/bio.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -35,17 +33,17 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="Django Console" value="447" />
+          <entry key="Django Console" value="1257" />
           <entry key="Pipfile" value="16" />
           <entry key="html" value="262" />
-          <entry key="py" value="2132" />
+          <entry key="py" value="2579" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="HTML" value="262" />
           <entry key="PLAIN_TEXT" value="16" />
-          <entry key="Python" value="2579" />
+          <entry key="Python" value="3836" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -54,7 +52,7 @@
           <entry key="html" value="4" />
           <entry key="js" value="1" />
           <entry key="lock" value="1" />
-          <entry key="py" value="7" />
+          <entry key="py" value="12" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
@@ -62,7 +60,7 @@
           <entry key="HTML" value="4" />
           <entry key="JavaScript" value="1" />
           <entry key="PLAIN_TEXT" value="2" />
-          <entry key="Python" value="7" />
+          <entry key="Python" value="12" />
         </counts>
       </usages-collector>
     </session>
@@ -70,15 +68,23 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://C:/python36/Lib/site-packages/py2neo/cypher/__init__.py">
-          <provider selected="true" editor-type-id="text-editor" />
+        <entry file="file://$PROJECT_DIR$/hello/bio.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="478">
+              <caret line="85" column="4" selection-start-line="85" selection-start-column="4" selection-end-line="85" selection-end-column="4" />
+              <folding>
+                <element signature="e#0#9#0" expanded="true" />
+                <marker date="1535070198821" expanded="true" signature="3386:3390" ph="..." />
+              </folding>
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://C:/python36/Lib/site-packages/py2neo/database.py">
+        <entry file="file://C:/python36/Lib/site-packages/py2neo/data.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="177">
-              <caret line="328" column="8" selection-start-line="328" selection-start-column="8" selection-end-line="328" selection-end-column="8" />
+            <state relative-caret-position="-15822">
+              <caret line="71" column="25" selection-start-line="68" selection-start-column="10" selection-end-line="71" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -86,26 +92,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://C:/python36/Lib/site-packages/py2neo/matching.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="11961">
-              <caret line="447" column="8" selection-start-line="447" selection-start-column="8" selection-end-line="447" selection-end-column="8" />
+            <state relative-caret-position="385">
+              <caret line="273" column="61" selection-start-line="273" selection-start-column="61" selection-end-line="273" selection-end-column="61" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Pipfile">
+        <entry file="file://C:/python36/Lib/site-packages/py2neo/database.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="15" column="11" selection-start-line="15" selection-start-column="11" selection-end-line="15" selection-end-column="11" />
+            <state relative-caret-position="331">
+              <caret line="479" column="23" selection-start-line="479" selection-start-column="23" selection-end-line="479" selection-end-column="23" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/hello/templates/bio.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="5" column="57" lean-forward="true" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="57" />
+            <state relative-caret-position="437">
+              <caret line="449" column="18" selection-start-line="449" selection-start-column="14" selection-end-line="449" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -125,11 +131,6 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/hello/templates/base.html">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/hello/templates/talmud.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="297">
@@ -151,9 +152,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>, fa</find>
-      <find>findStudentRelationships</find>
-      <find>findlocal</find>
       <find>people = [</find>
       <find>'appear</find>
       <find>if os.name</find>
@@ -181,6 +179,9 @@
       <find>n.app</find>
       <find>medi</find>
       <find>endblo</find>
+      <find>relations</find>
+      <find>Relationship</find>
+      <find>= []</find>
     </findStrings>
     <dirStrings>
       <dir>C:\josh\mivami</dir>
@@ -218,10 +219,10 @@
         <option value="$PROJECT_DIR$/hello/talmud.py" />
         <option value="$PROJECT_DIR$/Pipfile" />
         <option value="$PROJECT_DIR$/hello/views.py" />
-        <option value="$PROJECT_DIR$/hello/bio.py" />
         <option value="$PROJECT_DIR$/hello/static/d3-timeline.js" />
         <option value="$PROJECT_DIR$/hello/templates/bio.html" />
         <option value="$PROJECT_DIR$/hello/templates/talmud.html" />
+        <option value="$PROJECT_DIR$/hello/bio.py" />
       </list>
     </option>
   </component>
@@ -398,7 +399,7 @@
     <frame x="-7" y="0" width="1932" height="1003" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2633547" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2633547" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -413,7 +414,7 @@
       <window_info anchor="bottom" id="Terminal" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.090277776" side_tool="true" visible="true" weight="0.32988507" />
       <window_info anchor="bottom" id="Version Control" order="11" />
-      <window_info active="true" anchor="bottom" id="Python Console" order="12" sideWeight="0.9097222" visible="true" weight="0.32988507" />
+      <window_info anchor="bottom" id="Python Console" order="12" sideWeight="0.9097222" visible="true" weight="0.32988507" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -598,27 +599,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hello/bio.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1215">
-          <caret line="47" selection-start-line="47" selection-end-line="47" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-            <marker date="1534971901649" expanded="true" signature="2777:2781" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/python36/Lib/site-packages/py2neo/cypher/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://C:/python36/Lib/site-packages/py2neo/matching.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="11961">
-          <caret line="447" column="8" selection-start-line="447" selection-start-column="8" selection-end-line="447" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Pipfile">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="405">
@@ -643,27 +623,66 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://C:/python36/Lib/site-packages/py2neo/database.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="328" column="8" selection-start-line="328" selection-start-column="8" selection-end-line="328" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/hello/static/d3-timeline.js">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hello/templates/bio.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="5" column="57" lean-forward="true" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="57" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/hello/templates/talmud.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="297">
           <caret line="11" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/python36/Lib/site-packages/py2neo/data.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-15822">
+          <caret line="71" column="25" selection-start-line="68" selection-start-column="10" selection-end-line="71" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/python36/Lib/site-packages/py2neo/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="385">
+          <caret line="19" column="14" lean-forward="true" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/python36/Lib/site-packages/py2neo/database.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="331">
+          <caret line="479" column="23" selection-start-line="479" selection-start-column="23" selection-end-line="479" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/python36/Lib/site-packages/py2neo/matching.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="385">
+          <caret line="273" column="61" selection-start-line="273" selection-start-column="61" selection-end-line="273" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/python36/Lib/site-packages/py2neo/cypher/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="366">
+          <caret line="271" column="12" lean-forward="true" selection-start-line="271" selection-start-column="12" selection-end-line="271" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hello/bio.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="478">
+          <caret line="85" column="4" selection-start-line="85" selection-start-column="4" selection-end-line="85" selection-end-column="4" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+            <marker date="1535070198821" expanded="true" signature="3386:3390" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hello/templates/bio.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="449" column="18" selection-start-line="449" selection-start-column="14" selection-end-line="449" selection-end-column="18" />
         </state>
       </provider>
     </entry>

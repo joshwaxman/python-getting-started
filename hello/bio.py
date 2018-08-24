@@ -1,23 +1,24 @@
 import os
-from neo4j.v1 import GraphDatabase, basic_auth
+#from neo4j.v1 import GraphDatabase, basic_auth
 from py2neo import Graph
+from py2neo.data import walk
 driver = None
 session = None
 
-def makeNeoConnection():
-    global driver
-    global session
-
-    if os.name == 'nt':
-        driver = GraphDatabase.driver("bolt://localhost:7687", auth=basic_auth("neo4j", "qwerty"))
-    else:
-        driver = GraphDatabase.driver("bolt://hobby-jhedjehadkjfgbkeaajelfal.dbs.graphenedb.com:24786", auth=basic_auth("mivami", "b.hsh2OnrThi0v.aPpsVUFV5tjE7dzw"))
-    session = driver.session()
-
-    # driver = GraphDatabase.driver("bolt://hobby-iamlocehkkokgbkekbgcgbal.dbs.graphenedb.com:24786",
-    #                              auth=basic_auth("mivami", "b.jOGYTThIm49J.NCgtoqGY0qrXXajq"))
-
-    #driver = GraphDatabase.driver("bolt://localhost:7687", auth=basic_auth("neo4j", "qwerty"))
+# def makeNeoConnection():
+#     global driver
+#     global session
+#
+#     if os.name == 'nt':
+#         driver = GraphDatabase.driver("bolt://localhost:7687", auth=basic_auth("neo4j", "qwerty"))
+#     else:
+#         driver = GraphDatabase.driver("bolt://hobby-jhedjehadkjfgbkeaajelfal.dbs.graphenedb.com:24786", auth=basic_auth("mivami", "b.hsh2OnrThi0v.aPpsVUFV5tjE7dzw"))
+#     session = driver.session()
+#
+#     # driver = GraphDatabase.driver("bolt://hobby-iamlocehkkokgbkekbgcgbal.dbs.graphenedb.com:24786",
+#     #                              auth=basic_auth("mivami", "b.jOGYTThIm49J.NCgtoqGY0qrXXajq"))
+#
+#     #driver = GraphDatabase.driver("bolt://localhost:7687", auth=basic_auth("neo4j", "qwerty"))
 
 
 def getBiography(person: str):
@@ -36,7 +37,7 @@ def getBiography(person: str):
     html += 'Generation: ' + p['generation'] + '<br/>'
 
     nodes = []
-    #n = [p]
+    no = set(p)
     nodes.append(dict(name=p['englishName'], hebrewName=p['hebrewName'], generation=p['generation']))
 
     rels = g.match(nodes=[p, None], r_type='student')
@@ -66,9 +67,20 @@ def getBiography(person: str):
             n = dict(name=student['englishName'], hebrewName=student['hebrewName'], generation=student['generation'])
             nodes.append(n)
 
-    rels = g.evaluate().relationships.match()
+    names = str([x['name'] for x in nodes])
+    cursor = g.run('MATCH (r1: EncodedRabbi) where r1.englishName in ' + names  + '\n' +
+                   'MATCH (r2: EncodedRabbi) where r2.englishName in ' + names + '\n' +
+                   'MATCH (r1)-[rel:]->(r2)\n' +
+                   'return rel')
 
+    edges = []
+    while cursor.forward():
+        rel = cursor.current['rel']
+        start = nodes.index(rel.start_node['englishName'])
+        end = nodes.index(rel.end_node['englishName'])
+        title = type(rel).__name__
+        edges.append(dict(source=start, target=end, label=title))
 
     #rels = g.match(nodes=[None, p], r_type='student')
 
-    return html, nodes, []
+    return html, nodes, edges
