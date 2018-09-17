@@ -218,6 +218,11 @@ function draw_graph(n, e, bLegend) {
     rg.append('stop').attr({'offset': '50%', 'stop-color': 'palegoldenrod'});
     rg.append('stop').attr({'offset': '100%', 'stop-color': 'pink'})
 
+    rg = svg.append('defs').append('radialGradient');
+    rg.attr({'id': 'A5/A6Gradient'});
+    rg.append('stop').attr({'offset': '50%', 'stop-color': 'cyan'});
+    rg.append('stop').attr({'offset': '100%', 'stop-color': 'mediumorchid'});
+
 
     var legendText = [ {'text': 'Legend: (outline means appears on page)', 'color': 'white'},
                         {'text': 'Tanna and Amora, generation 1', 'color': 'pink'},
@@ -286,7 +291,7 @@ function draw_graph(n, e, bLegend) {
         generationColors = {'A1': 'pink', 'A2': 'yellow', 'A3': 'salmon', 'A4': 'lime', 'A5': 'cyan', 'A6': 'mediumorchid', 'A7': 'gold', 'A8': 'palegoldenrod',
                             'T1': 'pink', 'T2': 'yellow', 'T3': 'salmon', 'T4': 'lime', 'T5': 'cyan', 'T6': 'mediumorchid', 'T7': 'gold', 'T8': 'palegoldenrod'
                             };
-        multigenerationColors = {'TA': ['palegoldenrod', 'pink']}
+        multigenerationColors = {'TA': ['palegoldenrod', 'pink'], 'A5/A6': 'moo'}
 
         if (d.hasOwnProperty('generation'))
             if (d.generation in multigenerationColors)
