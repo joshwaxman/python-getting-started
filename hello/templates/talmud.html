@@ -240,6 +240,11 @@ function draw_graph(n, e, bLegend) {
 }
     ;
     var svg = d3.select("#divB").append("svg").attr({"width": w, "height": h});
+    rg = svg.append('defs').append('radialGradient');
+    rg.attr({'id': 'TAGradient'});
+    rg.append('stop').attr({'offset': '50%', 'stop-color': 'palegoldenrod'});
+    rg.append('stop').attr({'offset': '100%', 'stop-color': 'pink'})
+
 
     var legendText = [ {'text': 'Legend: (outline means appears on page)', 'color': 'white'},
                         {'text': 'Tanna and Amora, generation 1', 'color': 'pink'},
@@ -309,8 +314,11 @@ function draw_graph(n, e, bLegend) {
                             'T1': 'pink', 'T2': 'yellow', 'T3': 'salmon', 'T4': 'lime', 'T5': 'cyan', 'T6': 'mediumorchid', 'T7': 'gold', 'T8': 'palegoldenrod'
                             };
 
+        multigenerationColors = {'TA': ['palegoldenrod', 'pink']}
         if (d.hasOwnProperty('generation'))
-            if (d.generation in generationColors)
+            if (d.generation in multigenerationColors)
+                return 'url(#' + d.generation + 'Gradient)';
+            else if (d.generation in generationColors)
                  return generationColors[d.generation];
             else
                 return 'white';
