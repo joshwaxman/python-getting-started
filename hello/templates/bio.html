@@ -277,9 +277,10 @@ function draw_graph(n, e, bLegend) {
         .attr("class", ".circle")
         .style("fill", function (d, i) {
 //return colors(i);
-        generationColors = {'A1': 'pink', 'A2': 'yellow', 'A3': 'salmon', 'A4': 'lime', 'A5': 'cyan', 'A6': 'mediumorchid',
-                            'T1': 'pink', 'T2': 'yellow', 'T3': 'salmon', 'T4': 'lime', 'T5': 'cyan', 'T6': 'mediumorchid'
+        generationColors = {'A1': 'pink', 'A2': 'yellow', 'A3': 'salmon', 'A4': 'lime', 'A5': 'cyan', 'A6': 'mediumorchid', 'A7': 'gold', 'A8': 'palegoldenrod',
+                            'T1': 'pink', 'T2': 'yellow', 'T3': 'salmon', 'T4': 'lime', 'T5': 'cyan', 'T6': 'mediumorchid', 'T7': 'gold', 'T8': 'palegoldenrod'
                             };
+
 
         if (d.hasOwnProperty('generation'))
             if (d.generation in generationColors)
