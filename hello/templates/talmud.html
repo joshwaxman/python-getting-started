@@ -134,22 +134,13 @@
     background-color: mediumorchid;
 }
 
-.Tanna[generation="7"] {
-    background-color: gold;
-}
-
 .Amora[generation="7"] {
     background-color: gold;
-}
-
-.Tanna[generation="8"] {
-    background-color: palegoldenrod;
 }
 
 .Amora[generation="8"] {
     background-color: palegoldenrod;
 }
-
 
 .VERB {
     background-color: white;
@@ -242,7 +233,7 @@ function draw_graph(n, e, bLegend) {
     var svg = d3.select("#divB").append("svg").attr({"width": w, "height": h});
     rg = svg.append('defs').append('radialGradient');
     rg.attr({'id': 'TAGradient'});
-    rg.append('stop').attr({'offset': '50%', 'stop-color': 'palegoldenrod'});
+    rg.append('stop').attr({'offset': '50%', 'stop-color': 'mediumorchid'});
     rg.append('stop').attr({'offset': '100%', 'stop-color': 'pink'});
 
     rg = svg.append('defs').append('radialGradient');
@@ -260,8 +251,8 @@ function draw_graph(n, e, bLegend) {
                        {'text': 'Tanna and Amora, generation 4', 'color': 'lime'},
                        {'text': 'Tanna and Amora, generation 5', 'color': 'cyan'},
                        {'text': 'Tanna and Amora, generation 6', 'color': 'mediumorchid'},
-                       {'text': 'Tanna and Amora, generation 7', 'color': 'gold'},
-                       {'text': 'Tanna and Amora, generation 8', 'color': 'palegoldenrod'}]
+                       {'text': 'Amora, generation 7', 'color': 'gold'},
+                       {'text': 'Amora, generation 8', 'color': 'palegoldenrod'}];
 
     if (bLegend) {
         svg.selectAll(".legendText")
@@ -318,7 +309,7 @@ function draw_graph(n, e, bLegend) {
         .style("fill", function (d, i) {
 //return colors(i);
         generationColors = {'A1': 'pink', 'A2': 'yellow', 'A3': 'salmon', 'A4': 'lime', 'A5': 'cyan', 'A6': 'mediumorchid', 'A7': 'gold', 'A8': 'palegoldenrod',
-                            'T1': 'pink', 'T2': 'yellow', 'T3': 'salmon', 'T4': 'lime', 'T5': 'cyan', 'T6': 'mediumorchid', 'T7': 'gold', 'T8': 'palegoldenrod'
+                            'T1': 'pink', 'T2': 'yellow', 'T3': 'salmon', 'T4': 'lime', 'T5': 'cyan', 'T6': 'mediumorchid'
                             };
 
         multigenerationColors = {'TA': ['palegoldenrod', 'pink'], 'A5/A6': 'moo'}
