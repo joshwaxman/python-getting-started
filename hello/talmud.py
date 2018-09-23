@@ -227,8 +227,8 @@ findGlobalRelationships.cache = dict() # type: Dict[Tuple, Tuple]
 def findStudentRelationships(people):
     people = [t[0] for t in people]
     peopleTuple = tuple(sorted(people))
-    if peopleTuple in findStudentRelationships.cache:
-        return findStudentRelationships.cache[peopleTuple]
+    #if peopleTuple in findStudentRelationships.cache:
+#        return findStudentRelationships.cache[peopleTuple]
 
     makeNeoConnection()
 
