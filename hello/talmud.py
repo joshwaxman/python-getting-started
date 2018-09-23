@@ -248,7 +248,7 @@ def findStudentRelationships(people):
     for record in result:
         nodeId = record['r1'].id
         hebrewName = record['r1']['hebrewName']
-        englishName = record['r1']['englishName']
+        englishName = 'Rava' #record['r1']['englishName']
         generation = record['r1']['generation']
 
         nodesById[nodeId] = {'name': englishName, 'hebrewName': hebrewName, 'generation': generation, 'appears': "True"}
