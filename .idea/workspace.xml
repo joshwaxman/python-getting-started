@@ -39,13 +39,13 @@
         <counts>
           <entry key="Django Console" value="1323" />
           <entry key="Pipfile" value="16" />
-          <entry key="html" value="690" />
+          <entry key="html" value="695" />
           <entry key="py" value="2707" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="690" />
+          <entry key="HTML" value="695" />
           <entry key="PLAIN_TEXT" value="16" />
           <entry key="Python" value="4030" />
         </counts>
@@ -146,8 +146,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/hello/templates/talmud.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="424">
-              <caret line="517" lean-forward="true" selection-start-line="517" selection-end-line="517" />
+            <state relative-caret-position="289">
+              <caret line="521" selection-start-line="521" selection-end-line="521" />
             </state>
           </provider>
         </entry>
@@ -691,8 +691,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/hello/templates/talmud.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="424">
-          <caret line="517" lean-forward="true" selection-start-line="517" selection-end-line="517" />
+        <state relative-caret-position="289">
+          <caret line="521" selection-start-line="521" selection-end-line="521" />
         </state>
       </provider>
     </entry>
