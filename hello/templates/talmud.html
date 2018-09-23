@@ -509,7 +509,21 @@ function showVerb() {
 var width = 500;
 
 function timelineHover() {
-var labelTestData = [{"label": "Rabbi Abba", "times": [{"starting_time": 290, "ending_time": 320}]}, {"label": "Rabbi Abba b. Hiyya b. Abba", "times": [{"starting_time": 290, "ending_time": 320}]}]
+var labelTestData = [{"label": "Rabbi Abba", "times": [{"starting_time": 290, "ending_time": 320}]}, {"label": "Rabbi Abba b. Hiyya b. Abba", "times": [{"starting_time": 290, "ending_time": 320}]}];
+var nodes = {{ student_nodes }};
+var labelTestData = [];
+for (var n in nodes) {
+    times = []
+    if (n['generation'] == 'A1')
+
+    labelTestData.append({'label': n['name'], 'times': n['generation']});
+}
+
+
+{#for (var edge in e) {#}
+    {#    edgeDictionary#}
+    {#}#}
+
 var chart = d3.timeline()
   .width(width*4)
   .stack()
