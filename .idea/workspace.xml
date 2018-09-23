@@ -39,13 +39,13 @@
         <counts>
           <entry key="Django Console" value="1323" />
           <entry key="Pipfile" value="16" />
-          <entry key="html" value="695" />
+          <entry key="html" value="696" />
           <entry key="py" value="2707" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="695" />
+          <entry key="HTML" value="696" />
           <entry key="PLAIN_TEXT" value="16" />
           <entry key="Python" value="4030" />
         </counts>
@@ -146,8 +146,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/hello/templates/talmud.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="521" selection-start-line="521" selection-end-line="521" />
+            <state relative-caret-position="274">
+              <caret line="551" column="42" selection-start-line="551" selection-start-column="42" selection-end-line="551" selection-end-column="42" />
             </state>
           </provider>
         </entry>
@@ -412,7 +412,7 @@
     <frame x="-7" y="0" width="1932" height="1003" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.28365386" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.28365386" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -425,9 +425,9 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="9" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.094017096" side_tool="true" visible="true" weight="0.32988507" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.094017096" side_tool="true" visible="true" weight="0.020689655" />
       <window_info anchor="bottom" id="Version Control" order="11" />
-      <window_info anchor="bottom" id="Python Console" order="12" sideWeight="0.9059829" visible="true" weight="0.32988507" />
+      <window_info active="true" anchor="bottom" id="Python Console" order="12" sideWeight="0.9059829" visible="true" weight="0.020689655" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -691,8 +691,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/hello/templates/talmud.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="521" selection-start-line="521" selection-end-line="521" />
+        <state relative-caret-position="274">
+          <caret line="551" column="42" selection-start-line="551" selection-start-column="42" selection-end-line="551" selection-end-column="42" />
         </state>
       </provider>
     </entry>

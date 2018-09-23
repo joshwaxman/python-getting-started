@@ -509,7 +509,8 @@ function showVerb() {
 var width = 500;
 
 function timelineHover() {
-var labelTestData = [{"label": "Rabbi Abba", "times": [{"starting_time": 290, "ending_time": 320}]}, {"label": "Rabbi Abba b. Hiyya b. Abba", "times": [{"starting_time": 290, "ending_time": 320}]}];
+var labelTestData = [{"label": "Rabbi Abba", "times": [{"starting_time": 290, "ending_time": 320}]},
+    {"label": "Rabbi Abba b. Hiyya b. Abba", "times": [{"starting_time": 290, "ending_time": 320}]}];
 /*var nodes = { student_nodes };
 var labelTestData = [];
 for (var n in nodes) {
@@ -549,8 +550,6 @@ var chart = d3.timeline()
 
     var svg = d3.select("#divB").append("svg").attr({"width": w, "height": h})
         .datum(labelTestData).call(chart);
-    alert('hello')
-}
 
 
 
