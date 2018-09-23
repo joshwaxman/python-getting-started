@@ -16,7 +16,10 @@ def makeNeoConnection():
     if os.name == 'nt':
         driver = GraphDatabase.driver("bolt://localhost:7687", auth=basic_auth("neo4j", "qwerty"))
     else:
-        driver = GraphDatabase.driver("bolt://hobby-jhedjehadkjfgbkeaajelfal.dbs.graphenedb.com:24786", auth=basic_auth("mivami", "b.hsh2OnrThi0v.aPpsVUFV5tjE7dzw"))
+        #driver = GraphDatabase.driver("bolt://hobby-jhedjehadkjfgbkeaajelfal.dbs.graphenedb.com:24786", auth=basic_auth("mivami", "b.hsh2OnrThi0v.aPpsVUFV5tjE7dzw"))
+        driver = GraphDatabase.driver("bolt://hobby-iamlocehkkokgbkekbgcgbal.dbs.graphenedb.com:24786",
+                                      auth=basic_auth("mivami", "b.hsh2OnrThi0v.aPpsVUFV5tjE7dzw"))
+
     session = driver.session()
 
     # driver = GraphDatabase.driver("bolt://hobby-iamlocehkkokgbkekbgcgbal.dbs.graphenedb.com:24786",
@@ -253,7 +256,7 @@ def findStudentRelationships(people):
 
         nodesById[nodeId] = {'name': englishName, 'hebrewName': hebrewName, 'generation': generation, 'appears': "True"}
 
-    # now include rabbis who have paths
+    # now include rabbis who have paths between each other
     query = 'match (r1:EncodedRabbi) where r1.englishName in ' + str(people) + '\n' + \
             'match (r2:EncodedRabbi) where r2.englishName in ' + str(people) + '\n' + \
             'match path = (r1)-[relationship2:student]-(r2)' + '\n' + \
@@ -272,7 +275,7 @@ def findStudentRelationships(people):
         relationDict['type'] = record['relationship2'].type
         edgesOriginal.append(relationDict)
 
-    # now include rabbis who share a teacher
+    # now include teachers shared by two rabbi
     query = 'match (r1:EncodedRabbi) where r1.englishName in ' + str(people) + '\n' + \
             'match (r2:EncodedRabbi) where id(r1) <> id(r2) and r2.englishName in ' + str(people) + '\n' + \
             'match (r3:EncodedRabbi) where not r3.englishName in ' + str(people) + '\n' + \
