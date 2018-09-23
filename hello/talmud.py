@@ -430,7 +430,7 @@ def htmlOutputter(title: str, page: str):
     persons = mivami_persons.find_one(theText)['person_in_daf']
     persons = [tuple(t) for t in persons]
 #    html += str(persons)
-    if 'EncodedEdges' in theHtml and 'EncodedNodes' in theHtml and bCache:
+    if False: #'EncodedEdges' in theHtml and 'EncodedNodes' in theHtml and bCache:
         # already generated and can pull it
         student_edges = theHtml['EncodedEdges']
         student_nodes = theHtml['EncodedNodes']
@@ -442,11 +442,11 @@ def htmlOutputter(title: str, page: str):
 
         student_nodes = persons
         student_edges, student_nodes = findStudentRelationships(student_nodes)
-        mivami_html.update_one({'title': title + ":" + str(daf)},
-                          {'$set':
-                               {'EncodedEdges': student_edges,
-                                'EncodedNodes': student_nodes}
-                           }, upsert=True)
+        # mivami_html.update_one({'title': title + ":" + str(daf)},
+        #                   {'$set':
+        #                        {'EncodedEdges': student_edges,
+        #                         'EncodedNodes': student_nodes}
+        #                    }, upsert=True)
 
         # write the edges out so that it does not need to be computed a second time
 
