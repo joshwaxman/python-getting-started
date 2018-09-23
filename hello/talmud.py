@@ -401,7 +401,7 @@ def htmlOutputter(title: str, page: str):
     person = db.person
     time_period = db.time_period
 
-    bCache = True
+    bCache = False
     if page.endswith('A') or page.endswith('B'):
         page = page.lower()
         bCache = False
