@@ -401,10 +401,10 @@ def htmlOutputter(title: str, page: str):
     person = db.person
     time_period = db.time_period
 
-    #bCache = False
-    # if page.endswith('A') or page.endswith('B'):
-    #     page = page.lower()
-    #     bCache = True
+    bCache = True
+    if page.endswith('A') or page.endswith('B'):
+        page = page.lower()
+        bCache = False
 
     if page.endswith('b'):
         prevPage = page[:-1] + 'a'
@@ -430,7 +430,7 @@ def htmlOutputter(title: str, page: str):
     persons = mivami_persons.find_one(theText)['person_in_daf']
     persons = [tuple(t) for t in persons]
 #    html += str(persons)
-    if 'EncodedEdges' in theHtml and 'EncodedNodes' in theHtml:
+    if 'EncodedEdges' in theHtml and 'EncodedNodes' in theHtml and bCache:
         # already generated and can pull it
         student_edges = theHtml['EncodedEdges']
         student_nodes = theHtml['EncodedNodes']
