@@ -389,6 +389,8 @@ def getDafYomi():
     theDaf = {'date': theDate }
     x = dafyomi.find_one(theDaf)['daf'].split()
     masechet = x[0]
+    if masechet == 'Hullin':
+        masechet = 'Chullin'
     daf = x[1] + 'a'
     return masechet, daf
 
