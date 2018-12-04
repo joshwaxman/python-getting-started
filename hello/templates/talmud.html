@@ -340,7 +340,8 @@ function draw_graph(n, e, bLegend) {
                 multigenerationColors = ['TA', 'A3/A4', 'A4/A5', 'A5/A6'];
                 if (d.hasOwnProperty('generation'))
                     if (d.generation in multigenerationColors)
-                        return 'url(#' + d.generation.replace('/', '') + 'Gradient)';
+                        return 'url(#TAGradient)';
+                        //return 'url(#' + d.generation.replace('/', '') + 'Gradient)';
                     else if (d.generation in generationColors)
                         return generationColors[d.generation];
                     else
