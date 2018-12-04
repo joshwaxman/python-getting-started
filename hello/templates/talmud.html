@@ -337,11 +337,10 @@ function draw_graph(n, e, bLegend) {
                     'T6': 'mediumorchid'
                 };
 
-                multigenerationColors = ['TA', 'A3/A4', 'A4/A5', 'A5/A6'];
+                multigenerationColors = {'TA': '', 'A3/A4': '', 'A4/A5': '', 'A5/A6': ''};
                 if (d.hasOwnProperty('generation'))
                     if (d.generation in multigenerationColors)
-                        return 'url(#TAGradient)';
-                        //return 'url(#' + d.generation.replace('/', '') + 'Gradient)';
+                        return 'url(#' + d.generation.replace('/', '') + 'Gradient)';
                     else if (d.generation in generationColors)
                         return generationColors[d.generation];
                     else
