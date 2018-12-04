@@ -246,6 +246,15 @@ function draw_graph(n, e, bLegend) {
         rg.append('stop').attr({'offset': '50%', 'stop-color': 'cyan'});
         rg.append('stop').attr({'offset': '100%', 'stop-color': 'mediumorchid'});
 
+        rg = svg.append('defs').append('radialGradient');
+        rg.attr({'id': 'A4/A5Gradient'});
+        rg.append('stop').attr({'offset': '50%', 'stop-color': 'lime'});
+        rg.append('stop').attr({'offset': '100%', 'stop-color': 'cyan'});
+
+        rg = svg.append('defs').append('radialGradient');
+        rg.attr({'id': 'A3/A4Gradient'});
+        rg.append('stop').attr({'offset': '50%', 'stop-color': 'salmon'});
+        rg.append('stop').attr({'offset': '100%', 'stop-color': 'lime'});
 
         var legendText = [{'text': 'Legend: (outline means appears on page)', 'color': 'white'},
             {'text': 'Tanna and Amora, generation 1', 'color': 'pink'},
