@@ -337,7 +337,7 @@ function draw_graph(n, e, bLegend) {
                     'T6': 'mediumorchid'
                 };
 
-                multigenerationColors = {'TA': ['palegoldenrod', 'pink'], 'A5/A6': 'moo'}
+                multigenerationColors = ['TA', 'A3/A4', 'A4/A5', 'A5/A6'];
                 if (d.hasOwnProperty('generation'))
                     if (d.generation in multigenerationColors)
                         return 'url(#' + d.generation + 'Gradient)';

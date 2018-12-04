@@ -44,14 +44,14 @@
         <counts>
           <entry key="Django Console" value="1355" />
           <entry key="Pipfile" value="16" />
-          <entry key="html" value="757" />
+          <entry key="html" value="785" />
           <entry key="py" value="3400" />
           <entry key="txt" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="757" />
+          <entry key="HTML" value="785" />
           <entry key="PLAIN_TEXT" value="20" />
           <entry key="Python" value="4755" />
         </counts>
@@ -165,8 +165,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/hello/templates/talmud.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="256" column="69" selection-start-line="256" selection-start-column="69" selection-end-line="256" selection-end-column="69" />
+            <state relative-caret-position="99">
+              <caret line="339" column="74" selection-start-line="339" selection-start-column="74" selection-end-line="339" selection-end-column="74" />
             </state>
           </provider>
         </entry>
@@ -184,9 +184,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>add</find>
-      <find>span</find>
-      <find>legend</find>
       <find>gold</find>
       <find>button</find>
       <find>n.app</find>
@@ -214,6 +211,9 @@
       <find>encoded</find>
       <find>cache</find>
       <find>radialgr</find>
+      <find>A3/A4Gradient</find>
+      <find>a3/</find>
+      <find>gradien</find>
     </findStrings>
     <dirStrings>
       <dir>C:\josh\mivami</dir>
@@ -797,8 +797,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/hello/templates/talmud.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="256" column="69" selection-start-line="256" selection-start-column="69" selection-end-line="256" selection-end-column="69" />
+        <state relative-caret-position="99">
+          <caret line="339" column="74" selection-start-line="339" selection-start-column="74" selection-end-line="339" selection-end-column="74" />
         </state>
       </provider>
     </entry>
