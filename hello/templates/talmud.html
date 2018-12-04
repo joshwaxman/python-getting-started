@@ -242,17 +242,17 @@ function draw_graph(n, e, bLegend) {
         rg.append('stop').attr({'offset': '100%', 'stop-color': 'pink'});
 
         rg = svg.append('defs').append('radialGradient');
-        rg.attr({'id': 'A5/A6Gradient'});
+        rg.attr({'id': 'A5A6Gradient'});
         rg.append('stop').attr({'offset': '50%', 'stop-color': 'cyan'});
         rg.append('stop').attr({'offset': '100%', 'stop-color': 'mediumorchid'});
 
         rg = svg.append('defs').append('radialGradient');
-        rg.attr({'id': 'A4/A5Gradient'});
+        rg.attr({'id': 'A4A5Gradient'});
         rg.append('stop').attr({'offset': '50%', 'stop-color': 'lime'});
         rg.append('stop').attr({'offset': '100%', 'stop-color': 'cyan'});
 
         rg = svg.append('defs').append('radialGradient');
-        rg.attr({'id': 'A3/A4Gradient'});
+        rg.attr({'id': 'A3A4Gradient'});
         rg.append('stop').attr({'offset': '50%', 'stop-color': 'salmon'});
         rg.append('stop').attr({'offset': '100%', 'stop-color': 'lime'});
 
@@ -340,7 +340,7 @@ function draw_graph(n, e, bLegend) {
                 multigenerationColors = ['TA', 'A3/A4', 'A4/A5', 'A5/A6'];
                 if (d.hasOwnProperty('generation'))
                     if (d.generation in multigenerationColors)
-                        return 'url(#' + d.generation + 'Gradient)';
+                        return 'url(#' + d.generation.replace('/', '') + 'Gradient)';
                     else if (d.generation in generationColors)
                         return generationColors[d.generation];
                     else
