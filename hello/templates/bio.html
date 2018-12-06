@@ -395,7 +395,12 @@ function draw_graph(n, e, bLegend) {
         .attr('d', 'M 0,-5 L 10 ,0 L 0,5')
         .attr('fill', 'green')
         .attr('stroke', 'green');
-    force.on("tick", function () {
+        force.on("tick", function (e) {
+            var k = 6 * e.alpha;
+
+            edges.each(function(d) {
+                d.source.y += k, d.target.y -= k;
+            });
         edges.attr({
             "x1": function (d) {
                 return d.source.x;
