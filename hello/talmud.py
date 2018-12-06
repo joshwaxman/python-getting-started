@@ -400,8 +400,10 @@ def htmlOutputter(title: str, page: str):
         "mongodb://mivami:Talmud1%@talmud-shard-00-00-ol0w9.mongodb.net:27017,talmud-shard-00-01-ol0w9.mongodb.net:27017,talmud-shard-00-02-ol0w9.mongodb.net:27017/admin?replicaSet=Talmud-shard-0&ssl=true")
     #client = MongoClient()
     db = client.sefaria
-    mivami_html = db.mivami_stage_03_html
-    mivami_persons = db.mivami_stage_02_persons
+    mivami_html = db.mivami_stage_04_html
+    mivami_persons = db.mivami_stage_03_persons
+    mivami_sugyot = db.mivami_stage_02_sugyot
+    mivami_sugyot_person = db.mivami_stage_03_sugyot_person
     mivami = db.mivami
     person = db.person
     time_period = db.time_period

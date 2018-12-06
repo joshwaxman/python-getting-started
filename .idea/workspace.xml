@@ -3,7 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="04c11b65-1a3f-47b2-99ed-8b7a1afc905b" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hello/templates/talmud.html" beforeDir="false" afterPath="$PROJECT_DIR$/hello/templates/talmud.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pipfile" beforeDir="false" afterPath="$PROJECT_DIR$/Pipfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pipfile.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hello/talmud.py" beforeDir="false" afterPath="$PROJECT_DIR$/hello/talmud.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hello/talmud_dev.py" beforeDir="false" afterPath="$PROJECT_DIR$/hello/talmud_dev.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -23,14 +26,14 @@
     <session id="-1463789769">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="16" />
+          <entry key="project.closed" value="17" />
           <entry key="project.open.time.1" value="6" />
           <entry key="project.open.time.10" value="1" />
           <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.13" value="1" />
           <entry key="project.open.time.28" value="1" />
           <entry key="project.open.time.38" value="1" />
-          <entry key="project.open.time.4" value="1" />
+          <entry key="project.open.time.4" value="2" />
           <entry key="project.open.time.40" value="1" />
           <entry key="project.open.time.44" value="1" />
           <entry key="project.open.time.45" value="1" />
@@ -38,7 +41,7 @@
           <entry key="project.open.time.5" value="2" />
           <entry key="project.open.time.50" value="1" />
           <entry key="project.open.time.57" value="1" />
-          <entry key="project.opened" value="21" />
+          <entry key="project.opened" value="22" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -46,7 +49,7 @@
           <entry key="Django Console" value="1355" />
           <entry key="Pipfile" value="16" />
           <entry key="html" value="820" />
-          <entry key="py" value="3400" />
+          <entry key="py" value="3572" />
           <entry key="txt" value="4" />
         </counts>
       </usages-collector>
@@ -54,7 +57,7 @@
         <counts>
           <entry key="HTML" value="820" />
           <entry key="PLAIN_TEXT" value="20" />
-          <entry key="Python" value="4755" />
+          <entry key="Python" value="4927" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -63,7 +66,7 @@
           <entry key="html" value="4" />
           <entry key="js" value="1" />
           <entry key="lock" value="1" />
-          <entry key="py" value="16" />
+          <entry key="py" value="17" />
           <entry key="txt" value="1" />
         </counts>
       </usages-collector>
@@ -72,7 +75,7 @@
           <entry key="HTML" value="4" />
           <entry key="JavaScript" value="1" />
           <entry key="PLAIN_TEXT" value="3" />
-          <entry key="Python" value="15" />
+          <entry key="Python" value="16" />
           <entry key="Scratch" value="1" />
         </counts>
       </usages-collector>
@@ -83,20 +86,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hello/talmud.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="10503">
-              <caret line="393" column="20" selection-start-line="393" selection-start-column="20" selection-end-line="393" selection-end-column="20" />
+            <state relative-caret-position="450">
+              <caret line="438" column="17" selection-end-line="498" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch_14.py">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/hello/talmud_dev.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="540">
-              <caret line="20" selection-start-line="20" selection-end-line="26" selection-end-column="125" />
-              <folding>
-                <element signature="e#306#336#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="2862">
+              <caret line="434" column="6" selection-start-line="434" selection-start-column="6" selection-end-line="434" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -163,7 +163,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hello/templates/talmud.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="485">
@@ -185,7 +185,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>button</find>
       <find>n.app</find>
       <find>medi</find>
       <find>endblo</find>
@@ -215,6 +214,7 @@
       <find>a3/</find>
       <find>gradien</find>
       <find>A3/</find>
+      <find>person_</find>
     </findStrings>
     <dirStrings>
       <dir>C:\josh\mivami</dir>
@@ -245,7 +245,6 @@
         <option value="$PROJECT_DIR$/hello/templates/blog.html" />
         <option value="$PROJECT_DIR$/hello/blog.py" />
         <option value="$PROJECT_DIR$/hello/templates/talmud_dev.html" />
-        <option value="$PROJECT_DIR$/hello/talmud_dev.py" />
         <option value="$PROJECT_DIR$/gettingstarted/urls.py" />
         <option value="$PROJECT_DIR$/hello/templates/convert.html" />
         <option value="$PROJECT_DIR$/hello/hebconvert.py" />
@@ -256,9 +255,10 @@
         <option value="$PROJECT_DIR$/hello/templates/bio.html" />
         <option value="$PROJECT_DIR$/ex_list.txt" />
         <option value="$PROJECT_DIR$/wordseg.py" />
-        <option value="$PROJECT_DIR$/hello/talmud.py" />
         <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch_14.py" />
         <option value="$PROJECT_DIR$/hello/templates/talmud.html" />
+        <option value="$PROJECT_DIR$/hello/talmud.py" />
+        <option value="$PROJECT_DIR$/hello/talmud_dev.py" />
       </list>
     </option>
   </component>
@@ -278,7 +278,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -316,6 +315,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -465,7 +465,7 @@
     <frame x="-7" y="0" width="1932" height="1003" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.3125" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.31570512" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -478,9 +478,9 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="9" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.098824784" side_tool="true" visible="true" weight="0.2908046" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.099358976" side_tool="true" visible="true" weight="0.2908046" />
       <window_info anchor="bottom" id="Version Control" order="11" />
-      <window_info active="true" anchor="bottom" id="Python Console" order="12" sideWeight="0.9011752" visible="true" weight="0.2908046" />
+      <window_info anchor="bottom" id="Python Console" order="12" sideWeight="0.900641" visible="true" weight="0.2908046" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -624,13 +624,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hello/talmud_dev.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="10881">
-          <caret line="406" selection-start-line="406" selection-end-line="406" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/hello/blog.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
@@ -731,13 +724,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hello/talmud.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="10503">
-          <caret line="393" column="20" selection-start-line="393" selection-start-column="20" selection-end-line="393" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch_14.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="540">
@@ -800,6 +786,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="485">
           <caret line="348" column="37" selection-start-line="348" selection-start-column="37" selection-end-line="348" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hello/talmud.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="438" column="17" selection-end-line="498" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hello/talmud_dev.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2862">
+          <caret line="434" column="6" selection-start-line="434" selection-start-column="6" selection-end-line="434" selection-end-column="6" />
         </state>
       </provider>
     </entry>

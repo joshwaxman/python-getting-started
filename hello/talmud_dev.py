@@ -1,8 +1,9 @@
 #from django.contrib.gis.geoip2 import GeoIP2
 from pymongo import MongoClient
 import datetime
-import os
+from collections import defaultdict
 from neo4j.v1 import GraphDatabase, basic_auth
+import os
 
 # paid connection string
 driver = None
@@ -12,17 +13,19 @@ def makeNeoConnection():
     global driver
     global session
 
-    if os.name == 'nt': # running locally on win 10
-        driver = GraphDatabase.driver("bolt://localhost:7687", auth=basic_auth("neo4j", "qwerty"))
+    if os.name == 'nt':
+        driver = GraphDatabase.driver("bolt://localhost:11002", auth=basic_auth("neo4j", "qwerty"))
     else:
         driver = GraphDatabase.driver("bolt://hobby-jhedjehadkjfgbkeaajelfal.dbs.graphenedb.com:24786", auth=basic_auth("mivami", "b.hsh2OnrThi0v.aPpsVUFV5tjE7dzw"))
+        #driver = GraphDatabase.driver("bolt://hobby-iamlocehkkokgbkekbgcgbal.dbs.graphenedb.com:24786",
+        #                              auth=basic_auth("mivami", "b.hsh2OnrThi0v.aPpsVUFV5tjE7dzw"))
 
     session = driver.session()
 
     # driver = GraphDatabase.driver("bolt://hobby-iamlocehkkokgbkekbgcgbal.dbs.graphenedb.com:24786",
     #                              auth=basic_auth("mivami", "b.jOGYTThIm49J.NCgtoqGY0qrXXajq"))
 
-
+    #driver = GraphDatabase.driver("bolt://localhost:7687", auth=basic_auth("neo4j", "qwerty"))
 
 
 from typing import List
@@ -32,6 +35,11 @@ def findLocalRelationships(people: List[str], daf: str):
     edgesOriginal = []  # type: List[Dict[str, str]]
     relationDict = {}
     nodesById = dict()
+    foundPeople = set()
+
+    dPeople = {t[0]: (t[1], t[2]) for t in people}
+    people = [t[0] for t in people]
+    people = set(people)
 
     query = 'match (r1:ComputedRabbi)-[rel]-(r2:ComputedRabbi) where rel.daf = "' + daf + '" return r1, r2, rel'
 
@@ -41,11 +49,15 @@ def findLocalRelationships(people: List[str], daf: str):
     for record in result:
         nodeId = record['r1'].id
         englishName = record['r1']['name']
-        nodesById[nodeId] = {'name': englishName, 'appears': "True"}
+        generation = record['r1']['generation']
+        foundPeople.add(englishName)
+        nodesById[nodeId] = {'name': englishName, 'appears': "True", 'generation': generation}
 
         nodeId = record['r2'].id
         englishName = record['r2']['name']
-        nodesById[nodeId] = {'name': englishName, 'appears': "True"}
+        generation = record['r2']['generation']
+        foundPeople.add(englishName)
+        nodesById[nodeId] = {'name': englishName, 'appears': "True", 'generation': generation}
 
         count += 1
         source = record['rel'].start
@@ -66,28 +78,36 @@ def findLocalRelationships(people: List[str], daf: str):
     # relationships, passed in
     pos = len(nodes) # so no overlap in item number
     for person in people:
-        nodes.append({'name': person})
+        h += person + "|"
+        if person not in foundPeople:
+            nodes.append({'name': person, 'generation': dPeople[person][0], 'appears': 'True'})
     # update edges to be by position
     edges = []  # type: List[Dict[str, str]]
 
     setSourceTargetType = set()
 
+    edgeDict = defaultdict(set)
+
     for d in edgesOriginal:
         source = nodesById[d['source']]['id']
         target = nodesById[d['target']]['id']
         type = d['type']
-        if (source, target, type) not in setSourceTargetType:
-            element = {'source': source,
-                       'target': target,
-                       'label': type}
-            edges.append(element)
-            setSourceTargetType.add((source, target, type))
+        edgeDict[(source, target)].add(type)
+
+    for (source, target), type in edgeDict.items():
+        element = {'source': source,
+                   'target': target,
+                   'label': ', '.join(type)}
+        edges.append(element)
 
     h += str(count)
+    h += str(foundPeople)
     return h, nodes, edges
 
 
 def findGlobalRelationships(people: List[str]):
+    people = [t[0] for t in people]
+    people = list(set(people))
     peopleTuple = tuple(sorted(people))
     if peopleTuple in findGlobalRelationships.cache:
         return findGlobalRelationships.cache[peopleTuple]
@@ -98,16 +118,20 @@ def findGlobalRelationships(people: List[str]):
 
     makeNeoConnection()
 
+    #f = open('logfile.log', 'a')
+
     # get the nodes, and specifically the node ids, of all of the computed rabbis
     # we have passed in
 
     query = 'match (r1:ComputedRabbi) where r1.name in ' + str(people) + ' return r1'
+    #print(query, file=f)
     result = session.run(query)
 
     for record in result:
         nodeId = record['r1'].id
         englishName = record['r1']['name']
-        nodesById[nodeId] = {'name': englishName, 'appears': "True"}
+        generation = record['r1']['generation']
+        nodesById[nodeId] = {'name': englishName, 'appears': "True", 'generation': generation}
 
     if len(people) > 1: # it takes at least two to tango. else no relationships to find.
         # now include rabbis who have global paths from one to the other
@@ -172,26 +196,42 @@ def findGlobalRelationships(people: List[str]):
 
     setSourceTargetType = set()
 
+    edgeDict = defaultdict(set)
     for d in edgesOriginal:
         source = nodesById[d['source']]['id']
         target = nodesById[d['target']]['id']
         type = d['type']
-        if (source, target, type) not in setSourceTargetType:
-            element = {'source': source,
-                       'target': target,
-                       'label': type}
-            edges.append(element)
-            setSourceTargetType.add((source, target, type))
+        edgeDict[(source, target)].add(type)
+
+    for (source, target), type in edgeDict.items():
+        element = {'source': source,
+                   'target': target,
+                   'label': ', '.join(type)}
+        edges.append(element)
+
+
+    # for d in edgesOriginal:
+    #     source = nodesById[d['source']]['id']
+    #     target = nodesById[d['target']]['id']
+    #     type = d['type']
+    #     if (source, target, type) not in setSourceTargetType:
+    #         element = {'source': source,
+    #                    'target': target,
+    #                    'label': type}
+    #         edges.append(element)
+    #         setSourceTargetType.add((source, target, type))
 
     findGlobalRelationships.cache[peopleTuple] = edges, nodes
+
     return edges, nodes
 findGlobalRelationships.cache = dict() # type: Dict[Tuple, Tuple]
 
 
 def findStudentRelationships(people):
+    people = [t[0] for t in people]
     peopleTuple = tuple(sorted(people))
-    if peopleTuple in findStudentRelationships.cache:
-        return findStudentRelationships.cache[peopleTuple]
+    #if peopleTuple in findStudentRelationships.cache:
+#        return findStudentRelationships.cache[peopleTuple]
 
     makeNeoConnection()
 
@@ -216,7 +256,7 @@ def findStudentRelationships(people):
 
         nodesById[nodeId] = {'name': englishName, 'hebrewName': hebrewName, 'generation': generation, 'appears': "True"}
 
-    # now include rabbis who have paths
+    # now include rabbis who have paths between each other
     query = 'match (r1:EncodedRabbi) where r1.englishName in ' + str(people) + '\n' + \
             'match (r2:EncodedRabbi) where r2.englishName in ' + str(people) + '\n' + \
             'match path = (r1)-[relationship2:student]-(r2)' + '\n' + \
@@ -235,7 +275,7 @@ def findStudentRelationships(people):
         relationDict['type'] = record['relationship2'].type
         edgesOriginal.append(relationDict)
 
-    # now include rabbis who share a teacher
+    # now include teachers shared by two rabbi
     query = 'match (r1:EncodedRabbi) where r1.englishName in ' + str(people) + '\n' + \
             'match (r2:EncodedRabbi) where id(r1) <> id(r2) and r2.englishName in ' + str(people) + '\n' + \
             'match (r3:EncodedRabbi) where not r3.englishName in ' + str(people) + '\n' + \
@@ -340,12 +380,8 @@ def graphTransformation2(edges: List[Dict[str, Any]], nodes: Dict[str, str]):
 
 
 def getDafYomi():
-
-    if os.name == 'nt':
-        client = MongoClient()
-    else:
-        client = MongoClient(
-            "mongodb://mivami:Talmud1%@talmud-shard-00-00-ol0w9.mongodb.net:27017,talmud-shard-00-01-ol0w9.mongodb.net:27017,talmud-shard-00-02-ol0w9.mongodb.net:27017/admin?replicaSet=Talmud-shard-0&ssl=true")
+    client = MongoClient(
+        "mongodb://mivami:Talmud1%@talmud-shard-00-00-ol0w9.mongodb.net:27017,talmud-shard-00-01-ol0w9.mongodb.net:27017,talmud-shard-00-02-ol0w9.mongodb.net:27017/admin?replicaSet=Talmud-shard-0&ssl=true")
     db = client.sefaria
     dafyomi = db.dafyomi
     now = datetime.datetime.now()
@@ -353,22 +389,29 @@ def getDafYomi():
     theDaf = {'date': theDate }
     x = dafyomi.find_one(theDaf)['daf'].split()
     masechet = x[0]
+    if masechet == 'Hullin':
+        masechet = 'Chullin'
     daf = x[1] + 'a'
     return masechet, daf
 
 
 def htmlOutputter(title: str, page: str):
-    if os.name == 'nt':
-        client = MongoClient()
-    else:
-        client = MongoClient(
-            "mongodb://mivami:Talmud1%@talmud-shard-00-00-ol0w9.mongodb.net:27017,talmud-shard-00-01-ol0w9.mongodb.net:27017,talmud-shard-00-02-ol0w9.mongodb.net:27017/admin?replicaSet=Talmud-shard-0&ssl=true")
+    client = MongoClient(
+        "mongodb://mivami:Talmud1%@talmud-shard-00-00-ol0w9.mongodb.net:27017,talmud-shard-00-01-ol0w9.mongodb.net:27017,talmud-shard-00-02-ol0w9.mongodb.net:27017/admin?replicaSet=Talmud-shard-0&ssl=true")
     #client = MongoClient()
     db = client.sefaria
-    mivami_html = db.mivami_stage_03_html
-    mivami_persons = db.mivami_stage_02_persons
+    mivami_html = db.mivami_stage_04_html
+    mivami_persons = db.mivami_stage_03_persons
+    mivami_sugyot = db.mivami_stage_02_sugyot
+    mivami_sugyot_person = db.mivami_stage_03_sugyot_person
     mivami = db.mivami
     person = db.person
+    time_period = db.time_period
+
+    bCache = False
+    if page.endswith('A') or page.endswith('B'):
+        page = page.lower()
+        bCache = False
 
     if page.endswith('b'):
         prevPage = page[:-1] + 'a'
@@ -390,12 +433,16 @@ def htmlOutputter(title: str, page: str):
     item = mivami.find_one(theText)
     theHtml = mivami_html.find_one(theText)
     html = theHtml['html']
+    html += ('<!––daf:' + str(daf) + '-->')
+    # get the sugyot for this daf
 
-    html += '<!––daf:' + str(daf) + '-->'
+    sugyot = mivami_sugyot.find_one(dict(sugya_title=title))
+    sugyot = sugyot['amudim'][page]
+    html += str(sugyot)
     persons = mivami_persons.find_one(theText)['person_in_daf']
-    persons = [t[0] for t in persons]
+    persons = [tuple(t) for t in persons]
 #    html += str(persons)
-    if False: #'EncodedEdges' in theHtml and 'EncodedNodes' in theHtml:
+    if False: #'EncodedEdges' in theHtml and 'EncodedNodes' in theHtml and bCache:
         # already generated and can pull it
         student_edges = theHtml['EncodedEdges']
         student_nodes = theHtml['EncodedNodes']
@@ -406,13 +453,12 @@ def htmlOutputter(title: str, page: str):
         #people = [{'name': p['key'], 'generation': p['generation']} for p in people]
 
         student_nodes = persons
-
         student_edges, student_nodes = findStudentRelationships(student_nodes)
-        mivami_html.update_one({'title': title + ":" + str(daf)},
-                          {'$set':
-                               {'EncodedEdges': student_edges,
-                                'EncodedNodes': student_nodes}
-                           }, upsert=True)
+        # mivami_html.update_one({'title': title + ":" + str(daf)},
+        #                   {'$set':
+        #                        {'EncodedEdges': student_edges,
+        #                         'EncodedNodes': student_nodes}
+        #                    }, upsert=True)
 
         # write the edges out so that it does not need to be computed a second time
 
@@ -420,7 +466,8 @@ def htmlOutputter(title: str, page: str):
 
     h, local_interaction_nodes, local_interaction_edges = findLocalRelationships(persons, title + '.' + page)
 #    local_interaction_nodes, local_interaction_edges = [], []
-#     html += 'Extra debugguing' + h  + '<br/>'
+    if os.name == 'nt':
+        html += 'Extra debugguing' + h  + '<br/>'
 #     html += 'Local interaction Nodes: ' + str(local_interaction_nodes) + '</br>'
 #     html += 'Local interaction Edges: ' + str(local_interaction_edges) + '</br>'
     #local_interaction_nodes = item['LocalInteractionNodes']
@@ -429,9 +476,7 @@ def htmlOutputter(title: str, page: str):
         global_interaction_nodes = item['GlobalInteractionNodes']
         global_interaction_edges = item['GlobalInteractionEdges']
     else:
-        global_interaction_nodes = local_interaction_nodes
-        global_interaction_edges = local_interaction_edges
-        #global_interaction_edges, global_interaction_nodes = findGlobalRelationships(global_interaction_nodes)
+        global_interaction_edges, global_interaction_nodes = findGlobalRelationships(persons)
         #mivami.update_one({'title': title+":"+str(daf)}, {'$set': {'GlobalInteractionNodes': global_interaction_nodes, 'GlobalInteractionEdges': global_interaction_edges}})
 
     wrapper += '<a href="https://www.sefaria.org/%s?lang=bi">%s</a></p>' % (title + '.' +str(page), title+" "+str(page))

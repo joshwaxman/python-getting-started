@@ -11,9 +11,12 @@ gunicorn = "*"
 django-heroku = "*"
 pymongo = "*"
 regex = "*"
-neo4j-driver = "*"
+"neo4j-driver" = "*"
 mistune = "*"
-py2neo = "*"
+"py2neo" = "*"
+three = "*"
+
+
 [requires]
 
 python_version = "3.6"
