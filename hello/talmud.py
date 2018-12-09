@@ -402,8 +402,6 @@ def htmlOutputter(title: str, page: str):
     db = client.sefaria
     mivami_html = db.mivami_stage_04_html
     mivami_persons = db.mivami_stage_03_persons
-    mivami_sugyot = db.mivami_stage_02_sugyot
-    mivami_sugyot_person = db.mivami_stage_03_sugyot_person
     mivami = db.mivami
     person = db.person
     time_period = db.time_period
@@ -434,8 +432,10 @@ def htmlOutputter(title: str, page: str):
     theHtml = mivami_html.find_one(theText)
     html = theHtml['html']
     html += ('<!––daf:' + str(daf) + '-->')
-    persons = mivami_persons.find_one(theText)['person_in_daf']
-    persons = [tuple(t) for t in persons]
+
+    persons_collection = mivami_persons.find_one(theText)
+    persons = [tuple(t) for t in persons_collection['person_in_daf']]
+    persons_in_sugya = persons_collection['person_in_sugya']
 #    html += str(persons)
     if False: #'EncodedEdges' in theHtml and 'EncodedNodes' in theHtml and bCache:
         # already generated and can pull it
@@ -476,12 +476,6 @@ def htmlOutputter(title: str, page: str):
 
     wrapper += '<a href="https://www.sefaria.org/%s?lang=bi">%s</a></p>' % (title + '.' +str(page), title+" "+str(page))
 
-    # iterate through sugyot,
-    # so that we have different graphs
-    sugya = 0
-    sugyaGraphs = []
-    pplSet = set()
-
     wrapper += html
 
     # fix up tags like < strong >
@@ -490,9 +484,19 @@ def htmlOutputter(title: str, page: str):
 
     leftside = wrapper
 
+    # iterate through sugyot,
+    # so that we have different graphs
+    sugyaGraphs = dict()
+    pplSet = set()
+    for sugya in persons_in_sugya:
+        line_start = sugya['line_start']
+        sugya_number = sugya['sugya']
+        people = sugya['people']
+        sugyaGraphs[line_start] = findStudentRelationships(people)
+
     # why was this not precomputed?
     #local_interaction_edges, local_interaction_nodes = graphTransformation(local_interaction_edges, local_interaction_nodes)
     #student_edges, student_nodes = graphTransformation(student_edges, student_nodes)
 
     return leftside, student_edges, student_nodes, local_interaction_edges, local_interaction_nodes, \
-           global_interaction_edges, global_interaction_nodes
+           global_interaction_edges, global_interaction_nodes, sugyaGraphs
