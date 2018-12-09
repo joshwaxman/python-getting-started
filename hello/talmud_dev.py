@@ -435,7 +435,7 @@ def htmlOutputter(title: str, page: str):
 
     persons_collection = mivami_persons.find_one(theText)
     persons = [tuple(t) for t in persons_collection['person_in_daf']]
-    persons_in_sugya = persons_collection['person_in_sygya']
+    persons_in_sugya = persons_collection['person_in_sugya']
 #    html += str(persons)
     if False: #'EncodedEdges' in theHtml and 'EncodedNodes' in theHtml and bCache:
         # already generated and can pull it
