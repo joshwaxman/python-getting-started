@@ -208,7 +208,9 @@ a {
         <button onclick="draw_student_graph()">Teacher/Student Graph</button>
         <button onclick="draw_local_interaction_graph()">Local Interactions Graph</button>
         <button onclick="draw_global_interaction_graph()">Global Interactions Graph</button>
-        <button onclick="timelineHover()">Timeline</button>
+        <button onclick="draw_student_graph_sugya(1)">Timeline</button>
+        <!-- button onclick="timelineHover()">Timeline</button> -->
+        draw_student_graph_sugya
 {{ leftside | safe }}
     </span>
     </div>
@@ -502,6 +504,13 @@ function draw_graph(n, e, bLegend) {
                 }
             });
         });
+    }
+
+    function draw_student_graph_sugya(i) {
+        var graph = {{ sugya_graph }};
+        var edges = graph[i][0];
+        var nodes = graph[i][1];
+        draw_graph(nodes, edges, true);
     }
 
     function draw_student_graph() {
