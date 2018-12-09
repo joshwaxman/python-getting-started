@@ -507,7 +507,7 @@ function draw_graph(n, e, bLegend) {
     }
 
     function draw_student_graph_sugya(i) {
-        var graph = {{ sugya_graph }};
+        var graph = {{ sugya_graph | safe }};
         var edges = graph[i][0];
         var nodes = graph[i][1];
         draw_graph(nodes, edges, true);
