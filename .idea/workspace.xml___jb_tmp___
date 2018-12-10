@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="04c11b65-1a3f-47b2-99ed-8b7a1afc905b" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml___jb_tmp___" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/hello/talmud.py" beforeDir="false" afterPath="$PROJECT_DIR$/hello/talmud.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hello/templates/talmud.html" beforeDir="false" afterPath="$PROJECT_DIR$/hello/templates/talmud.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hello/templates/talmud.html___jb_tmp___" beforeDir="false" afterPath="$PROJECT_DIR$/hello/templates/talmud.html___jb_tmp___" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -47,7 +46,7 @@
           <entry key="Django Console" value="1355" />
           <entry key="Pipfile" value="16" />
           <entry key="html" value="1006" />
-          <entry key="py" value="3864" />
+          <entry key="py" value="3889" />
           <entry key="txt" value="4" />
         </counts>
       </usages-collector>
@@ -55,7 +54,8 @@
         <counts>
           <entry key="HTML" value="1006" />
           <entry key="PLAIN_TEXT" value="20" />
-          <entry key="Python" value="5219" />
+          <entry key="Python" value="5242" />
+          <entry key="Scratch" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -65,7 +65,7 @@
           <entry key="js" value="1" />
           <entry key="lock" value="1" />
           <entry key="md" value="1" />
-          <entry key="py" value="20" />
+          <entry key="py" value="23" />
           <entry key="txt" value="1" />
         </counts>
       </usages-collector>
@@ -76,18 +76,18 @@
           <entry key="Markdown" value="1" />
           <entry key="PLAIN_TEXT" value="3" />
           <entry key="Python" value="19" />
-          <entry key="Scratch" value="1" />
+          <entry key="Scratch" value="4" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/hello/talmud.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="363">
-              <caret line="495" column="40" selection-start-line="495" selection-start-column="40" selection-end-line="495" selection-end-column="40" />
+            <state relative-caret-position="261">
+              <caret line="229" column="4" selection-start-line="229" selection-start-column="4" selection-end-line="229" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -129,32 +129,6 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/hello/templates/bio.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="10692">
-              <caret line="396" column="22" selection-start-line="396" selection-start-column="22" selection-end-line="396" selection-end-column="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/README.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="216">
-                <caret line="8" column="239" selection-start-line="8" selection-start-column="239" selection-end-line="8" selection-end-column="239" />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/hello/static/d3-timeline.js">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hello/templates/convert.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="216">
@@ -163,11 +137,40 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hello/templates/talmud.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="510" column="32" selection-start-line="510" selection-start-column="32" selection-end-line="510" selection-end-column="32" />
+            <state relative-caret-position="313">
+              <caret line="210" column="71" lean-forward="true" selection-start-line="210" selection-start-column="8" selection-end-line="210" selection-end-column="71" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch_1.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="243">
+              <caret line="9" column="16" selection-end-line="100" selection-end-column="8" />
+              <folding>
+                <element signature="e#0#21#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch_11.py">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch_14.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="675">
+              <caret line="43" selection-start-line="43" selection-end-line="56" selection-end-column="17" />
+              <folding>
+                <element signature="e#0#47#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -185,8 +188,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>generation</find>
-      <find>gradi</find>
       <find>for</find>
       <find>.append</find>
       <find>or (var</find>
@@ -215,6 +216,8 @@
       <find>timeline</find>
       <find>sugya</find>
       <find>draw_student_graph_sugya</find>
+      <find>&lt;button</find>
+      <find>person</find>
     </findStrings>
     <dirStrings>
       <dir>C:\josh\mivami</dir>
@@ -252,13 +255,13 @@
         <option value="$PROJECT_DIR$/hello/bio.py" />
         <option value="$PROJECT_DIR$/ex_list.txt" />
         <option value="$PROJECT_DIR$/wordseg.py" />
-        <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch_14.py" />
         <option value="$PROJECT_DIR$/hello/templates/bio.html" />
         <option value="$PROJECT_DIR$/hello/talmud_dev.py" />
         <option value="$PROJECT_DIR$/hello/views.py" />
         <option value="$PROJECT_DIR$/hello/templates/talmud_dev.html" />
-        <option value="$PROJECT_DIR$/hello/talmud.py" />
         <option value="$PROJECT_DIR$/hello/templates/talmud.html" />
+        <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch_14.py" />
+        <option value="$PROJECT_DIR$/hello/talmud.py" />
       </list>
     </option>
   </component>
@@ -310,6 +313,11 @@
             <path>
               <item name="mivami" type="b2602c69:ProjectViewProjectNode" />
               <item name="Scratches and Consoles" type="1a2a3e82:ScratchProjectViewPane$MyProjectNode" />
+            </path>
+            <path>
+              <item name="mivami" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Scratches and Consoles" type="1a2a3e82:ScratchProjectViewPane$MyProjectNode" />
+              <item name="Scratches" type="d62648e6:ScratchProjectViewPane$MyRootNode" />
             </path>
           </expand>
           <select />
@@ -700,13 +708,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch_14.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="20" selection-start-line="20" selection-end-line="26" selection-end-column="125" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wordseg.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3213">
@@ -769,13 +770,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hello/talmud_dev.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1351">
-          <caret line="437" column="55" selection-end-line="502" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/hello/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="174">
@@ -790,17 +784,47 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hello/talmud.py">
+    <entry file="file://$PROJECT_DIR$/hello/templates/talmud.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="363">
-          <caret line="495" column="40" selection-start-line="495" selection-start-column="40" selection-end-line="495" selection-end-column="40" />
+        <state relative-caret-position="313">
+          <caret line="210" column="71" lean-forward="true" selection-start-line="210" selection-start-column="8" selection-end-line="210" selection-end-column="71" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hello/templates/talmud.html">
+    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch_1.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="510" column="32" selection-start-line="510" selection-start-column="32" selection-end-line="510" selection-end-column="32" />
+        <state relative-caret-position="243">
+          <caret line="9" column="16" selection-end-line="100" selection-end-column="8" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch_11.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hello/talmud_dev.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1351">
+          <caret line="437" column="55" selection-end-line="502" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch_14.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="675">
+          <caret line="43" selection-start-line="43" selection-end-line="56" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#47#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hello/talmud.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="261">
+          <caret line="229" column="4" selection-start-line="229" selection-start-column="4" selection-end-line="229" selection-end-column="4" />
         </state>
       </provider>
     </entry>

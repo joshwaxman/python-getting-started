@@ -488,12 +488,12 @@ def htmlOutputter(title: str, page: str):
     # so that we have different graphs
     sugyaGraphs = dict()
     pplSet = set()
-    for sugya in persons_in_sugya:
+    for i, sugya in enumerate(persons_in_sugya):
         line_start = sugya['line_start']
         sugya_number = sugya['sugya']
         people = sugya['people']
         e, n = findStudentRelationships(people)
-        sugyaGraphs[line_start] = [e, n]
+        sugyaGraphs[i] = [e, n]
 
     # why was this not precomputed?
     #local_interaction_edges, local_interaction_nodes = graphTransformation(local_interaction_edges, local_interaction_nodes)
