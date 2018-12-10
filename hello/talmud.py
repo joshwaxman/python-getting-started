@@ -492,7 +492,8 @@ def htmlOutputter(title: str, page: str):
         line_start = sugya['line_start']
         sugya_number = sugya['sugya']
         people = sugya['people']
-        sugyaGraphs[line_start] = findStudentRelationships(people)
+        e, n = findStudentRelationships(people)
+        sugyaGraphs[line_start] = [e, n]
 
     # why was this not precomputed?
     #local_interaction_edges, local_interaction_nodes = graphTransformation(local_interaction_edges, local_interaction_nodes)
