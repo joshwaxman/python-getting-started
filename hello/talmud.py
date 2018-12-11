@@ -44,7 +44,7 @@ def findLocalRelationships(people: List[str], daf: str):
     query = 'match (r1:ComputedRabbi)-[rel]-(r2:ComputedRabbi) where rel.daf = "' + daf + '" return r1, r2, rel'
 
     result = session.run(query)
-    h = query
+    #h = query
     count = 0
     for record in result:
         nodeId = record['r1'].id
@@ -78,7 +78,7 @@ def findLocalRelationships(people: List[str], daf: str):
     # relationships, passed in
     pos = len(nodes) # so no overlap in item number
     for person in people:
-        h += person + "|"
+        #h += person + "|"
         if person not in foundPeople:
             nodes.append({'name': person, 'generation': dPeople[person][0], 'appears': 'True'})
     # update edges to be by position
@@ -100,9 +100,9 @@ def findLocalRelationships(people: List[str], daf: str):
                    'label': ', '.join(type)}
         edges.append(element)
 
-    h += str(count)
-    h += str(foundPeople)
-    return h, nodes, edges
+    #h += str(count)
+    #h += str(foundPeople)
+    return edges, nodes
 
 
 def findGlobalRelationships(people: List[str]):
@@ -432,7 +432,7 @@ def htmlOutputter(title: str, page: str):
     theHtml = mivami_html.find_one(theText)
     html = theHtml['html']
     html += ('<!––daf:' + str(daf) + '-->')
-
+    h = '' # extra debugging output
     persons_collection = mivami_persons.find_one(theText)
     persons = [tuple(t) for t in persons_collection['person_in_daf']]
     persons_in_sugya = persons_collection['person_in_sugya']
@@ -459,7 +459,7 @@ def htmlOutputter(title: str, page: str):
 
     #student_edges = item['EncodedEdges']
 
-    h, local_interaction_nodes, local_interaction_edges = findLocalRelationships(persons, title + '.' + page)
+        local_interaction_edges, local_interaction_nodes = findLocalRelationships(persons, title + '.' + page)
 #    local_interaction_nodes, local_interaction_edges = [], []
     if os.name == 'nt':
         html += 'Extra debugguing' + h  + '<br/>'
@@ -493,7 +493,9 @@ def htmlOutputter(title: str, page: str):
         sugya_number = sugya['sugya']
         people = sugya['people']
         e, n = findStudentRelationships(people)
-        sugyaGraphs[i] = [e, n]
+        le, ln = findLocalRelationships(people, title + '.' + page)
+        ge, gn = findGlobalRelationships(people)
+        sugyaGraphs[i] = [e, n, le, ln, ge, gn]
 
     # why was this not precomputed?
     #local_interaction_edges, local_interaction_nodes = graphTransformation(local_interaction_edges, local_interaction_nodes)

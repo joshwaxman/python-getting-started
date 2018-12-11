@@ -208,7 +208,7 @@ a {
         <button onclick="draw_student_graph()">Teacher/Student Graph</button>
         <button onclick="draw_local_interaction_graph()">Local Interactions Graph</button>
         <button onclick="draw_global_interaction_graph()">Global Interactions Graph</button>
-        <button onclick="draw_student_graph_sugya(0)">Timeline</button>
+        <button onclick="draw_local_interaction_graph_sugya(0)">Timeline</button>
         <!-- button onclick="timelineHover()">Timeline</button> -->
 {{ leftside | safe }}
     </span>
@@ -228,7 +228,7 @@ function draw_graph(n, e, bLegend) {
 
         d3.select("svg").remove();
         var w = 1200;
-        var h = 900;
+        var h = 1200;
         var linkDistance = 200;
         var colors = d3.scale.category10();
         var dataset = {
@@ -447,8 +447,24 @@ function draw_graph(n, e, bLegend) {
         force.on("tick", function (e) {
             var k = 6 * e.alpha;
 
+            /*nodes.each(function(d) {
+                genHeight = {'T3': 300, 'T4': 400, 'T5': 500, 'T6': 600,
+                    'A1': 700, 'A2': 800, 'A3': 900, 'A4': 1000};
+
+                if (d.generation in genHeight) {
+                    delta = d.y - genHeight[d.generation];
+                    if (delta > 50)
+                        d.y -= (Math.abs(delta)) * e.alpha;
+                    else if (delta < -50)
+                        d.y += (Math.abs(delta)) * e.alpha;
+                    }
+                });*/
             edges.each(function(d) {
                 d.source.y += k, d.target.y -= k;
+
+                //if (d.source.generation.startsWith('T'))
+                  //  d.source.x -= k;
+
             });
             edges.attr({
                 "x1": function (d) {
@@ -509,6 +525,20 @@ function draw_graph(n, e, bLegend) {
         var graph = {{ sugya_graph | safe }};
         var edges = graph[i][0];
         var nodes = graph[i][1];
+        draw_graph(nodes, edges, true);
+    }
+
+    function draw_local_interaction_graph_sugya(i) {
+        var graph = {{ sugya_graph | safe }};
+        var edges = graph[i][2];
+        var nodes = graph[i][3];
+        draw_graph(nodes, edges, true);
+    }
+
+    function draw_global_interaction_graph_sugya(i) {
+        var graph = {{ sugya_graph | safe }};
+        var edges = graph[i][4];
+        var nodes = graph[i][5];
         draw_graph(nodes, edges, true);
     }
 
