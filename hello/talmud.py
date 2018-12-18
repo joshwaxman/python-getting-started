@@ -1,6 +1,7 @@
 #from django.contrib.gis.geoip2 import GeoIP2
 from pymongo import MongoClient
 import datetime
+from django.utils import timezone
 from collections import defaultdict
 from neo4j.v1 import GraphDatabase, basic_auth
 import os
@@ -384,7 +385,8 @@ def getDafYomi():
         "mongodb://mivami:Talmud1%@talmud-shard-00-00-ol0w9.mongodb.net:27017,talmud-shard-00-01-ol0w9.mongodb.net:27017,talmud-shard-00-02-ol0w9.mongodb.net:27017/admin?replicaSet=Talmud-shard-0&ssl=true")
     db = client.sefaria
     dafyomi = db.dafyomi
-    now = datetime.datetime.now()
+    #now = datetime.datetime.now()
+    now = timezone.now()
     theDate = str(now.month) + '/' + str(now.day) + '/' + str(now.year)
     theDaf = {'date': theDate }
     x = dafyomi.find_one(theDaf)['daf'].split()

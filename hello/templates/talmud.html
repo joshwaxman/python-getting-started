@@ -208,8 +208,7 @@ a {
         <button onclick="draw_student_graph()">Teacher/Student Graph</button>
         <button onclick="draw_local_interaction_graph()">Local Interactions Graph</button>
         <button onclick="draw_global_interaction_graph()">Global Interactions Graph</button>
-        <button onclick="draw_local_interaction_graph_sugya(0)">Timeline</button>
-        <!-- button onclick="timelineHover()">Timeline</button> -->
+        <button onclick="timelineHover()">Timeline</button>
 {{ leftside | safe }}
     </span>
     </div>
@@ -573,6 +572,8 @@ function draw_graph(n, e, bLegend) {
     function timelineHover() {
         var labelTestData = [{"label": "Rabbi Abba", "times": [{"starting_time": 290, "ending_time": 320}]},
             {"label": "Rabbi Abba b. Hiyya b. Abba", "times": [{"starting_time": 290, "ending_time": 320}]}];
+        var nodes = {{ student_nodes | safe }};
+        var edges = {{ student_edges | safe }};
         /*var nodes = { student_nodes }; */
 /*    var labelTestData = [];
     for (var n in nodes) {
