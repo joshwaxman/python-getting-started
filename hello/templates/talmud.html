@@ -586,7 +586,7 @@ function draw_graph(n, e, bLegend) {
     var chart = d3.timeline()
         .width(width * 4)
         .stack()
-        .margin({left: 70, right: 30, top: 0, bottom: 0})
+        .margin({left: 170, right: 30, top: 0, bottom: 0})
         .hover(function (d, i, datum) {
             // d is the current rendering object
             // i is the index during d3 rendering
@@ -615,7 +615,6 @@ function draw_graph(n, e, bLegend) {
 
     var svg = d3.select("#divB").append("svg").attr({"width": w, "height": h})
         .datum(labelTestData).call(chart);
-    alert('hello');
 }
 
 draw_student_graph();
