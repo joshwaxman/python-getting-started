@@ -481,6 +481,11 @@ def htmlOutputter(title: str, page: str):
 
         local_interaction_edges, local_interaction_nodes = findLocalRelationships(persons, title + '.' + page)
 #    local_interaction_nodes, local_interaction_edges = [], []
+
+    # generate timeline
+    # for now, for people, not statements
+    timeline = getTimeline(student_nodes)
+
     if os.name == 'nt':
         html += 'Extra debugguing' + h  + '<br/>'
 #     html += 'Local interaction Nodes: ' + str(local_interaction_nodes) + '</br>'
@@ -521,9 +526,7 @@ def htmlOutputter(title: str, page: str):
     #local_interaction_edges, local_interaction_nodes = graphTransformation(local_interaction_edges, local_interaction_nodes)
     #student_edges, student_nodes = graphTransformation(student_edges, student_nodes)
 
-    # generate timeline
-    # for now, for people, not statements
-    timeline = getTimeline(student_nodes)
+
 
     return leftside, student_edges, student_nodes, local_interaction_edges, local_interaction_nodes, \
            global_interaction_edges, global_interaction_nodes, sugyaGraphs, timeline

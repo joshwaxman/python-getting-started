@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="04c11b65-1a3f-47b2-99ed-8b7a1afc905b" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/hello/templates/talmud.html" beforeDir="false" afterPath="$PROJECT_DIR$/hello/templates/talmud.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hello/talmud.py" beforeDir="false" afterPath="$PROJECT_DIR$/hello/talmud.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -48,7 +48,7 @@
           <entry key="Django Console" value="1372" />
           <entry key="Pipfile" value="16" />
           <entry key="html" value="1552" />
-          <entry key="py" value="6168" />
+          <entry key="py" value="6173" />
           <entry key="txt" value="4" />
         </counts>
       </usages-collector>
@@ -56,7 +56,7 @@
         <counts>
           <entry key="HTML" value="1552" />
           <entry key="PLAIN_TEXT" value="20" />
-          <entry key="Python" value="6124" />
+          <entry key="Python" value="6129" />
           <entry key="Scratch" value="1416" />
         </counts>
       </usages-collector>
@@ -85,14 +85,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/hello/talmud.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="412" column="18" selection-start-line="412" selection-start-column="18" selection-end-line="412" selection-end-column="18" />
+            <state relative-caret-position="135">
+              <caret line="486" column="41" selection-start-line="486" selection-start-column="41" selection-end-line="486" selection-end-column="41" />
               <folding>
                 <element signature="e#46#77#0" expanded="true" />
-                <marker date="1545151163938" expanded="true" signature="15049:15417" ph="..." />
+                <marker date="1545152076375" expanded="true" signature="15049:15417" ph="..." />
               </folding>
             </state>
           </provider>
@@ -143,10 +143,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hello/templates/talmud.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="54">
+            <state relative-caret-position="717">
               <caret line="586" column="24" selection-start-line="586" selection-start-column="24" selection-end-line="586" selection-end-column="24" />
             </state>
           </provider>
@@ -165,7 +165,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>person_</find>
       <find>persons =</find>
       <find>htmlO</find>
       <find>sugy</find>
@@ -195,6 +194,7 @@
       <find>timeline</find>
       <find>htmlOutputter</find>
       <find>hello</find>
+      <find>getTimeline</find>
     </findStrings>
     <dirStrings>
       <dir>C:\josh\mivami</dir>
@@ -237,8 +237,8 @@
         <option value="$PROJECT_DIR$/hello/templates/talmud_dev.html" />
         <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch_14.py" />
         <option value="$PROJECT_DIR$/hello/views.py" />
-        <option value="$PROJECT_DIR$/hello/talmud.py" />
         <option value="$PROJECT_DIR$/hello/templates/talmud.html" />
+        <option value="$PROJECT_DIR$/hello/talmud.py" />
       </list>
     </option>
   </component>
@@ -812,21 +812,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hello/talmud.py">
+    <entry file="file://$PROJECT_DIR$/hello/templates/talmud.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="412" column="18" selection-start-line="412" selection-start-column="18" selection-end-line="412" selection-end-column="18" />
-          <folding>
-            <element signature="e#46#77#0" expanded="true" />
-            <marker date="1545151163938" expanded="true" signature="15049:15417" ph="..." />
-          </folding>
+        <state relative-caret-position="717">
+          <caret line="586" column="24" selection-start-line="586" selection-start-column="24" selection-end-line="586" selection-end-column="24" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hello/templates/talmud.html">
+    <entry file="file://$PROJECT_DIR$/hello/talmud.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="586" column="24" selection-start-line="586" selection-start-column="24" selection-end-line="586" selection-end-column="24" />
+        <state relative-caret-position="135">
+          <caret line="486" column="41" selection-start-line="486" selection-start-column="41" selection-end-line="486" selection-end-column="41" />
+          <folding>
+            <element signature="e#46#77#0" expanded="true" />
+            <marker date="1545152076375" expanded="true" signature="15049:15417" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
