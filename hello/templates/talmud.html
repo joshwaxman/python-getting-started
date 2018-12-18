@@ -584,9 +584,10 @@ function draw_graph(n, e, bLegend) {
     }*/
 
     var chart = d3.timeline()
-        .width(width * 4)
+        .width(width * 1)
         .stack()
-        .margin({left: 170, right: 30, top: 0, bottom: 0})
+        //.margin({left: 170, right: 0, top: 30, bottom: 0})
+        .margin({left: 170, right: 0, top: 0, bottom: 0})
         .hover(function (d, i, datum) {
             // d is the current rendering object
             // i is the index during d3 rendering
