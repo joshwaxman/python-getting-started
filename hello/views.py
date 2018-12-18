@@ -52,7 +52,7 @@ def talmud(request, masechet='missing', page='missing'):
         masechet, page = getDafYomi()
     leftside, student_edges, student_nodes, local_interaction_edges, \
     local_interaction_nodes, global_interaction_edges, global_interaction_nodes, \
-    sugyaGraphs = htmlOutputter(masechet, page)
+    sugyaGraphs, timeline = htmlOutputter(masechet, page)
 
     return render(request, "talmud.html", {'leftside': leftside,
                                            'student_nodes': student_nodes,
@@ -61,7 +61,8 @@ def talmud(request, masechet='missing', page='missing'):
                                            'local_interaction_edges': local_interaction_edges,
                                            'global_interaction_nodes': global_interaction_nodes,
                                            'global_interaction_edges': global_interaction_edges,
-                                           'sugya_graph': sugyaGraphs})
+                                           'sugya_graph': sugyaGraphs,
+                                           'timeline': timeline})
 
 
 def talmud_dev(request, masechet='missing', page='missing'):

@@ -396,6 +396,21 @@ def getDafYomi():
     daf = x[1] + 'a'
     return masechet, daf
 
+def getTimeline(students):
+    s = []
+    genDict = {'T1': (-30, 20), 'T2': (40, 80), 'T3': (80, 110), 'T4: (110, 135), ''T5': (135, 170),
+               'T6': (170, 200), 'TA': (200, 220),
+                'A1': (250, 290), 'A3': (290, 320), 'A4': (320, 350), 'A5': (350, 375), 'A6': (375, 425)}
+    for student in students:
+        d = dict()
+        d['label'] = student['name']
+        generation = student['generation']
+        if generation in genDict:
+            t = genDict[generation]
+            s['times'] = [{'starting_time': t[0], 'ending_time': t[1]}]
+            s.append(d)
+
+    return d
 
 def htmlOutputter(title: str, page: str):
     client = MongoClient(
@@ -503,5 +518,9 @@ def htmlOutputter(title: str, page: str):
     #local_interaction_edges, local_interaction_nodes = graphTransformation(local_interaction_edges, local_interaction_nodes)
     #student_edges, student_nodes = graphTransformation(student_edges, student_nodes)
 
+    # generate timeline
+    # for now, for people, not statements
+    timeline = getTimeline(student_nodes)
+
     return leftside, student_edges, student_nodes, local_interaction_edges, local_interaction_nodes, \
-           global_interaction_edges, global_interaction_nodes, sugyaGraphs
+           global_interaction_edges, global_interaction_nodes, sugyaGraphs, timeline

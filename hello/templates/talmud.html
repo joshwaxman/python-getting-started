@@ -570,10 +570,10 @@ function draw_graph(n, e, bLegend) {
     var width = 500;
 
     function timelineHover() {
-        var labelTestData = [{"label": "Rabbi Abba", "times": [{"starting_time": 290, "ending_time": 320}]},
-            {"label": "Rabbi Abba b. Hiyya b. Abba", "times": [{"starting_time": 290, "ending_time": 320}]}];
-        var nodes = {{ student_nodes | safe }};
-        var edges = {{ student_edges | safe }};
+        var labelTestData = {{ timeline | safe }}; /*[{"label": "Rabbi Abba", "times": [{"starting_time": 290, "ending_time": 320}]},
+            {"label": "Rabbi Abba b. Hiyya b. Abba", "times": [{"starting_time": 290, "ending_time": 320}]}];*/
+        /*var nodes = { student_nodes | safe }};
+        var edges = { student_edges | safe }};*/
         /*var nodes = { student_nodes }; */
 /*    var labelTestData = [];
     for (var n in nodes) {
