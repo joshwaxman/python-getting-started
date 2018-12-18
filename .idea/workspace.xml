@@ -47,14 +47,14 @@
         <counts>
           <entry key="Django Console" value="1372" />
           <entry key="Pipfile" value="16" />
-          <entry key="html" value="1551" />
+          <entry key="html" value="1552" />
           <entry key="py" value="6168" />
           <entry key="txt" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="1551" />
+          <entry key="HTML" value="1552" />
           <entry key="PLAIN_TEXT" value="20" />
           <entry key="Python" value="6124" />
           <entry key="Scratch" value="1416" />
