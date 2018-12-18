@@ -410,7 +410,7 @@ def getTimeline(students):
             d['times'] = [{'starting_time': t[0], 'ending_time': t[1]}]
             s.append(d)
 
-    return d
+    return s
 
 def htmlOutputter(title: str, page: str):
     client = MongoClient(
