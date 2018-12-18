@@ -407,7 +407,7 @@ def getTimeline(students):
         generation = student['generation']
         if generation in genDict:
             t = genDict[generation]
-            s['times'] = [{'starting_time': t[0], 'ending_time': t[1]}]
+            d['times'] = [{'starting_time': t[0], 'ending_time': t[1]}]
             s.append(d)
 
     return d
