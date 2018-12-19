@@ -613,11 +613,10 @@ function draw_graph(n, e, bLegend) {
 
             var div = $('#hoverRes');
             var colors = chart.colors();
-            alert(datum.generation);
-            if (datum.generation in generationColors)
-                div.find('.coloredDiv').css('background-color', generationColors[datum.generation]);
-            else
-                div.find('.coloredDiv').css('background-color', colors(i))
+//            if (datum.generation in generationColors)
+//                div.find('.coloredDiv').css('background-color', generationColors[datum.generation]);
+//            else
+            div.find('.coloredDiv').css('background-color', colors(i))
             div.find('#name').text(datum.label);
         })
         .click(function (d, i, datum) {
@@ -639,6 +638,8 @@ function draw_graph(n, e, bLegend) {
 
     var svg = d3.select("#divB").append("svg").attr({"width": w, "height": h})
         .datum(labelTestData).call(chart);
+    var div = $('#hoverRes');
+    div.find('.coloredDiv').css('background-color', 'cyan');
 }
 
 draw_student_graph();
