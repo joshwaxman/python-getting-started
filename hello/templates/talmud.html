@@ -592,9 +592,31 @@ function draw_graph(n, e, bLegend) {
             // d is the current rendering object
             // i is the index during d3 rendering
             // datum is the id object
+
+            generationColors = {
+                'A1': 'pink',
+                'A2': 'yellow',
+                'A3': 'salmon',
+                'A4': 'lime',
+                'A5': 'cyan',
+                'A6': 'mediumorchid',
+                'A7': 'gold',
+                'A8': 'palegoldenrod',
+                'T1': 'pink',
+                'T2': 'yellow',
+                'T3': 'salmon',
+                'T4': 'lime',
+                'T5': 'cyan',
+                'T6': 'mediumorchid'
+            };
+
+
             var div = $('#hoverRes');
             var colors = chart.colors();
-            div.find('.coloredDiv').css('background-color', colors(i))
+            if (datum.generation in generationColors)
+                div.find('.coloredDiv').css('background-color', generationColors[datum.generation]);
+            else
+                div.find('.coloredDiv').css('background-color', colors(i))
             div.find('#name').text(datum.label);
         })
         .click(function (d, i, datum) {

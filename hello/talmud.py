@@ -401,7 +401,6 @@ def getTimeline(students):
     genDict = {'T1': (-30, 20), 'T2': (40, 80), 'T3': (80, 110), 'T4': (110, 135), 'T5': (135, 170),
                'T6': (170, 200), 'TA': (200, 220),
                 'A1': (220, 250), 'A2': (250, 290), 'A3': (290, 320), 'A4': (320, 350), 'A5': (350, 375), 'A6': (375, 425)}
-    order = 'T1 T2 T3 T4 T5 T6 TA A1 A2 A3 A4 A5 A6'.split()
 
     for student in students:
         d = dict()
@@ -410,6 +409,7 @@ def getTimeline(students):
         if generation in genDict.keys():
             t = genDict[generation]
             d['times'] = [{'starting_time': t[0], 'ending_time': t[1]}]
+            d['generation'] = generation
             s.append(d)
 
     s.sort(key=lambda x : x['times'][0]['starting_time'])
