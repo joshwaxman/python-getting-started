@@ -613,6 +613,7 @@ function draw_graph(n, e, bLegend) {
 
             var div = $('#hoverRes');
             var colors = chart.colors();
+            alert(datum.generation);
             if (datum.generation in generationColors)
                 div.find('.coloredDiv').css('background-color', generationColors[datum.generation]);
             else
