@@ -616,7 +616,7 @@ function draw_graph(n, e, bLegend) {
 //            if (datum.generation in generationColors)
 //                div.find('.coloredDiv').css('background-color', generationColors[datum.generation]);
 //            else
-            div.find('.coloredDiv').css('background-color', colors(i))
+            div.find('.coloredDiv').css('background-color', 'cyan');
             div.find('#name').text(datum.label);
         })
         .click(function (d, i, datum) {
