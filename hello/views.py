@@ -28,6 +28,12 @@ def bio(request, person):
     html, nodes, edges = getBiography(person)
     return render(request, 'bio.html', dict(leftside=html, student_nodes=nodes, student_edges=edges))
 
+def trup(request, verse):
+    from hello.trup import getTree
+    tree, text, tagged = getTree(verse)
+    return render(request, 'trup.html', dict(tree=tree, text=text, tagged=tagged))
+
+
 
 def blog(request):
     from hello.blog import getBlogPost
