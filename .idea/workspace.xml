@@ -48,14 +48,14 @@
         <counts>
           <entry key="Django Console" value="1372" />
           <entry key="Pipfile" value="16" />
-          <entry key="html" value="1703" />
+          <entry key="html" value="1714" />
           <entry key="py" value="6519" />
           <entry key="txt" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="1703" />
+          <entry key="HTML" value="1714" />
           <entry key="PLAIN_TEXT" value="20" />
           <entry key="Python" value="6475" />
           <entry key="Scratch" value="1416" />
@@ -128,8 +128,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/hello/templates/trup.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="81">
-              <caret line="44" column="32" selection-start-line="44" selection-start-column="32" selection-end-line="44" selection-end-column="32" />
+            <state relative-caret-position="142">
+              <caret line="45" column="14" selection-start-line="45" selection-start-column="14" selection-end-line="45" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -195,7 +195,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>gold</find>
       <find>.y =</find>
       <find>svg</find>
       <find>alpha</find>
@@ -225,6 +224,7 @@
       <find>mongoc</find>
       <find>tree</find>
       <find>treeda</find>
+      <find>90</find>
     </findStrings>
     <dirStrings>
       <dir>C:\josh\mivami</dir>
@@ -878,8 +878,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/hello/templates/trup.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="81">
-          <caret line="44" column="32" selection-start-line="44" selection-start-column="32" selection-end-line="44" selection-end-column="32" />
+        <state relative-caret-position="142">
+          <caret line="45" column="14" selection-start-line="45" selection-start-column="14" selection-end-line="45" selection-end-column="14" />
         </state>
       </provider>
     </entry>
