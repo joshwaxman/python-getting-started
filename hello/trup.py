@@ -446,7 +446,14 @@ def getTree(verse):
 
         x = texts.find_one(search)
         text = x['chapter'][chapter][verse_num]
-
+        ch = x['chapter'][chapter]
+        # calculate next
+        # if not the last verse in chapter
+        if len(ch) < verse_num:
+            next = book + ' ' + str(chapter) + ':' + str(verse_num + 1)
+        else:
+            next = ''
+        prev = ''
         lexer.input(text)
         marked = ' '.join(['(' + i.value + ', ' + i.type + ')' for i in lexer])
         # print(i, marked)
@@ -456,4 +463,4 @@ def getTree(verse):
         tree = encode(result)
         tagged = marked
 
-        return tree, text, tagged
+        return tree, text, tagged, next, prev
