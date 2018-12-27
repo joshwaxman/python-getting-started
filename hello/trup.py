@@ -450,7 +450,8 @@ def getTree(verse):
     db = client.sefaria
     iso_trees = db.iso_trees
     texts = db.texts
-    s = verse.split()
+    space_pos = verse.rfind(' ')
+    s = verse[0: space_pos], verse[space_pos+1:]
     if len(s) > 0:
         book = s[0]
         chapter, verse_num = s[1].split(':')
