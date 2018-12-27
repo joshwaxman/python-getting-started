@@ -425,10 +425,9 @@ books = 'Genesis Exodus Leviticus Numbers Deuteronomy ' \
         'Hosea Joel Amos Obadiah Jonah Micah Nahum ' \
         'Habakkuk Zephaniah Haggai Zechariah Malachi ' \
         'Psalms Job Proverbs Ruth Ecclesiastes ' \
-        'Lamentations Esther Daniel Ezra Nehemiah'.split() + ['Song of Songs', 'I Samuel',
-                                                              'I Kings',
-                                                              'I Chronicles'
-]
+        'Lamentations Esther Daniel Ezra Nehemiah'.split() + ['Song of Songs', 'I Samuel', 'II Samuel'
+                                                              'I Kings', 'II Kings',
+                                                              'I Chronicles', 'II Chronicles']
 
 
 def getTree(verse):
@@ -450,9 +449,9 @@ def getTree(verse):
         # calculate next
         # if not the last verse in chapter
         if verse_num < len(ch) - 1:
-            next = book + ' ' + str(chapter) + ':' + str(verse_num + 1)
+            next = book + ' ' + str(chapter + 1) + ':' + str(verse_num + 2)
         else:
-            next = book + ' ' + str(chapter) + ':' + str(verse_num + 1)
+            next = book + ' ' + str(chapter + 1) + ':' + str(verse_num + 2)
         prev = ''
         lexer.input(text)
         marked = ' '.join(['(' + i.value + ', ' + i.type + ')' for i in lexer])
