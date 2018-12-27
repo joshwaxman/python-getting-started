@@ -425,15 +425,30 @@ books = 'Genesis Exodus Leviticus Numbers Deuteronomy ' \
         'Hosea Joel Amos Obadiah Jonah Micah Nahum ' \
         'Habakkuk Zephaniah Haggai Zechariah Malachi ' \
         'Psalms Job Proverbs Ruth Ecclesiastes ' \
-        'Lamentations Esther Daniel Ezra Nehemiah'.split() + ['Song of Songs', 'I Samuel', 'II Samuel'
+        'Lamentations Esther Daniel Ezra Nehemiah'.split() + ['Song of Songs', 'I Samuel', 'II Samuel',
                                                               'I Kings', 'II Kings',
                                                               'I Chronicles', 'II Chronicles']
+def bit_encode(tree, encoding):
+    # a preorder traversal of the binary trie
+    if tree is None: # TODO: get to the bottom of when this happen
+        return encoding
+
+    if type(tree[1]) is LexToken: # all children are leaves
+        encoding.append('1') # could also append the leaves?
+        return encoding
+
+    encoding.append('0')
+    for child in tree[1:]:
+        bit_encode(child, encoding)
+
+    return encoding
 
 
 def getTree(verse):
     client = MongoClient(
         "mongodb://mivami:Talmud1%@talmud-shard-00-00-ol0w9.mongodb.net:27017,talmud-shard-00-01-ol0w9.mongodb.net:27017,talmud-shard-00-02-ol0w9.mongodb.net:27017/admin?replicaSet=Talmud-shard-0&ssl=true")
     db = client.sefaria
+    iso_trees = db.iso_trees
     texts = db.texts
     s = verse.split()
     if len(s) > 0:
@@ -459,7 +474,7 @@ def getTree(verse):
             # what is last verse in prev chapter
             prev = book + ' ' + str(chapter) + ':' + str(len(ch))
         else:
-            prev = book + ' ' + str(chapter) + ':' + str(verse_num)
+            prev = book + ' ' + str(chapter + 1) + ':' + str(verse_num)
 
         lexer.input(text)
         marked = ' '.join(['(' + i.value + ', ' + i.type + ')' for i in lexer])
@@ -468,6 +483,13 @@ def getTree(verse):
         result = yacc.parse(text)
         d = dict()
         tree = encode(result)
+        bitcode = bit_encode(result, [])
+        bitcode = ''.join(bitcode)
+
+        x = iso_trees.find_one({'key': bitcode})
+        iso_verses = x['verses']
+        iso_html = '\n'.join(['<a href="' + verse + '">' + verse + '</a><br/>' for verse in iso_verses])
+
         tagged = marked
 
-        return tree, text, tagged, next, prev
+        return tree, text, tagged, next, prev, iso_html
