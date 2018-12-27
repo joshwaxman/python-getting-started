@@ -449,7 +449,7 @@ def getTree(verse):
         ch = x['chapter'][chapter]
         # calculate next
         # if not the last verse in chapter
-        if len(ch) < verse_num:
+        if verse_num < len(ch) - 1:
             next = book + ' ' + str(chapter) + ':' + str(verse_num + 1)
         else:
             next = ''
