@@ -435,20 +435,25 @@ def getTree(verse):
     client = MongoClient(
         "mongodb://mivami:Talmud1%@talmud-shard-00-00-ol0w9.mongodb.net:27017,talmud-shard-00-01-ol0w9.mongodb.net:27017,talmud-shard-00-02-ol0w9.mongodb.net:27017/admin?replicaSet=Talmud-shard-0&ssl=true")
     db = client.sefaria
-    trup = db.trup
-    search = dict(key=verse)
-    x = trup.find_one(search)
-    tree = x['tree']
-    text = x['text']
-    tagged = x['tagged']
+    texts = db.texts
+    s = verse.split()
+    if len(s) > 0:
+        book = s[0]
+        chapter, verse_num = s[1].split(':')
+        chapter = int(chapter) - 1
+        verse_num = int(verse_num) - 1
+        search = dict(versionTitle="Tanach with Ta'amei Hamikra", title=book)
 
-    lexer.input(text)
-    marked = ' '.join(['(' + i.value + ', ' + i.type + ')' for i in lexer])
-    # print(i, marked)
+        x = texts.find_one(search)
+        text = x['chapter'][chapter][verse_num]
 
-    result = yacc.parse(text)
-    d = dict()
-    tree = encode(result)
-    tagged = marked
+        lexer.input(text)
+        marked = ' '.join(['(' + i.value + ', ' + i.type + ')' for i in lexer])
+        # print(i, marked)
 
-    return tree, text, tagged
+        result = yacc.parse(text)
+        d = dict()
+        tree = encode(result)
+        tagged = marked
+
+        return tree, text, tagged
