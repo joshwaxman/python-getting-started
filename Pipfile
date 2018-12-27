@@ -15,6 +15,7 @@ regex = "*"
 mistune = "*"
 "py2neo" = "*"
 three = "*"
+ply = "*"
 
 
 [requires]
