@@ -452,7 +452,15 @@ def getTree(verse):
             next = book + ' ' + str(chapter + 1) + ':' + str(verse_num + 2)
         else:
             next = book + ' ' + str(chapter + 2) + ':1'
-        prev = ''
+
+        # calculate prev
+        if verse_num == 0:
+            ch = x['chapter'][chapter-1]
+            # what is last verse in prev chapter
+            prev = book + ' ' + str(chapter) + ':' + str(len(ch))
+        else:
+            prev = book + ' ' + str(chapter) + ':' + str(verse_num)
+
         lexer.input(text)
         marked = ' '.join(['(' + i.value + ', ' + i.type + ')' for i in lexer])
         # print(i, marked)
