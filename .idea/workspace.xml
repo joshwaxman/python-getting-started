@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="04c11b65-1a3f-47b2-99ed-8b7a1afc905b" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/hello/templates/trup.html" beforeDir="false" afterPath="$PROJECT_DIR$/hello/templates/trup.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hello/trup.py" beforeDir="false" afterPath="$PROJECT_DIR$/hello/trup.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -50,7 +49,7 @@
           <entry key="Django Console" value="1372" />
           <entry key="Pipfile" value="25" />
           <entry key="html" value="1886" />
-          <entry key="py" value="7009" />
+          <entry key="py" value="7012" />
           <entry key="text" value="12" />
           <entry key="txt" value="4" />
         </counts>
@@ -59,7 +58,7 @@
         <counts>
           <entry key="HTML" value="1886" />
           <entry key="PLAIN_TEXT" value="41" />
-          <entry key="Python" value="6965" />
+          <entry key="Python" value="6968" />
           <entry key="Scratch" value="1416" />
         </counts>
       </usages-collector>
@@ -129,11 +128,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hello/templates/trup.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="274">
-              <caret line="37" selection-start-line="37" selection-end-line="37" />
+            <state relative-caret-position="-1428">
+              <caret line="43" column="52" lean-forward="true" selection-start-line="43" selection-start-column="52" selection-end-line="43" selection-end-column="52" />
             </state>
           </provider>
         </entry>
@@ -147,14 +146,14 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/hello/trup.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="462">
-              <caret line="454" column="8" selection-start-line="454" selection-start-column="8" selection-end-line="454" selection-end-column="8" />
+            <state relative-caret-position="435">
+              <caret line="453" column="55" selection-start-line="453" selection-start-column="55" selection-end-line="453" selection-end-column="55" />
               <folding>
                 <element signature="e#0#31#0" expanded="true" />
-                <marker date="1545930047413" expanded="true" signature="11969:11974" ph="..." />
+                <marker date="1545931082046" expanded="true" signature="11969:11974" ph="..." />
               </folding>
             </state>
           </provider>
@@ -275,8 +274,8 @@
         <option value="$PROJECT_DIR$/requirements.text" />
         <option value="$PROJECT_DIR$/Pipfile" />
         <option value="$PROJECT_DIR$/hello/views.py" />
-        <option value="$PROJECT_DIR$/hello/trup.py" />
         <option value="$PROJECT_DIR$/hello/templates/trup.html" />
+        <option value="$PROJECT_DIR$/hello/trup.py" />
       </list>
     </option>
   </component>
@@ -878,21 +877,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hello/trup.py">
+    <entry file="file://$PROJECT_DIR$/hello/templates/trup.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="454" column="8" selection-start-line="454" selection-start-column="8" selection-end-line="454" selection-end-column="8" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-            <marker date="1545930047413" expanded="true" signature="11969:11974" ph="..." />
-          </folding>
+        <state relative-caret-position="-1428">
+          <caret line="43" column="52" lean-forward="true" selection-start-line="43" selection-start-column="52" selection-end-line="43" selection-end-column="52" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hello/templates/trup.html">
+    <entry file="file://$PROJECT_DIR$/hello/trup.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
-          <caret line="37" selection-start-line="37" selection-end-line="37" />
+        <state relative-caret-position="435">
+          <caret line="453" column="55" selection-start-line="453" selection-start-column="55" selection-end-line="453" selection-end-column="55" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+            <marker date="1545931082046" expanded="true" signature="11969:11974" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
