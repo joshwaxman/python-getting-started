@@ -452,7 +452,7 @@ def getTree(verse):
         if verse_num < len(ch) - 1:
             next = book + ' ' + str(chapter) + ':' + str(verse_num + 1)
         else:
-            next = ''
+            next = book + ' ' + str(chapter) + ':' + str(verse_num + 1)
         prev = ''
         lexer.input(text)
         marked = ' '.join(['(' + i.value + ', ' + i.type + ')' for i in lexer])
