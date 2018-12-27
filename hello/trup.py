@@ -16,7 +16,7 @@ REND = RBEGIN
 
 # Tokens
 t_MAHPACH = RBEGIN + '֤' + REND
-t_PASHTA = RBEGIN + r'֙' + '(' + RBEGIN + + r'֙' + ')?' + REND
+t_PASHTA = RBEGIN + r'֙' + '(' + RBEGIN + r'֙' + ')?' + REND
 t_MUNACH_LEGARMEIH = RBEGIN +r'֣' + REND + r'׀'
 t_MUNACH = RBEGIN +r'֣' + REND # but if trailer == '׀ ' should be munach_legarmeih...
 t_ZAKEF_GADOL = RBEGIN +r'֕' + REND
