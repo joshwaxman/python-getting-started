@@ -781,6 +781,9 @@ def getTree(verse):
         bitcode = ''.join(bitcode)
 
         x = iso_trees.find_one({'key': bitcode})
+
+        bitcode = bit_encode(result, [], True)
+        bitcode = ''.join(bitcode)
         x2 = iso_trees2.find_one({'key': bitcode})
         iso_verses = x['verses']
         iso_verses2 = x2['verses']
