@@ -785,9 +785,9 @@ def getTree(verse):
         iso_verses = x['verses']
         iso_verses2 = x2['verses']
         iso_html = '<table><tr><td>'
-        iso_html = + 'Isomorphic Trees\n'.join(['<a href="' + verse + '">' + verse + '</a><br/>' for verse in iso_verses])
-        iso_html = + 'Isomorphic Trees\n'.join(['<a href="' + verse + '">' + verse + '</a><br/>' for verse in iso_verses2])
-
+        iso_html += 'Isomorphic Trees\n'.join(['<a href="' + verse + '">' + verse + '</a><br/>' for verse in iso_verses])
+        iso_html += '</td>Isomorphic Trees\n'.join(['<a href="' + verse + '">' + verse + '</a><br/>' for verse in iso_verses2])
+        iso_html += '</tr></table>'
         tagged = marked
 
         return tree, text, tagged, next, prev, iso_html
