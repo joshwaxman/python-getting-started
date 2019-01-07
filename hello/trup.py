@@ -784,10 +784,11 @@ def getTree(verse):
         x2 = iso_trees2.find_one({'key': bitcode})
         iso_verses = x['verses']
         iso_verses2 = x2['verses']
-        iso_html = '<table><tr><td>'
-        iso_html += 'Isomorphic Trees\n'.join(['<a href="' + verse + '">' + verse + '</a><br/>' for verse in iso_verses])
-        iso_html += '</td>Isomorphic Trees\n'.join(['<a href="' + verse + '">' + verse + '</a><br/>' for verse in iso_verses2])
-        iso_html += '</tr></table>'
+        iso_html = '<table><tr><td>Isomorphic Trees<br/>'
+        iso_html += '\n'.join(['<a href="' + verse + '">' + verse + '</a><br/>' for verse in iso_verses])
+        iso_html += '</td><td>Isomorphic Trees<br/>'
+        iso_html += '\n'.join(['<a href="' + verse + '">' + verse + '</a><br/>' for verse in iso_verses2])
+        iso_html += '</td></tr></table>'
         tagged = marked
 
         return tree, text, tagged, next, prev, iso_html
