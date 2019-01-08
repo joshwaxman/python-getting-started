@@ -827,7 +827,6 @@ def getTree(verse):
         iso_verses2 = x2['verses']
         iso_html = '<table><tr><td style="vertical-align: top; border: 1px dotted blue; width: 300px">'
         iso_html += 'Isomorphic Trees (with leaves) -- ' + str(len(iso_verses2)) + '<br/>'
-        iso_html += 'Isomorphic Trees (with leaves) -- ' + str(len(iso_verses2)) + '<br/>'
         iso_html += '\n'.join(['<a href="' + verse + '">' + verse + '</a><br/>' for verse in iso_verses2])
         iso_html += '</td><td style="vertical-align: top; border: 1px dotted blue; width: 300px">Isomorphic Trees (internal nodes) -- ' + str(len(iso_verses)) + '<br/>'
         iso_html += '\n'.join(['<a href="' + verse + '">' + verse + '</a><br/>' for verse in iso_verses])
