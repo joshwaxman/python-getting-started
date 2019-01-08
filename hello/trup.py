@@ -669,8 +669,8 @@ def calc_conditional_probabilities(tree, db):
         word_distance = count_leaves(tree[2])
 
         prob = dAdjustedRuleProbability[(end_trup, dichotomy_trup, word_distance)]
-        left_prob = calc_conditional_probabilities(tree[1])
-        right_prob = calc_conditional_probabilities(tree[2])
+        left_prob = calc_conditional_probabilities(tree[1], db)
+        right_prob = calc_conditional_probabilities(tree[2], db)
 
         return prob * left_prob * right_prob
     else:

@@ -50,7 +50,7 @@
           <entry key="Django Console" value="1443" />
           <entry key="Pipfile" value="25" />
           <entry key="html" value="2010" />
-          <entry key="py" value="8015" />
+          <entry key="py" value="8023" />
           <entry key="text" value="12" />
           <entry key="txt" value="4" />
         </counts>
@@ -59,7 +59,7 @@
         <counts>
           <entry key="HTML" value="2010" />
           <entry key="PLAIN_TEXT" value="41" />
-          <entry key="Python" value="8042" />
+          <entry key="Python" value="8050" />
           <entry key="Scratch" value="1416" />
         </counts>
       </usages-collector>
@@ -156,12 +156,12 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/hello/trup.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="837" column="56" selection-start-line="837" selection-start-column="56" selection-end-line="837" selection-end-column="56" />
+            <state relative-caret-position="384">
+              <caret line="669" lean-forward="true" selection-start-line="669" selection-end-line="669" />
               <folding>
                 <element signature="e#0#31#0" expanded="true" />
-                <marker date="1546914736265" expanded="true" signature="20803:20804" ph="..." />
-                <marker date="1546914736265" expanded="true" signature="20823:20828" ph="..." />
+                <marker date="1546914816177" expanded="true" signature="20811:20812" ph="..." />
+                <marker date="1546914816177" expanded="true" signature="20831:20836" ph="..." />
               </folding>
             </state>
           </provider>
@@ -900,12 +900,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/hello/trup.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="837" column="56" selection-start-line="837" selection-start-column="56" selection-end-line="837" selection-end-column="56" />
+        <state relative-caret-position="384">
+          <caret line="669" lean-forward="true" selection-start-line="669" selection-end-line="669" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
-            <marker date="1546914736265" expanded="true" signature="20803:20804" ph="..." />
-            <marker date="1546914736265" expanded="true" signature="20823:20828" ph="..." />
+            <marker date="1546914816177" expanded="true" signature="20811:20812" ph="..." />
+            <marker date="1546914816177" expanded="true" signature="20831:20836" ph="..." />
           </folding>
         </state>
       </provider>
