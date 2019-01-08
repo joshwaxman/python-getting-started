@@ -35,7 +35,7 @@
   <body>
 {{ verse | safe }}
 <br/>
-Prev: <a href="{{ prev | safe }}">{{ prev | safe }}</a><br/>
+Prev: <a href="{{ prev | safe }}">{{ prev | safe }}</a>&nbsp;&nbsp;&nbsp;&nbsp;
 Next: <a href="{{ next | safe }}">{{ next | safe }}</a>
 
 <br/>
@@ -177,6 +177,7 @@ function click(d) {
 }
 
 </script>
+Tree Probability: {{ prob | safe }} <br/>
 Isomorphic verses: <br/>
   {{ iso_html | safe }}
   </body>

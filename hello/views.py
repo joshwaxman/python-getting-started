@@ -30,9 +30,9 @@ def bio(request, person):
 
 def trup(request, verse):
     from hello.trup import getTree
-    tree, text, tagged, next, prev, iso_html = getTree(verse)
+    tree, text, tagged, next, prev, iso_html, prob = getTree(verse)
     return render(request, 'trup.html', dict(tree=tree, text=text, tagged=tagged, verse=verse,
-                                             next=next, prev=prev, iso_html=iso_html))
+                                             next=next, prev=prev, iso_html=iso_html, prob=prob))
 
 
 

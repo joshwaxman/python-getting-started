@@ -640,6 +640,44 @@ def preprocess(text):
     return ' '.join(s)
 
 
+def count_leaves(tree):
+    # base case
+    if type(tree[1]) is LexToken: # all children are leaves
+        return len(tree) - 1
+
+    # recursive case
+    return count_leaves(tree[1]) + count_leaves(tree[2])
+
+def loadAdjustedRuleProbability(db):
+    global dAdjustedRuleProbability
+    dAdjustedRuleProbability = dict()
+    trup_prob = db.trup_prob
+    x = trup_prob.find_one({'key': 'rules'})
+    value = x['value']
+    for k, v in value.items():
+        dAdjustedRuleProbability[eval(k)] = v
+
+
+dAdjustedRuleProbability = None
+def calc_conditional_probabilities(tree, db):
+    if dAdjustedRuleProbability is None:
+        loadAdjustedRuleProbability(db)
+
+    if len(tree) == 3 and type(tree[1]) is not LexToken: # binary tree, internal node
+        end_trup = tree[2][0]
+        dichotomy_trup = tree[1][0]
+        word_distance = count_leaves(tree[2])
+
+        prob = dAdjustedRuleProbability[(end_trup, dichotomy_trup, word_distance)]
+        left_prob = calc_conditional_probabilities(tree[1])
+        right_prob = calc_conditional_probabilities(tree[2])
+
+        return prob * left_prob * right_prob
+    else:
+        return 1
+
+
+
 
 
 books = 'Genesis Exodus Leviticus Numbers Deuteronomy ' \
@@ -787,13 +825,16 @@ def getTree(verse):
         x2 = iso_trees2.find_one({'key': bitcode})
         iso_verses = x['verses']
         iso_verses2 = x2['verses']
-        iso_html = '<table><tr><td style="vertical-align: top; border: 4px dotted blue;">'
+        iso_html = '<table><tr><td style="vertical-align: top; border: 1px dotted blue; width: 300px">'
+        iso_html += 'Isomorphic Trees (with leaves) -- ' + str(len(iso_verses2)) + '<br/>'
         iso_html += 'Isomorphic Trees (with leaves) -- ' + str(len(iso_verses2)) + '<br/>'
         iso_html += '\n'.join(['<a href="' + verse + '">' + verse + '</a><br/>' for verse in iso_verses2])
-        iso_html += '</td><td style="vertical-align: top; border: 4px dotted blue;">Isomorphic Trees (internal nodes) -- ' + str(len(iso_verses)) + '<br/>'
+        iso_html += '</td><td style="vertical-align: top; border: 1px dotted blue; width: 300px">Isomorphic Trees (internal nodes) -- ' + str(len(iso_verses)) + '<br/>'
         iso_html += '\n'.join(['<a href="' + verse + '">' + verse + '</a><br/>' for verse in iso_verses])
 
         iso_html += '</td></tr></table>'
         tagged = marked
 
-        return tree, text, tagged, next, prev, iso_html
+        prob = calc_conditional_probabilities(result)
+
+        return tree, text, tagged, next, prev, iso_html, prob

@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="04c11b65-1a3f-47b2-99ed-8b7a1afc905b" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/hello/templates/trup.html" beforeDir="false" afterPath="$PROJECT_DIR$/hello/templates/trup.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hello/trup.py" beforeDir="false" afterPath="$PROJECT_DIR$/hello/trup.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hello/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/hello/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -49,17 +51,17 @@
         <counts>
           <entry key="Django Console" value="1443" />
           <entry key="Pipfile" value="25" />
-          <entry key="html" value="1955" />
-          <entry key="py" value="7917" />
+          <entry key="html" value="2010" />
+          <entry key="py" value="8011" />
           <entry key="text" value="12" />
           <entry key="txt" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="1955" />
+          <entry key="HTML" value="2010" />
           <entry key="PLAIN_TEXT" value="41" />
-          <entry key="Python" value="7944" />
+          <entry key="Python" value="8038" />
           <entry key="Scratch" value="1416" />
         </counts>
       </usages-collector>
@@ -114,7 +116,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gettingstarted/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
+            <state relative-caret-position="209">
               <caret line="19" column="36" selection-start-line="19" selection-start-column="36" selection-end-line="19" selection-end-column="36" />
             </state>
           </provider>
@@ -123,8 +125,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hello/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="783">
-              <caret line="32" column="44" selection-start-line="32" selection-start-column="44" selection-end-line="32" selection-end-column="44" />
+            <state relative-caret-position="234">
+              <caret line="34" column="95" selection-start-line="34" selection-start-column="95" selection-end-line="34" selection-end-column="95" />
             </state>
           </provider>
         </entry>
@@ -132,8 +134,14 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hello/templates/trup.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4698">
-              <caret line="174" column="3" selection-start-line="174" selection-start-column="3" selection-end-line="174" selection-end-column="3" />
+            <state relative-caret-position="378">
+              <caret line="179" column="41" selection-start-line="179" selection-start-column="41" selection-end-line="179" selection-end-column="41" />
+              <folding>
+                <element signature="e#474#480#0#HTML" expanded="true" />
+                <element signature="e#480#486#0#HTML" expanded="true" />
+                <element signature="e#486#492#0#HTML" expanded="true" />
+                <element signature="e#492#498#0#HTML" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -150,12 +158,12 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/hello/trup.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="411">
-              <caret line="792" column="82" selection-start-line="792" selection-start-column="82" selection-end-line="792" selection-end-column="82" />
+            <state relative-caret-position="425">
+              <caret line="831" column="95" selection-start-line="831" selection-start-column="95" selection-end-line="831" selection-end-column="95" />
               <folding>
                 <element signature="e#0#31#0" expanded="true" />
-                <marker date="1546877535984" expanded="true" signature="19668:19669" ph="..." />
-                <marker date="1546877535984" expanded="true" signature="19688:19693" ph="..." />
+                <marker date="1546914636517" expanded="true" signature="20803:20804" ph="..." />
+                <marker date="1546914636517" expanded="true" signature="20823:20828" ph="..." />
               </folding>
             </state>
           </provider>
@@ -513,7 +521,7 @@
     <frame x="-7" y="0" width="1932" height="1003" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.33386752" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.33386752" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -528,7 +536,7 @@
       <window_info anchor="bottom" id="Terminal" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.10202991" side_tool="true" visible="true" weight="0.26666668" />
       <window_info anchor="bottom" id="Version Control" order="11" />
-      <window_info active="true" anchor="bottom" id="Python Console" order="12" sideWeight="0.8979701" visible="true" weight="0.26666668" />
+      <window_info anchor="bottom" id="Python Console" order="12" sideWeight="0.8979701" visible="true" weight="0.26666668" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -827,27 +835,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gettingstarted/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="19" column="36" selection-start-line="19" selection-start-column="36" selection-end-line="19" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hello/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="783">
-          <caret line="32" column="44" selection-start-line="32" selection-start-column="44" selection-end-line="32" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hello/templates/trup.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4698">
-          <caret line="174" column="3" selection-start-line="174" selection-start-column="3" selection-end-line="174" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/requirements.text">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="54">
@@ -886,14 +873,41 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/gettingstarted/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="19" column="36" selection-start-line="19" selection-start-column="36" selection-end-line="19" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hello/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="34" column="95" selection-start-line="34" selection-start-column="95" selection-end-line="34" selection-end-column="95" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hello/templates/trup.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="179" column="41" selection-start-line="179" selection-start-column="41" selection-end-line="179" selection-end-column="41" />
+          <folding>
+            <element signature="e#474#480#0#HTML" expanded="true" />
+            <element signature="e#480#486#0#HTML" expanded="true" />
+            <element signature="e#486#492#0#HTML" expanded="true" />
+            <element signature="e#492#498#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/hello/trup.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="411">
-          <caret line="792" column="82" selection-start-line="792" selection-start-column="82" selection-end-line="792" selection-end-column="82" />
+        <state relative-caret-position="425">
+          <caret line="831" column="95" selection-start-line="831" selection-start-column="95" selection-end-line="831" selection-end-column="95" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
-            <marker date="1546877535984" expanded="true" signature="19668:19669" ph="..." />
-            <marker date="1546877535984" expanded="true" signature="19688:19693" ph="..." />
+            <marker date="1546914636517" expanded="true" signature="20803:20804" ph="..." />
+            <marker date="1546914636517" expanded="true" signature="20823:20828" ph="..." />
           </folding>
         </state>
       </provider>
