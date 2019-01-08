@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="04c11b65-1a3f-47b2-99ed-8b7a1afc905b" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/hello/templates/trup.html" beforeDir="false" afterPath="$PROJECT_DIR$/hello/templates/trup.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hello/trup.py" beforeDir="false" afterPath="$PROJECT_DIR$/hello/trup.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hello/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/hello/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -52,7 +50,7 @@
           <entry key="Django Console" value="1443" />
           <entry key="Pipfile" value="25" />
           <entry key="html" value="2010" />
-          <entry key="py" value="8011" />
+          <entry key="py" value="8015" />
           <entry key="text" value="12" />
           <entry key="txt" value="4" />
         </counts>
@@ -61,7 +59,7 @@
         <counts>
           <entry key="HTML" value="2010" />
           <entry key="PLAIN_TEXT" value="41" />
-          <entry key="Python" value="8038" />
+          <entry key="Python" value="8042" />
           <entry key="Scratch" value="1416" />
         </counts>
       </usages-collector>
@@ -158,12 +156,12 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/hello/trup.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="831" column="95" selection-start-line="831" selection-start-column="95" selection-end-line="831" selection-end-column="95" />
+            <state relative-caret-position="357">
+              <caret line="837" column="56" selection-start-line="837" selection-start-column="56" selection-end-line="837" selection-end-column="56" />
               <folding>
                 <element signature="e#0#31#0" expanded="true" />
-                <marker date="1546914636517" expanded="true" signature="20803:20804" ph="..." />
-                <marker date="1546914636517" expanded="true" signature="20823:20828" ph="..." />
+                <marker date="1546914736265" expanded="true" signature="20803:20804" ph="..." />
+                <marker date="1546914736265" expanded="true" signature="20823:20828" ph="..." />
               </folding>
             </state>
           </provider>
@@ -209,7 +207,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>hello</find>
       <find>getTimeline</find>
       <find>format</find>
       <find>generationColors</find>
@@ -239,6 +236,7 @@
       <find>x =</find>
       <find>mivami</find>
       <find>bitcode</find>
+      <find>calc</find>
     </findStrings>
     <dirStrings>
       <dir>C:\josh\mivami</dir>
@@ -902,12 +900,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/hello/trup.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="831" column="95" selection-start-line="831" selection-start-column="95" selection-end-line="831" selection-end-column="95" />
+        <state relative-caret-position="357">
+          <caret line="837" column="56" selection-start-line="837" selection-start-column="56" selection-end-line="837" selection-end-column="56" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
-            <marker date="1546914636517" expanded="true" signature="20803:20804" ph="..." />
-            <marker date="1546914636517" expanded="true" signature="20823:20828" ph="..." />
+            <marker date="1546914736265" expanded="true" signature="20803:20804" ph="..." />
+            <marker date="1546914736265" expanded="true" signature="20823:20828" ph="..." />
           </folding>
         </state>
       </provider>

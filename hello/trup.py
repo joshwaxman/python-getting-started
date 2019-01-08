@@ -835,6 +835,6 @@ def getTree(verse):
         iso_html += '</td></tr></table>'
         tagged = marked
 
-        prob = calc_conditional_probabilities(result)
+        prob = calc_conditional_probabilities(result, db)
 
         return tree, text, tagged, next, prev, iso_html, prob
