@@ -94,7 +94,7 @@ def talmud_dev(request, masechet='missing', page='missing'):
                                            'sugya_graph': sugyaGraphs})
 
 
-def trup_form(request):
+def trup_form(request, foobar):
     from .trup_form import ContactForm
     if request.method == 'POST':
         form = ContactForm(request.POST)
