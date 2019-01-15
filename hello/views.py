@@ -92,3 +92,14 @@ def talmud_dev(request, masechet='missing', page='missing'):
                                            'global_interaction_nodes': global_interaction_nodes,
                                            'global_interaction_edges': global_interaction_edges,
                                            'sugya_graph': sugyaGraphs})
+
+
+def trup_form(request):
+    from .trup_form import ContactForm
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            pass  # does nothing, just trigger the validation
+    else:
+        form = ContactForm()
+    return render(request, 'home.html', {'form': form})

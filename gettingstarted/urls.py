@@ -17,6 +17,7 @@ urlpatterns = [
     url(r'^talmud', hello.views.talmud, name='talmud'),
     url(r'^about', hello.views.about, name='about'),
     url(r'^bio/(.*)', hello.views.bio, name='bio'),
+    url(r'^trup_form/(.*)', hello.views.trup_form, name='trup'),
     url(r'^trup/(.*)', hello.views.trup, name='trup'),
     url(r'^people', hello.views.people, name='people'),
     url(r'^db', hello.views.db, name='db'),
