@@ -94,12 +94,18 @@ def talmud_dev(request, masechet='missing', page='missing'):
                                            'sugya_graph': sugyaGraphs})
 
 
-def trup_form(request, foobar):
-    from .trup_form import ContactForm
+def trup_form(request):
+    from .trup_form import TrupForm
+    from hello.trup import getTree
+
     if request.method == 'POST':
-        form = ContactForm(request.POST)
+        form = TrupForm(request.POST)
         if form.is_valid():
             pass  # does nothing, just trigger the validation
+            return render(request, 'trup_form.html', {'form': form})
+            tree, text, tagged, next, prev, iso_html, prob = getTree('Genesis 1:1')
+            return render(request, 'trup.html', dict(tree=tree, text=text, tagged=tagged, verse=verse,
+                                             next=next, prev=prev, iso_html=iso_html, prob=prob))
     else:
-        form = ContactForm()
-    return render(request, 'home.html', {'form': form})
+        form = TrupForm()
+    return render(request, 'trup_form.html', {'form': form})
