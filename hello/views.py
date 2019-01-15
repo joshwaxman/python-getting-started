@@ -102,7 +102,7 @@ def trup_form(request):
         form = TrupForm(request.POST)
         if form.is_valid(): #pass  # does nothing, just trigger the validation
             tree, text, tagged, next, prev, iso_html, prob = getTree('Genesis 1:1')
-            return render(request, 'trup.html', dict(tree=tree, text=text, tagged=tagged, verse=verse,
+            return render(request, 'trup.html', dict(tree=tree, text=text, tagged=tagged, verse='Genesis 1:1',
                                              next=next, prev=prev, iso_html=iso_html, prob=prob))
     else:
         form = TrupForm()

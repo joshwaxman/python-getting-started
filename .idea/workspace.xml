@@ -52,7 +52,7 @@
           <entry key="Django Console" value="1443" />
           <entry key="Pipfile" value="25" />
           <entry key="html" value="2014" />
-          <entry key="py" value="8205" />
+          <entry key="py" value="8221" />
           <entry key="text" value="12" />
           <entry key="txt" value="4" />
         </counts>
@@ -61,7 +61,7 @@
         <counts>
           <entry key="HTML" value="2014" />
           <entry key="PLAIN_TEXT" value="41" />
-          <entry key="Python" value="8232" />
+          <entry key="Python" value="8248" />
           <entry key="Scratch" value="1416" />
         </counts>
       </usages-collector>
@@ -104,11 +104,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/hello/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="222">
-              <caret line="102" column="78" selection-start-line="102" selection-start-column="78" selection-end-line="102" selection-end-column="78" />
+            <state relative-caret-position="276">
+              <caret line="104" column="108" selection-start-line="104" selection-start-column="108" selection-end-line="104" selection-end-column="108" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
-                <marker date="1547570588280" expanded="true" signature="3912:3913" ph="..." />
+                <marker date="1547570758027" expanded="true" signature="3912:3913" ph="..." />
               </folding>
             </state>
           </provider>
@@ -918,11 +918,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/hello/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="102" column="78" selection-start-line="102" selection-start-column="78" selection-end-line="102" selection-end-column="78" />
+        <state relative-caret-position="276">
+          <caret line="104" column="108" selection-start-line="104" selection-start-column="108" selection-end-line="104" selection-end-column="108" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
-            <marker date="1547570588280" expanded="true" signature="3912:3913" ph="..." />
+            <marker date="1547570758027" expanded="true" signature="3912:3913" ph="..." />
           </folding>
         </state>
       </provider>
