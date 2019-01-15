@@ -689,6 +689,46 @@ books = 'Genesis Exodus Leviticus Numbers Deuteronomy ' \
                                                               'I Kings', 'II Kings',
                                                               'I Chronicles', 'II Chronicles']
 
+def generateTree(text):
+    client = MongoClient(
+        "mongodb://mivami:Talmud1%@talmud-shard-00-00-ol0w9.mongodb.net:27017,talmud-shard-00-01-ol0w9.mongodb.net:27017,talmud-shard-00-02-ol0w9.mongodb.net:27017/admin?replicaSet=Talmud-shard-0&ssl=true")
+    db = client.sefaria
+    iso_trees = db.iso_trees
+    iso_trees2 = db.iso_trees2
+
+    text = preprocess(text)
+
+    lexer.input(text)
+    marked = ' '.join(['(' + i.value + ', ' + i.type + ')' for i in lexer])
+    # print(i, marked)
+
+    result = yacc.parse(text)
+    d = dict()
+    tree = encode(result)
+    bitcode = bit_encode(result, [])
+    bitcode = ''.join(bitcode)
+
+    x = iso_trees.find_one({'key': bitcode})
+
+    bitcode = bit_encode(result, [], True)
+    bitcode = ''.join(bitcode)
+    x2 = iso_trees2.find_one({'key': bitcode})
+    iso_verses = x['verses']
+    iso_verses2 = x2['verses']
+    iso_html = '<table><tr><td style="vertical-align: top; border: 1px dotted blue; width: 300px">'
+    iso_html += 'Isomorphic Trees (with leaves) -- ' + str(len(iso_verses2)) + '<br/>'
+    iso_html += '\n'.join(['<a href="' + verse + '">' + verse + '</a><br/>' for verse in iso_verses2])
+    iso_html += '</td><td style="vertical-align: top; border: 1px dotted blue; width: 300px">Isomorphic Trees (internal nodes) -- ' + str(
+        len(iso_verses)) + '<br/>'
+    iso_html += '\n'.join(['<a href="' + verse + '">' + verse + '</a><br/>' for verse in iso_verses])
+
+    iso_html += '</td></tr></table>'
+    tagged = marked
+
+    prob = calc_conditional_probabilities(result, db)
+    return tree, text, tagged, iso_html, prob
+
+
 def getTree(verse):
     client = MongoClient(
         "mongodb://mivami:Talmud1%@talmud-shard-00-00-ol0w9.mongodb.net:27017,talmud-shard-00-01-ol0w9.mongodb.net:27017,talmud-shard-00-02-ol0w9.mongodb.net:27017/admin?replicaSet=Talmud-shard-0&ssl=true")

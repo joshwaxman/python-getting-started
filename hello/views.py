@@ -96,14 +96,14 @@ def talmud_dev(request, masechet='missing', page='missing'):
 
 def trup_form(request):
     from .trup_form import TrupForm
-    from hello.trup import getTree
+    from hello.trup import generateTree
 
     if request.method == 'POST':
         form = TrupForm(request.POST)
-        if form.is_valid(): #pass  # does nothing, just trigger the validation
-            tree, text, tagged, next, prev, iso_html, prob = getTree('Genesis 1:1')
-            return render(request, 'trup.html', dict(tree=tree, text=text, tagged=tagged, verse='Genesis 1:1',
-                                             next=next, prev=prev, iso_html=iso_html, prob=prob))
+        if form.is_valid(): #pass  # trigger the validation
+            tree, text, tagged, iso_html, prob = generateTree(form.pasuk)
+            return render(request, 'trup_unknown.html', dict(tree=tree, text=text, tagged=tagged,
+                                             iso_html=iso_html, prob=prob))
     else:
         form = TrupForm()
     return render(request, 'trup_form.html', {'form': form})
