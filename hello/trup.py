@@ -713,14 +713,21 @@ def generateTree(text):
     bitcode = bit_encode(result, [], True)
     bitcode = ''.join(bitcode)
     x2 = iso_trees2.find_one({'key': bitcode})
-    iso_verses = x['verses']
-    iso_verses2 = x2['verses']
+
     iso_html = '<table><tr><td style="vertical-align: top; border: 1px dotted blue; width: 300px">'
-    iso_html += 'Isomorphic Trees (with leaves) -- ' + str(len(iso_verses2)) + '<br/>'
-    iso_html += '\n'.join(['<a href="' + verse + '">' + verse + '</a><br/>' for verse in iso_verses2])
-    iso_html += '</td><td style="vertical-align: top; border: 1px dotted blue; width: 300px">Isomorphic Trees (internal nodes) -- ' + str(
-        len(iso_verses)) + '<br/>'
-    iso_html += '\n'.join(['<a href="' + verse + '">' + verse + '</a><br/>' for verse in iso_verses])
+
+    if x2 is not None:
+        iso_verses2 = x2['verses']
+        numV2 = len(iso_verses2)
+        iso_html += 'Isomorphic Trees (with leaves) -- ' + str(numV2) + '<br/>'
+        iso_html += '\n'.join(['<a href="' + verse + '">' + verse + '</a><br/>' for verse in iso_verses2])
+
+    if x is not None:
+        iso_verses = x['verses']
+        numV = len(iso_verses)
+        iso_html += '</td><td style="vertical-align: top; border: 1px dotted blue; width: 300px">Isomorphic Trees (internal nodes) -- ' + str(
+            len(iso_verses)) + '<br/>'
+        iso_html += '\n'.join(['<a href="' + verse + '">' + verse + '</a><br/>' for verse in iso_verses])
 
     iso_html += '</td></tr></table>'
     tagged = marked
