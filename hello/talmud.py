@@ -457,7 +457,11 @@ def htmlOutputter(title: str, page: str):
     h = '' # extra debugging output
     persons_collection = mivami_persons.find_one(theText)
     persons = [tuple(t) for t in persons_collection['person_in_daf']]
-    persons_in_sugya = persons_collection['person_in_sugya']
+    persons_in_sugya = None
+    try:
+        persons_in_sugya = persons_collection['person_in_sugya']
+    except:
+        pass
 #    html += str(persons)
     if False: #'EncodedEdges' in theHtml and 'EncodedNodes' in theHtml and bCache:
         # already generated and can pull it
@@ -515,14 +519,15 @@ def htmlOutputter(title: str, page: str):
     # so that we have different graphs
     sugyaGraphs = dict()
     pplSet = set()
-    for i, sugya in enumerate(persons_in_sugya):
-        line_start = sugya['line_start']
-        sugya_number = sugya['sugya']
-        people = sugya['people']
-        e, n = findStudentRelationships(people)
-        le, ln = findLocalRelationships(people, title + '.' + page)
-        ge, gn = findGlobalRelationships(people)
-        sugyaGraphs[i] = [e, n, le, ln, ge, gn]
+    if persons_in_sugya is not None:
+        for i, sugya in enumerate(persons_in_sugya):
+            line_start = sugya['line_start']
+            sugya_number = sugya['sugya']
+            people = sugya['people']
+            e, n = findStudentRelationships(people)
+            le, ln = findLocalRelationships(people, title + '.' + page)
+            ge, gn = findGlobalRelationships(people)
+            sugyaGraphs[i] = [e, n, le, ln, ge, gn]
 
     # why was this not precomputed?
     #local_interaction_edges, local_interaction_nodes = graphTransformation(local_interaction_edges, local_interaction_nodes)

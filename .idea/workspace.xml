@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="04c11b65-1a3f-47b2-99ed-8b7a1afc905b" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hello/talmud.py" beforeDir="false" afterPath="$PROJECT_DIR$/hello/talmud.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -53,7 +52,7 @@
           <entry key="Django Console" value="1453" />
           <entry key="Pipfile" value="25" />
           <entry key="html" value="2035" />
-          <entry key="py" value="8505" />
+          <entry key="py" value="8560" />
           <entry key="text" value="12" />
           <entry key="txt" value="4" />
         </counts>
@@ -62,7 +61,7 @@
         <counts>
           <entry key="HTML" value="2035" />
           <entry key="PLAIN_TEXT" value="41" />
-          <entry key="Python" value="8542" />
+          <entry key="Python" value="8597" />
           <entry key="Scratch" value="1416" />
         </counts>
       </usages-collector>
@@ -163,7 +162,7 @@
         <entry file="file://$PROJECT_DIR$/hello/talmud.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="428">
-              <caret line="396" column="22" lean-forward="true" selection-start-line="396" selection-start-column="22" selection-end-line="396" selection-end-column="22" />
+              <caret line="530" lean-forward="true" selection-start-line="522" selection-end-line="530" />
             </state>
           </provider>
         </entry>
@@ -199,9 +198,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>***</find>
-      <find>color</find>
-      <find>in generationColors</find>
       <find>alert</find>
       <find>'.coloredDiv</find>
       <find>coloredDiv</find>
@@ -229,6 +225,9 @@
       <find>verses</find>
       <find>next</find>
       <find>yomi</find>
+      <find>mivami_persons</find>
+      <find>persons_in_sugya{ &quot;title&quot;:&quot;Bekhorot:0&quot;}</find>
+      <find>persons_in_sugya</find>
     </findStrings>
     <dirStrings>
       <dir>C:\josh\mivami</dir>
@@ -913,7 +912,7 @@
     <entry file="file://$PROJECT_DIR$/hello/talmud.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="428">
-          <caret line="396" column="22" lean-forward="true" selection-start-line="396" selection-start-column="22" selection-end-line="396" selection-end-column="22" />
+          <caret line="530" lean-forward="true" selection-start-line="522" selection-end-line="530" />
         </state>
       </provider>
     </entry>
