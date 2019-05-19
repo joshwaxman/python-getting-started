@@ -3,8 +3,17 @@
 
 {% block content %}
 
-<img src="{% static 'Joshua Waxman-1.jpg' %}"></img>
-<p>Joshua Waxman is an Assistant Professor at Stern College for Women, Yeshiva University.
+<table>
+    <tr>
+        <td>Person</td>
+        <td>Role</td>
+        <td>Short bio</td>
+    </tr>
+    <tr>
+        <td><img src="{% static 'Joshua Waxman-1.jpg' %}"></img>
+            <p>Joshua Waxman</td>
+        <td>Architect</td>
+        <td>Joshua Waxman is an Assistant Professor at Stern College for Women, Yeshiva University.
     His interests are in Computational Linguistics, Graphs, and the Digital Humanities. Dr. Waxman
     received his B.A. in Computer Science from <a href="https://www.yu.edu/yeshiva">Yeshiva College</a>,
     his Ph.D. in Computer Science from the <a href="https://www.gc.cuny.edu/Home">CUNY Graduate Center</a>
@@ -12,8 +21,18 @@
     the <a href="https://www.yu.edu/revel">Bernard Revel Graduate
     School of Jewish Studies</a>. Within the realm of Jewish studies, his interests are in Biblical
     philology, Biblical cantillation as a markup of syntax, academic Talmud study (<i>mechkar</i>),
-    and variant textual readings (<i>girsaot</i>). He may be reached at joshua.waxman@yu.edu.
-</p>
+    and variant textual readings (<i>girsaot</i>). He may be reached at joshua.waxman@yu.edu.</td>
+    </tr>
+    <td>
+        <td>Shayna Fishman</td>
+        <td>Developer</td>
+        <td>Some might call Shayna Fishman a software developer - others may call her a multi-tasker.
+            Shayna works as a backend developer for Nefesh B’Nefesh, teaches computer science to chareidi
+            women in two post-high school degree programs and does freelance work jointly with her husband
+            who also holds a degree in computer science. She graduated with honors from Yeshiva University’s
+            Stern College for Women with a major in Computer Science and a minor in Biology.  She can be
+            contacted at sfishman@nbn.org.il.</td>
+    </td>
+</table>
 
-<p>Some might call Shayna Fishman a software developer - others may call her a multi-tasker.  Shayna works as a backend developer for Nefesh B’Nefesh, teaches computer science to chareidi women in two post-high school degree programs and does freelance work jointly with her husband who also holds a degree in computer science. She graduated with honors from Yeshiva University’s Stern College for Women with a major in Computer Science and a minor in Biology.  She can be contacted at sfishman@nbn.org.il.</p>
 {% endblock %}
