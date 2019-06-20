@@ -28,6 +28,13 @@ def bio(request, person):
     html, nodes, edges = getBiography(person)
     return render(request, 'bio.html', dict(leftside=html, student_nodes=nodes, student_edges=edges))
 
+
+def bio(request, shoresh):
+    from hello.clark import getClarkShoresh
+    html, nodes, edges = getClarkShoresh(shoresh)
+    return render(request, 'clark.html', dict(leftside=html, student_nodes=nodes, student_edges=edges))
+
+
 def trup(request, verse):
     from hello.trup import getTree
     tree, text, tagged, next, prev, iso_html, prob = getTree(verse)
