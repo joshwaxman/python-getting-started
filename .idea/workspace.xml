@@ -55,8 +55,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/hello/clark.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="562">
-              <caret line="60" column="33" selection-start-line="60" selection-start-column="33" selection-end-line="60" selection-end-column="33" />
+            <state relative-caret-position="400">
+              <caret line="60" column="75" selection-start-line="60" selection-start-column="75" selection-end-line="60" selection-end-column="75" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -455,12 +455,12 @@
       <option name="presentableId" value="Default" />
       <updated>1522791946263</updated>
       <workItem from="1560862601767" duration="2574000" />
-      <workItem from="1561036468715" duration="5016000" />
+      <workItem from="1561036468715" duration="5744000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7590000" />
+    <option name="totallyTimeSpent" value="8318000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="0" width="1932" height="1003" extended-state="0" />
@@ -861,8 +861,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/hello/clark.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="562">
-          <caret line="60" column="33" selection-start-line="60" selection-start-column="33" selection-end-line="60" selection-end-column="33" />
+        <state relative-caret-position="400">
+          <caret line="60" column="75" selection-start-line="60" selection-start-column="75" selection-end-line="60" selection-end-column="75" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
