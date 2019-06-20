@@ -45,7 +45,7 @@ def getClarkShoresh(shoresh: str):
     edges = []
     if len(rels) > 0:
         html += '<br/><b>Phonemic Classes:</b><br/>'
-        for i, rel in enumerate(1, rels):
+        for i, rel in enumerate(rels, 1):
             pc = rel.end_node
             #n.append(teacher)
 
