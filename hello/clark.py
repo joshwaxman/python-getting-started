@@ -56,14 +56,14 @@ def getClarkShoresh(shoresh: str):
             nodes.append(n)
             edges.append(dict(source=0, target=i, label='MEMBER_OF'))
 
-    for pc in phonemic_classes:
-        p = g.nodes.match('ClarkPhonemicClass', name=pc)
-        rels = g.match(start_node=p, r_type='MEMBER_OF', bidirectional=True)
-        for i, rel in enumerate(rels, 1):
-            s = rel.end_node
-            #n.append(teacher)
-
-            n = dict(root=pc['root'], meaning=pc['meaning'])
-            nodes.append(n)
+    # for pc in phonemic_classes:
+    #     p = g.nodes.match('ClarkPhonemicClass', name=pc)
+    #     rels = g.match(start_node=p, r_type='MEMBER_OF', bidirectional=True)
+    #     for i, rel in enumerate(rels, 1):
+    #         s = rel.end_node
+    #         #n.append(teacher)
+    #
+    #         n = dict(root=pc['root'], meaning=pc['meaning'])
+    #         nodes.append(n)
 
     return html, nodes, edges
