@@ -149,7 +149,10 @@ function draw_graph(n, e, bLegend) {
             'font-size': 10
         })
         .text(function (d) {
-            return d.root;
+            if ('root' in d)
+                return d.root;
+            else
+                return d.name;
         })
 
     var nodelabels2 = svg.selectAll(".nodelabel2")
@@ -163,7 +166,10 @@ function draw_graph(n, e, bLegend) {
             "font-size": 8
         })
         .text(function (d) {
-            return d.meaning;
+            if ('meaning' in d)
+                return d.meaning;
+            else
+                return d.group;
         })
 
 
