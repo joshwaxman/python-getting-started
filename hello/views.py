@@ -29,10 +29,10 @@ def bio(request, person):
     return render(request, 'bio.html', dict(leftside=html, student_nodes=nodes, student_edges=edges))
 
 
-def bio(request, shoresh):
+def clark(request, shoresh):
     from hello.clark import getClarkShoresh
     html, nodes, edges = getClarkShoresh(shoresh)
-    return render(request, 'clark.html', dict(leftside=html, student_nodes=nodes, student_edges=edges))
+    return render(request, 'clark.html', dict(leftside=html, root_nodes=nodes, root_edges=edges))
 
 
 def trup(request, verse):
