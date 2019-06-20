@@ -23,7 +23,7 @@ session = None
 
 def getClarkShoresh(shoresh: str):
     d = dict()
-    g = Graph("http://172.104.219.113:7687", auth=("neo4j", "qwerty"))
+    g = Graph("bolt://172.104.219.113:7687", auth=("neo4j", "qwerty"))
     #/ browser /:24780 / db / data /
     html = ''
 
