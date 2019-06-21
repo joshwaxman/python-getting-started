@@ -59,7 +59,7 @@ def getClarkShoresh(shoresh: str):
     for pc in phonemic_classes:
         rels = g.match([None, pc], r_type='MEMBER_OF')
         for i, rel in enumerate(rels, 1):
-            s = rel.end_node
+            s = rel.start_node
             #n.append(teacher)
 
             n = dict(root=s['root'], meaning=s['meaning'])
