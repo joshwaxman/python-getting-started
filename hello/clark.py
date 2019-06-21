@@ -57,7 +57,7 @@ def getClarkShoresh(shoresh: str):
             edges.append(dict(source=0, target=i, label='MEMBER_OF'))
 
     for pc in phonemic_classes:
-        rels = g.match([pc, None ], r_type='MEMBER_OF', bidirectional=True)
+        rels = g.match([None, pc], r_type='MEMBER_OF')
         for i, rel in enumerate(rels, 1):
             s = rel.end_node
             #n.append(teacher)
