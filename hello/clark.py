@@ -68,7 +68,7 @@ def getClarkShoresh(shoresh: str):
         for i, rel in enumerate(rels, 1):
             s = rel.start_node
             #n.append(teacher)
-            key = p['root'] + ';' + p['meaning']
+            key = s['root'] + ';' + s['meaning']
             if key in nodeDict.keys():
                 fromIndex = nodeDict[key]
             else:
