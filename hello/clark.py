@@ -74,7 +74,7 @@ def getClarkShoresh(shoresh: str):
             else:
                 n = dict(root=s['root'], meaning=s['meaning'])
                 nodes.append(n)
-                fromIndex = len(nodes-1)
+                fromIndex = len(nodes) - 1
                 nodeDict[key] = fromIndex
 
             edges.append(dict(source=fromIndex, target=toIndex, label='MEMBER_OF'))
