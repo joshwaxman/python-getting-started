@@ -37,7 +37,9 @@ def getClarkShoresh(shoresh: str):
     html += 'Meaning: ' + p['meaning'] + '<br/>'
 
     nodes = []
-    no = set(p)
+    key = p['root'] + ';' + p['meaning']
+    nodeDict = dict()
+    nodeDict[key] = 0
     nodes.append(dict(root=p['root'], meaning=p['meaning']))
 
     rels = g.match(nodes=[p, None], r_type='MEMBER_OF')
@@ -54,15 +56,27 @@ def getClarkShoresh(shoresh: str):
             phonemic_classes.add(pc)
             n = dict(name=pc['name'], group=pc['group'])
             nodes.append(n)
+            key = n['name'] + ';' + n['group']
+            nodeDict[key] = i
             edges.append(dict(source=0, target=i, label='MEMBER_OF'))
 
+
     for pc in phonemic_classes:
+        key = pc['name'] + ';' + pc['group']
+        toIndex = nodeDict[key]
         rels = g.match([None, pc], r_type='MEMBER_OF')
         for i, rel in enumerate(rels, 1):
             s = rel.start_node
             #n.append(teacher)
+            key = p['root'] + ';' + p['meaning']
+            if key in nodeDict.keys():
+                fromIndex = nodeDict[key]
+            else:
+                n = dict(root=s['root'], meaning=s['meaning'])
+                nodes.append(n)
+                fromIndex = len(nodes-1)
+                nodeDict[key] = fromIndex
 
-            n = dict(root=s['root'], meaning=s['meaning'])
-            nodes.append(n)
+            edges.append(dict(source=fromIndex, target=toIndex, label='MEMBER_OF'))
 
     return html, nodes, edges

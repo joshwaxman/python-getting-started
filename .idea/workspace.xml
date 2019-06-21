@@ -47,8 +47,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/hello/clark.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="552">
-              <caret line="62" column="30" selection-start-line="62" selection-start-column="30" selection-end-line="62" selection-end-column="30" />
+            <state relative-caret-position="755">
+              <caret line="80" lean-forward="true" selection-start-line="80" selection-end-line="80" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -135,7 +135,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>king</find>
       <find>b</find>
       <find>iso_</find>
       <find>p_tipcha_</find>
@@ -165,6 +164,7 @@
       <find>graph</find>
       <find>neo-driver</find>
       <find>neo-</find>
+      <find>for pc</find>
     </findStrings>
     <dirStrings>
       <dir>C:\josh\mivami</dir>
@@ -458,12 +458,12 @@
       <workItem from="1560862601767" duration="2574000" />
       <workItem from="1561036468715" duration="7822000" />
       <workItem from="1561124014918" duration="1013000" />
-      <workItem from="1561126273253" duration="565000" />
+      <workItem from="1561126273253" duration="2765000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11974000" />
+    <option name="totallyTimeSpent" value="14174000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="0" width="1932" height="1047" extended-state="0" />
@@ -864,8 +864,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/hello/clark.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="552">
-          <caret line="62" column="30" selection-start-line="62" selection-start-column="30" selection-end-line="62" selection-end-column="30" />
+        <state relative-caret-position="755">
+          <caret line="80" lean-forward="true" selection-start-line="80" selection-end-line="80" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
