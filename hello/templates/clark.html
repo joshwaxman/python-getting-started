@@ -232,7 +232,7 @@ function draw_graph(n, e, bLegend) {
         .attr('fill', 'green')
         .attr('stroke', 'green');
         force.on("tick", function (e) {
-            var k = 6 * e.alpha;
+            var k = 1 * e.alpha;
 
             edges.each(function(d) {
                 d.source.y += k, d.target.y -= k;
