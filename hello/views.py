@@ -35,7 +35,7 @@ def clark(request, shoresh):
         html, nodes, edges = getClarkFullList()
     else:
         html, nodes, edges = getClarkShoresh(shoresh)
-    
+
     return render(request, 'clark.html', dict(leftside=html, root_nodes=nodes, root_edges=edges))
 
 

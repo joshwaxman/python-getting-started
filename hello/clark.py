@@ -27,7 +27,8 @@ def getClarkFullList():
     html = ''
     data = g.run('MATCH (n:ClarkShoresh) RETURN n ORDER by n.root').data()
     for node in data:
-        html += '<a href=' + node['root'] + '</a>' + node['root'] + '\n<br/>'
+        root = node['n']['root']
+        html += '<a href=' + root + '</a>' + root + '\n<br/>'
 
     return html, [], []
 
