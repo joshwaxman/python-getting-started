@@ -2,6 +2,7 @@ import os
 #from neo4j.v1 import GraphDatabase, basic_auth
 from py2neo import Graph
 from py2neo.data import walk
+
 driver = None
 session = None
 
@@ -20,6 +21,15 @@ session = None
 #
 #     #driver = GraphDatabase.driver("bolt://localhost:7687", auth=basic_auth("neo4j", "qwerty"))
 
+
+def getClarkFullList():
+    g = Graph("bolt://172.104.219.113:7687", auth=("neo4j", "qwerty"))
+    html = ''
+    data = g.run('MATCH (n:ClarkShoresh) RETURN n ORDER by n.root').data()
+    for node in data:
+        html += '<a href=' + node['root'] + '</a>' + node['root'] + '\n<br/>'
+
+    return html, [], []
 
 def getClarkShoresh(shoresh: str):
     d = dict()

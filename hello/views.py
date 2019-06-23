@@ -28,6 +28,10 @@ def bio(request, person):
     html, nodes, edges = getBiography(person)
     return render(request, 'bio.html', dict(leftside=html, student_nodes=nodes, student_edges=edges))
 
+def clarkAll(request):
+    from hello.clark import getClarkFullList
+    html, nodes, edges = getClarkFullList(shoresh)
+    return render(request, 'clark.html', dict(leftside=html, root_nodes=nodes, root_edges=edges))
 
 def clark(request, shoresh):
     from hello.clark import getClarkShoresh
