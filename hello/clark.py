@@ -24,11 +24,11 @@ session = None
 
 def getClarkFullList():
     g = Graph("bolt://172.104.219.113:7687", auth=("neo4j", "qwerty"))
-    html = ''
+    html = '<h1>Full shoresh list</h1>'
     data = g.run('MATCH (n:ClarkShoresh) RETURN n ORDER by n.root').data()
     for node in data:
         root = node['n']['root']
-        html += '<a href=' + root + '</a>' + root + '\n<br/>'
+        html += '<a href="' + root + '"</a>' + root + '\n<br/>'
 
     return html, [], []
 
