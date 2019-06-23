@@ -30,7 +30,7 @@ def bio(request, person):
 
 def clarkAll(request):
     from hello.clark import getClarkFullList
-    html, nodes, edges = getClarkFullList(shoresh)
+    html, nodes, edges = getClarkFullList()
     return render(request, 'clark.html', dict(leftside=html, root_nodes=nodes, root_edges=edges))
 
 def clark(request, shoresh):
