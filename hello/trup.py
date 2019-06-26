@@ -742,10 +742,10 @@ def generateTree(text):
     tagged = marked
 
     prob = calc_conditional_probabilities(result, tree, db)
-    prob = round(product(prob), 3)
+    probProd = round(product(prob), 3)
     probAverage = round(sum(prob) / len(prob), 3)
 
-    return tree, text, tagged, iso_html, prob, probAverage
+    return tree, text, tagged, iso_html, probProd, probAverage
 
 
 def getTree(verse):
