@@ -41,8 +41,8 @@ def clark(request, shoresh):
 
 def trup(request, verse):
     from hello.trup import getTree
-    tree, text, tagged, next, prev, iso_html, probProduct, probAverage = getTree(verse)
-    return render(request, 'trup.html', dict(tree=tree, text=text, tagged=tagged, verse=verse,
+    tree, text, engText, tagged, next, prev, iso_html, probProduct, probAverage = getTree(verse)
+    return render(request, 'trup.html', dict(tree=tree, text=text, engText=engText, tagged=tagged, verse=verse,
                                              next=next, prev=prev, iso_html=iso_html, prob=probProduct, probAverage=probAverage))
 
 
@@ -113,8 +113,8 @@ def trup_form(request):
         form = TrupForm(request.POST)
         if form.is_valid(): #pass  # trigger the validation
             pasuk = form.cleaned_data['pasuk']
-            tree, text, engText, tagged, iso_html, probProduct, probAverage = generateTree(pasuk)
-            return render(request, 'trup_unknown.html', dict(tree=tree, text=text, engText=engText, tagged=tagged,
+            tree, text, tagged, iso_html, probProduct, probAverage = generateTree(pasuk)
+            return render(request, 'trup_unknown.html', dict(tree=tree, text=text, tagged=tagged,
                                              iso_html=iso_html, prob=probProduct, probAverage=probAverage))
     else:
         form = TrupForm()
