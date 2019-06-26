@@ -41,6 +41,8 @@ def clark(request, shoresh):
 
 def trup(request, verse):
     from hello.trup import getTree
+    if verse == '':
+        verse = 'Nehemiah 8:8'
     tree, text, engText, tagged, next, prev, iso_html, probProduct, probAverage = getTree(verse)
     return render(request, 'trup.html', dict(tree=tree, text=text, engText=engText, tagged=tagged, verse=verse,
                                              next=next, prev=prev, iso_html=iso_html, prob=probProduct, probAverage=probAverage))
