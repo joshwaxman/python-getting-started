@@ -677,9 +677,9 @@ def calc_conditional_probabilities(result, tree, db):
         left_prob = calc_conditional_probabilities(result[1], tree['children'][0], db)
         right_prob = calc_conditional_probabilities(result[2], tree['children'][1], db)
 
-        return prob * left_prob * right_prob
+        return [prob] + left_prob + right_prob
     else:
-        return 1
+        return [1]
 
 
 
@@ -691,6 +691,12 @@ books = 'Genesis Exodus Leviticus Numbers Deuteronomy ' \
         'Lamentations Esther Daniel Ezra Nehemiah'.split() + ['Song of Songs', 'I Samuel', 'II Samuel',
                                                               'I Kings', 'II Kings',
                                                               'I Chronicles', 'II Chronicles']
+
+def product(a):
+    p = 1
+    for item in a:
+        p *= item
+    return p
 
 def generateTree(text):
     client = MongoClient(
@@ -736,6 +742,7 @@ def generateTree(text):
     tagged = marked
 
     prob = calc_conditional_probabilities(result, tree, db)
+    prob = round(product(prob), 3)
     return tree, text, tagged, iso_html, prob
 
 
@@ -885,5 +892,6 @@ def getTree(verse):
         tagged = marked
 
         prob = calc_conditional_probabilities(result, tree, db)
+        prob = round(product(prob), 3)
 
         return tree, text, tagged, next, prev, iso_html, prob
