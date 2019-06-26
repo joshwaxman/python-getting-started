@@ -141,10 +141,26 @@ function update(source) {
 	  .attr("d", function(d) {
 		var o = {x: source.x0, y: source.y0};
 		return diagonal({source: o, target: o});
-	  })
-      .append('text').text(function (d, i) {
-                    return 'hello';
-                });
+	  });
+
+    var edgelabels = svg.selectAll(".edgelabel")
+        .data(edges)
+        .enter()
+        .append('text')
+        .style("pointer-events", "none")
+        .attr({
+            'class': 'edgelabel',
+            'id': function (d, i) {
+                return 'edgelabel' + i
+            },
+            'dx': 80,
+            'dy': 0,
+            'font-size': 10,
+            'fill': '#aaa'
+        })
+        .text(function (d, i) {
+                return 'hello';
+            });
 
   // Transition links to their new position.
   link.transition()
