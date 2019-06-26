@@ -6,30 +6,32 @@ from py2neo.data import walk
 driver = None
 session = None
 
-def getClarkFullList():
+def getDistributionalFullList():
     g = Graph("bolt://172.104.219.113:7687", auth=("neo4j", "qwerty"))
     html = '<h1>Full shoresh list</h1>'
-    data = g.run('MATCH (n:ClarkShoresh) RETURN n ORDER by n.root').data()
+    data = g.run('MATCH (n:DistributionalShoresh) RETURN n ORDER by n.root').data()
     for node in data:
         root = node['n']['root']
         html += '<a href="' + root + '"</a>' + root + '\n<br/>'
 
     return html, [], []
 
-def getClarkShoresh(shoresh: str):
+def getDistributionalShoresh(shoresh: str):
     d = dict()
     g = Graph("bolt://172.104.219.113:7687", auth=("neo4j", "qwerty"))
     #/ browser /:24780 / db / data /
     html = ''
 
-    p = g.nodes.match('ClarkShoresh', root=shoresh)
+    data = g.run('MATCH (n:DistributionalShoresh)-[rel]-(n2) WHERE n.root = "' + shoresh + \
+                 '" RETURN n ORDER by n.root').data()
+
+
     if len(p) == 0:
         return
 
     # for now, only process first one
     p = p.first()
     html += 'Shoresh: ' + p['root'] + '<br/>'
-    html += 'Meaning: ' + p['meaning'] + '<br/>'
 
     nodes = []
     key = p['root'] + ';' + p['meaning']
