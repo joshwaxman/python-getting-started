@@ -113,8 +113,8 @@ def trup_form(request):
         form = TrupForm(request.POST)
         if form.is_valid(): #pass  # trigger the validation
             pasuk = form.cleaned_data['pasuk']
-            tree, text, tagged, iso_html, probProduct, probAverage = generateTree(pasuk)
-            return render(request, 'trup_unknown.html', dict(tree=tree, text=text, tagged=tagged,
+            tree, text, engText, tagged, iso_html, probProduct, probAverage = generateTree(pasuk)
+            return render(request, 'trup_unknown.html', dict(tree=tree, text=text, engText=engText, tagged=tagged,
                                              iso_html=iso_html, prob=probProduct, probAverage=probAverage))
     else:
         form = TrupForm()

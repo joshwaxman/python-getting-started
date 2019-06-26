@@ -763,9 +763,11 @@ def getTree(verse):
         chapter = int(chapter) - 1
         verse_num = int(verse_num) - 1
         search = dict(versionTitle="Tanach with Ta'amei Hamikra", title=book)
-
+        search2 = dict(versionTitle="The Holy Scriptures: A New Translation (JPS 1917)", title=book)
         x = texts.find_one(search)
+        y = texts.find_one(search2)
         text = x['chapter'][chapter][verse_num]
+        engText = y['chapter'][chapter][verse_num]
         ch = x['chapter'][chapter]
         # calculate next
         # if not the last verse in chapter
@@ -896,4 +898,4 @@ def getTree(verse):
         prob = calc_conditional_probabilities(result, tree, db)
         probProduct = round(product(prob), 3)
         probAverage = round(sum(prob) / len(prob), 3)
-        return tree, text, tagged, next, prev, iso_html, probProduct, probAverage
+        return tree, text, engText, tagged, next, prev, iso_html, probProduct, probAverage
