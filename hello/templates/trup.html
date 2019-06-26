@@ -144,7 +144,7 @@ function update(source) {
 	  });
 
     var edgelabels = svg.selectAll(".edgelabel")
-        .data(links)
+        .data(nodes)
         .enter()
         .append('text')
         .style("pointer-events", "none")
