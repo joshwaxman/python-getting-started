@@ -658,26 +658,28 @@ def loadAdjustedRuleProbability(db):
         dAdjustedRuleProbability[eval(k)] = v
 
 
-dAdjustedRuleProbability = None
-def calc_conditional_probabilities(tree, db):
-    if dAdjustedRuleProbability is None:
-        loadAdjustedRuleProbability(db)
+# dAdjustedRuleProbability = None
+# def calc_conditional_probabilities(tree, db):
 
-    if len(tree) == 3 and type(tree[1]) is not LexToken: # binary tree, internal node
-        end_trup = tree[2][0]
-        dichotomy_trup = tree[1][0]
-        word_distance = count_leaves(tree[2])
+
+dAdjustedRuleProbability = None
+def calc_conditional_probabilities(result, tree, db):
+    if dAdjustedRuleProbability is None:
+            loadAdjustedRuleProbability(db)
+
+    if len(result) == 3 and type(result[1]) is not LexToken: # binary tree, internal node
+        end_trup = result[2][0]
+        dichotomy_trup = result[1][0]
+        word_distance = count_leaves(result[2])
 
         prob = dAdjustedRuleProbability[(end_trup, dichotomy_trup, word_distance)]
         tree['probability'] = prob;
-        left_prob = calc_conditional_probabilities(tree[1], db)
-        right_prob = calc_conditional_probabilities(tree[2], db)
+        left_prob = calc_conditional_probabilities(result[1], tree['children'[0]], db)
+        right_prob = calc_conditional_probabilities(result[2], tree['children'[1]], db)
 
         return prob * left_prob * right_prob
     else:
         return 1
-
-
 
 
 
@@ -733,7 +735,7 @@ def generateTree(text):
     iso_html += '</td></tr></table>'
     tagged = marked
 
-    prob = calc_conditional_probabilities(result, db)
+    prob = calc_conditional_probabilities(result, tree, db)
     return tree, text, tagged, iso_html, prob
 
 
@@ -882,6 +884,6 @@ def getTree(verse):
         iso_html += '</td></tr></table>'
         tagged = marked
 
-        prob = calc_conditional_probabilities(result, db)
+        prob = calc_conditional_probabilities(result, tree, db)
 
         return tree, text, tagged, next, prev, iso_html, prob
