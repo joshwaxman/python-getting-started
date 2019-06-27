@@ -764,7 +764,7 @@ def getTree(verse):
         search2 = dict(versionTitle="The Holy Scriptures: A New Translation (JPS 1917)", title=book)
         x = texts.find_one(search)
         y = texts.find_one(search2)
-        z = trup.find_one({'key': book + str(chapter) + ':' + str(verse_num)})
+        z = trup.find_one({'key': book + ' ' + str(chapter) + ':' + str(verse_num)})
         if z is not None:
             tree = z['tree']
             bitcode = z['bittree']
