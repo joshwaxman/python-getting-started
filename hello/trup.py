@@ -772,6 +772,9 @@ def getTree(verse):
             probProduct = z['probProd']
             probAverage = z['probAverage']
             tagged = z['tagged']
+            text = z['text']
+            engText = z['englishText']
+
             iso_html += str(tree)
         else:
             iso_html += 'generating: ' + str({'key': book + ' ' + str(chapter) + ':' + str(verse_num)})
