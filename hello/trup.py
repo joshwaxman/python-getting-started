@@ -763,7 +763,7 @@ def getTree(verse):
         search2 = dict(versionTitle="The Holy Scriptures: A New Translation (JPS 1917)", title=book)
         x = texts.find_one(search)
         y = texts.find_one(search2)
-        z = trup.find_one({'key': book + ' ' + str(chapter+1) + ':' + str(verse_num)})
+        z = trup.find_one({'key': book + ' ' + str(chapter+1) + ':' + str(verse_num + 1)})
         iso_html = ''
 
         ch = x['chapter'][chapter]
@@ -794,7 +794,7 @@ def getTree(verse):
 
             iso_html += str(tree)
         else:
-            iso_html += 'generating: ' + str({'key': book + ' ' + str(chapter) + ':' + str(verse_num)})
+            iso_html += 'generating: ' + str({'key': book + ' ' + str(chapter + 1) + ':' + str(verse_num)})
             text = x['chapter'][chapter][verse_num]
             engText = y['chapter'][chapter][verse_num]
 
