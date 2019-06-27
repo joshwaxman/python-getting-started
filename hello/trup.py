@@ -695,8 +695,7 @@ def product(a):
     return p
 
 def generateTree(text):
-    client = MongoClient(
-        "mongodb://mivami:Talmud1%@talmud-shard-00-00-ol0w9.mongodb.net:27017,talmud-shard-00-01-ol0w9.mongodb.net:27017,talmud-shard-00-02-ol0w9.mongodb.net:27017/admin?replicaSet=Talmud-shard-0&ssl=true")
+    client = MongoClient('mongodb://trup:Talmud1%@cluster0-shard-00-00-tabwi.mongodb.net:27017,cluster0-shard-00-01-tabwi.mongodb.net:27017,cluster0-shard-00-02-tabwi.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true&w=majority')
     db = client.sefaria
     iso_trees = db.iso_trees
     iso_trees2 = db.iso_trees2
