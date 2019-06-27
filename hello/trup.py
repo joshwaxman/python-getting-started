@@ -658,10 +658,6 @@ def loadAdjustedRuleProbability(db):
         dAdjustedRuleProbability[eval(k)] = v
 
 
-# dAdjustedRuleProbability = None
-# def calc_conditional_probabilities(tree, db):
-
-
 dAdjustedRuleProbability = None
 def calc_conditional_probabilities(result, tree, db):
     if dAdjustedRuleProbability is None:
@@ -754,6 +750,8 @@ def getTree(verse):
     db = client.sefaria
     iso_trees = db.iso_trees
     iso_trees2 = db.iso_trees2
+    trup = db.trup
+
     texts = db.texts
     space_pos = verse.rfind(' ')
     s = verse[0: space_pos], verse[space_pos+1:]
@@ -766,124 +764,134 @@ def getTree(verse):
         search2 = dict(versionTitle="The Holy Scriptures: A New Translation (JPS 1917)", title=book)
         x = texts.find_one(search)
         y = texts.find_one(search2)
-        text = x['chapter'][chapter][verse_num]
-        engText = y['chapter'][chapter][verse_num]
-        ch = x['chapter'][chapter]
-        # calculate next
-        # if not the last verse in chapter
-        if verse_num < len(ch) - 1:
-            next = book + ' ' + str(chapter + 1) + ':' + str(verse_num + 2)
+        z = trup.find_one({'key': book + str(chapter) + ':' + str(verse_num)})
+        if z is not None:
+            tree = z['tree']
+            bitcode = z['bittree']
+            bitcode2 = z['bittree2']
+            probProduct = z['probProd']
+            probAverage = z['probAverage']
         else:
-            next = book + ' ' + str(chapter + 2) + ':1'
+            text = x['chapter'][chapter][verse_num]
+            engText = y['chapter'][chapter][verse_num]
+            ch = x['chapter'][chapter]
+            # calculate next
+            # if not the last verse in chapter
+            if verse_num < len(ch) - 1:
+                next = book + ' ' + str(chapter + 1) + ':' + str(verse_num + 2)
+            else:
+                next = book + ' ' + str(chapter + 2) + ':1'
 
-        # calculate prev
-        if verse_num == 0:
-            ch = x['chapter'][chapter-1]
-            # what is last verse in prev chapter
-            prev = book + ' ' + str(chapter) + ':' + str(len(ch))
-        else:
-            prev = book + ' ' + str(chapter + 1) + ':' + str(verse_num)
+            # calculate prev
+            if verse_num == 0:
+                ch = x['chapter'][chapter-1]
+                # what is last verse in prev chapter
+                prev = book + ' ' + str(chapter) + ':' + str(len(ch))
+            else:
+                prev = book + ' ' + str(chapter + 1) + ':' + str(verse_num)
 
-        chapter = chapter + 1
-        pasuk = verse_num
-        if book == 'Genesis' and chapter == 35 and pasuk == 22:
-            text = 'וַיְהִ֗י בִּשְׁכֹּ֤ן יִשְׂרָאֵל֙ בָּאָ֣רֶץ הַהִ֔וא וַיֵּ֣לֶךְ רְאוּבֵ֗ן וַיִּשְׁכַּב֙ אֶת־בִּלְהָה֙ פִּילֶ֣גֶשׁ אָבִ֔יו וַיִּשְׁמַ֖ע יִשְׂרָאֵ֑ל וַיִּֽהְי֥וּ בְנֵֽי־יַעֲקֹ֖ב שְׁנֵ֥ים עָשָֽׂר׃'
-        elif book == 'Exodus' and chapter == 4 and pasuk == 10:
-            text = 'וַיֹּ֨אמֶר מֹשֶׁ֣ה אֶל־יְהוָה֮ בִּ֣י אֲדֹנָי֒ לֹא֩ אִ֨ישׁ דְּבָרִ֜ים אָנֹ֗כִי גַּ֤ם מִתְּמוֹל֙ גַּ֣ם מִשִּׁלְשֹׁ֔ם גַּ֛ם מֵאָ֥ז דַּבֶּרְךָ֖ אֶל־עַבְדֶּ֑ךָ כִּ֧י כְבַד־פֶּ֛ה וּכְבַ֥ד לָשׁ֖וֹן אָנֹֽכִי׃'
-        elif book == 'Exodus' and chapter == 20 and pasuk == 2:
-            text = 'אָֽנֹכִי֙ יְהוָ֣ה אֱלֹהֶ֔יךָ אֲשֶׁ֧ר הֽוֹצֵאתִ֛יךָ מֵאֶ֥רֶץ מִצְרַ֖יִם מִבֵּ֣ית עֲבָדִ֑ים לֹֽא־יִהְיֶ֥ה לְךָ֛ אֱלֹהִ֥ים אֲחֵרִ֖ים עַל־פָּנָֽי׃'
-        elif book == 'Exodus' and chapter == 20 and pasuk == 3:
-            # duplicate on purpose because of alignment issues of etnachta or full verse
-            text = 'אָֽנֹכִי֙ יְהוָ֣ה אֱלֹהֶ֔יךָ אֲשֶׁ֧ר הֽוֹצֵאתִ֛יךָ מֵאֶ֥רֶץ מִצְרַ֖יִם מִבֵּ֣ית עֲבָדִ֑ים לֹֽא־יִהְיֶ֥ה לְךָ֛ אֱלֹהִ֥ים אֲחֵרִ֖ים עַל־פָּנָֽי׃'
-        elif book == 'Exodus' and chapter == 20 and pasuk == 4:
-            text = 'לֹֽא־תַעֲשֶׂ֨ה לְךָ֥ פֶ֨סֶל֙ וְכָל־תְּמוּנָ֔ה אֲשֶׁ֤ר בַּשָּׁמַ֨יִם֙ מִמַּ֔עַל וַֽאֲשֶׁ֥ר בָּאָ֖רֶץ מִתָּ֑חַת וַֽאֲשֶׁ֥ר בַּמַּ֖יִם מִתַּ֥חַת לָאָֽרֶץ׃'
-        elif book == 'Exodus' and chapter == 20 and pasuk == 5:
-            text = 'לֹֽא־תִשְׁתַּחֲוֶ֥ה לָהֶ֖ם וְלֹ֣א תָֽעָבְדֵ֑ם כִּ֣י אָֽנֹכִ֞י יְהוָ֤ה אֱלֹהֶ֨יךָ֙ אֵ֣ל קַנָּ֔א פֹּ֠קֵד עֲוֺ֨ן אָבֹ֧ת עַל־בָּנִ֛ים עַל־שִׁלֵּשִׁ֥ים וְעַל־רִבֵּעִ֖ים לְשֹֽׂנְאָֽי׃'
-        elif book == 'Exodus' and chapter == 20 and pasuk == 6:
-            text = 'וְעֹ֥שֶׂה חֶ֖סֶד לַֽאֲלָפִ֑ים לְאֹֽהֲבַ֖י וּלְשֹֽׁמְרֵ֥י מִצְוֺתָֽי׃'
-        elif book == 'Exodus' and chapter == 20 and pasuk == 7:
-            text = 'לֹ֥א תִשָּׂ֛א אֶת־שֵֽׁם־יְהוָ֥ה אֱלֹהֶ֖יךָ לַשָּׁ֑וְא כִּ֣י לֹ֤א יְנַקֶּה֙ יְהוָ֔ה אֵ֛ת אֲשֶׁר־יִשָּׂ֥א אֶת־שְׁמ֖וֹ לַשָּֽׁוְא׃'
-        elif book == 'Exodus' and chapter == 20 and pasuk == 8:
-            text = 'זָכ֛וֹר אֶת־י֥וֹם הַשַּׁבָּ֖ת לְקַדְּשֽׁוֹ׃'
-        elif book == 'Exodus' and chapter == 20 and pasuk == 9:
-            text = 'שֵׁ֤שֶׁת יָמִים֙ תַּֽעֲבֹ֔ד וְעָשִׂ֖יתָ כָּל־מְלַאכְתֶּֽךָ׃'
-        elif book == 'Exodus' and chapter == 20 and pasuk == 10:
-            # should really get the other taam for this so that it will be separate verses
-            text = 'וְיוֹם֙ הַשְּׁבִיעִ֔י שַׁבָּ֖ת לַֽיהוָ֣ה אֱלֹהֶ֑יךָ לֹֽא־תַעֲשֶׂ֨ה כָל־מְלָאכָ֜ה אַתָּ֣ה ׀ וּבִנְךָ֣ וּבִתֶּ֗ךָ עַבְדְּךָ֤ וַאֲמָֽתְךָ֙ וּבְהֶמְתֶּ֔ךָ וְגֵֽרְךָ֖ אֲשֶׁ֥ר בִּשְׁעָרֶֽיךָ׃'
-        elif book == 'Exodus' and chapter == 20 and pasuk == 11:
-            text = 'כִּ֣י שֵֽׁשֶׁת־יָמִים֩ עָשָׂ֨ה יְהוָ֜ה אֶת־הַשָּׁמַ֣יִם וְאֶת־הָאָ֗רֶץ אֶת־הַיָּם֙ וְאֶת־כָּל־אֲשֶׁר־בָּ֔ם וַיָּ֖נַח בַּיּ֣וֹם הַשְּׁבִיעִ֑י עַל־כֵּ֗ן בֵּרַ֧ךְ יְהוָ֛ה אֶת־י֥וֹם הַשַּׁבָּ֖ת וַֽיְקַדְּשֵֽׁהוּ׃'
-        elif book == 'Exodus' and chapter == 20 and pasuk == 12:
-            pass # this one was fine
-        elif book == 'Exodus' and chapter == 20 and pasuk == 13:
-            text = 'לֹ֥א תִרְצָ֖ח לֹ֣א תִנְאָ֑ף לֹ֣א תִגְנֹ֔ב לֹֽא־תַעֲנֶ֥ה בְרֵֽעֲךָ֖ עֵ֥ד שָֽׁקֶר׃'
-        elif book == 'Exodus' and chapter == 28 and pasuk == 1: # revii turned to zakef katon
-            text = 'וְאַתָּ֡ה הַקְרֵ֣ב אֵלֶיךָ֩ אֶת־אַֽהֲרֹ֨ן אָחִ֜יךָ וְאֶת־בָּנָ֣יו אִתּ֗וֹ מִתּ֛וֹךְ בְּנֵ֥י יִשְׂרָאֵ֖ל לְכַֽהֲנוֹ־לִ֑י אַֽהֲרֹ֕ן נָדָ֧ב וַֽאֲבִיה֛וּא אֶלְעָזָ֥ר וְאִֽיתָמָ֖ר בְּנֵ֥י אַֽהֲרֹֽן׃'
-        elif book == 'Leviticus' and chapter == 1 and pasuk == 3:  # used geresh mukdam, even though that is of emet
-            text = 'אִם־עֹלָ֤ה קָרְבָּנוֹ֙ מִן־הַבָּקָ֔ר זָכָ֥ר תָּמִ֖ים יַקְרִיבֶ֑נּוּ אֶל־פֶּ֜תַח אֹ֤הֶל מוֹעֵד֙ יַקְרִ֣יב אֹת֔וֹ לִרְצֹנ֖וֹ לִפְנֵ֥י יְהוָֽה׃'
-        elif book == 'Deuteronomy' and chapter == 5 and pasuk == 7:
-            text = 'אָֽנֹכִי֙ יְהוָ֣ה אֱלֹהֶ֔יךָ אֲשֶׁ֧ר הֽוֹצֵאתִ֛יךָ מֵאֶ֥רֶץ מִצְרַ֖יִם מִבֵּ֣ית עֲבָדִ֑ים לֹֽא־יִהְיֶ֥ה לְךָ֛ אֱלֹהִ֥ים אֲחֵרִ֖ים עַל־פָּנָֽי׃'
-        elif book == 'Deuteronomy' and chapter == 5 and pasuk == 8:
-            text = 'לֹֽא־תַעֲשֶׂ֨ה לְךָ֥ פֶ֨סֶל֙ כָּל־תְּמוּנָ֔ה אֲשֶׁ֤ר בַּשָּׁמַ֨יִם֙ מִמַּ֔עַל וַֽאֲשֶׁ֥ר בָּאָ֖רֶץ מִתָּ֑חַת וַֽאֲשֶׁ֥ר בַּמַּ֖יִם מִתַּ֥חַת לָאָֽרֶץ׃'
-        elif book == 'Deuteronomy' and chapter == 5 and pasuk == 9:
-            text = 'לֹֽא־תִשְׁתַּחֲוֶ֥ה לָהֶ֖ם וְלֹ֣א תָֽעָבְדֵ֑ם כִּ֣י אָֽנֹכִ֞י יְהוָ֤ה אֱלֹהֶ֨יךָ֙ אֵ֣ל קַנָּ֔א פֹּ֠קֵד עֲוֺ֨ן אָב֧וֹת עַל־בָּנִ֛ים וְעַל־שִׁלֵּשִׁ֥ים וְעַל־רִבֵּעִ֖ים לְשֹֽׂנְאָֽי׃'
-        elif book == 'Deuteronomy' and chapter == 5 and pasuk == 10:
-            text = 'וְעֹ֥שֶׂה חֶ֖סֶד לַֽאֲלָפִ֑ים לְאֹֽהֲבַ֖י וּלְשֹֽׁמְרֵ֥י מִצְוֺתָֽי׃'
-        elif book == 'Deuteronomy' and chapter == 5 and pasuk == 12:
-            text = 'שָׁמ֛וֹר אֶת־י֥וֹם הַשַּׁבָּ֖ת לְקַדְּשׁ֑וֹ כַּֽאֲשֶׁ֥ר צִוְּךָ֖ יְהוָ֥ה אֱלֹהֶֽיךָ׃'
-        elif book == 'Deuteronomy' and chapter == 5 and pasuk == 13:
-            text = 'שֵׁ֤שֶׁת יָמִים֙ תַּֽעֲבֹ֔ד וְעָשִׂ֖יתָ כָּל־מְלַאכְתֶּֽךָ׃'
-        elif book == 'Deuteronomy' and chapter == 5 and pasuk == 14:
-            text = 'וְיוֹם֙ הַשְּׁבִיעִ֔י שַׁבָּ֖ת לַֽיהוָ֣ה אֱלֹהֶ֑יךָ לֹ֣א תַֽעֲשֶׂ֣ה כָל־מְלָאכָ֡ה אַתָּ֣ה וּבִנְךָֽ־וּבִתֶּ֣ךָ וְעַבְדְּךָֽ־וַ֠אֲמָתֶךָ וְשֽׁוֹרְךָ֨ וַחֲמֹֽרְךָ֜ וְכָל־בְּהֶמְתֶּ֗ךָ וְגֵֽרְךָ֙ אֲשֶׁ֣ר בִּשְׁעָרֶ֔יךָ לְמַ֗עַן יָנ֛וּחַ עַבְדְּךָ֥ וַאֲמָֽתְךָ֖ כָּמֽוֹךָ׃'
-        elif book == 'Deuteronomy' and chapter == 5 and pasuk == 15:
-            text = 'וְזָֽכַרְתָּ֗ כִּ֣י עֶ֤בֶד הָיִ֨יתָ֙ בְּאֶ֣רֶץ מִצְרַ֔יִם וַיֹּצִ֨אֲךָ֜ יְהוָ֤ה אֱלֹהֶ֨יךָ֙ מִשָּׁ֔ם בְּיָ֥ד חֲזָקָ֖ה וּבִזְרֹ֣עַ נְטוּיָ֑ה עַל־כֵּ֗ן צִוְּךָ֙ יְהוָ֣ה אֱלֹהֶ֔יךָ לַֽעֲשׂ֖וֹת אֶת־י֥וֹם הַשַּׁבָּֽת׃ {ס}'
-        elif book == 'Deuteronomy' and chapter == 5 and pasuk == 17:
-            text = 'לֹ֥א תִרְצָ֖ח וְלֹ֣א תִנְאָ֑ף וְלֹ֣א תִגְנֹ֔ב וְלֹֽא־תַעֲנֶ֥ה בְרֵֽעֲךָ֖ עֵ֥ד שָֽׁוְא׃ {ס}'
-        elif book == 'Judges' and chapter == 13 and pasuk == 18: # tevir instead of silluq
-            text = 'וַיֹּ֤אמֶר לוֹ֙ מַלְאַ֣ךְ יְהוָ֔ה לָ֥מָּה זֶּ֖ה תִּשְׁאַ֣ל לִשְׁמִ֑י וְהוּא־פֶֽלִאי׃'
-        elif book == 'Isaiah' and chapter == 45 and pasuk == 1: # change munach on "lechoresh" to segolta and first zarqa to revia. see Wickes pg 136, correction
-            text = 'כֹּה־אָמַ֣ר יְהוָ֗ה לִמְשִׁיחוֹ֮ לְכ֒וֹרֶשׁ֒ אֲשֶׁר־הֶחֱזַ֣קְתִּי בִֽימִינ֗וֹ לְרַד־לְפָנָיו֙ גּוֹיִ֔ם וּמָתְנֵ֥י מְלָכִ֖ים אֲפַתֵּ֑חַ לִפְתֹּ֤חַ לְפָנָיו֙ דְּלָתַ֔יִם וּשְׁעָרִ֖ים לֹ֥א יִסָּגֵֽרוּ׃'
-        elif book == 'Jeremiah' and chapter == 28 and pasuk == 2:  # change second gershayim to zakef gadol
-            text = 'כֹּֽה־אָמַ֞ר יְהוָ֧ה צְבָא֛וֹת אֱלֹהֵ֥י יִשְׂרָאֵ֖ל לֵאמֹ֑ר שָׁבַ֕רְתִּי אֶת־עֹ֖ל מֶ֥לֶךְ בָּבֶֽל׃'
-        elif book == 'Jeremiah' and chapter == 48 and pasuk == 12:  # change foretone tipcha on hineh-yamim to a meteg
-            text = 'לָכֵ֞ן הִנֵּֽה־יָמִ֤ים בָּאִים֙ נְאֻם־יְהוָ֔ה וְשִׁלַּחְתִּי־ל֥וֹ צֹעִ֖ים וְצֵעֻ֑הוּ וְכֵלָ֣יו יָרִ֔יקוּ וְנִבְלֵיהֶ֖ם יְנַפֵּֽצוּ׃'
-        elif book == 'Jeremiah' and chapter == 48 and pasuk == 20:  # suppress syntax error due to strange bracketing
-            text = 'הֹבִ֥ישׁ מוֹאָ֛ב כִּֽי־חַ֖תָּה הֵילִ֣ילוּ ׀ וּֽזְעָ֑קוּ הַגִּ֣ידוּ בְאַרְנ֔וֹן כִּ֥י שֻׁדַּ֖ד מוֹאָֽב׃'
-        elif book == 'Obadiah' and chapter == 1 and pasuk == 1:  # fix missing tipcha in penultimate word
-            text = 'חֲז֖וֹן עֹֽבַדְיָ֑ה כֹּֽה־אָמַר֩ אֲדֹנָ֨י יְהוִ֜ה לֶאֱד֗וֹם שְׁמוּעָ֨ה שָׁמַ֜עְנוּ מֵאֵ֤ת יְהוָה֙ וְצִיר֙ בַּגּוֹיִ֣ם שֻׁלָּ֔ח ק֛וּמוּ וְנָק֥וּמָה עָלֶ֖יהָ לַמִּלְחָמָֽה׃'
-        elif book == 'Ecclesiastes' and chapter == 9 and pasuk == 18:  # change a mercha to tipcha at end
-            text = 'טוֹבָ֥ה חָכְמָ֖ה מִכְּלֵ֣י קְרָ֑ב וְחוֹטֶ֣א אֶחָ֔ד יְאַבֵּ֖ד טוֹבָ֥ה הַרְבֵּֽה׃'
-        elif book == 'Nehemiah' and chapter == 2 and pasuk == 13:  # change krei ketiv bracketing
-            text = 'וָאֵצְאָ֨ה בְשַֽׁעַר־הַגַּ֜יא לַ֗יְלָה וְאֶל־פְּנֵי֙ עֵ֣ין הַתַּנִּ֔ין וְאֶל־שַׁ֖עַר הָאַשְׁפֹּ֑ת וָאֱהִ֨י שֹׂבֵ֜ר בְּחוֹמֹ֤ת יְרוּשָׁלִַ֙ם֙ אֲשֶׁר־המפרוצים הֵ֣ם ׀ פְּרוּצִ֔ים וּשְׁעָרֶ֖יהָ אֻכְּל֥וּ בָאֵֽשׁ׃'
-        # special trup, change geresh (which was erroneously mukdam) paired with telisha gedola
-        # into just a geresh. don't make special rules to parse a dual trup
-        elif book == 'II Kings' and chapter == 17 and pasuk == 13:
-            text = 'יָּ֣עַד יְהוָ֡ה בְּיִשְׂרָאֵ֣ל וּבִֽיהוּדָ֡ה בְּיַד֩ כָּל־נְבִיאֵ֨י כָל־חֹזֶ֜ה לֵאמֹ֗ר שֻׁ֜בוּ מִדַּרְכֵיכֶ֤ם הָֽרָעִים֙ וְשִׁמְרוּ֙ מִצְוֺתַ֣י חֻקּוֹתַ֔י כְּכָ֨ל־הַתּוֹרָ֔ה אֲשֶׁ֥ר צִוִּ֖יתִי אֶת־אֲבֹֽתֵיכֶ֑ם וַֽאֲשֶׁר֙ שָׁלַ֣חְתִּי אֲלֵיכֶ֔ם בְּיַ֖ד עֲבָדַ֥י הַנְּבִיאִֽים׃'
-        elif book == 'II Kings' and chapter == 23 and pasuk == 36: # change kadma to pashta
-            text = 'בֶּן־עֶשְׂרִ֨ים וְחָמֵ֤שׁ שָׁנָה֙ יְהֽוֹיָקִ֣ים בְּמָלְכ֔וֹ וְאַחַ֤ת עֶשְׂרֵה֙ שָׁנָ֔ה מָלַ֖ךְ בִּירֽוּשָׁלִָ֑ם וְשֵׁ֣ם אִמּ֔וֹ זבידה (זְבוּדָּ֥ה) בַת־פְּדָיָ֖ה מִן־רוּמָֽה׃'
-        elif book == 'I Chronicles' and chapter == 10 and pasuk == 1:  # change second etnachta to mahpach
-            text = 'וּפְלִשְׁתִּ֖ים נִלְחֲמ֣וּ בְיִשְׂרָאֵ֑ל וַיָּ֤נָס אִֽישׁ־יִשְׂרָאֵל֙ מִפְּנֵ֣י פְלִשְׁתִּ֔ים וַיִּפְּל֥וּ חֲלָלִ֖ים בְּהַ֥ר גִּלְבֹּֽעַ׃'
-        elif book == 'II Chronicles' and chapter == 7 and pasuk == 5:  # change revia to segolta
-            text = 'וַיִּזְבַּ֞ח הַמֶּ֣לֶךְ שְׁלֹמֹה֮ אֶת־זֶ֣בַח הַבָּקָר֒ עֶשְׂרִ֤ים וּשְׁנַ֨יִם֙ אֶ֔לֶף וְצֹ֕אן מֵאָ֥ה וְעֶשְׂרִ֖ים אָ֑לֶף וַֽיַּחְנְכוּ֙ אֶת־בֵּ֣ית הָֽאֱלֹהִ֔ים הַמֶּ֖לֶךְ וְכָל־הָעָֽם׃'
-        elif book == 'II Chronicles' and chapter == 17 and pasuk == 11:  # own emendation misevara. and fixed syntax error
-                # changed tzon eilim from zakef gadol katon to zakef katon revia
-            text = 'וּמִן־פְּלִשְׁתִּ֗ים מְבִיאִ֧ים לִיהֽוֹשָׁפָ֛ט מִנְחָ֖ה וְכֶ֣סֶף מַשָּׂ֑א גַּ֣ם הָֽעַרְבִיאִ֗ים מְבִיאִ֥ים לוֹ֙ צֹ֔אן אֵילִ֗ים שִׁבְעַ֤ת אֲלָפִים֙ וּשְׁבַ֣ע מֵא֔וֹת וּתְיָשִׁ֕ים שִׁבְעַ֥ת אֲלָפִ֖ים וּשְׁבַ֥ע מֵאֽוֹת׃'
-        text = preprocess(text)
+            chapter = chapter + 1
+            pasuk = verse_num
+            if book == 'Genesis' and chapter == 35 and pasuk == 22:
+                text = 'וַיְהִ֗י בִּשְׁכֹּ֤ן יִשְׂרָאֵל֙ בָּאָ֣רֶץ הַהִ֔וא וַיֵּ֣לֶךְ רְאוּבֵ֗ן וַיִּשְׁכַּב֙ אֶת־בִּלְהָה֙ פִּילֶ֣גֶשׁ אָבִ֔יו וַיִּשְׁמַ֖ע יִשְׂרָאֵ֑ל וַיִּֽהְי֥וּ בְנֵֽי־יַעֲקֹ֖ב שְׁנֵ֥ים עָשָֽׂר׃'
+            elif book == 'Exodus' and chapter == 4 and pasuk == 10:
+                text = 'וַיֹּ֨אמֶר מֹשֶׁ֣ה אֶל־יְהוָה֮ בִּ֣י אֲדֹנָי֒ לֹא֩ אִ֨ישׁ דְּבָרִ֜ים אָנֹ֗כִי גַּ֤ם מִתְּמוֹל֙ גַּ֣ם מִשִּׁלְשֹׁ֔ם גַּ֛ם מֵאָ֥ז דַּבֶּרְךָ֖ אֶל־עַבְדֶּ֑ךָ כִּ֧י כְבַד־פֶּ֛ה וּכְבַ֥ד לָשׁ֖וֹן אָנֹֽכִי׃'
+            elif book == 'Exodus' and chapter == 20 and pasuk == 2:
+                text = 'אָֽנֹכִי֙ יְהוָ֣ה אֱלֹהֶ֔יךָ אֲשֶׁ֧ר הֽוֹצֵאתִ֛יךָ מֵאֶ֥רֶץ מִצְרַ֖יִם מִבֵּ֣ית עֲבָדִ֑ים לֹֽא־יִהְיֶ֥ה לְךָ֛ אֱלֹהִ֥ים אֲחֵרִ֖ים עַל־פָּנָֽי׃'
+            elif book == 'Exodus' and chapter == 20 and pasuk == 3:
+                # duplicate on purpose because of alignment issues of etnachta or full verse
+                text = 'אָֽנֹכִי֙ יְהוָ֣ה אֱלֹהֶ֔יךָ אֲשֶׁ֧ר הֽוֹצֵאתִ֛יךָ מֵאֶ֥רֶץ מִצְרַ֖יִם מִבֵּ֣ית עֲבָדִ֑ים לֹֽא־יִהְיֶ֥ה לְךָ֛ אֱלֹהִ֥ים אֲחֵרִ֖ים עַל־פָּנָֽי׃'
+            elif book == 'Exodus' and chapter == 20 and pasuk == 4:
+                text = 'לֹֽא־תַעֲשֶׂ֨ה לְךָ֥ פֶ֨סֶל֙ וְכָל־תְּמוּנָ֔ה אֲשֶׁ֤ר בַּשָּׁמַ֨יִם֙ מִמַּ֔עַל וַֽאֲשֶׁ֥ר בָּאָ֖רֶץ מִתָּ֑חַת וַֽאֲשֶׁ֥ר בַּמַּ֖יִם מִתַּ֥חַת לָאָֽרֶץ׃'
+            elif book == 'Exodus' and chapter == 20 and pasuk == 5:
+                text = 'לֹֽא־תִשְׁתַּחֲוֶ֥ה לָהֶ֖ם וְלֹ֣א תָֽעָבְדֵ֑ם כִּ֣י אָֽנֹכִ֞י יְהוָ֤ה אֱלֹהֶ֨יךָ֙ אֵ֣ל קַנָּ֔א פֹּ֠קֵד עֲוֺ֨ן אָבֹ֧ת עַל־בָּנִ֛ים עַל־שִׁלֵּשִׁ֥ים וְעַל־רִבֵּעִ֖ים לְשֹֽׂנְאָֽי׃'
+            elif book == 'Exodus' and chapter == 20 and pasuk == 6:
+                text = 'וְעֹ֥שֶׂה חֶ֖סֶד לַֽאֲלָפִ֑ים לְאֹֽהֲבַ֖י וּלְשֹֽׁמְרֵ֥י מִצְוֺתָֽי׃'
+            elif book == 'Exodus' and chapter == 20 and pasuk == 7:
+                text = 'לֹ֥א תִשָּׂ֛א אֶת־שֵֽׁם־יְהוָ֥ה אֱלֹהֶ֖יךָ לַשָּׁ֑וְא כִּ֣י לֹ֤א יְנַקֶּה֙ יְהוָ֔ה אֵ֛ת אֲשֶׁר־יִשָּׂ֥א אֶת־שְׁמ֖וֹ לַשָּֽׁוְא׃'
+            elif book == 'Exodus' and chapter == 20 and pasuk == 8:
+                text = 'זָכ֛וֹר אֶת־י֥וֹם הַשַּׁבָּ֖ת לְקַדְּשֽׁוֹ׃'
+            elif book == 'Exodus' and chapter == 20 and pasuk == 9:
+                text = 'שֵׁ֤שֶׁת יָמִים֙ תַּֽעֲבֹ֔ד וְעָשִׂ֖יתָ כָּל־מְלַאכְתֶּֽךָ׃'
+            elif book == 'Exodus' and chapter == 20 and pasuk == 10:
+                # should really get the other taam for this so that it will be separate verses
+                text = 'וְיוֹם֙ הַשְּׁבִיעִ֔י שַׁבָּ֖ת לַֽיהוָ֣ה אֱלֹהֶ֑יךָ לֹֽא־תַעֲשֶׂ֨ה כָל־מְלָאכָ֜ה אַתָּ֣ה ׀ וּבִנְךָ֣ וּבִתֶּ֗ךָ עַבְדְּךָ֤ וַאֲמָֽתְךָ֙ וּבְהֶמְתֶּ֔ךָ וְגֵֽרְךָ֖ אֲשֶׁ֥ר בִּשְׁעָרֶֽיךָ׃'
+            elif book == 'Exodus' and chapter == 20 and pasuk == 11:
+                text = 'כִּ֣י שֵֽׁשֶׁת־יָמִים֩ עָשָׂ֨ה יְהוָ֜ה אֶת־הַשָּׁמַ֣יִם וְאֶת־הָאָ֗רֶץ אֶת־הַיָּם֙ וְאֶת־כָּל־אֲשֶׁר־בָּ֔ם וַיָּ֖נַח בַּיּ֣וֹם הַשְּׁבִיעִ֑י עַל־כֵּ֗ן בֵּרַ֧ךְ יְהוָ֛ה אֶת־י֥וֹם הַשַּׁבָּ֖ת וַֽיְקַדְּשֵֽׁהוּ׃'
+            elif book == 'Exodus' and chapter == 20 and pasuk == 12:
+                pass # this one was fine
+            elif book == 'Exodus' and chapter == 20 and pasuk == 13:
+                text = 'לֹ֥א תִרְצָ֖ח לֹ֣א תִנְאָ֑ף לֹ֣א תִגְנֹ֔ב לֹֽא־תַעֲנֶ֥ה בְרֵֽעֲךָ֖ עֵ֥ד שָֽׁקֶר׃'
+            elif book == 'Exodus' and chapter == 28 and pasuk == 1: # revii turned to zakef katon
+                text = 'וְאַתָּ֡ה הַקְרֵ֣ב אֵלֶיךָ֩ אֶת־אַֽהֲרֹ֨ן אָחִ֜יךָ וְאֶת־בָּנָ֣יו אִתּ֗וֹ מִתּ֛וֹךְ בְּנֵ֥י יִשְׂרָאֵ֖ל לְכַֽהֲנוֹ־לִ֑י אַֽהֲרֹ֕ן נָדָ֧ב וַֽאֲבִיה֛וּא אֶלְעָזָ֥ר וְאִֽיתָמָ֖ר בְּנֵ֥י אַֽהֲרֹֽן׃'
+            elif book == 'Leviticus' and chapter == 1 and pasuk == 3:  # used geresh mukdam, even though that is of emet
+                text = 'אִם־עֹלָ֤ה קָרְבָּנוֹ֙ מִן־הַבָּקָ֔ר זָכָ֥ר תָּמִ֖ים יַקְרִיבֶ֑נּוּ אֶל־פֶּ֜תַח אֹ֤הֶל מוֹעֵד֙ יַקְרִ֣יב אֹת֔וֹ לִרְצֹנ֖וֹ לִפְנֵ֥י יְהוָֽה׃'
+            elif book == 'Deuteronomy' and chapter == 5 and pasuk == 7:
+                text = 'אָֽנֹכִי֙ יְהוָ֣ה אֱלֹהֶ֔יךָ אֲשֶׁ֧ר הֽוֹצֵאתִ֛יךָ מֵאֶ֥רֶץ מִצְרַ֖יִם מִבֵּ֣ית עֲבָדִ֑ים לֹֽא־יִהְיֶ֥ה לְךָ֛ אֱלֹהִ֥ים אֲחֵרִ֖ים עַל־פָּנָֽי׃'
+            elif book == 'Deuteronomy' and chapter == 5 and pasuk == 8:
+                text = 'לֹֽא־תַעֲשֶׂ֨ה לְךָ֥ פֶ֨סֶל֙ כָּל־תְּמוּנָ֔ה אֲשֶׁ֤ר בַּשָּׁמַ֨יִם֙ מִמַּ֔עַל וַֽאֲשֶׁ֥ר בָּאָ֖רֶץ מִתָּ֑חַת וַֽאֲשֶׁ֥ר בַּמַּ֖יִם מִתַּ֥חַת לָאָֽרֶץ׃'
+            elif book == 'Deuteronomy' and chapter == 5 and pasuk == 9:
+                text = 'לֹֽא־תִשְׁתַּחֲוֶ֥ה לָהֶ֖ם וְלֹ֣א תָֽעָבְדֵ֑ם כִּ֣י אָֽנֹכִ֞י יְהוָ֤ה אֱלֹהֶ֨יךָ֙ אֵ֣ל קַנָּ֔א פֹּ֠קֵד עֲוֺ֨ן אָב֧וֹת עַל־בָּנִ֛ים וְעַל־שִׁלֵּשִׁ֥ים וְעַל־רִבֵּעִ֖ים לְשֹֽׂנְאָֽי׃'
+            elif book == 'Deuteronomy' and chapter == 5 and pasuk == 10:
+                text = 'וְעֹ֥שֶׂה חֶ֖סֶד לַֽאֲלָפִ֑ים לְאֹֽהֲבַ֖י וּלְשֹֽׁמְרֵ֥י מִצְוֺתָֽי׃'
+            elif book == 'Deuteronomy' and chapter == 5 and pasuk == 12:
+                text = 'שָׁמ֛וֹר אֶת־י֥וֹם הַשַּׁבָּ֖ת לְקַדְּשׁ֑וֹ כַּֽאֲשֶׁ֥ר צִוְּךָ֖ יְהוָ֥ה אֱלֹהֶֽיךָ׃'
+            elif book == 'Deuteronomy' and chapter == 5 and pasuk == 13:
+                text = 'שֵׁ֤שֶׁת יָמִים֙ תַּֽעֲבֹ֔ד וְעָשִׂ֖יתָ כָּל־מְלַאכְתֶּֽךָ׃'
+            elif book == 'Deuteronomy' and chapter == 5 and pasuk == 14:
+                text = 'וְיוֹם֙ הַשְּׁבִיעִ֔י שַׁבָּ֖ת לַֽיהוָ֣ה אֱלֹהֶ֑יךָ לֹ֣א תַֽעֲשֶׂ֣ה כָל־מְלָאכָ֡ה אַתָּ֣ה וּבִנְךָֽ־וּבִתֶּ֣ךָ וְעַבְדְּךָֽ־וַ֠אֲמָתֶךָ וְשֽׁוֹרְךָ֨ וַחֲמֹֽרְךָ֜ וְכָל־בְּהֶמְתֶּ֗ךָ וְגֵֽרְךָ֙ אֲשֶׁ֣ר בִּשְׁעָרֶ֔יךָ לְמַ֗עַן יָנ֛וּחַ עַבְדְּךָ֥ וַאֲמָֽתְךָ֖ כָּמֽוֹךָ׃'
+            elif book == 'Deuteronomy' and chapter == 5 and pasuk == 15:
+                text = 'וְזָֽכַרְתָּ֗ כִּ֣י עֶ֤בֶד הָיִ֨יתָ֙ בְּאֶ֣רֶץ מִצְרַ֔יִם וַיֹּצִ֨אֲךָ֜ יְהוָ֤ה אֱלֹהֶ֨יךָ֙ מִשָּׁ֔ם בְּיָ֥ד חֲזָקָ֖ה וּבִזְרֹ֣עַ נְטוּיָ֑ה עַל־כֵּ֗ן צִוְּךָ֙ יְהוָ֣ה אֱלֹהֶ֔יךָ לַֽעֲשׂ֖וֹת אֶת־י֥וֹם הַשַּׁבָּֽת׃ {ס}'
+            elif book == 'Deuteronomy' and chapter == 5 and pasuk == 17:
+                text = 'לֹ֥א תִרְצָ֖ח וְלֹ֣א תִנְאָ֑ף וְלֹ֣א תִגְנֹ֔ב וְלֹֽא־תַעֲנֶ֥ה בְרֵֽעֲךָ֖ עֵ֥ד שָֽׁוְא׃ {ס}'
+            elif book == 'Judges' and chapter == 13 and pasuk == 18: # tevir instead of silluq
+                text = 'וַיֹּ֤אמֶר לוֹ֙ מַלְאַ֣ךְ יְהוָ֔ה לָ֥מָּה זֶּ֖ה תִּשְׁאַ֣ל לִשְׁמִ֑י וְהוּא־פֶֽלִאי׃'
+            elif book == 'Isaiah' and chapter == 45 and pasuk == 1: # change munach on "lechoresh" to segolta and first zarqa to revia. see Wickes pg 136, correction
+                text = 'כֹּה־אָמַ֣ר יְהוָ֗ה לִמְשִׁיחוֹ֮ לְכ֒וֹרֶשׁ֒ אֲשֶׁר־הֶחֱזַ֣קְתִּי בִֽימִינ֗וֹ לְרַד־לְפָנָיו֙ גּוֹיִ֔ם וּמָתְנֵ֥י מְלָכִ֖ים אֲפַתֵּ֑חַ לִפְתֹּ֤חַ לְפָנָיו֙ דְּלָתַ֔יִם וּשְׁעָרִ֖ים לֹ֥א יִסָּגֵֽרוּ׃'
+            elif book == 'Jeremiah' and chapter == 28 and pasuk == 2:  # change second gershayim to zakef gadol
+                text = 'כֹּֽה־אָמַ֞ר יְהוָ֧ה צְבָא֛וֹת אֱלֹהֵ֥י יִשְׂרָאֵ֖ל לֵאמֹ֑ר שָׁבַ֕רְתִּי אֶת־עֹ֖ל מֶ֥לֶךְ בָּבֶֽל׃'
+            elif book == 'Jeremiah' and chapter == 48 and pasuk == 12:  # change foretone tipcha on hineh-yamim to a meteg
+                text = 'לָכֵ֞ן הִנֵּֽה־יָמִ֤ים בָּאִים֙ נְאֻם־יְהוָ֔ה וְשִׁלַּחְתִּי־ל֥וֹ צֹעִ֖ים וְצֵעֻ֑הוּ וְכֵלָ֣יו יָרִ֔יקוּ וְנִבְלֵיהֶ֖ם יְנַפֵּֽצוּ׃'
+            elif book == 'Jeremiah' and chapter == 48 and pasuk == 20:  # suppress syntax error due to strange bracketing
+                text = 'הֹבִ֥ישׁ מוֹאָ֛ב כִּֽי־חַ֖תָּה הֵילִ֣ילוּ ׀ וּֽזְעָ֑קוּ הַגִּ֣ידוּ בְאַרְנ֔וֹן כִּ֥י שֻׁדַּ֖ד מוֹאָֽב׃'
+            elif book == 'Obadiah' and chapter == 1 and pasuk == 1:  # fix missing tipcha in penultimate word
+                text = 'חֲז֖וֹן עֹֽבַדְיָ֑ה כֹּֽה־אָמַר֩ אֲדֹנָ֨י יְהוִ֜ה לֶאֱד֗וֹם שְׁמוּעָ֨ה שָׁמַ֜עְנוּ מֵאֵ֤ת יְהוָה֙ וְצִיר֙ בַּגּוֹיִ֣ם שֻׁלָּ֔ח ק֛וּמוּ וְנָק֥וּמָה עָלֶ֖יהָ לַמִּלְחָמָֽה׃'
+            elif book == 'Ecclesiastes' and chapter == 9 and pasuk == 18:  # change a mercha to tipcha at end
+                text = 'טוֹבָ֥ה חָכְמָ֖ה מִכְּלֵ֣י קְרָ֑ב וְחוֹטֶ֣א אֶחָ֔ד יְאַבֵּ֖ד טוֹבָ֥ה הַרְבֵּֽה׃'
+            elif book == 'Nehemiah' and chapter == 2 and pasuk == 13:  # change krei ketiv bracketing
+                text = 'וָאֵצְאָ֨ה בְשַֽׁעַר־הַגַּ֜יא לַ֗יְלָה וְאֶל־פְּנֵי֙ עֵ֣ין הַתַּנִּ֔ין וְאֶל־שַׁ֖עַר הָאַשְׁפֹּ֑ת וָאֱהִ֨י שֹׂבֵ֜ר בְּחוֹמֹ֤ת יְרוּשָׁלִַ֙ם֙ אֲשֶׁר־המפרוצים הֵ֣ם ׀ פְּרוּצִ֔ים וּשְׁעָרֶ֖יהָ אֻכְּל֥וּ בָאֵֽשׁ׃'
+            # special trup, change geresh (which was erroneously mukdam) paired with telisha gedola
+            # into just a geresh. don't make special rules to parse a dual trup
+            elif book == 'II Kings' and chapter == 17 and pasuk == 13:
+                text = 'יָּ֣עַד יְהוָ֡ה בְּיִשְׂרָאֵ֣ל וּבִֽיהוּדָ֡ה בְּיַד֩ כָּל־נְבִיאֵ֨י כָל־חֹזֶ֜ה לֵאמֹ֗ר שֻׁ֜בוּ מִדַּרְכֵיכֶ֤ם הָֽרָעִים֙ וְשִׁמְרוּ֙ מִצְוֺתַ֣י חֻקּוֹתַ֔י כְּכָ֨ל־הַתּוֹרָ֔ה אֲשֶׁ֥ר צִוִּ֖יתִי אֶת־אֲבֹֽתֵיכֶ֑ם וַֽאֲשֶׁר֙ שָׁלַ֣חְתִּי אֲלֵיכֶ֔ם בְּיַ֖ד עֲבָדַ֥י הַנְּבִיאִֽים׃'
+            elif book == 'II Kings' and chapter == 23 and pasuk == 36: # change kadma to pashta
+                text = 'בֶּן־עֶשְׂרִ֨ים וְחָמֵ֤שׁ שָׁנָה֙ יְהֽוֹיָקִ֣ים בְּמָלְכ֔וֹ וְאַחַ֤ת עֶשְׂרֵה֙ שָׁנָ֔ה מָלַ֖ךְ בִּירֽוּשָׁלִָ֑ם וְשֵׁ֣ם אִמּ֔וֹ זבידה (זְבוּדָּ֥ה) בַת־פְּדָיָ֖ה מִן־רוּמָֽה׃'
+            elif book == 'I Chronicles' and chapter == 10 and pasuk == 1:  # change second etnachta to mahpach
+                text = 'וּפְלִשְׁתִּ֖ים נִלְחֲמ֣וּ בְיִשְׂרָאֵ֑ל וַיָּ֤נָס אִֽישׁ־יִשְׂרָאֵל֙ מִפְּנֵ֣י פְלִשְׁתִּ֔ים וַיִּפְּל֥וּ חֲלָלִ֖ים בְּהַ֥ר גִּלְבֹּֽעַ׃'
+            elif book == 'II Chronicles' and chapter == 7 and pasuk == 5:  # change revia to segolta
+                text = 'וַיִּזְבַּ֞ח הַמֶּ֣לֶךְ שְׁלֹמֹה֮ אֶת־זֶ֣בַח הַבָּקָר֒ עֶשְׂרִ֤ים וּשְׁנַ֨יִם֙ אֶ֔לֶף וְצֹ֕אן מֵאָ֥ה וְעֶשְׂרִ֖ים אָ֑לֶף וַֽיַּחְנְכוּ֙ אֶת־בֵּ֣ית הָֽאֱלֹהִ֔ים הַמֶּ֖לֶךְ וְכָל־הָעָֽם׃'
+            elif book == 'II Chronicles' and chapter == 17 and pasuk == 11:  # own emendation misevara. and fixed syntax error
+                    # changed tzon eilim from zakef gadol katon to zakef katon revia
+                text = 'וּמִן־פְּלִשְׁתִּ֗ים מְבִיאִ֧ים לִיהֽוֹשָׁפָ֛ט מִנְחָ֖ה וְכֶ֣סֶף מַשָּׂ֑א גַּ֣ם הָֽעַרְבִיאִ֗ים מְבִיאִ֥ים לוֹ֙ צֹ֔אן אֵילִ֗ים שִׁבְעַ֤ת אֲלָפִים֙ וּשְׁבַ֣ע מֵא֔וֹת וּתְיָשִׁ֕ים שִׁבְעַ֥ת אֲלָפִ֖ים וּשְׁבַ֥ע מֵאֽוֹת׃'
+            text = preprocess(text)
 
-        lexer.input(text)
-        marked = ' '.join(['(' + i.value + ', ' + i.type + ')' for i in lexer])
-        # print(i, marked)
+            lexer.input(text)
+            marked = ' '.join(['(' + i.value + ', ' + i.type + ')' for i in lexer])
+            # print(i, marked)
 
-        result = yacc.parse(text)
-        d = dict()
-        tree = encode(result)
-        bitcode = bit_encode(result, [])
-        bitcode = ''.join(bitcode)
+            result = yacc.parse(text)
+            tree = encode(result)
+            bitcode = bit_encode(result, [])
+            bitcode = ''.join(bitcode)
+
+            bitcode2 = bit_encode(result, [], True)
+            bitcode2 = ''.join(bitcode2)
+            prob = calc_conditional_probabilities(result, tree, db)
+            probProduct = round(product(prob), 3)
+            probAverage = round(sum(prob) / len(prob), 3)
 
         x = iso_trees.find_one({'key': bitcode})
-
-        bitcode = bit_encode(result, [], True)
-        bitcode = ''.join(bitcode)
-        x2 = iso_trees2.find_one({'key': bitcode})
+        x2 = iso_trees2.find_one({'key': bitcode2})
         iso_verses = x['verses']
         iso_verses2 = x2['verses']
         iso_html = '<table><tr><td style="vertical-align: top; border: 1px dotted blue; width: 300px">'
@@ -895,7 +903,4 @@ def getTree(verse):
         iso_html += '</td></tr></table>'
         tagged = marked
 
-        prob = calc_conditional_probabilities(result, tree, db)
-        probProduct = round(product(prob), 3)
-        probAverage = round(sum(prob) / len(prob), 3)
         return tree, text, engText, tagged, next, prev, iso_html, probProduct, probAverage
