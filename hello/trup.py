@@ -745,8 +745,7 @@ def generateTree(text):
 
 
 def getTree(verse):
-    client = MongoClient(
-        "mongodb://mivami:Talmud1%@talmud-shard-00-00-ol0w9.mongodb.net:27017,talmud-shard-00-01-ol0w9.mongodb.net:27017,talmud-shard-00-02-ol0w9.mongodb.net:27017/admin?replicaSet=Talmud-shard-0&ssl=true")
+    client = MongoClient("mongodb://mivami:Talmud1%@talmud-shard-00-00-ol0w9.mongodb.net:27017,talmud-shard-00-01-ol0w9.mongodb.net:27017,talmud-shard-00-02-ol0w9.mongodb.net:27017/admin?replicaSet=Talmud-shard-0&ssl=true")
     db = client.sefaria
     iso_trees = db.iso_trees
     iso_trees2 = db.iso_trees2
@@ -765,13 +764,16 @@ def getTree(verse):
         x = texts.find_one(search)
         y = texts.find_one(search2)
         z = trup.find_one({'key': book + ' ' + str(chapter) + ':' + str(verse_num)})
+        iso_html = ''
         if z is not None:
             tree = z['tree']
             bitcode = z['bittree']
             bitcode2 = z['bittree2']
             probProduct = z['probProd']
-            probAverage = str(z['probAverage']) + ' loaded from disk'
+            probAverage = z['probAverage']
+            iso_html += str(tree)
         else:
+            iso_html += 'generating: ' + str({'key': book + ' ' + str(chapter) + ':' + str(verse_num)})
             text = x['chapter'][chapter][verse_num]
             engText = y['chapter'][chapter][verse_num]
             ch = x['chapter'][chapter]
@@ -894,7 +896,7 @@ def getTree(verse):
         x2 = iso_trees2.find_one({'key': bitcode2})
         iso_verses = x['verses']
         iso_verses2 = x2['verses']
-        iso_html = '<table><tr><td style="vertical-align: top; border: 1px dotted blue; width: 300px">'
+        iso_html += '<table><tr><td style="vertical-align: top; border: 1px dotted blue; width: 300px">'
         iso_html += 'Isomorphic Trees (with leaves) -- ' + str(len(iso_verses2)) + '<br/>'
         iso_html += '\n'.join(['<a href="' + verse + '">' + verse + '</a><br/>' for verse in iso_verses2])
         iso_html += '</td><td style="vertical-align: top; border: 1px dotted blue; width: 300px">Isomorphic Trees (internal nodes) -- ' + str(len(iso_verses)) + '<br/>'
