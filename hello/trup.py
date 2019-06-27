@@ -770,7 +770,7 @@ def getTree(verse):
             bitcode = z['bittree']
             bitcode2 = z['bittree2']
             probProduct = z['probProd']
-            probAverage = z['probAverage']
+            probAverage = str(z['probAverage']) + ' loaded from disk'
         else:
             text = x['chapter'][chapter][verse_num]
             engText = y['chapter'][chapter][verse_num]
