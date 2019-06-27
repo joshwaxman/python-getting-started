@@ -765,6 +765,23 @@ def getTree(verse):
         y = texts.find_one(search2)
         z = trup.find_one({'key': book + ' ' + str(chapter+1) + ':' + str(verse_num)})
         iso_html = ''
+
+        ch = x['chapter'][chapter]
+        # calculate next
+        # if not the last verse in chapter
+        if verse_num < len(ch) - 1:
+            next = book + ' ' + str(chapter + 1) + ':' + str(verse_num + 2)
+        else:
+            next = book + ' ' + str(chapter + 2) + ':1'
+
+        # calculate prev
+        if verse_num == 0:
+            ch = x['chapter'][chapter - 1]
+            # what is last verse in prev chapter
+            prev = book + ' ' + str(chapter) + ':' + str(len(ch))
+        else:
+            prev = book + ' ' + str(chapter + 1) + ':' + str(verse_num)
+
         if z is not None:
             tree = z['tree']
             bitcode = z['bittree']
@@ -780,21 +797,6 @@ def getTree(verse):
             iso_html += 'generating: ' + str({'key': book + ' ' + str(chapter) + ':' + str(verse_num)})
             text = x['chapter'][chapter][verse_num]
             engText = y['chapter'][chapter][verse_num]
-            ch = x['chapter'][chapter]
-            # calculate next
-            # if not the last verse in chapter
-            if verse_num < len(ch) - 1:
-                next = book + ' ' + str(chapter + 1) + ':' + str(verse_num + 2)
-            else:
-                next = book + ' ' + str(chapter + 2) + ':1'
-
-            # calculate prev
-            if verse_num == 0:
-                ch = x['chapter'][chapter-1]
-                # what is last verse in prev chapter
-                prev = book + ' ' + str(chapter) + ':' + str(len(ch))
-            else:
-                prev = book + ' ' + str(chapter + 1) + ':' + str(verse_num)
 
             chapter = chapter + 1
             pasuk = verse_num
