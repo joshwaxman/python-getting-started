@@ -763,7 +763,7 @@ def getTree(verse):
         search2 = dict(versionTitle="The Holy Scriptures: A New Translation (JPS 1917)", title=book)
         x = texts.find_one(search)
         y = texts.find_one(search2)
-        z = trup.find_one({'key': book + ' ' + str(chapter) + ':' + str(verse_num)})
+        z = trup.find_one({'key': book + ' ' + str(chapter+1) + ':' + str(verse_num)})
         iso_html = ''
         if z is not None:
             tree = z['tree']
@@ -771,6 +771,7 @@ def getTree(verse):
             bitcode2 = z['bittree2']
             probProduct = z['probProd']
             probAverage = z['probAverage']
+            tagged = z['tagged']
             iso_html += str(tree)
         else:
             iso_html += 'generating: ' + str({'key': book + ' ' + str(chapter) + ':' + str(verse_num)})
@@ -891,6 +892,7 @@ def getTree(verse):
             prob = calc_conditional_probabilities(result, tree, db)
             probProduct = round(product(prob), 3)
             probAverage = round(sum(prob) / len(prob), 3)
+            tagged = marked
 
         x = iso_trees.find_one({'key': bitcode})
         x2 = iso_trees2.find_one({'key': bitcode2})
@@ -903,6 +905,5 @@ def getTree(verse):
         iso_html += '\n'.join(['<a href="' + verse + '">' + verse + '</a><br/>' for verse in iso_verses])
 
         iso_html += '</td></tr></table>'
-        tagged = marked
 
         return tree, text, engText, tagged, next, prev, iso_html, probProduct, probAverage
