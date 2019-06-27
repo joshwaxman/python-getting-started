@@ -34,8 +34,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/hello/templates/trup.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="467">
-              <caret line="115" lean-forward="true" selection-start-line="115" selection-end-line="115" />
+            <state relative-caret-position="524">
+              <caret line="117" column="2" selection-start-line="117" selection-start-column="2" selection-end-line="117" selection-end-column="2" />
             </state>
           </provider>
         </entry>
@@ -131,10 +131,8 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>path</find>
       <find>dataset</find>
       <find>edges</find>
-      <find>nodeEn</find>
       <find>generateTree</find>
       <find>encode</find>
       <find>tree</find>
@@ -160,7 +158,9 @@
       <find>text</find>
       <find>\</find>
       <find>iso_html</find>
+      <find>em</find>
       <find>gettre</find>
+      <find>nodeEn</find>
     </findStrings>
     <dirStrings>
       <dir>C:\josh\mivami</dir>
@@ -473,12 +473,12 @@
       <workItem from="1561285696859" duration="8482000" />
       <workItem from="1561512928351" duration="8727000" />
       <workItem from="1561567098909" duration="3103000" />
-      <workItem from="1561637874196" duration="7989000" />
+      <workItem from="1561637874196" duration="10251000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="46121000" />
+    <option name="totallyTimeSpent" value="48383000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -859,8 +859,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/hello/templates/trup.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="467">
-          <caret line="115" lean-forward="true" selection-start-line="115" selection-end-line="115" />
+        <state relative-caret-position="524">
+          <caret line="117" column="2" selection-start-line="117" selection-start-column="2" selection-end-line="117" selection-end-column="2" />
         </state>
       </provider>
     </entry>

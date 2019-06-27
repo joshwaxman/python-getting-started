@@ -108,13 +108,14 @@ function update(source) {
 	  .text(function(d) { return d.name; });
 //	  .style("fill-opacity", 1e-6);
 
-    nodeEnter.append("text")
-	  .attr("x", function(d) { return d.children || d._children ? -13 : 13; })
-	  .attr("dy", ".170em")
+  nodeEnter.append("text")
+	  .attr("x", function(d) { return d.children || d._children ? -13 : 70; })
+	  .attr("dy", function(d) { return d.children || d._children ? "1.5em" : "0.35em"; })
 	  .attr("text-anchor", function(d) { return d.children || d._children ? "end" : "start"; })
-	  .text(function(d) { if ('phrase' in d) return d['phrase'][2] else return ''; });
+      .attr('fill', 'green')
+	  .text(function(d) { if ('phrase' in d) return d['phrase'][2]; else return ''; });
 
-    nodeEnter.append("text")
+  nodeEnter.append("text")
       .attr("x", function(d) { return d.children || d._children ? 100 : 100; })
 	  .attr("dy", "0em")
       .attr('fill', 'red')
