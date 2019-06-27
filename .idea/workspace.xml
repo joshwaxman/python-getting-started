@@ -43,8 +43,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/hello/trup.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="318">
-              <caret line="766" column="8" selection-start-line="766" selection-start-column="8" selection-end-line="766" selection-end-column="8" />
+            <state relative-caret-position="434">
+              <caret line="793" column="13" selection-start-line="793" selection-start-column="13" selection-end-line="793" selection-end-column="13" />
               <folding>
                 <element signature="e#0#31#0" expanded="true" />
               </folding>
@@ -131,9 +131,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>10p</find>
-      <find>10</find>
-      <find>g.</find>
       <find>path</find>
       <find>dataset</find>
       <find>edges</find>
@@ -161,6 +158,9 @@
       <find>probAverage</find>
       <find>marked</find>
       <find>text</find>
+      <find>\</find>
+      <find>iso_html</find>
+      <find>gettre</find>
     </findStrings>
     <dirStrings>
       <dir>C:\josh\mivami</dir>
@@ -473,12 +473,12 @@
       <workItem from="1561285696859" duration="8482000" />
       <workItem from="1561512928351" duration="8727000" />
       <workItem from="1561567098909" duration="3103000" />
-      <workItem from="1561637874196" duration="6938000" />
+      <workItem from="1561637874196" duration="7233000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="45070000" />
+    <option name="totallyTimeSpent" value="45365000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -856,8 +856,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/hello/trup.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="318">
-          <caret line="766" column="8" selection-start-line="766" selection-start-column="8" selection-end-line="766" selection-end-column="8" />
+        <state relative-caret-position="434">
+          <caret line="793" column="13" selection-start-line="793" selection-start-column="13" selection-end-line="793" selection-end-column="13" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
           </folding>

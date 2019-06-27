@@ -791,10 +791,7 @@ def getTree(verse):
             tagged = z['tagged']
             text = z['text']
             engText = z['englishText']
-
-            iso_html += str(tree)
         else:
-            iso_html += 'generating: ' + str({'key': book + ' ' + str(chapter + 1) + ':' + str(verse_num)})
             text = x['chapter'][chapter][verse_num]
             engText = y['chapter'][chapter][verse_num]
 
