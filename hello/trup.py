@@ -583,7 +583,7 @@ def encode(tree):
             children.append(x)
             text.append(x['text'])
 
-        return {'name': str(tree[0]), 'children': children, 'text': ' '.join()}
+        return {'name': str(tree[0]), 'children': children, 'text': ' '.join(text)}
 
 
 def bit_encode(tree, encoding, consider_leaves=False):
