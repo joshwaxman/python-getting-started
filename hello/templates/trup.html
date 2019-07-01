@@ -116,6 +116,7 @@ function update(source) {
 	  .text(function(d) { if ('phrase' in d) return d['phrase'][2]; else return ''; });
 
   nodeEnter.append("text")
+      .attr("class", "prob")
       .attr("x", function(d) { return d.children || d._children ? 100 : 100; })
 	  .attr("dy", "0em")
       .attr('fill', 'red')
@@ -133,6 +134,10 @@ function update(source) {
 
   nodeUpdate.select("text")
 	  .style("fill-opacity", 1);
+
+  nodeUpdate.select(".prob")
+    .text(function(d) { if (d._children) return d['text']; else
+        if ('probability' in d) return d['probability']; else return ''; });
 
   // Transition exiting nodes to the parent's new position.
   var nodeExit = node.exit().transition()
