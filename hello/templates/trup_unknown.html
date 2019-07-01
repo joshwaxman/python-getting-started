@@ -33,9 +33,15 @@
   </head>
 
   <body>
+{{ verse | safe }}
+<br/>
+Prev: <a href="{{ prev | safe }}">{{ prev | safe }}</a>&nbsp;&nbsp;&nbsp;&nbsp;
+Next: <a href="{{ next | safe }}">{{ next | safe }}</a>
+
 <br/>
 
-{{ text | safe }}
+{{ text | safe }} <br/>
+{{ engText | safe }}
 <!-- load the d3.js library -->
 <script src="http://d3js.org/d3.v3.min.js"></script>
 
@@ -99,8 +105,23 @@ function update(source) {
 	  .attr("x", function(d) { return d.children || d._children ? -13 : 13; })
 	  .attr("dy", ".35em")
 	  .attr("text-anchor", function(d) { return d.children || d._children ? "end" : "start"; })
-	  .text(function(d) { return d.name; })
-	  .style("fill-opacity", 1e-6);
+	  .text(function(d) { return d.name; });
+//	  .style("fill-opacity", 1e-6);
+
+  nodeEnter.append("text")
+	  .attr("x", function(d) { return d.children || d._children ? -13 : 70; })
+	  .attr("dy", function(d) { return d.children || d._children ? "1.5em" : "0.35em"; })
+	  .attr("text-anchor", function(d) { return d.children || d._children ? "end" : "start"; })
+      .attr('fill', 'green')
+	  .text(function(d) { if ('phrase' in d) return d['phrase'][2]; else return ''; });
+
+  nodeEnter.append("text")
+      .attr("class", "prob")
+      .attr("x", function(d) { return d.children || d._children ? 100 : 100; })
+	  .attr("dy", "0em")
+      .attr('fill', 'red')
+      .attr("text-anchor", function(d) { return d.children || d._children ? "end" : "start"; })
+	  .text(function(d) { if ('probability' in d) return d['probability']; else return ''; });
 
   // Transition nodes to their new position.
   var nodeUpdate = node.transition()
@@ -113,6 +134,11 @@ function update(source) {
 
   nodeUpdate.select("text")
 	  .style("fill-opacity", 1);
+
+  nodeUpdate.select(".prob")
+    .text(function(d) { if (d._children) return d['text']; else
+        if ('probability' in d) return d['probability']; else return ''; })
+    .attr("dy", function(d) { if (d._children) "2em"; else return "0em"; })
 
   // Transition exiting nodes to the parent's new position.
   var nodeExit = node.exit().transition()
@@ -172,7 +198,8 @@ function click(d) {
 }
 
 </script>
-<br/>Tree Probability: {{ prob | safe }} <br/>
+<br/>Tree Probability: {{ prob | safe }}
+<br/>Avg Tree Probability: {{ probAverage | safe }} <br/>
 <br/>
   {{ iso_html | safe }}
   </body>

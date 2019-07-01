@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="04c11b65-1a3f-47b2-99ed-8b7a1afc905b" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/hello/templates/trup.html" beforeDir="false" afterPath="$PROJECT_DIR$/hello/templates/trup.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hello/templates/trup_unknown.html" beforeDir="false" afterPath="$PROJECT_DIR$/hello/templates/trup_unknown.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -23,19 +23,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/hello/trup_form.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="351">
-              <caret line="13" column="66" selection-start-line="13" selection-start-column="66" selection-end-line="13" selection-end-column="66" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/hello/templates/trup.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="659">
-              <caret line="141" lean-forward="true" selection-start-line="141" selection-end-line="141" />
+            <state relative-caret-position="416">
+              <caret line="124" lean-forward="true" selection-end-line="206" />
             </state>
           </provider>
         </entry>
@@ -75,6 +66,15 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="486">
               <caret line="18" column="17" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/hello/templates/trup_unknown.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="548">
+              <caret line="200" column="17" lean-forward="true" selection-start-line="200" selection-start-column="17" selection-end-line="200" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -131,7 +131,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>sefer</find>
       <find>{ text</find>
       <find>trup</find>
       <find>generate</find>
@@ -161,6 +160,7 @@
       <find>load</find>
       <find>calc_conditional_probabilities</find>
       <find>encode</find>
+      <find>fill-opacity</find>
     </findStrings>
     <dirStrings>
       <dir>C:\josh\mivami</dir>
@@ -202,7 +202,6 @@
         <option value="$PROJECT_DIR$/hello/templates/talmud.html" />
         <option value="$PROJECT_DIR$/Pipfile" />
         <option value="$PROJECT_DIR$/hello/templates/home.html" />
-        <option value="$PROJECT_DIR$/hello/templates/trup_unknown.html" />
         <option value="$PROJECT_DIR$/hello/trup_form.py" />
         <option value="$PROJECT_DIR$/hello/templates/base.html" />
         <option value="$USER_HOME$/Downloads/analysis2.py" />
@@ -217,6 +216,7 @@
         <option value="$PROJECT_DIR$/hello/templates/trup_form.html" />
         <option value="$PROJECT_DIR$/hello/trup.py" />
         <option value="$PROJECT_DIR$/hello/templates/trup.html" />
+        <option value="$PROJECT_DIR$/hello/templates/trup_unknown.html" />
       </list>
     </option>
   </component>
@@ -474,18 +474,18 @@
       <workItem from="1561512928351" duration="8727000" />
       <workItem from="1561567098909" duration="3103000" />
       <workItem from="1561637874196" duration="15365000" />
-      <workItem from="1562001766202" duration="4228000" />
+      <workItem from="1562001766202" duration="5727000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="57725000" />
+    <option name="totallyTimeSpent" value="59224000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.023454158" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24360341" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -553,7 +553,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/hello/talmud2.py" />
     <entry file="file://$PROJECT_DIR$/hello/EnglishStatementProcessor.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="594">
@@ -810,13 +809,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hello/templates/trup_form.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="486">
-          <caret line="18" column="17" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/hello/templates/bio.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="10179">
@@ -858,10 +850,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/hello/templates/trup_form.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="486">
+          <caret line="18" column="17" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/hello/templates/trup.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="659">
-          <caret line="141" lean-forward="true" selection-start-line="141" selection-end-line="141" />
+        <state relative-caret-position="416">
+          <caret line="124" lean-forward="true" selection-end-line="206" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hello/templates/trup_unknown.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="548">
+          <caret line="200" column="17" lean-forward="true" selection-start-line="200" selection-start-column="17" selection-end-line="200" selection-end-column="17" />
         </state>
       </provider>
     </entry>
