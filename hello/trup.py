@@ -648,6 +648,7 @@ def count_leaves(tree):
     # recursive case
     return count_leaves(tree[1]) + count_leaves(tree[2])
 
+dAdjustedRuleProbability = None
 def loadAdjustedRuleProbability(db):
     global dAdjustedRuleProbability
     dAdjustedRuleProbability = dict()
@@ -657,8 +658,6 @@ def loadAdjustedRuleProbability(db):
     for k, v in value.items():
         dAdjustedRuleProbability[eval(k)] = v
 
-
-dAdjustedRuleProbability = None
 def calc_conditional_probabilities(result, tree, db):
     if dAdjustedRuleProbability is None:
             loadAdjustedRuleProbability(db)
