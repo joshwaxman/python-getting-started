@@ -571,19 +571,16 @@ def encode(tree):
     treeData = []
     if type(tree) is LexToken:
     # if len(tree) == 0: # leaf
-        return {'name': tree.value, 'text' : tree.value}
+        return {'name': tree.value}
     elif tree is None: # TODO find out when this is the case and fix!
         pass
     else: #internal node
         children = []
 
-        text = []
         for child in tree[1:]:
-            x = encode(child)
-            children.append(x)
-            text.append(x['text'])
+            children.append(encode(child))
 
-        return {'name': str(tree[0]), 'children': children, 'text': ' '.join(text)}
+        return {'name': str(tree[0]), 'children': children}
 
 
 def bit_encode(tree, encoding, consider_leaves=False):

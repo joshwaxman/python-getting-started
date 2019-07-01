@@ -40,8 +40,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/hello/trup.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="21">
-              <caret line="889" column="25" selection-start-line="889" selection-start-column="19" selection-end-line="889" selection-end-column="25" />
+            <state relative-caret-position="405">
+              <caret line="582" column="58" lean-forward="true" selection-start-line="582" selection-start-column="58" selection-end-line="582" selection-end-column="58" />
               <folding>
                 <element signature="e#0#31#0" expanded="true" />
               </folding>
@@ -128,12 +128,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>gettr</find>
-      <find>genera</find>
-      <find>prob</find>
-      <find>generateTe</find>
-      <find>average</find>
-      <find>avg</find>
       <find>probab</find>
       <find>sefer</find>
       <find>{ text</find>
@@ -143,7 +137,6 @@
       <find>trup(</find>
       <find>if 'probab</find>
       <find>getTree</find>
-      <find>calc_conditional_probabilities</find>
       <find>'probab</find>
       <find>probAverage</find>
       <find>marked</find>
@@ -157,7 +150,14 @@
       <find>phrase</find>
       <find>[p</find>
       <find>mongocli</find>
+      <find>['val</find>
       <find>encode</find>
+      <find>loadA</find>
+      <find>mongod</find>
+      <find>rules</find>
+      <find>dAdjus</find>
+      <find>loadAdjustedRuleProbability</find>
+      <find>calc_conditional_probabilities</find>
     </findStrings>
     <dirStrings>
       <dir>C:\josh\mivami</dir>
@@ -471,12 +471,12 @@
       <workItem from="1561512928351" duration="8727000" />
       <workItem from="1561567098909" duration="3103000" />
       <workItem from="1561637874196" duration="15365000" />
-      <workItem from="1562001766202" duration="250000" />
+      <workItem from="1562001766202" duration="1173000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="53747000" />
+    <option name="totallyTimeSpent" value="54670000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -850,8 +850,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/hello/trup.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="889" column="25" selection-start-line="889" selection-start-column="19" selection-end-line="889" selection-end-column="25" />
+        <state relative-caret-position="405">
+          <caret line="582" column="58" lean-forward="true" selection-start-line="582" selection-start-column="58" selection-end-line="582" selection-end-column="58" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
           </folding>
