@@ -138,6 +138,7 @@ function update(source) {
   nodeUpdate.select(".prob")
     .text(function(d) { if (d._children) return d['text']; else
         if ('probability' in d) return d['probability']; else return ''; });
+    .attr("dy", "0.65em")
 
   // Transition exiting nodes to the parent's new position.
   var nodeExit = node.exit().transition()
