@@ -29,13 +29,13 @@ def getKleinShoresh(shoresh: str):
     # for now, only process first one
     p = p.first()
     html += 'Shoresh: ' + p['root'] + '<br/>'
-    html += 'Meaning: ' + p['meaning'] + '<br/>'
+    html += 'Meaning: ' + p['gloss'] + '<br/>'
 
     nodes = []
-    key = p['root'] + ';' + p['meaning']
+    key = p['root'] + ';' + p['gloss']
     nodeDict = dict()
     nodeDict[key] = 0
-    nodes.append(dict(root=p['root'], meaning=p['meaning']))
+    nodes.append(dict(root=p['root'], meaning=p['gloss']))
 
     rels = g.match(nodes=[p, None], r_type='IS_SIMILAR')
     phonemic_classes = set()
@@ -45,7 +45,7 @@ def getKleinShoresh(shoresh: str):
         for i, rel in enumerate(rels, 1):
             other = rel.end_node
 
-            html += other['root'] + '&nbsp;&nbsp;&nbsp;' + other['meaning'] + '<br/>'
+            html += other['root'] + '&nbsp;&nbsp;&nbsp;' + other['gloss'] + '<br/>'
             key = other['root']
             nodes.append(other)
             nodeDict[key] = i
