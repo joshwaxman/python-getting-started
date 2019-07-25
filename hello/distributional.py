@@ -46,7 +46,7 @@ def getShoreshDist(shoresh: str):
     edges = []
     i = 0
     if len(rels) > 0:
-        for i, rel in rels:
+        for rel in rels:
             other = rel.end_node
             label = type(rel).__name__
 

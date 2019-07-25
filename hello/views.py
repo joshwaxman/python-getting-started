@@ -65,6 +65,8 @@ def trup(request, verse):
     return render(request, 'trup.html', dict(tree=tree, text=text, engText=engText, tagged=tagged, verse=verse,
                                              next=next, prev=prev, iso_html=iso_html, prob=probProduct, probAverage=probAverage))
 
+def dictionary(request):
+    return render(request, 'dictionary.html')
 
 
 def blog(request):
