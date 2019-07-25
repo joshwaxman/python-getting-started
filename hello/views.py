@@ -47,6 +47,15 @@ def klein(request, shoresh):
 
     return render(request, 'klein.html', dict(leftside=html, root_nodes=nodes, root_edges=edges))
 
+def distributional(request, shoresh):
+    from hello.distributional import getDistFullList, getShoreshDist
+    if shoresh == '':
+        html, nodes, edges = getDistFullList()
+    else:
+        html, nodes, edges = getShoreshDist(shoresh)
+
+    return render(request, 'distributional.html', dict(leftside=html, root_nodes=nodes, root_edges=edges))
+
 
 def trup(request, verse):
     from hello.trup import getTree

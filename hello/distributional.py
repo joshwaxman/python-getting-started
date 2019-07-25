@@ -40,7 +40,7 @@ def getShoreshDist(shoresh: str):
 
     rels = g.match(nodes=[p, None], r_type='')
     rels2 = g.match(nodes=[None, p], r_type='')
-    
+
     edges = []
     if len(rels) > 0:
         html += '<br/><b>Similar words:</b><br/>'
