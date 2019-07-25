@@ -54,8 +54,8 @@ def getClarkShoresh(shoresh: str):
                 nodes.append(n)
                 key = n['name'] + ';' + n['group']
                 nodeDict[key] = i
-                i += 1
                 edges.append(dict(source=j, target=i, label='MEMBER_OF'))
+                i += 1
 
     for pc in phonemic_classes:
         key = pc['name'] + ';' + pc['group']
