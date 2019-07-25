@@ -44,9 +44,7 @@ def getClarkShoresh(shoresh: str):
         html += '<br/><b>Phonemic Classes:</b><br/>'
         for i, rel in enumerate(rels, 1):
             pc = rel.end_node
-            #n.append(teacher)
 
-            #html += 'Phonemic class: <a href="' + pc['name'] + '">' + pc['group'] + '</a><br/>'
             html += 'Phonemic class: <a href="' + pc['name'] + '">' + pc['name'] + '</a><br/>'
             phonemic_classes.add(pc)
             n = dict(name=pc['name'], group=pc['group'])
@@ -62,7 +60,6 @@ def getClarkShoresh(shoresh: str):
         rels = g.match([None, pc], r_type='MEMBER_OF')
         for i, rel in enumerate(rels, 1):
             s = rel.start_node
-            #n.append(teacher)
             key = s['root'] + ';' + s['meaning']
             if key in nodeDict.keys():
                 fromIndex = nodeDict[key]

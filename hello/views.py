@@ -38,6 +38,15 @@ def clark(request, shoresh):
 
     return render(request, 'clark.html', dict(leftside=html, root_nodes=nodes, root_edges=edges))
 
+def klein(request, shoresh):
+    from hello.klein import getKleinFullList, getKleinShoresh
+    if shoresh == '':
+        html, nodes, edges = getKleinFullList()
+    else:
+        html, nodes, edges = getKleinShoresh(shoresh)
+
+    return render(request, 'klein.html', dict(leftside=html, root_nodes=nodes, root_edges=edges))
+
 
 def trup(request, verse):
     from hello.trup import getTree
