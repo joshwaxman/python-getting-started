@@ -19,6 +19,7 @@ urlpatterns = [
     url(r'^bio/(.*)', hello.views.bio, name='bio'),
     url(r'^dictionary/clark/(.*)', hello.views.clark, name='clark'),
     url(r'^dictionary/klein/(.*)', hello.views.klein, name='klein'),
+    url(r'^dictionary/distributional/(.*)', hello.views.distributional, name='distributional'),
     url(r'^trup/form', hello.views.trup_form, name='trup'),
     url(r'^trup/(.*)', hello.views.trup, name='trup'),
     url(r'^people', hello.views.people, name='people'),
