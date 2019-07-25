@@ -28,8 +28,8 @@ def getKleinShoresh(shoresh: str):
 
     # for now, only process first one
     p = p.first()
-    html += 'Shoresh: ' + p['root'] + '<br/>'
-    html += 'Meaning: ' + p['gloss'] + '<br/>'
+    html += '<b>Shoresh</b>: ' + p['root'] + '<br/>'
+    html += '<b>Meaning</b>: ' + p['gloss'] + '<br/>'
 
     nodes = []
     key = p['root'] + ';' + p['gloss']
@@ -47,7 +47,7 @@ def getKleinShoresh(shoresh: str):
 
             html += other['root'] + '&nbsp;&nbsp;&nbsp;' + other['gloss'] + '<br/>'
             key = other['root']
-            nodes.append(other)
+            nodes.append({'root': other['root'], 'meaning': other['meaning']})
             nodeDict[key] = i
             edges.append(dict(source=0, target=i, label='IS_SIMILAR'))
 
