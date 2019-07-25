@@ -47,7 +47,7 @@ def getShoreshDist(shoresh: str):
         html += '<br/><b>Similar words:</b><br/>'
         for i, rel in enumerate(rels, 1):
             other = rel.end_node
-            label = rel.rel_type
+            label = type(rel)
 
             html += other['root'] + '&nbsp;&nbsp;&nbsp;' + other['gloss'] + '<br/>'
             key = other['root']
@@ -61,7 +61,7 @@ def getShoreshDist(shoresh: str):
     if len(rels2) > 0:
         for i, rel in enumerate(rels2, i+1):
             other = rel.start_node
-            label = rel.rel_type
+            label = type(rel)
 
             html += '<a href="' + other['root'] + '">' + other['root'] + '</a>&nbsp;&nbsp;&nbsp;' + other['gloss'] + '<br/>'
             key = other['root']
