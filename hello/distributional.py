@@ -47,7 +47,7 @@ def getShoreshDist(shoresh: str):
         html += '<br/><b>Similar words:</b><br/>'
         for i, rel in enumerate(rels, 1):
             other = rel.end_node
-            label = str(rel)
+            label = type(rel).__name__
 
             html += other['heName'] + '&nbsp;&nbsp;&nbsp;' + '<br/>'
             key = other['heName']
@@ -58,16 +58,22 @@ def getShoreshDist(shoresh: str):
         i = 0
 
     # in nodes
+    i = i + 1
     if len(rels2) > 0:
-        for i, rel in enumerate(rels2, i+1):
+        for rel in rels2:
             other = rel.start_node
-            label = str(rel)
+            label = type(rel).__name__
 
-            html += '<a href="' + other['heName'] + '">' + other['heName'] + '</a>&nbsp;&nbsp;&nbsp;' + '<br/>'
             key = other['heName']
+            if key not in nodeDict:
+                i = i + 1
+                html += '<a href="' + other['heName'] + '">' + other['heName'] + '</a>&nbsp;&nbsp;&nbsp;' + '<br/>'
 
-            nodes.append({'root': key, 'meaning': ''})
-            nodeDict[key] = i
-            edges.append(dict(source=0, target=i, label=label))
+                nodes.append({'root': key, 'meaning': ''})
+                nodeDict[key] = i
+                j = i
+            else:
+                j = nodeDict[key]
+            edges.append(dict(source=0, target=j, label=label))
 
     return html, nodes, edges
