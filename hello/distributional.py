@@ -42,20 +42,24 @@ def getShoreshDist(shoresh: str):
     rels2 = g.match(nodes=[None, p])
     #rels2 = g.match(nodes=[None, p], r_type='')
 
+    html += '<br/><b>Similar words:</b><br/>'
     edges = []
+    i = 0
     if len(rels) > 0:
-        html += '<br/><b>Similar words:</b><br/>'
-        for i, rel in enumerate(rels, 1):
+        for i, rel in rels, 1:
             other = rel.end_node
             label = type(rel).__name__
 
             html += other['heName'] + '&nbsp;&nbsp;&nbsp;' + '<br/>'
             key = other['heName']
-            nodes.append({'root': other['heName'], 'meaning': ''})
-            nodeDict[key] = i
-            edges.append(dict(source=0, target=i, label=label))
-    else:
-        i = 0
+            if key not in nodeDict:
+                i += 1
+                nodes.append({'root': other['heName'], 'meaning': ''})
+                nodeDict[key] = i
+                j = i
+            else:
+                j = nodeDict[key]
+            edges.append(dict(source=0, target=j, label=label))
 
     # in nodes
     i = i + 1
