@@ -7,7 +7,7 @@ driver = None
 session = None
 
 def getClarkFullList():
-    g = Graph("bolt://172.104.219.113:7687", auth=("neo4j", "qwerty"))
+    g = Graph("bolt://172.104.217.202:7687", auth=("neo4j", "qwerty"))
     html = '<h1>Full shoresh list</h1>'
     data = g.run('MATCH (n:ClarkShoresh) RETURN n ORDER by n.root').data()
     for node in data:
@@ -18,7 +18,7 @@ def getClarkFullList():
 
 def getClarkShoresh(shoresh: str):
     d = dict()
-    g = Graph("bolt://172.104.219.113:7687", auth=("neo4j", "qwerty"))
+    g = Graph("bolt://172.104.217.202:7687", auth=("neo4j", "qwerty"))
     #/ browser /:24780 / db / data /
     html = ''
 

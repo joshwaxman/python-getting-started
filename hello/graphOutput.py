@@ -1,10 +1,9 @@
 from neo4j.v1 import GraphDatabase, basic_auth
 
-driver = GraphDatabase.driver("bolt://hobby-iamlocehkkokgbkekbgcgbal.dbs.graphenedb.com:24786",
-                              auth=basic_auth("mivami", "b.jOGYTThIm49J.NCgtoqGY0qrXXajq"))
+#driver = GraphDatabase.driver("bolt://hobby-iamlocehkkokgbkekbgcgbal.dbs.graphenedb.com:24786",
+#                              auth=basic_auth("mivami", "b.jOGYTThIm49J.NCgtoqGY0qrXXajq"))
 
-session = driver.session()
-
+driver = GraphDatabase.driver("bolt://172.104.217.202:7687", auth=("neo4j", "qwerty"))
 
 # def createNode(name):  # create node of 'name' by returning a dictionary to be added to the list 'nodes'
 #     try:

@@ -23,7 +23,9 @@ session = None
 
 def getBiography(person: str):
     d = dict()
-    g = Graph("https://hobby-jhedjehadkjfgbkeaajelfal.dbs.graphenedb.com:24780/db/data/", auth=("mivami", "b.jOGYTThIm49J.NCgtoqGY0qrXXajq"))
+    #g = Graph("https://hobby-jhedjehadkjfgbkeaajelfal.dbs.graphenedb.com:24780/db/data/", auth=("mivami", "b.jOGYTThIm49J.NCgtoqGY0qrXXajq"))
+    g = Graph("https://172.104.217.202:7473", auth=("neo4j", "qwerty"))
+
     html = ''
 
     p = g.nodes.match('EncodedRabbi', englishName=person)

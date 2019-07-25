@@ -3,7 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="04c11b65-1a3f-47b2-99ed-8b7a1afc905b" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hello/templates/full_graph.html" beforeDir="false" afterPath="$PROJECT_DIR$/hello/templates/full_graph.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hello/bio.py" beforeDir="false" afterPath="$PROJECT_DIR$/hello/bio.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hello/clark.py" beforeDir="false" afterPath="$PROJECT_DIR$/hello/clark.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hello/contextual.py" beforeDir="false" afterPath="$PROJECT_DIR$/hello/contextual.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hello/graphOutput.py" beforeDir="false" afterPath="$PROJECT_DIR$/hello/graphOutput.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hello/talmud.py" beforeDir="false" afterPath="$PROJECT_DIR$/hello/talmud.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hello/talmud_dev.py" beforeDir="false" afterPath="$PROJECT_DIR$/hello/talmud_dev.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -242,7 +247,7 @@
       <workItem from="1562524376843" duration="5250000" />
       <workItem from="1563293286568" duration="597000" />
       <workItem from="1563886654554" duration="5890000" />
-      <workItem from="1564005291197" duration="2150000" />
+      <workItem from="1564005291197" duration="3260000" />
     </task>
     <servers />
   </component>
