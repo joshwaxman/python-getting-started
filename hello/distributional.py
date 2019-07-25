@@ -49,9 +49,9 @@ def getShoreshDist(shoresh: str):
             other = rel.end_node
             label = str(rel)
 
-            html += other['root'] + '&nbsp;&nbsp;&nbsp;' + other['gloss'] + '<br/>'
-            key = other['root']
-            nodes.append({'root': other['root'], 'meaning': ''})
+            html += other['heName'] + '&nbsp;&nbsp;&nbsp;' + '<br/>'
+            key = other['heName']
+            nodes.append({'root': other['heName'], 'meaning': ''})
             nodeDict[key] = i
             edges.append(dict(source=0, target=i, label=label))
     else:
@@ -63,12 +63,10 @@ def getShoreshDist(shoresh: str):
             other = rel.start_node
             label = str(rel)
 
-            html += '<a href="' + other['root'] + '">' + other['root'] + '</a>&nbsp;&nbsp;&nbsp;' + other['gloss'] + '<br/>'
-            key = other['root']
-            gloss =  other['gloss']
-            pos = gloss.find('.')
-            gloss = gloss[:pos]
-            nodes.append({'root': other['root'], 'meaning': gloss})
+            html += '<a href="' + other['heName'] + '">' + other['heName'] + '</a>&nbsp;&nbsp;&nbsp;' + '<br/>'
+            key = other['heName']
+
+            nodes.append({'root': key, 'meaning': ''})
             nodeDict[key] = i
             edges.append(dict(source=0, target=i, label=label))
 
