@@ -58,6 +58,8 @@ def getKleinShoresh(shoresh: str):
             nodes.append({'root': other['root'], 'meaning': gloss})
             nodeDict[key] = i
             edges.append(dict(source=0, target=i, label='IS_SIMILAR'))
+    else:
+        i = -1
 
     # in nodes
     if len(rels2) > 0:
