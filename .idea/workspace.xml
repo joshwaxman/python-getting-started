@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="04c11b65-1a3f-47b2-99ed-8b7a1afc905b" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hello/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/hello/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hello/templates/full_graph.html" beforeDir="false" afterPath="$PROJECT_DIR$/hello/templates/full_graph.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -29,44 +29,6 @@
         <option value="HTML File" />
       </list>
     </option>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>marked</find>
-      <find>text</find>
-      <find>\</find>
-      <find>iso_html</find>
-      <find>em</find>
-      <find>gettre</find>
-      <find>nodeEn</find>
-      <find>[1</find>
-      <find>phrase</find>
-      <find>[p</find>
-      <find>['val</find>
-      <find>loadA</find>
-      <find>mongod</find>
-      <find>rules</find>
-      <find>dAdjus</find>
-      <find>loadAdjustedRuleProbability</find>
-      <find>load</find>
-      <find>calc_conditional_probabilities</find>
-      <find>encode</find>
-      <find>fill-opacity</find>
-      <find>mivami</find>
-      <find>local_</find>
-      <find>local_inter</find>
-      <find>global</find>
-      <find>local_in</find>
-      <find>findLocalRelationships</find>
-      <find>TrupForm</find>
-      <find>mongocli</find>
-      <find>client = MongoClient</find>
-      <find>client = MongoClient(</find>
-    </findStrings>
-    <dirStrings>
-      <dir>C:\josh\mivami</dir>
-      <dir>C:\josh\mivami\hello\static</dir>
-    </dirStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -280,7 +242,7 @@
       <workItem from="1562524376843" duration="5250000" />
       <workItem from="1563293286568" duration="597000" />
       <workItem from="1563886654554" duration="5890000" />
-      <workItem from="1564005291197" duration="1346000" />
+      <workItem from="1564005291197" duration="2150000" />
     </task>
     <servers />
   </component>
