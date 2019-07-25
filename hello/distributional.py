@@ -38,8 +38,9 @@ def getShoreshDist(shoresh: str):
     nodeDict[key] = 0
     nodes.append(dict(root=p['heName'], meaning=''))
 
-    rels = g.match(nodes=[p, None], r_type='')
-    rels2 = g.match(nodes=[None, p], r_type='')
+    rels = g.match(nodes=[p, None])
+    rels2 = g.match(nodes=[None, p])
+    #rels2 = g.match(nodes=[None, p], r_type='')
 
     edges = []
     if len(rels) > 0:
@@ -52,7 +53,7 @@ def getShoreshDist(shoresh: str):
             key = other['root']
             nodes.append({'root': other['root'], 'meaning': ''})
             nodeDict[key] = i
-            edges.append(dict(source=0, target=i, label='IS_SIMILAR'))
+            edges.append(dict(source=0, target=i, label=label))
     else:
         i = 0
 
