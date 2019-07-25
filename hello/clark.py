@@ -22,37 +22,39 @@ def getClarkShoresh(shoresh: str):
     #/ browser /:24780 / db / data /
     html = ''
 
-    p = g.nodes.match('ClarkShoresh', root=shoresh)
-    if len(p) == 0:
+    cs = g.nodes.match('ClarkShoresh', root=shoresh)
+    if len(cs) == 0:
         return
 
-    # for now, only process first one
-    p = p.first()
-    html += 'Shoresh: ' + p['root'] + '<br/>'
-    html += 'Meaning: ' + p['meaning'] + '<br/>'
-
-    nodes = []
-    key = p['root'] + ';' + p['meaning']
-    nodeDict = dict()
-    nodeDict[key] = 0
-    nodes.append(dict(root=p['root'], meaning=p['meaning']))
-
-    rels = g.match(nodes=[p, None], r_type='MEMBER_OF')
+    i = 0
     phonemic_classes = set()
     edges = []
-    if len(rels) > 0:
-        html += '<br/><b>Phonemic Classes:</b><br/>'
-        for i, rel in enumerate(rels, 1):
-            pc = rel.end_node
+    for p in cs:
+        html += 'Shoresh: ' + p['root'] + '<br/>'
+        html += 'Meaning: ' + p['meaning'] + '<br/>'
 
-            html += 'Phonemic class: <a href="' + pc['name'] + '">' + pc['name'] + '</a><br/>'
-            phonemic_classes.add(pc)
-            n = dict(name=pc['name'], group=pc['group'])
-            nodes.append(n)
-            key = n['name'] + ';' + n['group']
-            nodeDict[key] = i
-            edges.append(dict(source=0, target=i, label='MEMBER_OF'))
+        nodes = []
+        key = p['root'] + ';' + p['meaning']
+        nodeDict = dict()
+        nodeDict[key] = i
+        i += 1
+        nodes.append(dict(root=p['root'], meaning=p['meaning']))
 
+    for p in cs:
+        rels = g.match(nodes=[p, None], r_type='MEMBER_OF')
+
+        if len(rels) > 0:
+            html += '<br/><b>Phonemic Classes:</b><br/>'
+            for i, rel in enumerate(rels, i):
+                pc = rel.end_node
+
+                html += 'Phonemic class: <a href="' + pc['name'] + '">' + pc['name'] + '</a><br/>'
+                phonemic_classes.add(pc)
+                n = dict(name=pc['name'], group=pc['group'])
+                nodes.append(n)
+                key = n['name'] + ';' + n['group']
+                nodeDict[key] = i
+                edges.append(dict(source=0, target=i, label='MEMBER_OF'))
 
     for pc in phonemic_classes:
         key = pc['name'] + ';' + pc['group']
