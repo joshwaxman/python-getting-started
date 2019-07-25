@@ -22,7 +22,7 @@ def getShoreshDist(shoresh: str):
     #/ browser /:24780 / db / data /
     html = ''
 
-    p = g.nodes.match('ShoreshDist', root=shoresh)
+    p = g.nodes.match('ShoreshDist', heName=shoresh)
     if len(p) == 0:
         return
 
