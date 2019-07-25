@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Set the Neo4j database</title>
+</head>
+<body>
+<form method="post" novalidate>
+  {% csrf_token %}
+  <table border="1">
+    {{ form }}
+  </table>
+  <button type="submit">Submit</button>
+</form>
+
+Here you can set the neo4j connection string, as a bolt connection string.
+This will include the username and password.
+</body>
+</html>

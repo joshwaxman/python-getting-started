@@ -24,6 +24,7 @@ urlpatterns = [
     url(r'^db', hello.views.db, name='db'),
     url(r'^convert/(.*)', hello.views.convert, name='convert'),
     url(r'^blog', hello.views.blog, name='blog'),
+    url(r'^full_graph', hello.views.full_graph, name='full_graph'),
 
     path('admin/', admin.site.urls),
 ]
