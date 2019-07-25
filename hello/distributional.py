@@ -62,7 +62,6 @@ def getShoreshDist(shoresh: str):
             edges.append(dict(source=0, target=j, label=label))
 
     # in nodes
-    i = i + 1
     if len(rels2) > 0:
         for rel in rels2:
             other = rel.start_node
