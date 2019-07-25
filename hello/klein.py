@@ -48,7 +48,7 @@ def getKleinShoresh(shoresh: str):
         for i, rel in enumerate(rels, 1):
             other = rel.end_node
 
-            html += other['root'] + '&nbsp;&nbsp;&nbsp;' + other['gloss'] + '<br/>'
+            html += '<a href="' + other['root'] + '">' + other['root'] + '</a>&nbsp;&nbsp;&nbsp;' + other['gloss'] + '<br/>'
             key = other['root']
             gloss =  other['gloss']
             pos = gloss.find('.')
