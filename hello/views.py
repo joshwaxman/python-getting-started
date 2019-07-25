@@ -148,5 +148,5 @@ def full_graph(request):
         "mongodb://mivami:Talmud1%@talmud-shard-00-00-ol0w9.mongodb.net:27017,talmud-shard-00-01-ol0w9.mongodb.net:27017,talmud-shard-00-02-ol0w9.mongodb.net:27017/admin?replicaSet=Talmud-shard-0&ssl=true")
     db = client.sefaria
     x = db.fullgraph.find_one()
-    return render(request, 'full_graph.html', {'graph': x})
+    return render(request, 'full_graph.html', {'graph': x['full_graph']})
 
