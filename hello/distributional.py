@@ -38,8 +38,8 @@ def getShoreshDist(shoresh: str):
     nodeDict[key] = 0
     nodes.append(dict(root=p['heName'], meaning=''))
 
-    rels = g.match(nodes=[p, None], r_type='VEC_SIMILAR')
-    rels2 = g.match(nodes=[None, p], r_type='VEC_SIMILAR')
+    rels = g.match(nodes=[p, None])
+    rels2 = g.match(nodes=[None, p])
     #rels2 = g.match(nodes=[None, p], r_type='')
 
     edges = []
@@ -47,7 +47,7 @@ def getShoreshDist(shoresh: str):
         html += '<br/><b>Similar words:</b><br/>'
         for i, rel in enumerate(rels, 1):
             other = rel.end_node
-            label = type(rel)
+            label = str(rel)
 
             html += other['root'] + '&nbsp;&nbsp;&nbsp;' + other['gloss'] + '<br/>'
             key = other['root']
@@ -61,7 +61,7 @@ def getShoreshDist(shoresh: str):
     if len(rels2) > 0:
         for i, rel in enumerate(rels2, i+1):
             other = rel.start_node
-            label = type(rel)
+            label = str(rel)
 
             html += '<a href="' + other['root'] + '">' + other['root'] + '</a>&nbsp;&nbsp;&nbsp;' + other['gloss'] + '<br/>'
             key = other['root']
