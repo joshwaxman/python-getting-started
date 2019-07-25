@@ -38,8 +38,8 @@ def getShoreshDist(shoresh: str):
     nodeDict[key] = 0
     nodes.append(dict(root=p['heName'], meaning=''))
 
-    rels = g.match(nodes=[p, None])
-    rels2 = g.match(nodes=[None, p])
+    rels = g.match(nodes=[p, None], r_type='VEC_SIMILAR')
+    rels2 = g.match(nodes=[None, p], r_type='VEC_SIMILAR')
     #rels2 = g.match(nodes=[None, p], r_type='')
 
     edges = []
