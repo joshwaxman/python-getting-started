@@ -61,7 +61,7 @@ def getKleinShoresh(shoresh: str):
 
     # in nodes
     if len(rels2) > 0:
-        for i, rel in enumerate(rels2, i):
+        for i, rel in enumerate(rels2, i+1):
             other = rel.start_node
 
             html += '<a href="' + other['root'] + '">' + other['root'] + '</a>&nbsp;&nbsp;&nbsp;' + other['gloss'] + '<br/>'
