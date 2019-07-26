@@ -58,7 +58,7 @@ def getClarkShoresh(shoresh: str):
     html = ''
 
     nodes, relationships = {}, {}
-    query = "match r:ClarkShoresh)-[rel]-(p) where r.root='" +  shoresh + "' return r, p, rel"
+    query = "match (r:ClarkShoresh)-[rel]-(p) where r.root='" +  shoresh + "' return r, p, rel"
     append_graph(nodes, relationships, query)
 
     nodes, edges = neoToD3(nodes, relationships)
