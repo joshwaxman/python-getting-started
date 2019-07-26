@@ -59,13 +59,19 @@ def getClarkShoresh(shoresh: str):
 
     nodes, relationships = {}, {}
     query = "match (r:ClarkShoresh)-[rel]-(c:ClarkPhonemicClass) where r.root='" +  shoresh + "'\n" + \
-            "match (c)-[rel2]-(p) return r, c, p, rel"
+            "match (c)-[rel2]-(p)\n" + \
+            " return r, c, p, rel, rel2"
     append_graph(nodes, relationships, query)
 
-    html += 'Shoresh: ' + shoresh + '<br/>'
+    html += '<b>Shoresh</b>: ' + shoresh + '<br/>'
     for n in nodes.values():
         if 'root' in n and n['root'] == shoresh:
-            html += 'Meaning: ' + n['meaning'] + '<br/>'
+            html += '<b>Meaning</b>: ' + n['meaning'] + '<br/>'
+
+    query = "match (r:ClarkShoresh)-[rel]-(r2:ClarkShoresh) where r.root='" + shoresh + "'\n" + \
+            "match (r2)-[rel2]-(c:ClarkPhonemicClass)\n" + \
+            " return r, r2, c, rel, rel2"
+    append_graph(nodes, relationships, query)
 
     nodes, edges = neoToD3(nodes, relationships)
     # i = 0
