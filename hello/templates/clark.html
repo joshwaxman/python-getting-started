@@ -235,7 +235,15 @@ function draw_graph(n, e, bLegend) {
             var k = 1 * e.alpha;
 
             edges.each(function(d) {
-                d.source.y += k, d.target.y -= k;
+                if (d.source['label'] == 'ClarkPhonemicClass')
+                    d.source.y = 100;
+                else
+                    d.source.y += k;
+
+                if (d.target['label'] == 'ClarkPhonemicClass')
+                    d.target.y = 100;
+                else
+                    d.source.y -= k;
             });
         edges.attr({
             "x1": function (d) {
@@ -256,10 +264,7 @@ function draw_graph(n, e, bLegend) {
                 return d.x;
             },
             "cy": function (d) {
-                if (d['label'] == 'ClarkPhonemicClass')
-                    return 100;
-                else
-                    return d.y;
+                return d.y;
             }
         });
         nodelabels.attr("x", function (d) {
