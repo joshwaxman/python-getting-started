@@ -256,7 +256,10 @@ function draw_graph(n, e, bLegend) {
                 return d.x;
             },
             "cy": function (d) {
-                return d.y;
+                if (d['label'] == 'ClarkPhonemicClass')
+                    return 100;
+                else
+                    return d.y;
             }
         });
         nodelabels.attr("x", function (d) {
