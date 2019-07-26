@@ -24,9 +24,9 @@ def append_graph(nodes, relationships, query):
         for item in record:
             if type(item).__name__ == 'Node':
                 id = item.id
-                labels = item._labels.copy()
+                label = item._labels.copy().pop()
                 properties = item._properties.copy()
-                node = dict(label=labels)
+                node = dict(label=label)
                 for k, v in properties.items():
                     node[k] = v
                 nodes[id] = node
