@@ -28,7 +28,7 @@ def bio(request, person):
     html, nodes, edges = getBiography(person)
     return render(request, 'bio.html', dict(leftside=html, student_nodes=nodes, student_edges=edges))
 
-def clark(request, shoresh):
+def clark(request, shoresh=''):
     from hello.clark import getClarkShoresh
     from hello.clark import getClarkFullList
     if shoresh == '':
@@ -38,7 +38,7 @@ def clark(request, shoresh):
 
     return render(request, 'clark.html', dict(leftside=html, root_nodes=nodes, root_edges=edges))
 
-def klein(request, shoresh):
+def klein(request, shoresh=''):
     from hello.klein import getKleinFullList, getKleinShoresh
     if shoresh == '':
         html, nodes, edges = getKleinFullList()
@@ -47,7 +47,7 @@ def klein(request, shoresh):
 
     return render(request, 'klein.html', dict(leftside=html, root_nodes=nodes, root_edges=edges))
 
-def distributional(request, shoresh):
+def distributional(request, shoresh=''):
     from hello.distributional import getDistFullList, getShoreshDist
     if shoresh == '':
         html, nodes, edges = getDistFullList()
