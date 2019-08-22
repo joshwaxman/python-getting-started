@@ -113,7 +113,16 @@ function update(source) {
 	  .attr("dy", function(d) { return d.children || d._children ? "1.5em" : "0.35em"; })
 	  .attr("text-anchor", function(d) { return d.children || d._children ? "end" : "start"; })
       .attr('fill', 'green')
-	  .text(function(d) { if ('phrase' in d) return d['phrase'][2]; else return ''; });
+	  .text(function(d) {
+              // for leaf nodes, show the POS, as well as for now the VP etc.; later take out
+              if (d.children || d._children) {
+                  if ('phrase' in d) return d['phrase'][2]; else return '';
+              }
+              else {
+                  if ('phrase' in d) return d['phrase'][0]; else return '';
+              }
+          }
+          );
 
   nodeEnter.append("text")
       .attr("class", "prob")
