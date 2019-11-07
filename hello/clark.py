@@ -12,7 +12,7 @@ def getClarkFullList():
     data = g.run('MATCH (n:ClarkShoresh) RETURN n ORDER by n.root').data()
     for node in data:
         root = node['n']['root']
-        id = node['n']['id']
+        id = node['n'].id
         html += '<a href="' + id + '"</a>' + root + '\n<br/>'
 
     return html, [], []
