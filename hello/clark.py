@@ -12,7 +12,8 @@ def getClarkFullList():
     data = g.run('MATCH (n:ClarkShoresh) RETURN n ORDER by n.root').data()
     for node in data:
         root = node['n']['root']
-        html += '<a href="' + root + '"</a>' + root + '\n<br/>'
+        id = node['n']['id']
+        html += '<a href="' + id + '"</a>' + root + '\n<br/>'
 
     return html, [], []
 
@@ -58,7 +59,7 @@ def getClarkShoresh(shoresh: str):
     html = ''
 
     nodes, relationships = {}, {}
-    query = "match (r:ClarkShoresh)-[rel]-(c:ClarkPhonemicClass) where r.root='" +  shoresh + "'\n" + \
+    query = "match (r:ClarkShoresh)-[rel]-(c:ClarkPhonemicClass) where id(r)=" +  shoresh + "\n" + \
             "match (c)-[rel2]-(p)\n" + \
             " return r, c, p, rel, rel2"
     append_graph(nodes, relationships, query)
@@ -68,7 +69,7 @@ def getClarkShoresh(shoresh: str):
         if 'root' in n and n['root'] == shoresh:
             html += '<b>Meaning</b>: ' + n['meaning'] + '<br/>'
 
-    query = "match (r:ClarkShoresh)-[rel]-(r2:ClarkShoresh) where r.root='" + shoresh + "'\n" + \
+    query = "match (r:ClarkShoresh)-[rel]-(r2:ClarkShoresh) where id(r)='" + shoresh + "\n" + \
             "match (r2)-[rel2]-(c:ClarkPhonemicClass)\n" + \
             " return r, r2, c, rel, rel2"
     append_graph(nodes, relationships, query)
