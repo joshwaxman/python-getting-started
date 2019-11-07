@@ -17,7 +17,7 @@ def getClarkFullList():
         root = node['n']['root']
         words.append(root)
 
-    prevword = ''
+    prevword = ' '
     for word in words:
         html += '<a href="' + word + '"</a>' + word + '\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'
         if word[0] != prevword[0]:
