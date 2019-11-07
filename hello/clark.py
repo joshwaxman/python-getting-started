@@ -58,7 +58,7 @@ def getClarkShoresh(shoresh: str):
     html = ''
 
     nodes, relationships = {}, {}
-    query = "match (r:ClarkShoresh)-[rel]-(c:ClarkPhonemicClass) where id(r)=" +  shoresh + "\n" + \
+    query = "match (r:ClarkShoresh)-[rel]-(c:ClarkPhonemicClass) where r.root='" +  shoresh + "'\n" + \
             "match (c)-[rel2]-(p)\n" + \
             " return r, c, p, rel, rel2"
     append_graph(nodes, relationships, query)
