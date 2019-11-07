@@ -10,9 +10,19 @@ def getClarkFullList():
     g = Graph("bolt://172.104.217.202:7687", auth=("neo4j", "qwerty"))
     html = '<h1>Full shoresh list</h1>'
     data = g.run('MATCH (n:ClarkShoresh) RETURN n ORDER by n.root').data()
+
+    alephbet = 'אבגדהוזחטחיכלמנסעפצקרשת'
+    words = []
     for node in data:
         root = node['n']['root']
-        html += '<a href="' + root + '"</a>' + root + '\n<br/>'
+        words.append(root)
+
+    prevword = ''
+    for word in words:
+        html += '<a href="' + word + '"</a>' + word + '\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'
+        if word[0] != prevword[0]:
+            html += '\n<br>'
+        prevword = word
 
     return html, [], []
 
