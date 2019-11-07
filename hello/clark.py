@@ -23,8 +23,6 @@ def getClarkFullList():
             html += '<h2>' + word[0] + '</h2>\n'
 
         html += '<a href="' + word + '">' + word + '</a>\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'
-        if word[0] != prevword[0]:
-            html += '\n<br>'
         prevword = word
 
     return html, [], []
