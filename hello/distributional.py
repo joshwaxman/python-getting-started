@@ -10,9 +10,21 @@ def getDistFullList():
     g = Graph("bolt://172.104.217.202:7687", auth=("neo4j", "qwerty"))
     html = '<h1>Full shoresh list</h1>'
     data = g.run('MATCH (n:ShoreshDist) RETURN n ORDER by n.heName').data()
+
+    words = []
     for node in data:
         root = node['n']['heName']
-        html += '<a href="' + root + '"</a>' + root + '\n<br/>'
+        words.append(root)
+
+    prevword = ' '
+    for word in words:
+        if word[0] != prevword[0]:
+            html += '<h2>' + word[0] + '</h2>\n'
+
+        html += '<a href="' + word + '">' + word + '</a>\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'
+        prevword = word
+
+    return html, [], []
 
     return html, [], []
 

@@ -11,7 +11,6 @@ def getClarkFullList():
     html = '<h1>Full shoresh list</h1>'
     data = g.run('MATCH (n:ClarkShoresh) RETURN n ORDER by n.root').data()
 
-    alephbet = 'אבגדהוזחטחיכלמנסעפצקרשת'
     words = []
     for node in data:
         root = node['n']['root']
