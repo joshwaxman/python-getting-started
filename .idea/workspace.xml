@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="04c11b65-1a3f-47b2-99ed-8b7a1afc905b" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/hello/templates/dictionary.html" beforeDir="false" afterPath="$PROJECT_DIR$/hello/templates/dictionary.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hello/bdb.py" beforeDir="false" afterPath="$PROJECT_DIR$/hello/bdb.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -249,7 +249,7 @@
       <workItem from="1573087088314" duration="2215000" />
       <workItem from="1573090032758" duration="2225000" />
       <workItem from="1573421273853" duration="1369000" />
-      <workItem from="1575396529599" duration="1518000" />
+      <workItem from="1575396529599" duration="1733000" />
     </task>
     <servers />
   </component>

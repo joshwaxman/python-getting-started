@@ -83,7 +83,7 @@ def getBDBShoresh(shoresh: str):
             html += '<a href="' + other['root'] + '">' + other['root'] + '</a>&nbsp;&nbsp;&nbsp;' + other['gloss'] + '<br/>'
             key = other['root']
             gloss =  other['gloss']
-            pos = gloss.find('.')
+            pos = gloss.find(',')
             gloss = gloss[:pos]
             nodes.append({'root': other['root'], 'meaning': gloss})
             nodeDict[key] = i
