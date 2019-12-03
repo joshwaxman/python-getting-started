@@ -47,7 +47,7 @@ def klein(request, shoresh=''):
 
     return render(request, 'klein.html', dict(leftside=html, root_nodes=nodes, root_edges=edges))
 
-def klein(request, shoresh=''):
+def bdb(request, shoresh=''):
     from hello.bdb import getBDBFullList, getBDBShoresh
     if shoresh == '':
         html, nodes, edges = getBDBFullList()
