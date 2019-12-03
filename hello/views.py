@@ -47,6 +47,17 @@ def klein(request, shoresh=''):
 
     return render(request, 'klein.html', dict(leftside=html, root_nodes=nodes, root_edges=edges))
 
+def klein(request, shoresh=''):
+    from hello.bdb import getBDBFullList, getBDBShoresh
+    if shoresh == '':
+        html, nodes, edges = getBDBFullList()
+    else:
+        html, nodes, edges = getBDBShoresh(shoresh)
+
+    return render(request, 'bdb.html', dict(leftside=html, root_nodes=nodes, root_edges=edges))
+
+
+
 def distributional(request, shoresh=''):
     from hello.distributional import getDistFullList, getShoreshDist
     if shoresh == '':
