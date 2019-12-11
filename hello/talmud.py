@@ -401,6 +401,19 @@ def getDafYomi():
     daf = x[1] + 'a'
     return masechet, daf
 
+def getTalmudNavigation():
+    masechtot = ['Berakhot', 'Shabbat', 'Eruvin', 'Pesachim', 'Rosh Hashanah', 'Yoma', 'Sukkah',
+                 'Beitzah', 'Taanit', 'Megillah', 'Moed Katan', 'Chagigah', 'Yevamot', 'Ketubot',
+                 'Nedarim', 'Nazir', 'Sotah', 'Gittin', 'Kiddushin', 'Bava Kamma', 'Bava Metzia',
+                 'Bava Batra', 'Sanhedrin', 'Makkot', 'Shevuot', 'Avodah Zarah', 'Horayot',
+                 'Zevachim', 'Menachot', 'Chullin', 'Bekhorot', 'Arakhin', 'Temurah', 'Keritot',
+                 'Meilah', 'Tamid', 'Niddah']
+
+    html = '<br/>'.join(masechtot)
+
+    return html
+
+
 def getTimeline(students):
     s = []
     genDict = {'T1': (-30, 20), 'T2': (40, 80), 'T3': (80, 110), 'T4': (110, 135), 'T5': (135, 170),

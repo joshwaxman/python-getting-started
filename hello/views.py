@@ -97,6 +97,11 @@ def db(request):
 
 def talmud(request, masechet='missing', page='missing'):
     from hello.talmud import htmlOutputter, getDafYomi
+    from hello.talmud import getTalmudNavigation
+    if masechet == 'tractates':
+        x = getTalmudNavigation()
+        return render(request, "tractates.html", {'tractate_list': x})
+
     if masechet == 'missing' or page == 'missing':
         # try to find in dafyomi
 
