@@ -101,11 +101,14 @@ def show_tractates(request):
 
 def talmud(request, masechet='missing', page='missing'):
     from hello.talmud import htmlOutputter, getDafYomi
-
+    from hello.talmud import getTalmudPageNavigation
     if masechet == 'missing' or page == 'missing':
         # try to find in dafyomi
-
         masechet, page = getDafYomi()
+    elif page == 'missing':
+        x = getTalmudPageNavigation(masechet)
+        return render(request, "tractates.html", {'tractate_list': x})
+
     leftside, student_edges, student_nodes, local_interaction_edges, \
     local_interaction_nodes, global_interaction_edges, global_interaction_nodes, \
     sugyaGraphs, timeline = htmlOutputter(masechet, page)
