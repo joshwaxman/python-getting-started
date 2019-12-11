@@ -97,7 +97,7 @@ def db(request):
 def show_tractates(request):
     from hello.talmud import getTalmudNavigation
     x = getTalmudNavigation()
-        return render(request, "tractates.html", {'tractate_list': x})
+    return render(request, "tractates.html", {'tractate_list': x})
 
 def talmud(request, masechet='missing', page='missing'):
     from hello.talmud import htmlOutputter, getDafYomi
