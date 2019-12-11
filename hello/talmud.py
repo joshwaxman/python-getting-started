@@ -432,7 +432,7 @@ def getTalmudPageNavigation(masechet: str):
     html += masechet + '<br/>'
 
     for i, chapter in enumerate(chapter_structure):
-        html += 'Chapter ' + i + '<br/>'
+        html += 'Chapter ' + str(i) + '<br/>'
         daf_start, amud_start, daf_end, amud_end = chapter
 
         if amud_start == 'b': #handle separately
