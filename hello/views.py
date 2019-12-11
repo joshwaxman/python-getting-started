@@ -99,7 +99,7 @@ def show_tractates(request):
     x = getTalmudNavigation()
     return render(request, "tractates.html", {'tractate_list': x})
 
-def show_tractate_chapters(masechet):
+def show_tractate_chapters(request, masechet):
     from hello.talmud import getTalmudPageNavigation
     x = getTalmudNavigation(masechet)
     return render(request, "tractates.html", {'tractate_list': x})
