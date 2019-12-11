@@ -409,7 +409,9 @@ def getTalmudNavigation():
                  'Zevachim', 'Menachot', 'Chullin', 'Bekhorot', 'Arakhin', 'Temurah', 'Keritot',
                  'Meilah', 'Tamid', 'Niddah']
 
-    html = '<br/>'.join(masechtot)
+    html = ''
+    for masechet in masechtot:
+        html += "<a href='" + masechet + "'>" + masechet + '</a><br/>'
 
     return html
 
