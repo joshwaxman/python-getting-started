@@ -101,7 +101,7 @@ def show_tractates(request):
 
 def show_tractate_chapters(request, masechet):
     from hello.talmud import getTalmudPageNavigation
-    x = getTalmudNavigation(masechet)
+    x = getTalmudPageNavigation(masechet)
     return render(request, "tractates.html", {'tractate_list': x})
 
 def talmud(request, masechet='missing', page='missing'):
