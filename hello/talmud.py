@@ -456,7 +456,7 @@ def getTalmudPageNavigation(masechet: str):
         if num_elements % 7 == 0: html += '</tr><tr>'
 
         if amud_end == 'b':
-            html += '<td>' str(daf_end) + 'b' + '</td>'
+            html += '<td>' + str(daf_end) + 'b' + '</td>'
             num_elements += 1
             if num_elements % 7 == 0: html += '</tr><tr>'
 
