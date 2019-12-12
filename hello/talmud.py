@@ -434,7 +434,7 @@ def getTalmudPageNavigation(masechet: str):
     def form_hyperlink(daf, amud):
         nonlocal html, num_elements, masechet
         page = str(daf) + amud
-        html += '<td><a href="' + masechet + "." + page + "'>" + page + '</a></td>'
+        html += '<td><a href="' + masechet + "." + page + '">' + page + '</a></td>'
         num_elements += 1
         if num_elements % 7 == 0: html += '</tr><tr>'
 
