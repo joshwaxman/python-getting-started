@@ -431,6 +431,13 @@ def getTalmudPageNavigation(masechet: str):
 
     html += masechet + '<br/>'
 
+    def form_hyperlink(daf, amud):
+        nonlocal html, num_elements, masechet
+        page = str(daf) + amud
+        html += '<td><a href="' + masechet + "." + page + "'>" + page + '</a></td>'
+        num_elements += 1
+        if num_elements % 7 == 0: html += '</tr><tr>'
+
     for i, chapter in enumerate(chapter_structure, start=1):
         html += 'Chapter ' + str(i) + '<br/>'
         daf_start, amud_start, daf_end, amud_end = chapter
@@ -439,26 +446,15 @@ def getTalmudPageNavigation(masechet: str):
         num_elements = 0
 
         if amud_start == 'b': #handle separately
-            html += '<td>' + str(daf_start) + amud_start + '</td>'
-            num_elements += 1
+            form_hyperlink(daf_start, amud_start)
             daf_start += 1
 
         for i in range(daf_start, daf_end):
-            html += '<td>' + str(i) + 'a' + '</td>'
-            num_elements += 1
-            if num_elements % 7 == 0: html += '</tr><tr>'
-            html += '<td>' + str(i) + 'b' + '</td>'
-            num_elements += 1
-            if num_elements % 7 == 0: html += '</tr><tr>'
+            form_hyperlink(i, 'a')
 
-        html += '<td>' + str(daf_end) + 'a' + '</td>'
-        num_elements += 1
-        if num_elements % 7 == 0: html += '</tr><tr>'
-
+        form_hyperlink(daf_end, 'a')
         if amud_end == 'b':
-            html += '<td>' + str(daf_end) + 'b' + '</td>'
-            num_elements += 1
-            if num_elements % 7 == 0: html += '</tr><tr>'
+            form_hyperlink(daf_end, 'b')
 
         html += '</table><br/>'
 
