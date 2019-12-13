@@ -104,6 +104,11 @@ def show_tractate_chapters(request, masechet):
     x = getTalmudPageNavigation(masechet)
     return render(request, "tractates.html", {'tractate_list': x})
 
+def get_daf_yomi(request):
+    from hello.talmud import htmlOutputter, getDafYomi
+    masechet, page = getDafYomi()
+    talmud(request, masechet, page)
+
 def talmud(request, masechet='missing', page='missing'):
     from hello.talmud import htmlOutputter, getDafYomi
     from hello.talmud import getTalmudPageNavigation
