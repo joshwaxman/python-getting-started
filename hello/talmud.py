@@ -388,7 +388,7 @@ def getDafYomi():
     dafyomi = db.dafyomi
     #now = datetime.datetime.now()
     now = timezone.now()
-    theDate = str(now.month) + '/' + str(now.day) + '/' + str(now.year)
+    theDate = str(now.month).zfill(2) + '/' + str(now.day).zfill(2) + '/' + str(now.year)
     theDaf = {'date': theDate }
     x = dafyomi.find_one(theDaf)['daf'].split()
     masechet = x[0]
