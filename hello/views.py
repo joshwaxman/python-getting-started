@@ -199,3 +199,6 @@ def full_graph(request):
     x = db.fullgraph.find_one()
     return render(request, 'full_graph.html', {'graph': x['full_graph']})
 
+
+def graphexplorer(request):
+    return render(request, './GraphExplorer/example1.html')

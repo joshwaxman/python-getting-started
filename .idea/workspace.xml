@@ -3,6 +3,197 @@
   <component name="ChangeListManager">
     <list default="true" id="04c11b65-1a3f-47b2-99ed-8b7a1afc905b" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/WorldCup2014.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/dict.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/example1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/example12.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/example2.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/example22.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/example3.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/example32.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/example4.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/honglou.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/honglou2.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/honglou2_narrow.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/丰氏.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/乌进孝.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/代儒夫人.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/何婆子.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/侍书.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/倪二.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/入画.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/冯紫英.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/冷子兴.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/刘姥姥.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/北静王.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/南安太妃.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/卜世仁.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/卫若兰.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/史湘云.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/司棋.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/司棋母.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/吴新登家的.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/周瑞.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/周瑞家的.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/善姐.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/坠儿.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/夏金桂.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/多姑娘.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/妙玉.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/娇杏.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/孙绍祖.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/宝珠.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/宝蟾.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/小红.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/尤三姐.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/尤二姐.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/尤氏.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/尤老娘.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/平儿.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/张华.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/彩云.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/旺儿.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/春燕.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/晴雯.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/李嬷嬷.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/李纨.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/李贵.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/板儿.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/林之孝.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/林之孝家的.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/林如海.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/林黛玉.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/柳五儿.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/柳家的.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/柳湘莲.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/潘又安.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/焦大.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/玉钏.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/王善保家的.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/王夫人.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/王嬷嬷.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/王熙凤.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/王短腿.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/瑞珠.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/甄士隐.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/男.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/癞头和尚.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/碧痕.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/秋桐.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/秋纹.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/秦可卿.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/秦显家的.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/秦钟.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/紫鹃.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/绣橘.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/翠缕.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/花自芳.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/芳官.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/茗烟.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/莺儿.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/董婆子.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/蒋玉涵.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/蕊官.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/薛姨妈.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/薛宝琴.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/薛宝钗.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/薛蝌.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/薛蟠.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/藕官.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/袭人.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/贾代儒.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/贾元春.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/贾兰.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/贾宝玉.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/贾巧姐.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/贾惜春.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/贾探春.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/贾政.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/贾敬.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/贾母.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/贾环.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/贾珍.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/贾琏.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/贾瑞.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/贾芸.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/贾芹.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/贾蓉.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/贾蔷.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/贾赦.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/贾迎春.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/贾雨村.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/赖大.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/赖嬷嬷.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/赖尚荣.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/赵姨娘.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/赵嬷嬷.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/跛足道人.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/邢夫人.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/邢岫烟.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/邢忠.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/金钏.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/静虚.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/香菱.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/马道婆.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/鸳鸯.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/麝月.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/images/photo/龄官.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/lib/font-awesome-4.7.0/HELP-US-OUT.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/lib/font-awesome-4.7.0/css/font-awesome.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/lib/font-awesome-4.7.0/css/font-awesome.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/lib/font-awesome-4.7.0/fonts/FontAwesome.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/lib/font-awesome-4.7.0/fonts/fontawesome-webfont.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/lib/font-awesome-4.7.0/fonts/fontawesome-webfont.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/lib/font-awesome-4.7.0/fonts/fontawesome-webfont.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/lib/font-awesome-4.7.0/fonts/fontawesome-webfont.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/lib/font-awesome-4.7.0/fonts/fontawesome-webfont.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/lib/font-awesome-4.7.0/less/animated.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/lib/font-awesome-4.7.0/less/bordered-pulled.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/lib/font-awesome-4.7.0/less/core.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/lib/font-awesome-4.7.0/less/fixed-width.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/lib/font-awesome-4.7.0/less/font-awesome.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/lib/font-awesome-4.7.0/less/icons.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/lib/font-awesome-4.7.0/less/larger.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/lib/font-awesome-4.7.0/less/list.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/lib/font-awesome-4.7.0/less/mixins.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/lib/font-awesome-4.7.0/less/path.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/lib/font-awesome-4.7.0/less/rotated-flipped.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/lib/font-awesome-4.7.0/less/screen-reader.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/lib/font-awesome-4.7.0/less/stacked.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/lib/font-awesome-4.7.0/less/variables.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/lib/font-awesome-4.7.0/scss/_animated.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/lib/font-awesome-4.7.0/scss/_bordered-pulled.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/lib/font-awesome-4.7.0/scss/_core.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/lib/font-awesome-4.7.0/scss/_fixed-width.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/lib/font-awesome-4.7.0/scss/_icons.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/lib/font-awesome-4.7.0/scss/_larger.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/lib/font-awesome-4.7.0/scss/_list.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/lib/font-awesome-4.7.0/scss/_mixins.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/lib/font-awesome-4.7.0/scss/_path.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/lib/font-awesome-4.7.0/scss/_rotated-flipped.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/lib/font-awesome-4.7.0/scss/_screen-reader.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/lib/font-awesome-4.7.0/scss/_stacked.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/lib/font-awesome-4.7.0/scss/_variables.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/lib/font-awesome-4.7.0/scss/font-awesome.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/lib/interactive-graph-0.1.0/interactive-graph.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/lib/interactive-graph-0.1.0/interactive-graph.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/lib/jquery-3.2.1/images/ui-bg_glass_55_fbf9ee_1x400.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/lib/jquery-3.2.1/images/ui-bg_glass_65_ffffff_1x400.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/lib/jquery-3.2.1/images/ui-bg_glass_75_dadada_1x400.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/lib/jquery-3.2.1/images/ui-bg_glass_75_e6e6e6_1x400.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/lib/jquery-3.2.1/images/ui-bg_glass_95_fef1ec_1x400.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/lib/jquery-3.2.1/images/ui-bg_highlight-soft_75_cccccc_1x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/lib/jquery-3.2.1/images/ui-icons_222222_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/lib/jquery-3.2.1/images/ui-icons_2e83ff_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/lib/jquery-3.2.1/images/ui-icons_454545_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/lib/jquery-3.2.1/images/ui-icons_888888_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/lib/jquery-3.2.1/images/ui-icons_cd0a0a_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/lib/jquery-3.2.1/jquery-3.2.1.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/lib/jquery-3.2.1/jquery-ui.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphExplorer/lib/jquery-3.2.1/jquery-ui.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gettingstarted/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/gettingstarted/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hello/talmud.py" beforeDir="false" afterPath="$PROJECT_DIR$/hello/talmud.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hello/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/hello/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -260,7 +451,7 @@
       <workItem from="1577457767163" duration="705000" />
       <workItem from="1578265176069" duration="1134000" />
       <workItem from="1578360961198" duration="354000" />
-      <workItem from="1583447211087" duration="647000" />
+      <workItem from="1583447211087" duration="1575000" />
     </task>
     <servers />
   </component>
@@ -300,7 +491,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/hello/talmud.py</url>
-          <line>440</line>
+          <line>438</line>
           <option name="timeStamp" value="10" />
         </line-breakpoint>
       </breakpoints>

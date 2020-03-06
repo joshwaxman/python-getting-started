@@ -379,8 +379,6 @@ def graphTransformation2(edges: List[Dict[str, Any]], nodes: Dict[str, str]):
     return edges, nodes
 
 
-
-
 def getDafYomi():
     client = MongoClient(
         "mongodb://mivami:Talmud1%@talmud-shard-00-00-ol0w9.mongodb.net:27017,talmud-shard-00-01-ol0w9.mongodb.net:27017,talmud-shard-00-02-ol0w9.mongodb.net:27017/admin?replicaSet=Talmud-shard-0&ssl=true")
