@@ -1,14 +1,22 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+
 <html>
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>GraphNavigator</title>
-    <script type="text/javascript" src="./lib/interactive-graph-0.1.0/interactive-graph.min.js"></script>
-    <link type="text/css" rel="stylesheet" href="./lib/interactive-graph-0.1.0/interactive-graph.min.css">
-    <script src="./lib/jquery-3.2.1/jquery-3.2.1.min.js"></script>
-    <link rel="stylesheet" href="./lib/jquery-3.2.1/jquery-ui.css">
-    <script src="./lib/jquery-3.2.1/jquery-ui.js"></script>
-    <link href="./lib/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+    {% block scripts %}
+    <script type="text/javascript" src="{% static 'interactive-graph.min.js' %}"></script>
+    <link type="text/css" rel="stylesheet" href="{% static 'interactive-graph.min.css' %}">
+
+    <script src="{% static 'jquery-3.2.1.min.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'jquery-ui.css' %}">
+    <script src="{% static 'jquery-ui.js' %}"></script>
+    <link href="{% static 'font-awesome.min.css'%}" rel="stylesheet">
+{% endblock %}
     <style type="text/css">
         body {
             margin: 0px;
