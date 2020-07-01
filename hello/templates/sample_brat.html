@@ -11,7 +11,7 @@
 
         <script type="text/javascript" src="{% static 'brat_head.load.min.js' %}"></script>
 
-        <script src="{% static 'brat_jquery.min.js' %}"></script>
+        <!-- script src="{% static 'brat_jquery.min.js' %}"></script> -->
   </head>
   <body>
     <div id="main" class="center">
@@ -319,25 +319,27 @@ text { font-size: 15px; }
 </style>
 
 <script type="text/javascript">
-    var bratLocation = 'https://web.archive.org/web/20140118004757/http://weaver.nlplab.org/~brat/demo/v1.3';
+    //var bratLocation = 'https://web.archive.org/web/20140118004757/http://weaver.nlplab.org/~brat/demo/v1.3';
     brat2 = '../../staticfiles';
     head.js(
         // External libraries
         // bratLocation + '/client/lib/jquery.min.js',
+        {% static 'brat_jquery.min.js' %},
         {% static 'brat_jquery.svg.min.js' %},
+        {% static 'brat_jquery.svg.min.js' %},
+        {% static 'brat_jquery.svgdom.min.js' %},
         // bratLocation + '/client/lib/jquery.svg.min.js',
-        bratLocation + '/client/lib/jquery.svgdom.min.js',
-
 
         // brat helper modules
-        bratLocation + '/client/src/configuration.js',
-        bratLocation + '/client/src/util.js',
-        bratLocation + '/client/src/annotation_log.js',
-        bratLocation + '/client/lib/webfont.js',
+        {% static 'brat_configuration.js' %},
+        {% static 'brat_util.js' %},
+        {% static 'brat_annotation_log.js' %},
+        {% static 'brat_webfont.js' %},
+
         // brat modules
-        bratLocation + '/client/src/dispatcher.js',
-        bratLocation + '/client/src/url_monitor.js',
-        bratLocation + '/client/src/visualizer.js'
+        {% static 'brat_dispatcher.js' %},
+        {% static 'brat_url_monitor.js' %},
+        {% static 'brat_visualizer.js' %}
     );
 
     var webFontURLs = [
