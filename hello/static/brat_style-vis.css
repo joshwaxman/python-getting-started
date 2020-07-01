@@ -477,13 +477,13 @@ fieldset legend {
   font-family: 'Liberation Sans';
   font-style: normal;
   font-weight: normal;
-  src: local('Liberation Sans'), local('Liberation-Sans'), url('/web/20140811053613im_/http://weaver.nlplab.org/~brat/demo/v1.3/static/fonts/Liberation_Sans-Regular.ttf') format('truetype');
+  src: local('Liberation Sans'), local('Liberation-Sans'), url('/static/Liberation_Sans-Regular.ttf') format('truetype');
 }
 @font-face {
   font-family: 'PT Sans Caption';
   font-style: normal;
   font-weight: normal;
-  src: local('PT Sans Caption'), local('PTSans-Caption'), url('/web/20140811053613im_/http://weaver.nlplab.org/~brat/demo/v1.3/static/fonts/PT_Sans-Caption-Web-Regular.ttf') format('truetype');
+  src: local('PT Sans Caption'), local('PTSans-Caption'), url('/static/PT_Sans-Caption-Web-Regular.ttf') format('truetype');
 }
 
 /* Apple iPad, iPhone, iPod */
@@ -528,25 +528,3 @@ fieldset legend {
 #commentpopup.comment_ChangedAnnotation {
   background-color: #ffcccc;
 }
-
-/*
-     FILE ARCHIVED ON 05:36:13 Aug 11, 2014 AND RETRIEVED FROM THE
-     INTERNET ARCHIVE ON 00:35:39 Jul 01, 2020.
-     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
-
-     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
-     SECTION 108(a)(3)).
-*/
-/*
-playback timings (ms):
-  CDXLines.iter: 14.585 (3)
-  exclusion.robots.policy: 0.297
-  load_resource: 90.133
-  RedisCDXSource: 6.973
-  LoadShardBlock: 74.672 (3)
-  PetaboxLoader3.resolve: 40.675
-  esindex: 0.015
-  PetaboxLoader3.datanode: 69.45 (4)
-  exclusion.robots: 0.752
-  captures_list: 100.358
-*/
