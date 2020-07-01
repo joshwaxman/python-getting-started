@@ -1,3 +1,4 @@
 nltk==3.0.0
 mistune==0.8.3
 ply==3.11
+gunicorn==19.3.0

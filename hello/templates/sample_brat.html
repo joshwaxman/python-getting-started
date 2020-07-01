@@ -1,0 +1,462 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-GB" xml:lang="en-GB" xmlns="http://www.w3.org/1999/xhtml">
+
+    <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title>Embedded Visualisations - brat rapid annotation tool</title>
+
+        <link rel="stylesheet" type="text/css" href="../../staticfiles/brat_style-vis.css"/>
+
+        <script type="text/javascript" src="../../staticfiles/brat_head.load.min.js"></script>
+
+        <script src="{% static 'brat_jquery.min.js' %}"></script>
+  </head>
+  <body>
+    <div id="main" class="center">
+      <div id="hp-header" class="ui-widget-header rounded">
+        <div id="menulogo" class="hp-logo hp-unselectable"><a style="text-decoration: none" href="about.html">brat</a></div>
+        <span><a href="index.html">home</a></span>
+	<span style="color:lightblue" class="hp-unselectable">|</span>
+        <span><a href="introduction.html">introduction</a></span>
+	<span style="color:lightblue" class="hp-unselectable">|</span>
+        <span><a href="examples.html">examples</a></span>
+	<span style="color:lightblue" class="hp-unselectable">|</span>
+        <span><a href="features.html">features</a></span>
+<!-- 	<span style="color:lightblue" class="hp-unselectable">|</span> -->
+<!--         <span><a href="installation.html">installation</a></span> -->
+	<span style="color:lightblue" class="hp-unselectable">|</span>
+        <span><a href="manual.html">manual</a></span>
+	<span style="color:lightblue" class="hp-unselectable">|</span>
+        <span><a href="sitemap.html">site map</a></span>
+	<span style="color:lightblue" class="hp-unselectable">|</span>
+        <span><a href="contact.html">contact</a></span>
+      </div>
+      <div id="content">
+          <h1>embedding brat visualisations</h1>
+
+
+<p>
+    Throughout this document we will use <i>"Ed O'Kelley was the man
+    who shot the man who shot Jesse James."</i> as our example text, we will
+    produce both annotation configurations and annotations that are given to
+    brat using JSON.
+    We will also take the opportunity to embed the very same examples
+    that we are creating into this page to give you an instant preview of the
+    end results.
+</p>
+
+<p>
+    If you just want a quick glance of what can be achieved by embedding brat,
+    do skip ahead to the <a href="#live">live example</a> at the end of the
+    page and save the technical instructions for later.
+</p>
+
+<p>
+    brat also needs to have access to the location the fonts it uses for
+    rendering.
+    The code below declares where the client can find them relative to your
+    brat installation.
+</p>
+
+<pre><code id="embedding-webfonts">
+var webFontURLs = [
+    bratLocation + '/static/fonts/Astloch-Bold.ttf',
+    bratLocation + '/static/fonts/PT_Sans-Caption-Web-Regular.ttf',
+    bratLocation + '/static/fonts/Liberation_Sans-Regular.ttf'
+];
+</code></pre>
+
+<p>
+    Now, we can call upon brat once the scripts have been successfully loaded.
+    The relevant call is to Util.embed with the data that you want to
+    visualise, we will go through the structure of these objects in the
+    following sections.
+</p>
+
+<pre><code id="embedding-call">
+head.ready(function() {
+    Util.embed(
+        // id of the div element where brat should embed the visualisations
+        '${DIV_ID}',
+        // object containing collection data
+        collData,
+        // object containing document data
+        docData,
+        // Array containing locations of the visualisation fonts
+        webFontURLs
+        );
+});
+</code></pre>
+
+<h2>entities</h2>
+
+<p>
+    The simplest form of annotation in brat are spans (internally referred to
+    as entities).
+    They can be used to represent named entities, part-of-speech tags and much
+    more.
+    As with all annotations in brat they can be configured to your liking.
+    Below is an example configuration of a person annotation that is to
+    be added to the collection data object.
+</p>
+
+<pre><code id="embedding-entity-coll">
+var collData = {
+    entity_types: [ {
+            type   : 'Person',
+            /* The labels are used when displaying the annotion, in this case
+                we also provide a short-hand "Per" for cases where
+                abbreviations are preferable */
+            labels : ['Person', 'Per'],
+            // Blue is a nice colour for a person?
+            bgColor: '#7fa2ff',
+            // Use a slightly darker version of the bgColor for the border
+            borderColor: 'darken'
+    } ]
+};
+</code></pre>
+
+<p>
+    Now that we have instructed brat as to how we want the annotations to be
+    displayed, we can add person annotations to the document object.
+</p>
+
+<pre><code id="embedding-entity-doc">
+var docData = {
+    // Our text of choice
+    text     : "Ed O'Kelley was the man who shot the man who shot Jesse James.",
+    // The entities entry holds all entity annotations
+    entities : [
+        /* Format: [${ID}, ${TYPE}, [[${START}, ${END}]]]
+            note that range of the offsets are [${START},${END}) */
+        ['T1', 'Person', [[0, 11]]],
+        ['T2', 'Person', [[20, 23]]],
+        ['T3', 'Person', [[37, 40]]],
+        ['T4', 'Person', [[50, 61]]],
+    ],
+};
+</code></pre>
+
+<p>
+    Below is how brat visualises the entity example.
+</p>
+
+<div id="embedding-entity-example"></div>
+
+<h2>attributes</h2>
+
+<p>
+    brat supports several other annotation primitives, let's look at the
+    simplest annotation type that references another annotation, attributes.
+    Now, our example contained three pretty notorious historical figures,
+    however, one must be said to be a lot more notorious than the others so,
+    let's create an attribute "Notorious" to mark him as such.
+</p>
+
+<pre><code id="embedding-attribute-coll">
+collData['entity_attribute_types'] = [ {
+    type  : 'Notorious',
+    /* brat supports multi-valued attributes, but in our case we will only
+        use a single value and add a glyph to the visualisation to indicate
+        that the entity carries that attribute */
+    values: { 'Notorious': { 'glyph': '★' } }
+} ];
+</code></pre>
+
+<p>
+    Once we have the configuration in place, we can add an attribute
+    annotation similarity to how we added the entity annotations.
+    The main difference is that we will have a reference to the "Jesse James"
+    person annotation that had the id "T4".
+</p>
+
+<pre><code id="embedding-attribute-doc">
+docData['attributes'] = [
+    // Format: [${ID}, ${TYPE}, ${TARGET}]
+    ['A1', 'Notorious', 'T4']
+];
+</code></pre>
+
+<p>
+    And we can now see that "Jesse James" has been marked with a neat Unicode
+    star to signify his notoriety.
+</p>
+
+<div id="embedding-attribute-example"></div>
+
+<h2>relations</h2>
+
+<p>
+    Let us now consider relational annotations, these are more complex than
+    attributes but are also far more powerful.
+    We could use them to visualise dependency, part-of and instance-of
+    relations, but in our example we will use them to annotate anaphoras.
+</p>
+
+<pre><code id="embedding-relation-coll">
+collData['relation_types'] = [ {
+    type     : 'Anaphora',
+    labels   : ['Anaphora', 'Ana'],
+    // dashArray allows you to adjust the style of the relation arc
+    dashArray: '3,3',
+    color    : 'purple',
+    /* A relation takes two arguments, both are named and can be constrained
+        as to which types they may apply to */
+    args     : [
+        //
+        {role: 'Anaphor', targets: ['Person'] },
+        {role: 'Entity',  targets: ['Person'] }
+    ]
+} ];
+</code></pre>
+
+<pre><code id="embedding-relation-doc">
+docData['relations'] = [
+    // Format: [${ID}, ${TYPE}, [[${ARGNAME}, ${TARGET}], [${ARGNAME}, ${TARGET}]]]
+    ['R1', 'Anaphora', [['Anaphor', 'T2'], ['Entity', 'T1']]]
+];
+</code></pre>
+
+
+<p>
+    And the annotation visualisation now clearly shows that the first man
+    mentioned in "the man who shot the man who shot..." clearly was
+    "Ed O'Kelley".
+</p>
+
+<div id="embedding-relation-example"></div>
+
+<h2>events</h2>
+
+<p>
+    Now, to the most interesting and involved annotation primitive, the N-ary
+    event structures.
+</p>
+
+<pre><code id="embedding-event-coll">
+collData['event_types'] = [ {
+    type   : 'Assassination',
+    labels : ['Assassination', 'Assas'],
+    bgColor: 'lightgreen',
+    borderColor: 'darken',
+    /* Unlike relations, events originate from a span of text and can take
+        several arguments */
+    arcs   : [
+        {type: 'Victim', labels: ['Victim','Vict'] },
+        // Just like the event itself, its arguments can be styled
+        {type: 'Perpetrator', labels: ['Perpetrator','Perp'], color: 'green' }
+    ]
+} ];
+</code></pre>
+
+<pre><code id="embedding-event-doc">
+/* Events also have trigger annotations, these are spans that are not
+    visualised. This enables sharing of triggers when this is desirable, such
+    as in the sentence "He robbed the bank and the post office", where
+    "robbed" gives rice to two separate events that shares a single trigger */
+docData['triggers'] = [
+    // The format is identical to that of entities
+    ['T5', 'Assassination', [[45, 49]]],
+    ['T6', 'Assassination', [[28, 32]]]
+];
+
+docData['events'] = [
+    // Format: [${ID}, ${TRIGGER}, [[${ARGTYPE}, ${ARGID}], ...]]
+    ['E1', 'T5', [['Perpetrator', 'T3'], ['Victim', 'T4']]],
+    ['E2', 'T6', [['Perpetrator', 'T2'], ['Victim', 'T3']]]
+];
+</code></pre>
+
+<p>
+    And now... our little western example fully captures our murderous trio.
+</p>
+
+<div id="embedding-event-example"></div>
+
+<h2 id="live">live embedding</h2>
+
+<p>
+    brat has a lot more functionality than what we have had time to cover in
+    this tutorial.
+    Below are two interactive text areas that are coupled to the visualisation
+    above them, inside the text areas is a JSON version of the collection and
+    document object respectively.
+</p>
+
+<p>
+    As you change the JSON, the visualisation will change accordingly, you can
+    use this to experiment with how the visualisation works.
+    Some things you may want to try out is to change the target of the event
+    arguments and relations, removing the entire style to see that brat still
+    does its best to visualise your annotations.
+    We hope that at this point you may already have some ideas on how you
+    could use brat for your own visualisation needs and how it can be used
+    separately from its original visualisation/annotation application.
+</p>
+
+<p>
+    If you feel up to it, you can also view the XHTML and Javascript source
+    contained in this very page and see how we embedded brat to create a
+    tutorial on how to embed brat.
+</p>
+
+<div id="embedding-live-example"></div>
+
+<div id="live-io">
+    <p>
+        <textarea id="coll-input" style="display:block;float:left;width:40%;height:400px;font-size:11px;border:2px inset" placeholder="Enter JSON for the collection object here..."></textarea>
+        <textarea id="doc-input" style="display:block;float:right;width:55%;height:400px;font-size:11px;border:2px inset" placeholder="Enter JSON for the document object here..."></textarea>
+    </p>
+</div>
+
+<!-- override a few style-vis.css settings for the embedded version to make things larger -->
+<style type="text/css">
+text { font-size: 15px; }
+.span text { font-size: 10px; }
+.arcs text { font-size: 9px; }
+</style>
+
+<script type="text/javascript">
+    var bratLocation = 'https://web.archive.org/web/20140118004757/http://weaver.nlplab.org/~brat/demo/v1.3';
+    brat2 = '../../staticfiles';
+    head.js(
+        // External libraries
+        //bratLocation + '/client/lib/jquery.min.js',
+        bratLocation + '/client/lib/jquery.svg.min.js',
+        bratLocation + '/client/lib/jquery.svgdom.min.js',
+
+
+        // brat helper modules
+        bratLocation + '/client/src/configuration.js',
+        bratLocation + '/client/src/util.js',
+        bratLocation + '/client/src/annotation_log.js',
+        bratLocation + '/client/lib/webfont.js',
+        // brat modules
+        bratLocation + '/client/src/dispatcher.js',
+        bratLocation + '/client/src/url_monitor.js',
+        bratLocation + '/client/src/visualizer.js'
+    );
+
+    var webFontURLs = [
+        bratLocation + '/static/fonts/Astloch-Bold.ttf',
+        bratLocation + '/static/fonts/PT_Sans-Caption-Web-Regular.ttf',
+        bratLocation + '/static/fonts/Liberation_Sans-Regular.ttf'
+    ];
+
+    head.ready(function() {
+        // Evaluate the code from the examples and show it to the user
+        eval($('#embedding-entity-coll').text());
+        eval($('#embedding-entity-doc').text());
+        /* Make damn sure to copy the objects before handing them to brat
+            since we will modify them later on */
+        Util.embed('embedding-entity-example', $.extend({}, collData),
+                $.extend({}, docData), webFontURLs);
+
+        eval($('#embedding-attribute-coll').text());
+        eval($('#embedding-attribute-doc').text());
+        Util.embed('embedding-attribute-example', $.extend({}, collData),
+                $.extend({}, docData), webFontURLs);
+
+        eval($('#embedding-relation-coll').text());
+        eval($('#embedding-relation-doc').text());
+        Util.embed('embedding-relation-example', $.extend({}, collData),
+                $.extend({}, docData), webFontURLs);
+
+        eval($('#embedding-event-coll').text());
+        eval($('#embedding-event-doc').text());
+        Util.embed('embedding-event-example', $.extend({}, collData),
+                $.extend({}, docData), webFontURLs);
+
+        // Fuck it! We'll do it live!
+        var collInput = $('#coll-input');
+        var docInput = $('#doc-input');
+        var liveDiv = $('#embedding-live-example');
+
+        // Time for some "real" brat coding, let's hook into the dispatcher
+        var liveDispatcher = Util.embed('embedding-live-example',
+                $.extend({'collection': null}, collData),
+                $.extend({}, docData), webFontURLs);
+
+        var renderError = function() {
+            // liveDiv.css({'border': '2px solid red'}); // setting this blows the layout
+            collInput.css({'border': '2px solid red'});
+            docInput.css({'border': '2px solid red'});
+        };
+
+        liveDispatcher.on('renderError: Fatal', renderError);
+
+        var collInputHandler = function() {
+            var collJSON;
+            try {
+                collJSON = JSON.parse(collInput.val());
+                collInput.css({'border': '2px inset'});
+            } catch (e) {
+                // Not properly formatted JSON...
+                collInput.css({'border': '2px solid red'});
+                return;
+            }
+
+            try {
+                liveDispatcher.post('collectionLoaded',
+                        [$.extend({'collection': null}, collJSON)]);
+                //liveDiv.css({'border': '2px inset'});  // setting this blows the layout
+                docInput.css({'border': '2px inset'});
+            } catch(e) {
+                console.error('collectionLoaded went down with:', e);
+                //liveDiv.css({'border': '2px solid red'});
+                collInput.css({'border': '2px solid red'});
+            }
+        };
+
+        var docInputHandler = function() {
+            var docJSON;
+            try {
+                docJSON = JSON.parse(docInput.val());
+                docInput.css({'border': '2px inset'});
+            } catch (e) {
+                docInput.css({'border': '2px solid red'});
+                return;
+            }
+
+            try {
+                liveDispatcher.post('requestRenderData', [$.extend({}, docJSON)]);
+                // liveDiv.css({'border': '2px inset'});  // setting this blows the layout
+                collInput.css({'border': '2px inset'});
+            } catch(e) {
+                console.error('requestRenderData went down with:', e);
+                // liveDiv.css({'border': '2px solid red'});
+                collInput.css({'border': '2px solid red'});
+            }
+        };
+
+        // Inject our current example as a start
+        var collJSON = JSON.stringify(collData, undefined, '    ');
+        docJSON = JSON.stringify(docData, undefined, '    ')
+        // pack those just a bit
+        var packJSON = function(s) {
+            // replace any space with ' ' in non-nested curly brackets
+            s = s.replace(/(\{[^\{\}\[\]]*\})/g,
+                          function(a, b) { return b.replace(/\s+/g, ' '); });
+            // replace any space with ' ' in [] up to nesting depth 1
+            s = s.replace(/(\[(?:[^\[\]\{\}]|\[[^\[\]\{\}]*\])*\])/g,
+                          function(a, b) { return b.replace(/\s+/g, ' '); });
+            return s
+        }
+        collInput.text(packJSON(collJSON));
+        docInput.text(packJSON(docJSON));
+
+        var listenTo = 'propertychange keyup input paste';
+        collInput.bind(listenTo, collInputHandler);
+        docInput.bind(listenTo, docInputHandler);
+    });
+</script>
+
+      </div>
+      <div id="footer">
+          <p class="footer-text">&copy; 2010-2014 the <a href="about.html" style="color:gray">brat contributors</a></p>
+	<p class="footer-logo"><a href="https://web.archive.org/web/20140118004757/http://creativecommons.org/licenses/by/3.0/"><img title="Content on this website is licensed under a Creative Commons Attribution 3.0 License. (Linked corpus data licensed separately.)" src="https://web.archive.org/web/20140118004757im_/http://i.creativecommons.org/l/by/3.0/80x15.png"/></a></p>
+      </div>
+    </div>
+  </body>
+</html>

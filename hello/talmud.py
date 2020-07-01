@@ -600,3 +600,125 @@ def htmlOutputter(title: str, page: str):
 
     return leftside, student_edges, student_nodes, local_interaction_edges, local_interaction_nodes, \
            global_interaction_edges, global_interaction_nodes, sugyaGraphs, timeline
+
+
+def generate_tzurat_hadaf(title: str, page: str):
+    client = MongoClient(
+        "mongodb://mivami:Talmud1%@talmud-shard-00-00-ol0w9.mongodb.net:27017,talmud-shard-00-01-ol0w9.mongodb.net:27017,talmud-shard-00-02-ol0w9.mongodb.net:27017/admin?replicaSet=Talmud-shard-0&ssl=true")
+    #client = MongoClient()
+    db = client.sefaria
+    mivami_html = db.mivami_stage_04_html
+    mivami_persons = db.mivami_stage_03_persons
+    mivami = db.mivami
+    person = db.person
+    time_period = db.time_period
+
+    bCache = False
+    if page.endswith('A') or page.endswith('B'):
+        page = page.lower()
+        bCache = False
+
+    if page.endswith('b'):
+        prevPage = page[:-1] + 'a'
+        nextPage = str((int(page[:-1]))+1) + 'a'
+    else:
+        prevPage = str((int(page[:-1]))-1) + 'b'
+        nextPage = page[:-1] + 'b'
+    wrapper = '<a href="/talmud/' + title + '.' + prevPage + '">Previous</a> | ' + \
+              '<a href="/talmud/' + title + '.' + nextPage + '">Next</a> | '
+
+    amud = page[-1]
+    daf_start = (int(page[:-1]) - 2) * 2
+    if amud == 'b':
+        daf_start += 1
+
+    daf = daf_start
+
+    theText = {'title': title + ':' + str(daf)}
+    item = mivami.find_one(theText)
+    theHtml = mivami_html.find_one(theText)
+    html = theHtml['html']
+    html += ('<!––daf:' + str(daf) + '-->')
+    h = '' # extra debugging output
+    persons_collection = mivami_persons.find_one(theText)
+    persons = [tuple(t) for t in persons_collection['person_in_daf']]
+    persons_in_sugya = None
+    try:
+        persons_in_sugya = persons_collection['person_in_sugya']
+    except:
+        pass
+#    html += str(persons)
+    if False: #'EncodedEdges' in theHtml and 'EncodedNodes' in theHtml and bCache:
+        # already generated and can pull it
+        student_edges = theHtml['EncodedEdges']
+        student_nodes = theHtml['EncodedNodes']
+    else: # compute for the first time
+
+        # must look up each person in the person table for full identity
+        #people = list(person.find({'key': {'$in': persons}}))
+        #people = [{'name': p['key'], 'generation': p['generation']} for p in people]
+
+        student_nodes = persons
+        student_edges, student_nodes = findStudentRelationships(student_nodes)
+        # mivami_html.update_one({'title': title + ":" + str(daf)},
+        #                   {'$set':
+        #                        {'EncodedEdges': student_edges,
+        #                         'EncodedNodes': student_nodes}
+        #                    }, upsert=True)
+
+        # write the edges out so that it does not need to be computed a second time
+
+    #student_edges = item['EncodedEdges']
+
+        local_interaction_edges, local_interaction_nodes = findLocalRelationships(persons, title + '.' + page)
+#    local_interaction_nodes, local_interaction_edges = [], []
+
+    # generate timeline
+    # for now, for people, not statements
+    timeline = getTimeline(student_nodes)
+
+    if os.name == 'nt':
+        html += 'Extra debugguing' + h  + '<br/>'
+#     html += 'Local interaction Nodes: ' + str(local_interaction_nodes) + '</br>'
+#     html += 'Local interaction Edges: ' + str(local_interaction_edges) + '</br>'
+    #local_interaction_nodes = item['LocalInteractionNodes']
+    #local_interaction_edges = item['LocalInteractionEdges']
+    if 'GlobalInteractionNodes' in theText:
+        global_interaction_nodes = item['GlobalInteractionNodes']
+        global_interaction_edges = item['GlobalInteractionEdges']
+    else:
+        global_interaction_edges, global_interaction_nodes = findGlobalRelationships(persons)
+        #mivami.update_one({'title': title+":"+str(daf)}, {'$set': {'GlobalInteractionNodes': global_interaction_nodes, 'GlobalInteractionEdges': global_interaction_edges}})
+
+    wrapper += '<a href="https://www.sefaria.org/%s?lang=bi">%s</a></p>' % (title + '.' +str(page), title+" "+str(page))
+
+    wrapper += html
+
+    # fix up tags like < strong >
+    wrapper = wrapper.replace('< ', '<')
+    wrapper = wrapper.replace(' >', '>')
+
+    leftside = wrapper
+
+    # iterate through sugyot,
+    # so that we have different graphs
+    sugyaGraphs = dict()
+    pplSet = set()
+    if persons_in_sugya is not None:
+        for i, sugya in enumerate(persons_in_sugya):
+            line_start = sugya['line_start']
+            sugya_number = sugya['sugya']
+            people = sugya['people']
+            e, n = findStudentRelationships(people)
+            le, ln = findLocalRelationships(people, title + '.' + page)
+            ge, gn = findGlobalRelationships(people)
+            sugyaGraphs[i] = [e, n, le, ln, ge, gn]
+
+    # why was this not precomputed?
+    #local_interaction_edges, local_interaction_nodes = graphTransformation(local_interaction_edges, local_interaction_nodes)
+    #student_edges, student_nodes = graphTransformation(student_edges, student_nodes)
+
+
+
+    return leftside, student_edges, student_nodes, local_interaction_edges, local_interaction_nodes, \
+           global_interaction_edges, global_interaction_nodes, sugyaGraphs, timeline

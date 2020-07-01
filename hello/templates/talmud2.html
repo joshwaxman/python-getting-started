@@ -1,0 +1,61 @@
+<!--{#{% extends "base.html" %}#}
+{#{% load staticfiles %}#}
+{##}
+{#{% block content %}#}
+-->
+
+
+<html lang="en">
+<head>
+<meta charset="utf-8">
+    <title>Mi vami - Graph Database of the Talmud 1.0</title>
+<script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="{% static 'd3-timeline.js' %}"></script>
+<style type="text/css">
+    .block_left {
+        background-color: red;
+        height: 70px;
+        width: 100px;
+        float: left;
+        border-right: 2px solid blue;
+        border-bottom: 2px solid blue;
+    }
+    .block_right {
+        background-color: red;
+        height: 70px;
+        width: 100px;
+        float: right;
+        border-right: 2px solid blue;
+        border-bottom: 2px solid blue;
+    }
+
+    .main_text {
+        background-color: white;
+        font-size: 1.5em;
+        border: 2px solid blue;
+    }
+
+    .parent {
+        height: 300px;
+        width: 500px;
+    }
+
+</style>
+</head>
+<body>
+<div class="parent">
+    <div class="block_left">
+        {{ block_left | safe }}
+    </div>
+    <div class="block_right">
+        {{ block_right | safe }}
+    </div>
+    <div class="main_text">
+        {{ main_text | safe }}
+    </div>
+</div>
+
+</body>
+
+<!-- {% endblock %} -->

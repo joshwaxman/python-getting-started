@@ -85,6 +85,9 @@ def blog(request):
     text = getBlogPost()
     return render(request, 'blog.html', {'blogpost': text})
 
+def brat(request):
+    return render(request, 'sample_brat.html')
+
 def db(request):
 
     greeting = Greeting()
@@ -105,9 +108,40 @@ def show_tractate_chapters(request, masechet):
     return render(request, "tractates.html", {'tractate_list': x})
 
 def get_daf_yomi(request):
-    from hello.talmud import htmlOutputter, getDafYomi
+    from hello.talmud import getDafYomi
     masechet, page = getDafYomi()
     return talmud(request, masechet, page)
+
+def get_daf_yomi2(request):
+    from hello.talmud import getDafYomi
+    masechet, page = getDafYomi()
+    return talmud2(request, masechet, page)
+
+def talmud2(request, masechet='missing', page='missing'):
+    from hello.talmud import htmlOutputter, getDafYomi
+    from hello.talmud import getTalmudPageNavigation
+    if masechet == 'missing' or page == 'missing':
+        # try to find in dafyomi
+        masechet, page = getDafYomi()
+    elif page == 'missing':
+        x = getTalmudPageNavigation(masechet)
+        return render(request, "tractates.html", {'tractate_list': x})
+
+    leftside, student_edges, student_nodes, local_interaction_edges, \
+    local_interaction_nodes, global_interaction_edges, global_interaction_nodes, \
+    sugyaGraphs, timeline = htmlOutputter(masechet, page)
+
+    return render(request, "talmud2.html", {'leftside': leftside,
+                                           'student_nodes': student_nodes,
+                                           'student_edges': student_edges,
+                                           'local_interaction_nodes': local_interaction_nodes,
+                                           'local_interaction_edges': local_interaction_edges,
+                                           'global_interaction_nodes': global_interaction_nodes,
+                                           'global_interaction_edges': global_interaction_edges,
+                                           'sugya_graph': sugyaGraphs,
+                                           'timeline': timeline})
+
+
 
 def talmud(request, masechet='missing', page='missing'):
     from hello.talmud import htmlOutputter, getDafYomi

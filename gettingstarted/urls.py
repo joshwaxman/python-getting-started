@@ -15,6 +15,7 @@ urlpatterns = [
     url(r'^talmud/tractates', hello.views.show_tractates, name='show_tractates'),
     url(r'^talmud/(\w+)\.(\w+)', hello.views.talmud, name='talmud'),
     url(r'^talmud/(\w+)', hello.views.show_tractate_chapters, name='show_tractate_chapters'),
+    url(r'^talmud2/(\w+)', hello.views.get_daf_yomi2, name='get_daf_yomi2'),
     url(r'^talmud', hello.views.get_daf_yomi, name='get_daf_yomi'),
     url(r'^talmud/', hello.views.get_daf_yomi, name='get_daf_yomi'),
     url(r'^talmud_dev/(\w+).(\w+)', hello.views.talmud_dev, name='talmud_dev'),
@@ -35,6 +36,7 @@ urlpatterns = [
     url(r'^db', hello.views.db, name='db'),
     url(r'^convert/(.*)', hello.views.convert, name='convert'),
     url(r'^blog', hello.views.blog, name='blog'),
+    url(r'^brat', hello.views.brat, name='brat'),
     url(r'^full_graph', hello.views.full_graph, name='full_graph'),
     url(r'^graphexplorer', hello.views.graphexplorer, name='graphexplorer'),
 
