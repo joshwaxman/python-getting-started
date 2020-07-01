@@ -1,3 +1,4 @@
+{% load staticfiles %}
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html lang="en-GB" xml:lang="en-GB" xmlns="http://www.w3.org/1999/xhtml">
@@ -322,7 +323,7 @@ text { font-size: 15px; }
     brat2 = '../../staticfiles';
     head.js(
         // External libraries
-        //bratLocation + '/client/lib/jquery.min.js',
+        bratLocation + '/client/lib/jquery.min.js',
         bratLocation + '/client/lib/jquery.svg.min.js',
         bratLocation + '/client/lib/jquery.svgdom.min.js',
 
@@ -339,9 +340,9 @@ text { font-size: 15px; }
     );
 
     var webFontURLs = [
-        bratLocation + '/static/fonts/Astloch-Bold.ttf',
-        bratLocation + '/static/fonts/PT_Sans-Caption-Web-Regular.ttf',
-        bratLocation + '/static/fonts/Liberation_Sans-Regular.ttf'
+//        bratLocation + '/static/fonts/Astloch-Bold.ttf',
+//        bratLocation + '/static/fonts/PT_Sans-Caption-Web-Regular.ttf',
+//        bratLocation + '/static/fonts/Liberation_Sans-Regular.ttf'
     ];
 
     head.ready(function() {
@@ -363,92 +364,11 @@ text { font-size: 15px; }
         Util.embed('embedding-relation-example', $.extend({}, collData),
                 $.extend({}, docData), webFontURLs);
 
-        eval($('#embedding-event-coll').text());
-        eval($('#embedding-event-doc').text());
-        Util.embed('embedding-event-example', $.extend({}, collData),
-                $.extend({}, docData), webFontURLs);
-
-        // Fuck it! We'll do it live!
-        var collInput = $('#coll-input');
-        var docInput = $('#doc-input');
-        var liveDiv = $('#embedding-live-example');
-
-        // Time for some "real" brat coding, let's hook into the dispatcher
-        var liveDispatcher = Util.embed('embedding-live-example',
-                $.extend({'collection': null}, collData),
-                $.extend({}, docData), webFontURLs);
-
         var renderError = function() {
             // liveDiv.css({'border': '2px solid red'}); // setting this blows the layout
             collInput.css({'border': '2px solid red'});
             docInput.css({'border': '2px solid red'});
         };
-
-        liveDispatcher.on('renderError: Fatal', renderError);
-
-        var collInputHandler = function() {
-            var collJSON;
-            try {
-                collJSON = JSON.parse(collInput.val());
-                collInput.css({'border': '2px inset'});
-            } catch (e) {
-                // Not properly formatted JSON...
-                collInput.css({'border': '2px solid red'});
-                return;
-            }
-
-            try {
-                liveDispatcher.post('collectionLoaded',
-                        [$.extend({'collection': null}, collJSON)]);
-                //liveDiv.css({'border': '2px inset'});  // setting this blows the layout
-                docInput.css({'border': '2px inset'});
-            } catch(e) {
-                console.error('collectionLoaded went down with:', e);
-                //liveDiv.css({'border': '2px solid red'});
-                collInput.css({'border': '2px solid red'});
-            }
-        };
-
-        var docInputHandler = function() {
-            var docJSON;
-            try {
-                docJSON = JSON.parse(docInput.val());
-                docInput.css({'border': '2px inset'});
-            } catch (e) {
-                docInput.css({'border': '2px solid red'});
-                return;
-            }
-
-            try {
-                liveDispatcher.post('requestRenderData', [$.extend({}, docJSON)]);
-                // liveDiv.css({'border': '2px inset'});  // setting this blows the layout
-                collInput.css({'border': '2px inset'});
-            } catch(e) {
-                console.error('requestRenderData went down with:', e);
-                // liveDiv.css({'border': '2px solid red'});
-                collInput.css({'border': '2px solid red'});
-            }
-        };
-
-        // Inject our current example as a start
-        var collJSON = JSON.stringify(collData, undefined, '    ');
-        docJSON = JSON.stringify(docData, undefined, '    ')
-        // pack those just a bit
-        var packJSON = function(s) {
-            // replace any space with ' ' in non-nested curly brackets
-            s = s.replace(/(\{[^\{\}\[\]]*\})/g,
-                          function(a, b) { return b.replace(/\s+/g, ' '); });
-            // replace any space with ' ' in [] up to nesting depth 1
-            s = s.replace(/(\[(?:[^\[\]\{\}]|\[[^\[\]\{\}]*\])*\])/g,
-                          function(a, b) { return b.replace(/\s+/g, ' '); });
-            return s
-        }
-        collInput.text(packJSON(collJSON));
-        docInput.text(packJSON(docJSON));
-
-        var listenTo = 'propertychange keyup input paste';
-        collInput.bind(listenTo, collInputHandler);
-        docInput.bind(listenTo, docInputHandler);
     });
 </script>
 
