@@ -607,6 +607,3 @@ var Util = (function(window, undefined) {
     };
 
 })(window);
-
-
-}

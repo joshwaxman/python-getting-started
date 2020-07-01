@@ -40,6 +40,3 @@ var AnnotationLog = (function(window, undefined) {
 
     return AnnotationLog;
 })(window);
-
-
-}

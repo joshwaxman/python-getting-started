@@ -27,5 +27,3 @@ var Configuration = (function(window, undefined) {
       autorefreshOn: autorefreshOn,
     };
 })(window);
-
-}
