@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="04c11b65-1a3f-47b2-99ed-8b7a1afc905b" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hello/static/brat_style-vis.css" beforeDir="false" afterPath="$PROJECT_DIR$/hello/static/brat_style-vis.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hello/static/brat_webfont.js" beforeDir="false" afterPath="$PROJECT_DIR$/hello/static/brat_webfont.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hello/templates/sample_brat.html" beforeDir="false" afterPath="$PROJECT_DIR$/hello/templates/sample_brat.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -268,7 +266,7 @@
       <workItem from="1585838447704" duration="7772000" />
       <workItem from="1586181417131" duration="646000" />
       <workItem from="1587736826372" duration="204000" />
-      <workItem from="1593538627432" duration="12124000" />
+      <workItem from="1593538627432" duration="13037000" />
     </task>
     <servers />
   </component>
