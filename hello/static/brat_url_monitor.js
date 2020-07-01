@@ -231,6 +231,3 @@ var URLHash = (function($, window, undefined) {
 
     return URLHash;
 })(jQuery, window)
-
-
-}

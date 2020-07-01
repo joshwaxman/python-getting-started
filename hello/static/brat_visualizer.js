@@ -3136,6 +3136,3 @@ Util.profileStart('before render');
 
     return Visualizer;
 })(jQuery, window);
-
-
-}
