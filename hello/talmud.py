@@ -396,6 +396,8 @@ def getDafYomi():
         masechet = 'Bekhorot'
     elif masechet == 'Arachin':
         masechet = 'Arakhin'
+    elif masechet == 'Eiruvin':
+        masechet = 'Eruvin'
     daf = x[1] + 'a'
     return masechet, daf
 
