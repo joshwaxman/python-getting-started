@@ -53,12 +53,16 @@ def findLocalRelationships(people: List[str], daf: str):
         englishName = record['r1']['name']
         generation = record['r1']['generation']
         foundPeople.add(englishName)
+        if generation is None:
+            generation = '?';
         nodesById[nodeId] = {'name': englishName, 'appears': "True", 'generation': generation}
 
         nodeId = record['r2'].id
         englishName = record['r2']['name']
         generation = record['r2']['generation']
         foundPeople.add(englishName)
+        if generation is None:
+            generation = '?';
         nodesById[nodeId] = {'name': englishName, 'appears': "True", 'generation': generation}
 
         count += 1
@@ -82,7 +86,10 @@ def findLocalRelationships(people: List[str], daf: str):
     for person in people:
         #h += person + "|"
         if person not in foundPeople:
-            nodes.append({'name': person, 'generation': dPeople[person][0], 'appears': 'True'})
+            generation = dPeople[person][0]
+            if generation is None:
+                generation = '?';
+            nodes.append({'name': person, 'generation': generation, 'appears': 'True'})
     # update edges to be by position
     edges = []  # type: List[Dict[str, str]]
 
@@ -133,6 +140,10 @@ def findGlobalRelationships(people: List[str]):
         nodeId = record['r1'].id
         englishName = record['r1']['name']
         generation = record['r1']['generation']
+
+        if generation is None:
+            generation = '?';
+
         nodesById[nodeId] = {'name': englishName, 'appears': "True", 'generation': generation}
 
     if len(people) > 1: # it takes at least two to tango. else no relationships to find.
@@ -256,6 +267,9 @@ def findStudentRelationships(people):
         englishName = record['r1']['englishName']
         generation = record['r1']['generation']
 
+        if generation is None:
+            generation = '?';
+
         nodesById[nodeId] = {'name': englishName, 'hebrewName': hebrewName, 'generation': generation, 'appears': "True"}
 
     # now include rabbis who have paths between each other
@@ -292,6 +306,9 @@ def findStudentRelationships(people):
         hebrewName = record['r3']['hebrewName']
         englishName = record['r3']['englishName']
         generation = record['r3']['generation']
+
+        if generation is None:
+            generation = '?';
 
         nodesById[nodeId] = {'name': englishName, 'hebrewName': hebrewName, 'generation': generation, 'appears': "False"}
 

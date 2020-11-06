@@ -67,27 +67,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.scratch_7">
-    <configuration name="EnglishDictionary" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="mivami" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/hello" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/hello/EnglishDictionary.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
+  <component name="RunManager" selected="JavaScript Debug.klein.html">
+    <configuration name="klein.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/mivami/hello/templates/klein.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
     <configuration name="analysis2" type="PythonConfigurationType" factoryName="Python" temporary="true">
@@ -104,6 +85,28 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$USER_HOME$/Downloads/analysis2.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="sample_chessboard" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="mivami" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$APPLICATION_CONFIG_DIR$/scratches" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$APPLICATION_CONFIG_DIR$/scratches/sample_chessboard.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -156,28 +159,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="wordseg" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="mivami" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/wordseg.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="mivami" type="Python.DjangoServer" factoryName="Django server">
       <module name="mivami" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -203,19 +184,19 @@
     </configuration>
     <list>
       <item itemvalue="Django server.mivami" />
-      <item itemvalue="Python.wordseg" />
-      <item itemvalue="Python.EnglishDictionary" />
+      <item itemvalue="JavaScript Debug.klein.html" />
       <item itemvalue="Python.scratch_14" />
       <item itemvalue="Python.analysis2" />
       <item itemvalue="Python.scratch_7" />
+      <item itemvalue="Python.sample_chessboard" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JavaScript Debug.klein.html" />
+        <item itemvalue="Python.sample_chessboard" />
         <item itemvalue="Python.scratch_7" />
         <item itemvalue="Python.analysis2" />
         <item itemvalue="Python.scratch_14" />
-        <item itemvalue="Python.EnglishDictionary" />
-        <item itemvalue="Python.wordseg" />
       </list>
     </recent_temporary>
   </component>
@@ -267,7 +248,9 @@
       <workItem from="1586181417131" duration="646000" />
       <workItem from="1587736826372" duration="204000" />
       <workItem from="1593538627432" duration="15020000" />
-      <workItem from="1597187697602" duration="824000" />
+      <workItem from="1597187697602" duration="2791000" />
+      <workItem from="1597429725482" duration="491000" />
+      <workItem from="1604607330318" duration="6744000" />
     </task>
     <servers />
   </component>
@@ -307,7 +290,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/hello/talmud.py</url>
-          <line>440</line>
+          <line>457</line>
           <option name="timeStamp" value="10" />
         </line-breakpoint>
       </breakpoints>
@@ -320,6 +303,7 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/mivami$scratch_7.coverage" NAME="scratch_7 Coverage Results" MODIFIED="1593736339170" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$APPLICATION_CONFIG_DIR$/scratches" />
+    <SUITE FILE_PATH="coverage/mivami$sample_chessboard.coverage" NAME="sample_chessboard Coverage Results" MODIFIED="1597255561047" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$APPLICATION_CONFIG_DIR$/scratches" />
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="watch">
