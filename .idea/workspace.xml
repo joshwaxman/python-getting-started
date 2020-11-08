@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="04c11b65-1a3f-47b2-99ed-8b7a1afc905b" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gettingstarted/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/gettingstarted/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hello/templates/talmud_dev.html" beforeDir="false" afterPath="$PROJECT_DIR$/hello/templates/talmud_dev.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -253,7 +251,7 @@
       <workItem from="1597429725482" duration="491000" />
       <workItem from="1604607330318" duration="7935000" />
       <workItem from="1604807004856" duration="1068000" />
-      <workItem from="1604812001337" duration="3242000" />
+      <workItem from="1604812001337" duration="3436000" />
     </task>
     <servers />
   </component>
