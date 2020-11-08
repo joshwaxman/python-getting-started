@@ -268,7 +268,7 @@ def findStudentRelationships(people):
         generation = record['r1']['generation']
 
         if generation is None:
-            generation = '?';
+            generation = '?'
 
         nodesById[nodeId] = {'name': englishName, 'hebrewName': hebrewName, 'generation': generation, 'appears': "True"}
 

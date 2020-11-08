@@ -209,8 +209,12 @@ a {
         <button onclick="draw_local_interaction_graph()">Local Interactions Graph</button>
         <button onclick="draw_global_interaction_graph()">Global Interactions Graph</button>
         <button onclick="draw_student_graph_sugya(1)">Timeline</button>
+<textarea id="graph_text" name="graph_text" rows="4" cols="50">
+
+  </textarea>
+        <button onclick="draw_graph_textbox()">Draw_graph</button>
         <!-- button onclick="timelineHover()">Timeline</button> -->
-        draw_student_graph_sugya
+        #draw_student_graph_sugya
 {{ leftside | safe }}
     </span>
     </div>
@@ -528,6 +532,12 @@ function draw_graph(n, e, bLegend) {
     function draw_global_interaction_graph() {
         var nodes = {{ global_interaction_nodes | safe }};
         var edges = {{ global_interaction_edges | safe }};
+        draw_graph(nodes, edges, true);
+    }
+
+    function draw_graph_textbox() {
+        let s = graph_textbox.value;
+        eval(s);
         draw_graph(nodes, edges, true);
     }
 
