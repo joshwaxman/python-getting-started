@@ -446,7 +446,7 @@ function draw_graph(n, e, bLegend) {
         force.on("tick", function (e) {
             var k = 6 * e.alpha;
 
-            /*nodes.each(function(d) {
+            nodes.each(function(d) {
                 genHeight = {'T3': 300, 'T4': 400, 'T5': 500, 'T6': 600,
                     'A1': 700, 'A2': 800, 'A3': 900, 'A4': 1000};
 
@@ -457,7 +457,7 @@ function draw_graph(n, e, bLegend) {
                     else if (delta < -50)
                         d.y += (Math.abs(delta)) * e.alpha;
                     }
-                });*/
+                });
             edges.each(function(d) {
                 d.source.y += k, d.target.y -= k;
 

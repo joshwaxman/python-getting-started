@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="04c11b65-1a3f-47b2-99ed-8b7a1afc905b" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hello/talmud.py" beforeDir="false" afterPath="$PROJECT_DIR$/hello/talmud.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hello/templates/talmud.html" beforeDir="false" afterPath="$PROJECT_DIR$/hello/templates/talmud.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -250,7 +250,8 @@
       <workItem from="1593538627432" duration="15020000" />
       <workItem from="1597187697602" duration="2791000" />
       <workItem from="1597429725482" duration="491000" />
-      <workItem from="1604607330318" duration="6744000" />
+      <workItem from="1604607330318" duration="7935000" />
+      <workItem from="1604807004856" duration="664000" />
     </task>
     <servers />
   </component>
