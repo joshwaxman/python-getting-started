@@ -418,7 +418,12 @@ def getDafYomi():
     elif masechet.startswith('Talmud Yerushalmi '):
         masechet = masechet.removeprefix('Talmud Yerushalmi ')
 
-    daf = x[1] + 'a'
+    if masechet == "Jerusalem":
+        masechet =  "Shekalim"
+        daf = x[3] + 'a'
+    else:
+        daf = x[1] + 'a'
+
     return masechet, daf
 
 def getTalmudNavigation():
