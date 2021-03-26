@@ -395,9 +395,12 @@ def getDafYomi():
         masechet = 'Chullin'
     elif masechet == 'Eiruvin':
         masechet = 'Eruvin'
-    elif masechet.startswith("Jerusalem Talmud "):
-        masechet =  masechet.removeprefix("Jerusalem Talmud ")
     daf = x[1] + 'a'
+
+    if masechet == "Jerusalem":
+        masechet =  "Shakalim"
+        daf = x[3] + 'a'
+
     return masechet, daf
 
 
