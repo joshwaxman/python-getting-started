@@ -2,7 +2,7 @@
 from pymongo import MongoClient
 import datetime
 from collections import defaultdict
-from neo4j.v1 import GraphDatabase, basic_auth
+from neo4j import GraphDatabase, basic_auth
 import os
 
 # paid connection string

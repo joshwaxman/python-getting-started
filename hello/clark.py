@@ -1,5 +1,5 @@
 import os
-from neo4j.v1 import GraphDatabase, basic_auth
+from neo4j import GraphDatabase, basic_auth
 from py2neo import Graph
 from py2neo.data import walk
 
