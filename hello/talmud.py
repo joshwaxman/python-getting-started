@@ -99,8 +99,8 @@ def findLocalRelationships(people: List[str], daf: str):
     edgeDict = defaultdict(set)
 
     for d in edgesOriginal:
-        source = nodesById[d['source']]['id']
-        target = nodesById[d['target']]['id']
+        source = nodesById[d['source'].id]['id']
+        target = nodesById[d['target'].id]['id']
         type = d['type']
         edgeDict[(source, target)].add(type)
 
@@ -212,8 +212,8 @@ def findGlobalRelationships(people: List[str]):
 
     edgeDict = defaultdict(set)
     for d in edgesOriginal:
-        source = nodesById[d['source']]['id']
-        target = nodesById[d['target']]['id']
+        source = nodesById[d['source'].id]['id']
+        target = nodesById[d['target'].id]['id']
         type = d['type']
         edgeDict[(source, target)].add(type)
 
