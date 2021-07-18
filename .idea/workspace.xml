@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="04c11b65-1a3f-47b2-99ed-8b7a1afc905b" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hello/talmud.py" beforeDir="false" afterPath="$PROJECT_DIR$/hello/talmud.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gettingstarted/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/gettingstarted/settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -252,7 +252,7 @@
       <workItem from="1616794132669" duration="603000" />
       <workItem from="1617196945608" duration="72000" />
       <workItem from="1626627784852" duration="1600000" />
-      <workItem from="1626630041991" duration="2042000" />
+      <workItem from="1626630041991" duration="3349000" />
     </task>
     <servers />
   </component>
