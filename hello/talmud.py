@@ -14,10 +14,11 @@ def makeNeoConnection():
     global driver
     global session
 
-    if os.name == 'nt':
-        driver = GraphDatabase.driver("bolt://localhost:11002", auth=basic_auth("neo4j", "qwerty"))
-    else:
-        driver = GraphDatabase.driver("bolt://172.104.217.202:7687", auth=("neo4j", "qwerty"))
+    driver = GraphDatabase.driver("bolt://172.104.217.202:7687", auth=("neo4j", "qwerty"))
+    # if os.name == 'nt':
+    #     driver = GraphDatabase.driver("bolt://localhost:11002", auth=basic_auth("neo4j", "qwerty"))
+    # else:
+    #     driver = GraphDatabase.driver("bolt://172.104.217.202:7687", auth=("neo4j", "qwerty"))
 
         #driver = GraphDatabase.driver("bolt://hobby-iamlocehkkokgbkekbgcgbal.dbs.graphenedb.com:24786",
         #                              auth=basic_auth("mivami", "b.hsh2OnrThi0v.aPpsVUFV5tjE7dzw"))
@@ -66,8 +67,8 @@ def findLocalRelationships(people: List[str], daf: str):
         nodesById[nodeId] = {'name': englishName, 'appears': "True", 'generation': generation}
 
         count += 1
-        source = record['rel'].start
-        target = record['rel'].end
+        source = record['rel'].start_node
+        target = record['rel'].end_node
         relationDict = dict()
         relationDict['source'] = source
         relationDict['target'] = target
@@ -158,8 +159,8 @@ def findGlobalRelationships(people: List[str]):
         for record in result:
             # already added r1 and r2 to nodes, so need not add them
             # do however add the relationship
-            source = record['relationship2'].start
-            target = record['relationship2'].end
+            source = record['relationship2'].start_node
+            target = record['relationship2'].end_node
             relationDict = dict()
             relationDict['source'] = source
             relationDict['target'] = target
@@ -182,16 +183,16 @@ def findGlobalRelationships(people: List[str]):
 
             nodesById[nodeId] = {'name': englishName, 'appears': "False"}
 
-            source = record['relationship1'].start
-            target = record['relationship1'].end
+            source = record['relationship1'].start_node
+            target = record['relationship1'].end_node
             relationDict = dict()
             relationDict['source'] = source
             relationDict['target'] = target
             relationDict['type'] = record['relationship1'].type
             edgesOriginal.append(relationDict)
 
-            source = record['relationship2'].start
-            target = record['relationship2'].end
+            source = record['relationship2'].start_node
+            target = record['relationship2'].end_node
             relationDict = dict()
             relationDict['source'] = source
             relationDict['target'] = target
@@ -283,8 +284,8 @@ def findStudentRelationships(persons):
     for record in result:
         # already added r1 and r2 to nodes, so need not add them
         # do however add the relationship
-        source = record['relationship2'].start
-        target = record['relationship2'].end
+        source = record['relationship2'].start_node
+        target = record['relationship2'].end_node
         relationDict = dict()
         relationDict['source'] = source
         relationDict['target'] = target
@@ -315,16 +316,16 @@ def findStudentRelationships(persons):
         r1English = record['r1']['englishName']
         r2English = record['r2']['englishName']
 
-        source = record['relationship1'].start
-        target = record['relationship1'].end
+        source = record['relationship1'].start_node
+        target = record['relationship1'].end_node
         relationDict = dict()
         relationDict['source'] = source
         relationDict['target'] = target
         relationDict['type'] = record['relationship1'].type
         edgesOriginal.append(relationDict)
 
-        source = record['relationship2'].start
-        target = record['relationship2'].end
+        source = record['relationship2'].start_node
+        target = record['relationship2'].end_node
         relationDict = dict()
         relationDict['source'] = source
         relationDict['target'] = target
@@ -755,6 +756,29 @@ def generate_tzurat_hadaf(title: str, page: str):
 
 
 if __name__ == "__main__":
+    persons = [('Rav Amram', 'דרב עמרם', 'A?', True),
+               ('Rav Amram', '', 'A?', False),
+               ('Rav', '', 'A1', False),
+               ('Rabbi Hiyya', 'רבי חייא', 'TA', True),
+               ('Rabbi Yehuda', 'דרבי יהודה', 'T5', True),
+               ('Rav Huna', 'דרב הונא', 'A2', True),
+               ('Rabbi Yehuda', 'רבי יהודה', 'T5', True),
+               ('Rabbi Yehuda', 'כרבי יהודה', 'T5', True),
+               ('Rav Hiyya b. Ashi', 'דרב חייא בר אשי', 'A2', True),
+               ('Rav Huna', 'רב הונא', 'A2', True),
+               ('Shmuel', 'דשמואל', 'A1', True),
+               ('Rav', 'דרב', 'A1', True),
+               ('Shmuel', '', 'A1', False),
+               ('Rabbah b. Rav Huna', '', 'A3', False),
+               ('Rav Yosef', 'רב יוסף', 'A3', True),
+               ('Shmuel', 'שמואל', 'A1', True),
+               ('Naklitin', 'נקליטין', '?', True),
+               ('Rav', 'רב', 'A1', True),
+               ('Rabbah b. Rav Huna', 'רבה בר רב הונא', 'A3', True),
+               ('Rav Yehuda', 'רב יהודה', 'A2', True),
+               ('Rabbi Yehuda', '', 'T5', False),
+               ('Rav Yosef', '', 'A3', False)]
 
+    findStudentRelationships(persons)
 
     print("hello")
