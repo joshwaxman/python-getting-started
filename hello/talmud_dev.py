@@ -396,7 +396,7 @@ def getDafYomi():
     elif masechet == 'Eiruvin':
         masechet = 'Eruvin'
     elif masechet == 'Succah':
-        masechet = 'Sukkahc'
+        masechet = 'Sukkah'
     if masechet == "Jerusalem":
         masechet =  "Shekalim"
         daf = x[3] + 'a'

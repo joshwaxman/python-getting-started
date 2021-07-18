@@ -415,6 +415,9 @@ def getDafYomi():
         masechet = 'Arakhin'
     elif masechet == 'Eiruvin':
         masechet = 'Eruvin'
+    elif masechet == 'Succah':
+        masechet = 'Sukkah'
+
     elif masechet.startswith('Talmud Yerushalmi '):
         masechet = masechet.removeprefix('Talmud Yerushalmi ')
 
@@ -583,7 +586,7 @@ def htmlOutputter(title: str, page: str):
     timeline = getTimeline(student_nodes)
 
     if os.name == 'nt':
-        html += 'Extra debugguing' + h  + '<br/>'
+        html += 'Extra debugging' + h  + '<br/>'
 #     html += 'Local interaction Nodes: ' + str(local_interaction_nodes) + '</br>'
 #     html += 'Local interaction Edges: ' + str(local_interaction_edges) + '</br>'
     #local_interaction_nodes = item['LocalInteractionNodes']

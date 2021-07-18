@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="04c11b65-1a3f-47b2-99ed-8b7a1afc905b" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/mivami.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/mivami.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hello/clark.py" beforeDir="false" afterPath="$PROJECT_DIR$/hello/clark.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hello/graphOutput.py" beforeDir="false" afterPath="$PROJECT_DIR$/hello/graphOutput.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hello/talmud.py" beforeDir="false" afterPath="$PROJECT_DIR$/hello/talmud.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hello/talmud_dev.py" beforeDir="false" afterPath="$PROJECT_DIR$/hello/talmud_dev.py" afterDir="false" />
     </list>
@@ -256,7 +252,7 @@
       <workItem from="1616790700299" duration="2881000" />
       <workItem from="1616794132669" duration="603000" />
       <workItem from="1617196945608" duration="72000" />
-      <workItem from="1626627784852" duration="1094000" />
+      <workItem from="1626627784852" duration="1583000" />
     </task>
     <servers />
   </component>
@@ -295,7 +291,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/hello/talmud.py</url>
-          <line>465</line>
+          <line>468</line>
           <option name="timeStamp" value="10" />
         </line-breakpoint>
       </breakpoints>
