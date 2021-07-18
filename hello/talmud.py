@@ -240,8 +240,8 @@ def findGlobalRelationships(people: List[str]):
 findGlobalRelationships.cache = dict() # type: Dict[Tuple, Tuple]
 
 
-def findStudentRelationships(people):
-    people = [t[0] for t in people]
+def findStudentRelationships(persons):
+    people = [t[0] for t in persons]
     peopleTuple = tuple(sorted(people))
     #if peopleTuple in findStudentRelationships.cache:
 #        return findStudentRelationships.cache[peopleTuple]
@@ -752,3 +752,9 @@ def generate_tzurat_hadaf(title: str, page: str):
 
     return leftside, student_edges, student_nodes, local_interaction_edges, local_interaction_nodes, \
            global_interaction_edges, global_interaction_nodes, sugyaGraphs, timeline
+
+
+if __name__ == "__main__":
+
+
+    print("hello")
