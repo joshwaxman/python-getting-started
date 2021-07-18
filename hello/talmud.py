@@ -344,8 +344,8 @@ def findStudentRelationships(persons):
     setSourceTargetType = set()
 
     for d in edgesOriginal:
-        source = nodesById[d['source']]['id']
-        target = nodesById[d['target']]['id']
+        source = nodesById[d['source'].id]['id']
+        target = nodesById[d['target'].id]['id']
         type = d['type']
         if (source, target, type) not in setSourceTargetType:
             element = {'source': source,
