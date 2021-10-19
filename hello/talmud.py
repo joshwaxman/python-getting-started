@@ -397,16 +397,26 @@ def graphTransformation2(edges: List[Dict[str, Any]], nodes: Dict[str, str]):
     return edges, nodes
 
 
-def getDafYomi():
+def getDafYomi(theDate = None):
     client = MongoClient(
         "mongodb://mivami:Talmud1%@talmud-shard-00-00-ol0w9.mongodb.net:27017,talmud-shard-00-01-ol0w9.mongodb.net:27017,talmud-shard-00-02-ol0w9.mongodb.net:27017/admin?replicaSet=Talmud-shard-0&ssl=true")
     db = client.sefaria
     dafyomi = db.dafyomi
     #now = datetime.datetime.now()
-    now = timezone.now()
-    theDate = str(now.month) + '/' + str(now.day) + '/' + str(now.year)
+
+    if theDate is None:
+        now = timezone.now()
+        theDate = str(now.month) + '/' + str(now.day) + '/' + str(now.year)
+
     theDaf = {'date': theDate }
-    x = dafyomi.find_one(theDaf)['daf'].split()
+    x = dafyomi.find_one(theDaf)['daf']
+
+    # manage spaces in masechtot
+    # replace first instance with underscore
+    if x.count(' ') == 2:
+        x = x.replace(' ', '_', 1)
+
+    x = x.split()
     masechet = x[0]
     if masechet == 'Hullin':
         masechet = 'Chullin'
@@ -418,9 +428,8 @@ def getDafYomi():
         masechet = 'Eruvin'
     elif masechet == 'Succah':
         masechet = 'Sukkah'
-    elif masechet == 'Rosh HaShanah':
+    elif masechet == 'Rosh_HaShanah':
         masechet = 'Rosh_Hashanah'
-        x.pop(0) # remove first word, so can get page
 
     elif masechet.startswith('Talmud Yerushalmi '):
         masechet = masechet.removeprefix('Talmud Yerushalmi ')
@@ -759,6 +768,8 @@ def generate_tzurat_hadaf(title: str, page: str):
 
 
 if __name__ == "__main__":
+    getDafYomi('10/19/2021')
+    exit(1)
     persons = [('Rav Amram', 'דרב עמרם', 'A?', True),
                ('Rav Amram', '', 'A?', False),
                ('Rav', '', 'A1', False),
@@ -785,3 +796,4 @@ if __name__ == "__main__":
     findStudentRelationships(persons)
 
     print("hello")
+
