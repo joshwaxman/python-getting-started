@@ -3,23 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="04c11b65-1a3f-47b2-99ed-8b7a1afc905b" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hello/templates/GraphExplorer/example1.html" beforeDir="false" afterPath="$PROJECT_DIR$/hello/templates/GraphExplorer/example1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hello/templates/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/hello/templates/about.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hello/templates/bdb.html" beforeDir="false" afterPath="$PROJECT_DIR$/hello/templates/bdb.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hello/templates/bio.html" beforeDir="false" afterPath="$PROJECT_DIR$/hello/templates/bio.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hello/templates/blog.html" beforeDir="false" afterPath="$PROJECT_DIR$/hello/templates/blog.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hello/templates/clark.html" beforeDir="false" afterPath="$PROJECT_DIR$/hello/templates/clark.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hello/templates/db.html" beforeDir="false" afterPath="$PROJECT_DIR$/hello/templates/db.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hello/templates/dictionary.html" beforeDir="false" afterPath="$PROJECT_DIR$/hello/templates/dictionary.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hello/templates/distributional.html" beforeDir="false" afterPath="$PROJECT_DIR$/hello/templates/distributional.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hello/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/hello/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hello/templates/klein.html" beforeDir="false" afterPath="$PROJECT_DIR$/hello/templates/klein.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hello/templates/people.html" beforeDir="false" afterPath="$PROJECT_DIR$/hello/templates/people.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hello/templates/sample_brat.html" beforeDir="false" afterPath="$PROJECT_DIR$/hello/templates/sample_brat.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hello/templates/talmud2.html" beforeDir="false" afterPath="$PROJECT_DIR$/hello/templates/talmud2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hello/templates/talmud3.html" beforeDir="false" afterPath="$PROJECT_DIR$/hello/templates/talmud3.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hello/templates/talmud_dev.html" beforeDir="false" afterPath="$PROJECT_DIR$/hello/templates/talmud_dev.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hello/templates/tractates.html" beforeDir="false" afterPath="$PROJECT_DIR$/hello/templates/tractates.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hello/talmud.py" beforeDir="false" afterPath="$PROJECT_DIR$/hello/talmud.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -268,7 +252,9 @@
       <workItem from="1616794132669" duration="603000" />
       <workItem from="1617196945608" duration="72000" />
       <workItem from="1626627784852" duration="1600000" />
-      <workItem from="1626630041991" duration="4587000" />
+      <workItem from="1626630041991" duration="5364000" />
+      <workItem from="1626830911952" duration="19000" />
+      <workItem from="1634660929404" duration="686000" />
     </task>
     <servers />
   </component>
@@ -307,7 +293,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/hello/talmud.py</url>
-          <line>469</line>
+          <line>471</line>
           <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
