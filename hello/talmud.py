@@ -420,6 +420,7 @@ def getDafYomi():
         masechet = 'Sukkah'
     elif masechet == 'Rosh HaShanah':
         masechet = 'Rosh_Hashanah'
+        x.pop(0) # remove first word, so can get page
 
     elif masechet.startswith('Talmud Yerushalmi '):
         masechet = masechet.removeprefix('Talmud Yerushalmi ')
