@@ -418,7 +418,7 @@ def getDafYomi():
         masechet = 'Eruvin'
     elif masechet == 'Succah':
         masechet = 'Sukkah'
-    elif masechet == 'Rosh Hashanah':
+    elif masechet == 'Rosh HaShanah':
         masechet = 'Rosh_Hashanah'
 
     elif masechet.startswith('Talmud Yerushalmi '):
