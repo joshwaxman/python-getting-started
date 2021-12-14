@@ -430,6 +430,8 @@ def getDafYomi(theDate = None):
         masechet = 'Sukkah'
     elif masechet == 'Rosh_HaShanah':
         masechet = 'Rosh_Hashanah'
+    elif masechet == 'Megilah':
+        masechet = 'Megillah'
 
     elif masechet.startswith('Talmud Yerushalmi '):
         masechet = masechet.removeprefix('Talmud Yerushalmi ')
@@ -796,4 +798,3 @@ if __name__ == "__main__":
     findStudentRelationships(persons)
 
     print("hello")
-
