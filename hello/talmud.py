@@ -14,7 +14,7 @@ def makeNeoConnection():
     global driver
     global session
 
-    driver = GraphDatabase.driver("bolt://172.104.217.202:7687", auth=("neo4j", "qwerty"))
+    driver = GraphDatabase.driver("neo4j+s://47351056.databases.neo4j.io", auth=basic_auth("neo4j", "Yw05tVDOK7C0kKyczhkI20UyY_l2VBWTogn0JNNlP7Y"))
     # if os.name == 'nt':
     #     driver = GraphDatabase.driver("bolt://localhost:11002", auth=basic_auth("neo4j", "qwerty"))
     # else:

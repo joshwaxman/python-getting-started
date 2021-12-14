@@ -27,7 +27,8 @@ def getClarkFullList():
     return html, [], []
 
 def append_graph(nodes, relationships, query):
-    driver = GraphDatabase.driver("bolt://172.104.217.202:7687", auth=basic_auth("neo4j", "qwerty"))
+    # driver = GraphDatabase.driver("bolt://172.104.217.202:7687", auth=basic_auth("neo4j", "qwerty"))
+    driver = GraphDatabase.driver("neo4j+s://47351056.databases.neo4j.io", auth=basic_auth("neo4j", "Yw05tVDOK7C0kKyczhkI20UyY_l2VBWTogn0JNNlP7Y"))
     session = driver.session()
     result = session.run(query)
     for record in result:
