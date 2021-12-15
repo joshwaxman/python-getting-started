@@ -24,7 +24,8 @@ session = None
 def getBiography(person: str):
     d = dict()
     #g = Graph("https://hobby-jhedjehadkjfgbkeaajelfal.dbs.graphenedb.com:24780/db/data/", auth=("mivami", "b.jOGYTThIm49J.NCgtoqGY0qrXXajq"))
-    g = Graph("https://172.104.217.202:7473", auth=("neo4j", "qwerty"))
+    # g = Graph("https://172.104.217.202:7473", auth=("neo4j", "qwerty"))
+    g = Graph("neo4j+s://47351056.databases.neo4j.io", auth=("neo4j", "Yw05tVDOK7C0kKyczhkI20UyY_l2VBWTogn0JNNlP7Y"))
 
     html = ''
 
