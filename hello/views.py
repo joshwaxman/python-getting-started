@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 #from neo4j.v1 import GraphDatabase, basic_auth
 from py2neo import Graph
 from json import loads
@@ -30,6 +30,13 @@ def bio(request, person):
     from hello.bio import getBiography
     html, nodes, edges = getBiography(person)
     return render(request, 'bio.html', dict(leftside=html, student_nodes=nodes, student_edges=edges))
+
+def biography(request, person):
+    from hello.bio import getBiography
+    html, nodes, edges = getBiography(person)
+
+    return JsonResponse(dict(html=html, nodes=nodes, edges=edges))
+
 
 def clark(request, shoresh=''):
     from hello.clark import getClarkShoresh
