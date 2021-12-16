@@ -16,7 +16,7 @@ mistune = "*"
 "py2neo" = "*"
 three = "*"
 ply = "*"
-
+django-cors-headers = "*"
 
 [requires]
 
