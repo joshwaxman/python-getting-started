@@ -177,7 +177,7 @@ def talmud2(request, masechet='missing', page='missing'):
 
 
 def tzura(request, page='missing'):
-    from talmud import get_tzura
+    from hello.talmud import get_tzura
     if page == 'missing':
         # try to find in dafyomi
         return JsonResponse({})
