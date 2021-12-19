@@ -182,7 +182,8 @@ def tzura(request, page='missing'):
         # try to find in dafyomi
         return JsonResponse({})
 
-    return JsonResponse(get_tzura(page))
+    x = get_tzura(page)
+    return JsonResponse(dict(x))
 
 
 def talmud(request, masechet='missing', page='missing'):
