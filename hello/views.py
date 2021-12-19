@@ -176,6 +176,14 @@ def talmud2(request, masechet='missing', page='missing'):
                                            'timeline': timeline})
 
 
+def tzura(request, page='missing'):
+    from talmud import get_tzura
+    if page == 'missing':
+        # try to find in dafyomi
+        return JsonResponse({})
+
+    return JsonResponse(get_tzura(page))
+
 
 def talmud(request, masechet='missing', page='missing'):
     from hello.talmud import htmlOutputter, getDafYomi

@@ -19,6 +19,7 @@ urlpatterns = [
     url(r'^talmud2/(\w+)', hello.views.get_daf_yomi2, name='get_daf_yomi2'),
     url(r'^talmud', hello.views.get_daf_yomi, name='get_daf_yomi'),
     url(r'^talmud/', hello.views.get_daf_yomi, name='get_daf_yomi'),
+    url(r'^tzura/(\w+)', hello.views.tzura, name='tzura'),
     url(r'^biography/(.*)', hello.views.biography, name='biography'),
     url(r'^about', hello.views.about, name='about'),
     url(r'^bio/(.*)', hello.views.bio, name='bio'),

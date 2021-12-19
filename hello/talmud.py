@@ -647,6 +647,17 @@ def htmlOutputter(title: str, page: str):
            global_interaction_edges, global_interaction_nodes, sugyaGraphs, timeline
 
 
+def get_tzura(title: str):
+    client = MongoClient(
+        "mongodb://mivami:Talmud1%@talmud-shard-00-00-ol0w9.mongodb.net:27017,talmud-shard-00-01-ol0w9.mongodb.net:27017,talmud-shard-00-02-ol0w9.mongodb.net:27017/admin?replicaSet=Talmud-shard-0&ssl=true")
+    #client = MongoClient()
+    db = client.sefaria
+    mivami_tzurat = db.tzurat
+    query = {'title': 'Berakhot.2a'}
+    result = mivami_tzurat.find_one(query)
+    return result
+
+
 def generate_tzurat_hadaf(title: str, page: str):
     client = MongoClient(
         "mongodb://mivami:Talmud1%@talmud-shard-00-00-ol0w9.mongodb.net:27017,talmud-shard-00-01-ol0w9.mongodb.net:27017,talmud-shard-00-02-ol0w9.mongodb.net:27017/admin?replicaSet=Talmud-shard-0&ssl=true")
