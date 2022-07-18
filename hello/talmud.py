@@ -432,6 +432,10 @@ def getDafYomi(theDate = None):
         masechet = 'Rosh_Hashanah'
     elif masechet == 'Megilah':
         masechet = 'Megillah'
+    elif masechet == 'Ketuvot':
+        masechet = 'Ketubot'
+
+
 
     elif masechet.startswith('Talmud Yerushalmi '):
         masechet = masechet.removeprefix('Talmud Yerushalmi ')
@@ -653,8 +657,11 @@ def get_tzura(title: str):
     #client = MongoClient()
     db = client.sefaria
     mivami_tzurat = db.tzurat
-    query = {'title': 'Berakhot.2a'}
-    result = mivami_tzurat.find_one(query)
+    query = {'title': 'Berakhot.2A'}
+    result = mivami_tzurat.find(query)
+    for i in result:
+        print(i)
+    print(result)
     return result
 
 
@@ -781,7 +788,8 @@ def generate_tzurat_hadaf(title: str, page: str):
 
 
 if __name__ == "__main__":
-    getDafYomi('10/19/2021')
+    get_tzura("Berakhot.2a")
+    # getDafYomi('10/19/2021')
     exit(1)
     persons = [('Rav Amram', 'דרב עמרם', 'A?', True),
                ('Rav Amram', '', 'A?', False),
