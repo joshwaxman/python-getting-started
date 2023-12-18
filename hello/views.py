@@ -258,7 +258,7 @@ def neo_form(request):
             connection_string = form.cleaned_data['connection_string']
             # write this value to both the database for mivami
             client = MongoClient(
-                "mongodb://mivami:Talmud1%@talmud-shard-00-00-ol0w9.mongodb.net:27017,talmud-shard-00-01-ol0w9.mongodb.net:27017,talmud-shard-00-02-ol0w9.mongodb.net:27017/admin?replicaSet=Talmud-shard-0&ssl=true")
+                "mongodb://mivami")
             db = client.sefaria
             db.connection_strings.replace_one({'bolt_connection': connection_string}, True)
 
@@ -271,7 +271,7 @@ def neo_form(request):
 def full_graph(request):
     from pymongo import MongoClient
     client = MongoClient(
-        "mongodb://mivami:Talmud1%@talmud-shard-00-00-ol0w9.mongodb.net:27017,talmud-shard-00-01-ol0w9.mongodb.net:27017,talmud-shard-00-02-ol0w9.mongodb.net:27017/admin?replicaSet=Talmud-shard-0&ssl=true")
+        "mongodb://mivami")
     db = client.sefaria
     x = db.fullgraph.find_one()
     return render(request, 'full_graph.html', {'graph': x['full_graph']})

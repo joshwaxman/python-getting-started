@@ -384,7 +384,7 @@ def graphTransformation2(edges: List[Dict[str, Any]], nodes: Dict[str, str]):
 
 def getDafYomi():
     client = MongoClient(
-        "mongodb://mivami:Talmud1%@talmud-shard-00-00-ol0w9.mongodb.net:27017,talmud-shard-00-01-ol0w9.mongodb.net:27017,talmud-shard-00-02-ol0w9.mongodb.net:27017/admin?replicaSet=Talmud-shard-0&ssl=true")
+        "mongodb://mivami")
     db = client.sefaria
     dafyomi = db.dafyomi
     now = datetime.datetime.now()
@@ -409,7 +409,7 @@ def getDafYomi():
 
 def htmlOutputter(title: str, page: str):
     client = MongoClient(
-        "mongodb://mivami:Talmud1%@talmud-shard-00-00-ol0w9.mongodb.net:27017,talmud-shard-00-01-ol0w9.mongodb.net:27017,talmud-shard-00-02-ol0w9.mongodb.net:27017/admin?replicaSet=Talmud-shard-0&ssl=true")
+        "mongodb://mivami")
     #client = MongoClient()
     db = client.sefaria
     mivami_html = db.mivami_stage_04_html

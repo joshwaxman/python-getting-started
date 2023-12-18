@@ -3,7 +3,7 @@ from pymongo import *
 
 def getBlogPost():
     client = MongoClient(
-        "mongodb://mivami:Talmud1%@talmud-shard-00-00-ol0w9.mongodb.net:27017,talmud-shard-00-01-ol0w9.mongodb.net:27017,talmud-shard-00-02-ol0w9.mongodb.net:27017/admin?replicaSet=Talmud-shard-0&ssl=true")
+        "mongodb://mivami")
     db = client.sefaria
     posts = db.posts
 

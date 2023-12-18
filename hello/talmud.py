@@ -469,7 +469,7 @@ def edit_distance(s1, s2):
 
 def getDafYomi(theDate = None):
     client = MongoClient(
-        "mongodb://mivami:Talmud1%@talmud-shard-00-00-ol0w9.mongodb.net:27017,talmud-shard-00-01-ol0w9.mongodb.net:27017,talmud-shard-00-02-ol0w9.mongodb.net:27017/admin?replicaSet=Talmud-shard-0&ssl=true")
+        "mongodb://mivami")
     db = client.sefaria
     dafyomi = db.dafyomi
     #now = datetime.datetime.now()
@@ -596,7 +596,7 @@ def getTimeline(students):
 
 def htmlOutputter(title: str, page: str):
     client = MongoClient(
-        "mongodb://mivami:Talmud1%@talmud-shard-00-00-ol0w9.mongodb.net:27017,talmud-shard-00-01-ol0w9.mongodb.net:27017,talmud-shard-00-02-ol0w9.mongodb.net:27017/admin?replicaSet=Talmud-shard-0&ssl=true")
+        "mongodb://mivami")
     #client = MongoClient()
     db = client.sefaria
     mivami_html = db.mivami_stage_04_html
@@ -718,7 +718,7 @@ def htmlOutputter(title: str, page: str):
 
 def get_tzura(title: str):
     client = MongoClient(
-        "mongodb://mivami:Talmud1%@talmud-shard-00-00-ol0w9.mongodb.net:27017,talmud-shard-00-01-ol0w9.mongodb.net:27017,talmud-shard-00-02-ol0w9.mongodb.net:27017/admin?replicaSet=Talmud-shard-0&ssl=true")
+        "mongodb://mivami")
     #client = MongoClient()
     db = client.sefaria
     mivami_tzurat = db.tzurat
@@ -732,7 +732,7 @@ def get_tzura(title: str):
 
 def generate_tzurat_hadaf(title: str, page: str):
     client = MongoClient(
-        "mongodb://mivami:Talmud1%@talmud-shard-00-00-ol0w9.mongodb.net:27017,talmud-shard-00-01-ol0w9.mongodb.net:27017,talmud-shard-00-02-ol0w9.mongodb.net:27017/admin?replicaSet=Talmud-shard-0&ssl=true")
+        "mongodb")
     #client = MongoClient()
     db = client.sefaria
     mivami_html = db.mivami_stage_04_html
