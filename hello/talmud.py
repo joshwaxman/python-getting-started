@@ -396,6 +396,76 @@ def graphTransformation2(edges: List[Dict[str, Any]], nodes: Dict[str, str]):
 
     return edges, nodes
 
+# minimum edit distance to compare masechtot
+# standardized spelling of masechtot are:
+masechtot = ['Berakhot', 'Shabbat', 'Eruvin', 'Pesachim', 'Rosh_Hashanah', 'Yoma', 'Sukkah',
+             'Beitzah', 'Taanit', 'Megillah', 'Moed_Katan', 'Chagigah', 'Yevamot', 'Ketubot',
+             'Nedarim', 'Nazir', 'Sotah', 'Gittin', 'Kiddushin', 'Bava_Kamma', 'Bava_Metzia',
+             'Bava_Batra', 'Sanhedrin', 'Makkot', 'Shevuot', 'Avodah_Zarah', 'Horayot',
+             'Zevachim', 'Menachot', 'Chullin', 'Bekhorot', 'Arakhin', 'Temurah', 'Keritot',
+             'Meilah', 'Tamid', 'Niddah']
+# cost functions for deletion are as follows
+# allow free deletion of vowels and y, and of 'h' at the end of a word
+# allow from insertion of vowels and y, and of 'h' at the end of a word
+# all free substitution of any vowel for any other vowel
+# allow free substitution of capital for lower case and vice versa
+# allow free substitution of 'h' for 'ch' and vice versa
+# allow free substitution of 'k' for 'c' and vice versa
+# allow free substitution of 's' for 't' and vice versa
+# allow free substitution of 'v' for 'b' and vice versa
+# allow free substitution of underscore for space and vice versa
+# otherwise substitution cost is 1
+deletion_cost = lambda x: 0 if x in ['a', 'e', 'i', 'o', 'u', 'y', 'h'] else 1
+insertion_cost = lambda x: 0 if x in ['a', 'e', 'i', 'o', 'u', 'y', 'h'] else 1
+def substitution_cost(x, y):
+    if x == y:
+        return 0
+    elif x in ['a', 'e', 'i', 'o', 'u', 'y'] and y in ['a', 'e', 'i', 'o', 'u', 'y']:
+        return 0
+    elif x.lower() == y.lower():
+        return 0
+    elif x == 'h' and y == 'ch':
+        return 0
+    elif x == 'ch' and y == 'h':
+        return 0
+    elif x == 'k' and y == 'c':
+        return 0
+    elif x == 'c' and y == 'k':
+        return 0
+    elif x == 's' and y == 't':
+        return 0
+    elif x == 't' and y == 's':
+        return 0
+    elif x == '_' and y == ' ':
+        return 0
+    else:
+        return 1
+
+def edit_distance(s1, s2):
+    # returns the edit distance between two strings
+    # using the above cost functions
+    # s1 is the string to be transformed into s2
+    # s2 is the target string
+    # the edit distance is the minimum number of insertions, deletions, and substitutions
+    # required to transform s1 into s2
+    # the algorithm is the standard dynamic programming algorithm
+    # see https://en.wikipedia.org/wiki/Edit_distance
+    # we don't use numpy because that introduces a dependency
+    # instead we use lists of lists
+
+    C = [[0 for j in range(len(s2) + 1)] for i in range(len(s1) + 1)]
+    for i in range(len(s1) + 1):
+        C[i][0] = i
+    for j in range(len(s2) + 1):
+        C[0][j] = j
+
+    for i in range(1, len(s1) + 1):
+        for j in range(1, len(s2) + 1):
+
+            C[i][j] = min(C[i-1][j] + deletion_cost(s1[i-1]),
+                          C[i][j-1] + insertion_cost(s2[j-1]),
+                          C[i-1][j-1] + substitution_cost(s1[i-1], s2[j-1]))
+    return C[len(s1)][len(s2)]
 
 def getDafYomi(theDate = None):
     client = MongoClient(
@@ -418,23 +488,18 @@ def getDafYomi(theDate = None):
 
     x = x.split()
     masechet = x[0]
-    if masechet == 'Hullin':
-        masechet = 'Chullin'
-    elif masechet == 'Bechorot':
-        masechet = 'Bekhorot'
-    elif masechet == 'Arachin':
-        masechet = 'Arakhin'
-    elif masechet == 'Eiruvin':
-        masechet = 'Eruvin'
-    elif masechet == 'Succah':
-        masechet = 'Sukkah'
-    elif masechet == 'Rosh_HaShanah':
-        masechet = 'Rosh_Hashanah'
-    elif masechet == 'Megilah':
-        masechet = 'Megillah'
-    elif masechet == 'Ketuvot':
-        masechet = 'Ketubot'
+    if masechet not in masechtot:
+        # it is misspelled so we use edit distance to find the closest match
+        # and assume that is the correct spelling
+        best_match = masechet
+        best_distance = 100000
 
+        for m in masechtot:
+            if edit_distance(m, masechet) < best_distance:
+                best_match = m
+                best_distance = edit_distance(m, masechet)
+
+        masechet = best_match
 
 
     elif masechet.startswith('Talmud Yerushalmi '):
